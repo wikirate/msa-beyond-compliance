@@ -1,0 +1,59 @@
+<div class="section mt-5 bg-neutral-grey p-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="title">Minimum Requirements</h3>
+    </div>
+    <div class="col-md-4">
+      <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
+              style="max-width: 100px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+        <option [ngValue]="'latest'" selected>latest</option>
+        <option [ngValue]="2021">2021</option>
+        <option [ngValue]="2020">2020</option>
+        <option [ngValue]="2019">2019</option>
+        <!--        <option value="2018">2018</option>-->
+        <!--        <option value="2017">2017</option>-->
+        <!--        <option value="2016">2016</option>-->
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <p>Are companies compliant with the minimum requirements under the UK or Australian Slavery Act?</p>
+  </div>
+  <hr class="deep-blue no-margin">
+  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+    <div class="col-12 text-center align-self-center">
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+    <div class="col-md-6 p-3">
+      <div class="row text-center">
+        <h4>Meet UK Minimum Requirements?</h4>
+      </div>
+      <div class="row text-center pt-4">
+        <div id="uk-meet-min-requirements" class="chart-wrapper">
+        </div>
+      </div>
+      <div class="row text-center pt-4">
+        <div id="uk-requirements-bars" class="chart-wrapper">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 p-3">
+      <div class="row text-center">
+        <h4>Meet Australian Minimum Requirements?</h4>
+      </div>
+      <div class="row text-center pt-4">
+        <div id="aus-meet-min-requirements" class="chart-wrapper">
+        </div>
+      </div>
+      <div class="row text-center pt-4">
+        <div id="aus-requirements-bars" class="chart-wrapper">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

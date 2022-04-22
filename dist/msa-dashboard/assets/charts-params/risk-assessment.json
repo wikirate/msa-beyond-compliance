@@ -1,0 +1,46 @@
+[
+  {
+    "seq": 1,
+    "id": 2722223,
+    "metric": "Walk Free+MSA risk assessment",
+    "label": "Risk-based questionnaires",
+    "short_label": "risk_based_questionnaires",
+    "color": 0,
+    "filter_value": [
+      "Risk-based questionnaires"
+    ]
+  },
+  {
+    "seq": 2,
+    "id": 2722223,
+    "metric": "Walk Free+MSA risk assessment",
+    "label": "Use of risk management tool or software",
+    "short_label": "use_of_risk_mng_tool",
+    "color": 0,
+    "filter_value": [
+      "Use of risk management tool or software"
+    ]
+  },
+  {
+    "seq": 3,
+    "id": 2722223,
+    "metric": "Walk Free+MSA risk assessment",
+    "label": "Conducting desk research",
+    "short_label": "desk_research",
+    "color": 0,
+    "filter_value": [
+      "Conducting research"
+    ]
+  },
+  {
+    "seq": 4,
+    "id": 2722223,
+    "metric": "Walk Free+MSA risk assessment",
+    "label": "In Development",
+    "short_label": "in_development",
+    "color": 0,
+    "filter_value": [
+      "In Development"
+    ]
+  }
+]

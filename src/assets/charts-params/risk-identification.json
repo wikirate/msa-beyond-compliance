@@ -1,0 +1,57 @@
+[
+  {
+    "seq": 1,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "label": "Geographic/Risk Region",
+    "short_label": "geographic",
+    "color": 0,
+    "filter_value": [
+      "Geographic"
+    ]
+  },
+  {
+    "seq": 2,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "label": "Industry Risk",
+    "short_label": "industry",
+    "color": 0,
+    "filter_value": [
+      "Industry"
+    ]
+  },
+  {
+    "seq": 3,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "label": "Resource Risk",
+    "short_label": "resource",
+    "color": 0,
+    "filter_value": [
+      "Resource"
+    ]
+  },
+  {
+    "seq": 4,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "label": "Workforce Risk",
+    "short_label": "workforce_risk",
+    "color": 0,
+    "filter_value": [
+      "Workforce"
+    ]
+  },
+  {
+    "seq": 5,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "label": "In Development",
+    "short_label": "in_development",
+    "color": 0,
+    "filter_value": [
+      "In Development"
+    ]
+  }
+]

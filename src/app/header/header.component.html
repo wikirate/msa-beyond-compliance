@@ -1,0 +1,59 @@
+<div class="bg-deep-blue">
+  <div class="container">
+    <nav class="nav navbar">
+      <a class="navbar-brand navbar-expand" routerLink="/dashboard" (click)="onSelectSection('dashboard')">
+        <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
+      </a>
+      <div class="navbar me-auto">
+        <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')">ABOUT</a>
+        <div class="nav-item dropdown col">
+          <a class="nav-item nav-link" type="button" id="share" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            SHARE <i class="bi bi-share-fill ms-2"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="share">
+            <li><a class="dropdown-item" target="_blank"
+                   href="https://www.facebook.com/sharer/sharer.php?u="><i
+              class="bi bi-facebook ms-2 me-2"></i>facebook</a></li>
+            <li><a class="dropdown-item" target="_blank"
+                   href="https://twitter.com/intent/tweet?url="><i
+              class="bi bi-twitter ms-2 me-2"></i>twitter</a></li>
+            <li><a class="dropdown-item" target="_blank"
+                   href="https://www.linkedin.com/shareArticle?mini=true&url="><i
+              class="bi bi-linkedin ms-2 me-2"></i>linkedin</a></li>
+            <li><a class="dropdown-item" target="_blank"
+                   href="mailto:info@example.com?&subject=&cc=&bcc=&body="><i
+              class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="filter-dropdown dropdown">
+        <a class="btn btn-secondary dropdown-toggle" type="button" id="sector-filter"
+           data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</a>
+        <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
+          <li>
+            <a class="dropdown-item" routerLink="dashboard/all-sectors" (click)="onSelectSector('All Sectors')">
+              All Sectors
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="dashboard/garments-sector" (click)="onSelectSector('Garments')">
+              Garments
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="dashboard/asset-managers-sector"
+               (click)="onSelectSector('Asset Managers')">
+              Asset Managers
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="dashboard/hospitality-sector" (click)="onSelectSector('Hospitality')">
+              Hospitality
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

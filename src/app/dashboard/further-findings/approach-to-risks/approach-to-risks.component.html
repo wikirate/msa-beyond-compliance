@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-12">
+    <h4>Addressing Risks</h4>
+    <p class="no-margin">Assessing and identifying modern slavery risks is an important part of targeting effective
+      responses and
+      resources.</p>
+  </div>
+</div>
+<hr class="deep-blue">
+<div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+  <div class="col-12 text-center align-self-center">
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <div class="col-md-6">
+    <div class="row">
+      <h5>RISK ASSESSMENT</h5>
+      <p>Which risk assessment tools are mentioned in statements?</p>
+    </div>
+    <div class="row text-center pt-2">
+      <div id="risk-assessment" class="chart-wrapper">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <h5>RISKS IDENTIFIED BY RISK CATEGORY</h5>
+      <p>Which risks are identified in the statements?</p>
+    </div>
+    <div class="row text-center pt-2">
+      <div id="risk-identification" class="chart-wrapper">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <div class="col-md-6">
+    <div class="row">
+      <h5>RISK MANAGEMENT</h5>
+      <p>Which risk management strategies are disclosed in the statements?</p>
+    </div>
+    <div class="row text-center pt-2">
+      <div id="risk-management" class="chart-wrapper">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h5>RISK ASSESSMENT TOOL & RISKS IDENTIFIED</h5>
+    <p>How many companies disclose using risk assessment tools and identifying risks?</p>
+  </div>
+</div>

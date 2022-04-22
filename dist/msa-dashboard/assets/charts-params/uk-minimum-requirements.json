@@ -1,0 +1,38 @@
+[
+  {
+    "seq": 1,
+    "id": 1831852,
+    "metric": "Business_Human_Rights_Resource_Centre+MSA_statement_signed",
+    "label": "Signed by Appropriate Person",
+    "short_label":"signed",
+    "color": 0,
+    "filter_value": [
+      "Signed by CEO",
+      "Signed by Director",
+      "Signed by Managing Director",
+      "Signed by Chairman"
+    ]
+  },
+  {
+    "seq": 2,
+    "id": 1827915,
+    "metric": "Business_Human_Rights_Resource_Centre+MSA_Statement_Approval",
+    "label": "Board Approval",
+    "short_label":"approved",
+    "color": 0,
+    "filter_value": [
+      "Approved by Board"
+    ]
+  },
+  {
+    "seq": 3,
+    "id": 12536905,
+    "metric": "Walk_Free+MSA_statement_homepage_link",
+    "label": "Homepage Link",
+    "short_label":"homepage",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ]
+  }
+]

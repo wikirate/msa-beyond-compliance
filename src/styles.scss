@@ -1,1 +1,473 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap";
+@import '~bootstrap/scss/bootstrap';
+//Colors
+$deep_blue: #000028;
+$white: #FFFFFF;
+$yellow: #FFDC00;
+$orange: #FF9300;
+$red: #FE0000;
+$blue: #0037F1;
+$neutral_orange: rgb(254, 239, 221);
+$neutral_grey: #F6F5EA;
+$neutral_blue: #DDDDE3;
+$light-orange: rgb(255, 147, 0, 0.3);
+
+//Typography
+@font-face {
+  font-family: "MediaSans";
+  src: local("mediasans"), url(./assets/fonts/mediasans.otf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "MediaSans";
+  src: local("mediasan-black"), url(./assets/fonts/mediasans-black.otf) format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "GothamNarrow";
+  src: local("GothamNarrow-Book"), url(./assets/fonts/GothamNarrow-Book.otf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "GothamNarrow";
+  src: local("GothamNarrow-Bold"), url(./assets/fonts/GothamNarrow-Bold.otf) format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "GothamNarrow";
+  src: local("GothamNarrow-MediumItalic"), url(./assets/fonts/GothamNarrow-MediumItalic.otf) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GothamNarrow";
+  src: local("GothamNarrow-Bold"), url(./assets/fonts/GothamNarrow-Bold.otf) format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "TiemposText";
+  src: local("TiemposText-Regular"), url(./assets/fonts/TiemposText-Regular.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "TiemposText";
+  src: local("TiemposText-RegularItalic"), url(./assets/fonts/TiemposText-RegularItalic.otf) format("truetype");
+  font-style: italic;
+}
+
+//style of different sections
+body {
+  font-family: GothamNarrow;
+  color: $deep_blue;
+  margin: 0 !important;
+}
+
+a {
+  color: $deep_blue;
+  text-decoration: underline;
+}
+
+a:focus, a:hover {
+  color: $blue;
+}
+
+table a {
+  color: $deep_blue;
+  text-decoration: none;
+}
+
+table a:focus, a:hover {
+  color: $blue;
+}
+
+.clickable-header:hover {
+  color: $blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+th.active {
+  color: $blue;
+}
+
+.table {
+  color: $white !important;
+}
+
+.table tr {
+  color: $deep_blue;
+  font-size: 0.9em;
+}
+
+.table > :not(caption) > * > * {
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+}
+
+.table .clickable:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.1em;
+}
+
+h1.title {
+  font-family: MediaSans;
+  font-size: 4em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+@media screen and (max-width: 500px) {
+  h1.title {
+    font-size: 3em;
+  }
+}
+
+h3 {
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  color: $deep_blue !important;
+}
+
+h4 {
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  color: $deep_blue !important;
+}
+
+h5 {
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  color: $deep_blue !important;
+}
+
+.subtitle {
+  font-family: TiemposText;
+  font-size: 1.7em;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 500px) {
+  .subtitle {
+    font-size: 1.4em;
+  }
+}
+
+.quote {
+  font-family: TiemposText;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+a.button {
+  border: 0;
+  padding: 1em 2.4em 1em 1.2em;
+  font-family: 'MediaSans';
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  color: #000028;
+  position: relative;
+  cursor: pointer;
+}
+
+a.transparent-button {
+  color: $deep_blue;
+  border: 1px solid $deep_blue;
+  border-width: 1px;
+}
+
+a.transparent-button:hover {
+  background-color: $deep_blue;
+  color: $white;
+}
+
+a.orange-button {
+  background: $orange;
+  margin-right: 1em;
+  border: 1px solid $orange;
+  border-width: 1px;
+}
+
+a.orange-button:hover {
+  background: $yellow;
+  border: 1px solid $yellow;
+  border-width: 1px;
+}
+
+a.button::after {
+  color: $blue;
+  content: "\f054";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 0.75em;
+}
+
+//different backgrounds
+
+.bg-neutral-orange {
+  background-color: $neutral_orange;
+}
+
+.bg-neutral-grey {
+  background-color: $neutral_grey;
+}
+
+.bg-neutral-blue {
+  background-color: $neutral_blue !important;
+}
+
+.bg-deep-blue {
+  background-color: $deep_blue;
+  color: $white;
+}
+
+.bg-yellow {
+  background-color: $yellow;
+}
+
+.bg-orange {
+  background-color: $orange;
+}
+
+.bg-light-orange {
+  background-color: $light-orange !important;
+}
+
+.bg-white {
+  background-color: $white;
+}
+
+//header
+header-component img.logo {
+  height: 55px;
+}
+
+header-component {
+  width: 100%
+}
+
+//navigation
+.nav-link {
+  color: $white !important;
+  font-family: MediaSans !important;
+}
+
+.nav-link {
+  color: $white !important;
+}
+
+.nav-link:hover {
+  color: darken($white, 20%) !important;
+}
+
+button.nav-link {
+  background-color: $deep_blue;
+}
+
+//footer
+footer .logo {
+  padding: 0 5%;
+  text-align: center;
+}
+
+footer .logo-right {
+  padding-right: 0;
+}
+
+footer .logo-center {
+  border: 2px solid $deep_blue;
+  border-width: 0 2px;
+}
+
+footer img {
+  max-width: 100%;
+  max-height: 70px;
+}
+
+footer .row {
+  align-items: center;
+}
+
+//section
+.section {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+//filter
+.filter-dropdown {
+  float: right;
+}
+
+.filter-dropdown a.dropdown-toggle {
+  border-radius: 0;
+  background: #FF9300;
+  border: 0;
+  font-size: 1.1em;
+  padding: 0.8em 1em;
+  font-family: 'MediaSans';
+  text-transform: uppercase;
+  display: inline-block;
+  color: #000028;
+  margin: 0.4em 0;
+}
+
+a.dropdown-toggle:hover {
+  background: $yellow;
+}
+
+a.dropdown-toggle::after {
+  color: $blue;
+  margin-left: 10px;
+}
+
+.filter-dropdown ul.dropdown-menu {
+  border: 0;
+  border-radius: 0;
+  color: $deep_blue;
+  background: $neutral_grey;
+  box-shadow: 0 0 0.5rem 0.25rem #BBBBBB;
+}
+
+.filter-dropdown a.dropdown-item {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-family: MediaSans;
+  text-transform: uppercase;
+}
+
+a.dropdown-item .count {
+  padding-left: 1em;
+}
+
+.filter-dropdown .reset-item-li {
+  display: none;
+}
+
+//define msa-form-select
+.msa-form-select {
+  @extend .form-select;
+  font-family: MediaSans;
+  font-size: 0.9em;
+  color: $deep_blue;
+  max-width: 150px;
+}
+
+.msa-form-select:focus {
+  border-color: $orange;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 147, 0, 0.6);
+  outline: 0 none;
+}
+
+.msa-form-select {
+  border-radius: 0;
+  border-color: $deep_blue;
+}
+
+select.msa-form-select::after {
+  color: $blue;
+}
+
+//deep-blue horizontal rule
+
+hr.deep-blue {
+  height: 1.5px !important;
+  background-color: $deep_blue !important;
+  border: none !important;
+  opacity: 1;
+}
+
+//text decorations
+
+.msa-primary-info {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.msa-primary-info-md {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.msa-secondary-info {
+  text-transform: uppercase;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.chart-wrapper svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.accordion-button, .accordion-button:not(.collapsed) {
+  background-color: #FF9300;
+  padding: 1em;
+  border: 0;
+  border-radius: 0 !important;
+}
+
+.accordion-button:hover {
+  background-color: #FFDC00;
+}
+
+.accordion-button:not(.collapsed)::after,
+.accordion-button::after {
+  color: #0037F1;
+  content: "\f107";
+  font-family: FontAwesome;
+  background-image: none;
+  height: auto;
+  font-size: 2.5em;
+  padding-right: 0.75em;
+}
+
+.accordion-button-text {
+  color: #000028;
+  padding: 0 2%;
+}
+
+.accordion-collapse {
+  padding: 2em 2%;
+  background-color: #F6F5EA;
+  border: 0;
+  border-radius: 0 !important;
+}
+
+.subsection-header h3 {
+  background-color: #FFDC00;
+  color: #000028;
+  padding: 0.5em;
+  margin: 1em 0 0.5em 0;
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
+.hide-element{
+  display: none;
+}

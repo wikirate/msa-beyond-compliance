@@ -1,0 +1,97 @@
+<div class="section mt-5 bg-neutral-orange p-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="title">Going Beyond Compliance</h3>
+    </div>
+    <div class="col-md-4">
+      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
+              style="max-width: 100px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+        <option [ngValue]="'latest'" selected>latest</option>
+        <option [ngValue]="2021">2021</option>
+        <option [ngValue]="2020">2020</option>
+        <option [ngValue]="2019">2019</option>
+        <!--        <option value="2018">2018</option>-->
+        <!--        <option value="2017">2017</option>-->
+        <!--        <option value="2016">2016</option>-->
+      </select>
+    </div>
+  </div>
+  <!--  <div class="row">-->
+  <!--    <p>Are companies compliant with the minimum requirements under the UK or Australian Slavery Act?</p>-->
+  <!--  </div>-->
+  <hr class="deep-blue no-margin">
+  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+    <div class="col-12 text-center align-self-center" >
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="row p-4 row justify-content-center" *ngIf="!isLoading">
+    <div class="col-md-11">
+      <table class="table table-bordered border-light">
+        <thead>
+        <tr class="bg-light-orange">
+          <th scope="col"></th>
+          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'total'}"
+              (click)="sort('total')">Total
+          </th>
+          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'uk'}"
+              (click)="sort('uk')">UK
+          </th>
+          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'aus'}"
+              (click)="sort('aus')">AUS
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="bg-deep-blue text-white" *ngFor="let row of beyond_compliance_table_data">
+          <td class="text-end bg-neutral-blue"><a href="{{row['url']}}" target="_blank">{{row['name']}}</a></td>
+          <td class="clickable text-center">{{row['total']}}</td>
+          <td class="text-center">{{row['uk']}}</td>
+          <td class="text-center">{{row['aus']}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="title">Average Disclosure Rate</h3>
+    </div>
+  </div>
+  <hr class="deep-blue no-margin">
+  <div class="row align-middle p-3">
+    <div class="col-3">
+      <div class="msa-primary-info-md">6/16</div>
+    </div>
+    <div class="col-6">
+      <div class="msa-primary-info-md">Garment Industry</div>
+    </div>
+    <div class="col-3 text-center">
+      <a class="button transparent-button mt-md-0 mt-3">More</a>
+    </div>
+  </div>
+  <div class="row align-middle p-3">
+    <div class="col-3 ">
+      <div class="msa-primary-info-md">3/16</div>
+    </div>
+    <div class="col-6">
+      <div class="msa-primary-info-md">Finance Industry</div>
+    </div>
+    <div class="col-3 text-center">
+      <a class="button transparent-button mt-md-0 mt-3">More</a>
+    </div>
+  </div>
+  <div class="row align-middle p-3">
+    <div class="col-3">
+      <div class="msa-primary-info-md">5/16</div>
+    </div>
+    <div class="col-6">
+      <div class="msa-primary-info-md">Hospitality Industry</div>
+    </div>
+    <div class="col-3 text-center">
+      <a class="button transparent-button mt-md-0 mt-3">More</a>
+    </div>
+  </div>
+</div>
