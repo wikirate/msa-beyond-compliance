@@ -1,6 +1,8 @@
 // @ts-ignore
 import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
+import customPieChart from '../../assets/charts/custom-pie.json';
+// @ts-ignore
 import pieGroupsChart from '../../assets/charts/pie-groups.json';
 // @ts-ignore
 import barChart from '../../assets/charts/bars.json';
@@ -29,7 +31,74 @@ export class ChartsService {
     pie["height"] = height
     pie["scales"][0]["range"] = colors
     pie["scales"][0]["domain"] = domain
-    return embed(element, pie)
+    return embed(element, pie, options)
+  }
+
+  drawPieCustomChart(title: string,
+                     element: string,
+                     assessed_statements_metric_id: number[],
+                     metric: number,
+                     year:number | string,
+                     width: number,
+                     height: number,
+                     colors: string[],
+                     domain: string[],
+                     options: {}) {
+    let pie = JSON.parse(JSON.stringify(customPieChart))
+    let data = pie["data"]
+
+    data.unshift({
+      "name": "answers",
+      "url": `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}`,
+      "transform": [{
+        "type": "lookup",
+        "from": "assessed",
+        "key": "company",
+        "fields": ["company"],
+        "values": ["value"],
+        "as": ["assessed"]
+      },
+        {
+          "type":"filter",
+          "expr":"datum.assessed === 'Yes'"
+        },
+        {
+          "type":"formula",
+          "as":"value",
+          "expr": "test(/beyond tier 1/, datum.value)? 'beyond tier 1': 'direct'"
+        }]
+    })
+    data.unshift({
+      "name": "assessed",
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "uk_assessed",
+          "key": "company",
+          "fields": ["company"],
+          "values": ["value"],
+          "as": ["uk_assessed"]
+        },
+        {
+          "type": "formula",
+          "as": "value",
+          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
+        }
+      ]
+    })
+    data.unshift({
+      name: 'uk_assessed',
+      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+    })
+    pie["data"] = data
+    pie["description"] = title
+    pie["width"] = width
+    pie["height"] = height
+    pie["scales"][0]["range"] = colors
+    pie["scales"][0]["domain"] = domain
+    console.log(pie)
+    return embed(element, pie, options)
   }
 
   drawMinimumRequirementsBarChart(
@@ -383,7 +452,7 @@ export class ChartsService {
       color_values['color_' + i] = colors[i]
       range += 'colors.' + 'color_' + i + ', '
     }
-    range = "["+ range.substring(0, range.length - 2)+"]"
+    range = "[" + range.substring(0, range.length - 2) + "]"
     pie["signals"][0]["value"] = color_values
     pie["description"] = title
     pie["data"][0]["values"] = groups
