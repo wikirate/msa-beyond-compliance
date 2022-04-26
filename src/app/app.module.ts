@@ -24,6 +24,7 @@ import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-complia
 import { FurtherFindingsComponent } from './dashboard/further-findings/further-findings.component';
 import { ApproachToRisksComponent } from './dashboard/further-findings/approach-to-risks/approach-to-risks.component';
 import { ApproachToIncidentsComponent } from './dashboard/further-findings/approach-to-incidents/approach-to-incidents.component';
+import { ApproachToPoliciesComponent } from './dashboard/further-findings/approach-to-policies/approach-to-policies.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ApproachToIncidentsComponent } from './dashboard/further-findings/appro
     GoingBeyondComplianceComponent,
     FurtherFindingsComponent,
     ApproachToRisksComponent,
-    ApproachToIncidentsComponent
+    ApproachToIncidentsComponent,
+    ApproachToPoliciesComponent
   ],
   imports: [
     FormsModule,
