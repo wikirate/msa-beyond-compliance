@@ -14,7 +14,7 @@
         "red": "#FE0000",
         "blue": "#0037F1",
         "navy": "#000028",
-        "yellow": "#FFDC00"
+        "orange_purple": "#c7594b"
       }
     },
     {
@@ -154,13 +154,13 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "counts", "field": "subgroup_label"},
-      "range": {"signal": "[colors.orange, colors.yellow]"}
+      "range": {"signal": "[colors.orange, colors.orange_purple]"}
     },
     {
       "name": "textColor",
       "type": "linear",
       "domain": [0, 2],
-      "range": {"signal": "[colors.orange, colors.yellow, colors.navy]"}
+      "range": {"signal": "[colors.orange, colors.orange_purple, colors.navy]"}
     }
   ],
   "marks": [
@@ -277,8 +277,9 @@
       "type": "symbol",
       "orient": "none",
       "direction": "horizontal",
-      "labelFont": {"value": "GothamNarrow"},
       "columnPadding": 20,
+      "rowPadding": 20,
+      "labelFontSize": {"value":  25},
       "encode": {
         "legend": {
           "update": {
