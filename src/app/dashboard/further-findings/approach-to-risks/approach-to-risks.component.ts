@@ -82,7 +82,27 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
           "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
         },
         this.year,
-        {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.isLoading = false)
+        {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.chartsService.drawPieChartGroups(
+        "RISK ASSESSMENT TOOL & RISKS IDENTIFIED",
+        this.year,
+        [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
+        6933622,
+        ["#e17327",
+          "#c7594b",
+          "#ad3d6f",
+          "#932191",
+          "#000028"],
+        [{"name": "Performs assessment and identifies risks"},
+          {"name": "Performs assessment but does not identify risks"},
+          {"name": "Does not perform assessment but identifies risks"},
+          {"name": "Does not perform assessment or identify risks"},
+          {"name": "Unknown"}],
+        "div#risk-tools",
+        250, 180, {
+          renderer: "svg",
+          actions: {source: false, editor: true}
+        }
+      ).finally(() => this.isLoading = false))
     })
   }
 
