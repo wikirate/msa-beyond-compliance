@@ -3,6 +3,7 @@ import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
+import {delay} from "rxjs";
 
 @Component({
   selector: 'going-beyond-compliance',
@@ -81,5 +82,9 @@ export class GoingBeyondComplianceComponent implements OnInit {
     this.beyond_compliance_table_data.sort((a, b) => a[column] > b[column] ? -1 : 0)
     this.active = column
 
+  }
+
+  openURL(url: string) {
+    window.open(url,"_blank")
   }
 }

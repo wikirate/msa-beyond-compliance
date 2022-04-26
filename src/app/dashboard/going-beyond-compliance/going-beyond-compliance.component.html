@@ -27,7 +27,7 @@
       </div>
     </div>
   </div>
-  <div class="row p-4 row justify-content-center" *ngIf="!isLoading">
+  <div class="row p-4 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
     <div class="col-md-11">
       <table class="table table-bordered border-light">
         <thead>
@@ -46,10 +46,10 @@
         </thead>
         <tbody>
         <tr class="bg-deep-blue text-white" *ngFor="let row of beyond_compliance_table_data">
-          <td class="text-end bg-neutral-blue"><a href="{{row['url']}}" target="_blank">{{row['name']}}</a></td>
-          <td class="clickable text-center">{{row['total']}}</td>
-          <td class="text-center">{{row['uk']}}</td>
-          <td class="text-center">{{row['aus']}}</td>
+          <td class="col-6 text-end bg-neutral-blue"><a href="{{row['url']}}" target="_blank">{{row['name']}}</a></td>
+          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['total']}}</td>
+          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['uk']}}</td>
+          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['aus']}}</td>
         </tr>
         </tbody>
       </table>
