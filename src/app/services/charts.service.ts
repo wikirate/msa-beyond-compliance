@@ -1,6 +1,8 @@
 // @ts-ignore
 import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
+import pieGroupsChart from '../../assets/charts/pie-groups.json';
+// @ts-ignore
 import barChart from '../../assets/charts/bars.json';
 // @ts-ignore
 import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
@@ -198,7 +200,8 @@ export class ChartsService {
           "key": "company",
           "fields": ["company"],
           "values": ["value"],
-          "as": ["assessed"]},
+          "as": ["assessed"]
+        },
         {
           "type": "filter",
           "expr": "datum.value != '' && datum.assessed == 'Yes'"
@@ -360,5 +363,82 @@ export class ChartsService {
     bars['width'] = width
     bars['height'] = height
     return embed(element, bars, options)
+  }
+
+  drawPieChartGroups(title: string,
+                     year: number | string,
+                     assessed_statements_metric_id: number[],
+                     metric_id: number,
+                     colors: string[],
+                     groups: any[],
+                     element: string,
+                     width: number,
+                     height: number,
+                     options: {}) {
+    var pie = JSON.parse(JSON.stringify(pieGroupsChart))
+
+    let color_values: any = {}
+    let range = ""
+    for (let i in colors) {
+      color_values['color_' + i] = colors[i]
+      range += 'colors.' + 'color_' + i + ', '
+    }
+    range = "["+ range.substring(0, range.length - 2)+"]"
+    pie["signals"][0]["value"] = color_values
+    pie["description"] = title
+    pie["data"][0]["values"] = groups
+    pie["data"].unshift({
+      "name": "answers",
+      "url": `${this.wikirateApiHost}/~${metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "assessed",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "assessed"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.assessed == 'Yes'"
+        }
+      ]
+    })
+
+    pie["data"].unshift({
+      "name": "assessed",
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "uk_assessed",
+          "key": "company",
+          "fields": ["company"],
+          "values": ["value"],
+          "as": ["uk_assessed"]
+        },
+        {
+          "type": "formula",
+          "as": "value",
+          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
+        }
+      ]
+    })
+    pie["data"].unshift({
+      name: 'uk_assessed',
+      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+    })
+    pie["width"] = width
+    pie["height"] = height
+    pie["scales"][0]["range"] = colors
+    pie["scales"][0]["range"]["signal"] = range
+    return embed(element, pie, options)
   }
 }
