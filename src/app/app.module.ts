@@ -23,6 +23,7 @@ import {ChartsService} from "./services/charts.service";
 import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
 import { FurtherFindingsComponent } from './dashboard/further-findings/further-findings.component';
 import { ApproachToRisksComponent } from './dashboard/further-findings/approach-to-risks/approach-to-risks.component';
+import { ApproachToIncidentsComponent } from './dashboard/further-findings/approach-to-incidents/approach-to-incidents.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ApproachToRisksComponent } from './dashboard/further-findings/approach-
     NumFormatPipe,
     GoingBeyondComplianceComponent,
     FurtherFindingsComponent,
-    ApproachToRisksComponent
+    ApproachToRisksComponent,
+    ApproachToIncidentsComponent
   ],
   imports: [
     FormsModule,
