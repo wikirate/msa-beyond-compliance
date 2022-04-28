@@ -76,7 +76,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
                 'uk_color': metric['uk_color']
               })
             }, (error) => console.log(error), () => {
-              this.sort('name');
+              this.sort('total');
               this.isLoading = false
             })
         }

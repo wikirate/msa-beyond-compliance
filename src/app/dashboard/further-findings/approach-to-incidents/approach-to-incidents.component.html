@@ -1,13 +1,3 @@
-<div class="row">
-  <div class="col-12">
-    <h4>WHISTLEBLOWING AND REMEDIATION</h4>
-    <p class="no-margin">As part of companies’ responsibility to respect workers’ rights, those affected by modern
-      slavery or witnessing violations in any part of a company's operations should be able to freely report incidents
-      through grievance mechanisms. Companies should also have remediation procedures in place.</p>
-  </div>
-</div>
-<!--<hr class="deep-blue">-->
-<br>
 <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
   <div class="col-12 text-center align-self-center">
     <div class="spinner-grow text-warning" role="status">
@@ -18,8 +8,8 @@
 <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
   <div class="col-md-6">
     <div class="row">
-      <h5>WHISTLEBLOWING OR GRIEVANCE MECHANISMS</h5>
-      <p>What whistleblowing or grievance mechanisms are disclosed in the statements?</p>
+      <h5>GRIEVANCE MECHANISMS</h5>
+      <p>provided to increase likelihood of incidents being reported</p>
     </div>
     <div class="row text-center pt-2">
       <div id="whistleblowing-mechanisms" class="chart-wrapper">
@@ -28,8 +18,8 @@
   </div>
   <div class="col-md-6">
     <div class="row">
-      <h5>INCIDENT REMEDIATION</h5>
-      <p>What incident remediation strategies do companies mention in their statements?</p>
+      <h5>REMEDIATION STRATEGY</h5>
+      <p>deployed when specific incidents are identified</p>
     </div>
     <div class="row text-center pt-2">
       <div id="incident-remediation" class="chart-wrapper">

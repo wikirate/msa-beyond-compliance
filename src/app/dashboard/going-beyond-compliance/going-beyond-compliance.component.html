@@ -39,10 +39,10 @@
       <table class="table table-bordered border-light">
         <thead>
         <tr class="bg-light-orange">
-          <th scope="col" class="clickable-header active text-end" [ngClass]="{'active': active === 'name'}"
+          <th scope="col" class="clickable-header text-end" [ngClass]="{'active': active === 'name'}"
               (click)="sort('name')">Metric
           </th>
-          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'total'}"
+          <th scope="col" class="text-center clickable-header active" [ngClass]="{'active': active === 'total'}"
               (click)="sort('total')">Total
           </th>
           <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'uk'}"
@@ -67,8 +67,8 @@
   </div>
   <div class="row">
     <div class="col-md-8">
-      <h3 class="title">Average Disclosure Rate</h3>
-      <p>Average number of measures and actions reported by compsnird in their modern slavery statements.</p>
+      <h3 class="title">Disclosure Rate</h3>
+      <p>Average number of measures and actions reported by companies in their modern slavery statements.</p>
     </div>
   </div>
 <!--  <hr class="deep-blue no-margin">-->
