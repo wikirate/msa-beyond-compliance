@@ -32,7 +32,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
     this.chartsService.drawBarChart(
       "Risk Assessment",
       "div#risk-assessment",
-      400,
+      350,
       200,
       [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
       risk_assessment,
@@ -41,7 +41,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
       this.chartsService.drawBarChart(
         "Risks identified by risk category",
         "div#risk-identification",
-        400,
+        350,
         250,
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
         risk_identification,
@@ -52,10 +52,9 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         }).finally(() => this.chartsService.drawSubgroupsBarChart(
         "Risks Management",
         "div#risk-management",
-        400,
-        200,
+        350,
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
-        2722169,
+        6948944,
         {
           "name": "subgroups",
           "values": [
@@ -77,32 +76,36 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
               "term": "Audits of suppliers",
               "seq": 1
             },
-            {"title": "On-site visits", "term": "On-site visits", "seq": 2}
+            {"title": "On-site visits", "term": "On-site visits", "seq": 2},
+            {"title": "Neither", "term": "Neither", "seq": 3}
           ],
           "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
         },
         this.year,
-        {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.chartsService.drawPieChartGroups(
-        "RISK ASSESSMENT TOOL & RISKS IDENTIFIED",
-        this.year,
-        [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
-        6933622,
-        ["#e17327",
-          "#c7594b",
-          "#ad3d6f",
-          "#932191",
-          "#000028"],
-        [{"name": "Performs assessment and identifies risks"},
-          {"name": "Performs assessment but does not identify risks"},
-          {"name": "Does not perform assessment but identifies risks"},
-          {"name": "Does not perform assessment or identify risks"},
-          {"name": "Unknown"}],
-        "div#risk-tools",
-        250, 180, {
-          renderer: "svg",
-          actions: {source: false, editor: true}
-        }
-      ).finally(() => this.isLoading = false))
+        {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.isLoading = false
+        //   this.chartsService.drawPieChartGroups(
+        //   "RISK ASSESSMENT TOOL & RISKS IDENTIFIED",
+        //   this.year,
+        //   [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
+        //   6933622,
+        //   ["#e17327",
+        //     "#c7594b",
+        //     "#ad3d6f",
+        //     "#932191",
+        //     "#000028"],
+        //   [{"name": "Performs assessment and identifies risks"},
+        //     {"name": "Performs assessment but does not identify risks"},
+        //     {"name": "Does not perform assessment but identifies risks"},
+        //     {"name": "Does not perform assessment or identify risks"},
+        //     {"name": "Unknown"}],
+        //   "div#risk-tools",
+        //   250, 180, {
+        //     renderer: "svg",
+        //     actions: {source: false, editor: true}
+        //   }
+        // ).finally(() => this.isLoading = false)
+      )
+
     })
   }
 
