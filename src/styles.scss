@@ -64,10 +64,14 @@ $light-orange: rgb(255, 147, 0, 0.3);
 
 //style of different sections
 body {
-  font-family: GothamNarrow;
-  color: $deep_blue;
+  font-family: GothamNarrow, sans-serif;
+  color: #000028;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   margin: 0 !important;
 }
+
 
 a {
   color: $deep_blue;
@@ -127,9 +131,10 @@ h1.title {
   line-height: 1.1;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
   h1.title {
-    font-size: 3em;
+    font-size: 2.6em;
+    word-wrap: break-word;
   }
 }
 
@@ -172,13 +177,15 @@ h5 {
 a.button {
   border: 0;
   padding: 1em 2.4em 1em 1.2em;
-  font-family: 'MediaSans';
+  font-family: MediaSans;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: inline-block;
   text-decoration: none;
   color: #000028;
   position: relative;
   cursor: pointer;
+
 }
 
 a.transparent-button {
@@ -316,13 +323,15 @@ footer .row {
   border-radius: 0;
   background: #FF9300;
   border: 0;
-  font-size: 1.1em;
-  padding: 0.8em 1em;
-  font-family: 'MediaSans';
+  font-size: 1em;
+  padding: 0.8em 1.2em;
+  font-family: MediaSans;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: inline-block;
   color: #000028;
   margin: 0.4em 0;
+
 }
 
 a.dropdown-toggle:hover {
@@ -361,10 +370,14 @@ a.dropdown-item .count {
 //define msa-form-select
 .msa-form-select {
   @extend .form-select;
-  font-family: MediaSans;
-  font-size: 0.9em;
-  color: $deep_blue;
+  font-family: 'GothamNarrow';
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* font-weight: normal; */
+  font-size: .9em;
+  color: #000028;
   max-width: 150px;
+
 }
 
 .msa-form-select:focus {
@@ -394,8 +407,9 @@ hr.deep-blue {
 //text decorations
 
 .msa-primary-info {
-  font-size: 2.5em;
-  font-weight: bold;
+  font-size: 3em;
+  font-weight: 700;
+  font-family: 'MediaSans';
 }
 
 .msa-primary-info-md {
@@ -468,6 +482,10 @@ a.anchor {
   visibility: hidden;
 }
 
-.hide-element{
+.hide-element {
   display: none;
+}
+
+.highlighted-number {
+  font-size: 1.7em
 }
