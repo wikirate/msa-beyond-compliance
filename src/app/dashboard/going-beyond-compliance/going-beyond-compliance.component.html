@@ -54,12 +54,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="bg-deep-blue text-white" *ngFor="let row of beyond_compliance_table_data">
+        <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
           <td class="col-6 text-end bg-neutral-blue"><a class="metric" href="{{row['url']}}"
                                                         target="_blank">{{row['name']}}</a></td>
-          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['total']}}%</td>
-          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['uk']}}%</td>
-          <td class="col-2 clickable text-center" (click)="openURL(row['url'])">{{row['aus']}}%</td>
+          <td class="col-2 clickable text-center bg-deep-blue" (click)="openURL(row['url'])">{{row['total']}}%</td>
+          <td class="col-2 clickable text-center {{row['uk_color']}}" (click)="openURL(row['url'])">{{row['uk']}}%</td>
+          <td class="col-2 clickable text-center {{row['aus_color']}}" (click)="openURL(row['url'])">{{row['aus']}}%</td>
         </tr>
         </tbody>
       </table>

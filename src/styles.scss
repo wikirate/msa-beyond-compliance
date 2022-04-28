@@ -237,7 +237,7 @@ a.button::after {
 }
 
 .bg-deep-blue {
-  background-color: $deep_blue;
+  background-color: $deep_blue !important;
   color: $white;
 }
 
@@ -246,7 +246,7 @@ a.button::after {
 }
 
 .bg-orange {
-  background-color: $orange;
+  background-color: $orange !important;
 }
 
 .bg-light-orange {

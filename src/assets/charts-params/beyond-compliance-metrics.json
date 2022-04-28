@@ -11,7 +11,9 @@
       "Signed by Director",
       "Signed by Managing Director",
       "Signed by Chairman"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 2,
@@ -22,7 +24,9 @@
     "color": 0,
     "filter_value": [
       "Approved by Board"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 3,
@@ -33,7 +37,9 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 4,
@@ -44,7 +50,9 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 5,
@@ -55,7 +63,9 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 6,
@@ -67,7 +77,9 @@
     "filter_value": [
       "Geographical",
       "Facility/Supplier"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 7,
@@ -95,7 +107,9 @@
       "Suppliers protect migrant workers (beyond tier 1)",
       "Suppliers respect labour rights (wages / freedom of association etc) (direct / tier 1)",
       "Suppliers respect labour rights (wages / freedom of association etc) (beyond tier 1)"
-    ]
+    ],
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 8,
@@ -108,7 +122,9 @@
       "Risk-based questionnaires",
       "Use of risk management tool or software",
       "Conducting desk research"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 9,
@@ -122,7 +138,9 @@
       "Resource",
       "Workforce",
       "Industry"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 10,
@@ -136,7 +154,9 @@
       "Audits of suppliers (independent)",
       "On-site visits (self- reporting)",
       "On-site visits (independent)"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 11,
@@ -152,7 +172,9 @@
       "Whistleblower protection (supply chain workers)",
       "Focal Point (direct employees)",
       "Focal Point (supply chain workers)"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 12,
@@ -163,7 +185,9 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 13,
@@ -177,7 +201,9 @@
       "Corrective action plan",
       "Senior management",
       "Cancel contracts"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 14,
@@ -193,7 +219,9 @@
       "Leadership",
       "Suppliers",
       "Training provided - not specified to who"
-    ]
+    ],
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 15,
@@ -204,7 +232,9 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 16,
@@ -215,6 +245,8 @@
     "color": 0,
     "filter_value": [
       "Yes"
-    ]
+    ],
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   }
 ]

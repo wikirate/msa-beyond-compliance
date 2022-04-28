@@ -71,7 +71,9 @@ export class GoingBeyondComplianceComponent implements OnInit {
                 'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
                 'uk': uk_percent,
                 'aus': aus_percent,
-                'total': total_percent
+                'total': total_percent,
+                'aus_color': metric['aus_color'],
+                'uk_color': metric['uk_color']
               })
             }, (error) => console.log(error), () => {
               this.sort('name');
