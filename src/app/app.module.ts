@@ -25,6 +25,7 @@ import { FurtherFindingsComponent } from './dashboard/further-findings/further-f
 import { ApproachToRisksComponent } from './dashboard/further-findings/approach-to-risks/approach-to-risks.component';
 import { ApproachToIncidentsComponent } from './dashboard/further-findings/approach-to-incidents/approach-to-incidents.component';
 import { ApproachToPoliciesComponent } from './dashboard/further-findings/approach-to-policies/approach-to-policies.component';
+import { TreemapComponent } from './dashboard/treemap/treemap.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ApproachToPoliciesComponent } from './dashboard/further-findings/approa
     FurtherFindingsComponent,
     ApproachToRisksComponent,
     ApproachToIncidentsComponent,
-    ApproachToPoliciesComponent
+    ApproachToPoliciesComponent,
+    TreemapComponent
   ],
   imports: [
     FormsModule,
