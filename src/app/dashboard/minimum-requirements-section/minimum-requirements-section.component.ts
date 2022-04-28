@@ -76,7 +76,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
               'count': assessed - meet_min_requirements,
               'sum_count': assessed
             }],
-          190, 180, ["#000028", "#FF9300"],
+          210, 180, ["#000028", "#FF9300"],
           ["Not Met", "Met"], {renderer: "svg", actions: {source: false, editor: false}})
       }, error => console.log(error), () => this.isLoading = false)
     })
