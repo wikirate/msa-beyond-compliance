@@ -1,12 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Risk Management",
-  "width": 250,
-  "height": 200,
+  "width": 300,
   "padding": {"right": 5},
   "signals": [
     {"name": "totalAnswers", "update": "data('answers').length"},
-    {"name": "barHeight", "value": "15"},
+    {"name": "numGroups", "update": "data('groups').length"},
+    {"name": "barHeight", "value": 15},
+    {"name": "height", "update": "numGroups * (barHeight + 15)+ 200"},
     {
       "name": "colors",
       "value": {
@@ -14,6 +15,7 @@
         "red": "#FE0000",
         "blue": "#0037F1",
         "navy": "#000028",
+        "yellow":"#FFDC00",
         "orange_purple": "#c7594b"
       }
     },
@@ -154,13 +156,13 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "counts", "field": "subgroup_label"},
-      "range": {"signal": "[colors.orange, colors.orange_purple]"}
+      "range": {"signal": "[colors.orange, colors.orange_purple, colors.yellow, colors.navy]"}
     },
     {
       "name": "textColor",
       "type": "linear",
-      "domain": [0, 2],
-      "range": {"signal": "[colors.orange, colors.orange_purple, colors.navy]"}
+      "domain": [0, 3],
+      "range": {"signal": "[colors.orange, colors.orange_purple, colors.yellow, colors.navy]"}
     }
   ],
   "marks": [
@@ -211,7 +213,7 @@
               "x2": {"scale": "xscale", "field": "count"},
               "y": {"scale": "yscale", "field": "title"},
               "height": {"signal": "barHeight"},
-              "fill": {"scale": "color", "field": "subgroup_label"},
+              "fill": {"scale": "textColor", "field": "color"},
               "tooltip": {"field": "percent_label"}
             },
             "hover": {"cursor": {"value": "pointer"}}
@@ -246,7 +248,7 @@
               "fontWeight": {"value": "bold"},
               "fill": {
                 "scale": "textColor",
-                "signal": "if(barOver.title == datum.title, datum.color, 2)"
+                "signal": "if(barOver.title == datum.title, datum.color, 3)"
               }
             },
             "hover": {"cursor": {"value": "pointer"}}

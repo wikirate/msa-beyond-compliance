@@ -78,7 +78,7 @@
           "endAngle": {"field": "endAngle"},
           "padAngle": {"value": 0},
           "innerRadius": {"value": 0},
-          "outerRadius": {"value": 100},
+          "outerRadius": {"value": 120},
           "cornerRadius": {"value": 0},
           "opacity": {
             "signal": "if(hoverValue == datum.value, 1, hoverOpacity)"

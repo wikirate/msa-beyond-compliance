@@ -355,7 +355,7 @@
         2
       ],
       "range": {
-        "signal": "[colors.orange, colors.blue, colors.navy]"
+        "signal": "[colors.orange, colors.yellow, colors.navy]"
       }
     }
   ],

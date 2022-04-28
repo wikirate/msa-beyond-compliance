@@ -47,11 +47,11 @@
     "seq": 5,
     "id": 2722444,
     "metric": "Walk_Free+MSA_incidents_remediation_revised",
-    "label": "In Development",
-    "short_label": "in_development",
-    "color": 0,
+    "label": "None of the Above",
+    "short_label": "none_of_the_above",
+    "color": 1,
     "filter_value": [
-      "In Development"
+      "In Development","No"
     ]
   }
 ]
