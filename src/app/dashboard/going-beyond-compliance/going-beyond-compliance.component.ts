@@ -41,6 +41,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
         for (let answer of answers) {
           aus_msa_statements_assessed.push(answer["company"])
         }
+        let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
         for (let metric of beyond_compliance_metrics) {
           this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
             .subscribe(answers => {
@@ -58,6 +59,9 @@ export class GoingBeyondComplianceComponent implements OnInit {
                   total++;
                 }
               }
+              let uk_percent = Math.round(uk_count * 100 / uk_msa_statements_assessed.length)
+              let aus_percent = Math.round(aus_count * 100 / aus_msa_statements_assessed.length)
+              let total_percent = Math.round(total * 100 / total_assessed.length)
               let filter_value = ''
               for (let value of metric['filter_value']) {
                 filter_value += 'filter[value][]=' + value + '&'
@@ -65,9 +69,9 @@ export class GoingBeyondComplianceComponent implements OnInit {
               this.beyond_compliance_table_data.push({
                 'name': metric['label'],
                 'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
-                'uk': uk_count,
-                'aus': aus_count,
-                'total': total
+                'uk': uk_percent,
+                'aus': aus_percent,
+                'total': total_percent
               })
             }, (error) => console.log(error), () => {
               this.sort('name');
@@ -85,6 +89,6 @@ export class GoingBeyondComplianceComponent implements OnInit {
   }
 
   openURL(url: string) {
-    window.open(url,"_blank")
+    window.open(url, "_blank")
   }
 }
