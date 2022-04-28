@@ -30,8 +30,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",
       "div#whistleblowing-mechanisms",
-      400,
-      320,
+      300,
       [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
       2722458,
       {
@@ -43,7 +42,8 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "color": 0,
             "seq": 1
           },
-          {"key": "(supply chain workers)", "label": "Supply chain workers", "color": 1, "seq": 2}
+          {"key": "(supply chain workers)", "label": "Supply chain workers", "color": 1, "seq": 2},
+          {"key": "", "label": "Direct employees", "color": 2, "seq": 3}
         ],
         "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
       },
@@ -63,7 +63,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "term": "Focal Point",
             "seq": 3
           },
-          {"title": "In Development", "term": "In Development", "seq": 4}
+          {"title": "None of the Above", "term": "No", "seq": 3}
         ],
         "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
       },
@@ -72,7 +72,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
       this.chartsService.drawBarChart(
         "Incidents Remediation",
         "div#incident-remediation",
-        400,
+        350,
         250,
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
         incidents_remediation,
