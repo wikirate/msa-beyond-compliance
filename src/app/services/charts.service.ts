@@ -227,7 +227,6 @@ export class ChartsService {
     title: string,
     element: string,
     width: number,
-    height: number,
     assessed_statements_metric_id: number[],
     metric: number,
     subgroups: any,
@@ -289,7 +288,6 @@ export class ChartsService {
     bars['description'] = title;
     bars['data'] = data
     bars['width'] = width
-    bars['height'] = height
     return embed(element, bars, options)
   }
 
