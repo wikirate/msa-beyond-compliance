@@ -8,7 +8,7 @@ import {DataProvider} from "../../services/data.provider";
   styleUrls: ['./further-findings.component.scss']
 })
 export class FurtherFindingsComponent implements OnInit {
-  year: number | string = 'latest'
+  year: number | string = ''
   percentage_of_companies_identified_incidents: number = 0;
   percentage_of_companies_report_policy_beyond_t1: number = 0;
   percentage_of_companies_identified_risks: number = 0;

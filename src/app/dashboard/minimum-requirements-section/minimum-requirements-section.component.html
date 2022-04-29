@@ -5,8 +5,9 @@
     </div>
     <div class="col-md-4">
       <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
-              style="max-width: 100px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
-        <option [ngValue]="'latest'" selected>latest</option>
+              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+        <option [ngValue]="''" selected>all years</option>
+        <option [ngValue]="'latest'">latest</option>
         <option [ngValue]="2021">2021</option>
         <option [ngValue]="2020">2020</option>
         <option [ngValue]="2019">2019</option>

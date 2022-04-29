@@ -11,7 +11,7 @@ import {delay} from "rxjs";
   styleUrls: ['./going-beyond-compliance.component.scss']
 })
 export class GoingBeyondComplianceComponent implements OnInit {
-  year: number | string = 'latest'
+  year: number | string = ''
   beyond_compliance_table_data: any[] = []
   active: string = 'name';
   isLoading: boolean = true;
@@ -29,18 +29,16 @@ export class GoingBeyondComplianceComponent implements OnInit {
     this.isLoading = true;
     this.dataProvider.getAnswers(
       this.dataProvider.metrics.uk_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes')]
-    ).subscribe(answers => {
-      let uk_msa_statements_assessed: any[] = []
-      for (let answer of answers) {
-        uk_msa_statements_assessed.push(answer["company"])
-      }
+    ).subscribe(uk_assessed => {
+      let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
+        return {company: a['company'], year: a['year']}
+      })
       this.dataProvider.getAnswers(
         this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes')]
-      ).subscribe(answers => {
-        let aus_msa_statements_assessed: any[] = []
-        for (let answer of answers) {
-          aus_msa_statements_assessed.push(answer["company"])
-        }
+      ).subscribe(aus_assessed => {
+        let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
+          return {company: a['company'], year: a['year']}
+        })
         let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
         for (let metric of beyond_compliance_metrics) {
           this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
@@ -49,15 +47,16 @@ export class GoingBeyondComplianceComponent implements OnInit {
               let aus_count = 0;
               let total = 0;
               for (let answer of answers) {
-                if (uk_msa_statements_assessed.includes(answer['company'])) {
-                  uk_count++;
-                }
-                if (aus_msa_statements_assessed.includes(answer['company'])) {
-                  aus_count++;
-                }
-                if (uk_msa_statements_assessed.includes(answer['company']) || aus_msa_statements_assessed.includes(answer['company'])) {
-                  total++;
-                }
+                let c1 = uk_msa_statements_assessed.find((i: { company: any; year: any; }) => {
+                  return i['company'] == answer['company'] && i['year'] == answer['year']
+                }) !== undefined;
+                let c2 = aus_msa_statements_assessed.find((i: { company: any; year: any; }) => {
+                  return i['company'] == answer['company'] && i['year'] == answer['year']
+                }) !== undefined;
+                if (c1) uk_count++;
+                if (c2) aus_count++;
+                if (c1 || c2) total++;
+
               }
               let uk_percent = Math.round(uk_count * 100 / uk_msa_statements_assessed.length)
               let aus_percent = Math.round(aus_count * 100 / aus_msa_statements_assessed.length)

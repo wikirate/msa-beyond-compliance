@@ -15,7 +15,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
   numOfAssessedMSAStatements!: number;
   meetsMinRequirements!: number;
 
-  year: number | string = 'latest'
+  year: number | string = ''
   legislation: string = 'both'
   isLoading: boolean = true;
 
@@ -52,8 +52,6 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
           })
         })
       })
-
-
     } else if (this.legislation === 'uk') {
       this.dataProvider.getAnswers(this.dataProvider.metrics.msa_registry_submission,
         [new Filter("year", this.year), new Filter('value', 'UK Registry Submission')]).subscribe(data => {
@@ -67,8 +65,6 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
           }, (error) => console.log(error), () => this.isLoading = false)
         })
       })
-
-
     } else {
       this.dataProvider.getAnswers(this.dataProvider.metrics.msa_registry_submission,
         [new Filter("year", this.year), new Filter('value', 'Australian Registry Submission')]).subscribe(data => {

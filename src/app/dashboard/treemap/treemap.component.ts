@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreemapComponent implements OnInit {
 
-  year: number | string = 'latest';
+  year: number | string = '';
   legislation: string = 'both';
 
   constructor() { }

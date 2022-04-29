@@ -13,7 +13,7 @@ import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-
   styleUrls: ['./minimum-requirements-section.component.scss']
 })
 export class MinimumRequirementsSectionComponent implements OnInit {
-  year: number | string = "latest"
+  year: number | string = ""
   isLoading: boolean = true;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
