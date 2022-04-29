@@ -13,7 +13,7 @@
       "value": {
         "orange": "#FF9300",
         "red": "#FE0000",
-        "blue": "#0037F1",
+        "blue": "#4169e1",
         "navy": "#000028",
         "yellow": "#FFDC00"
       }
@@ -352,10 +352,10 @@
       "type": "linear",
       "domain": [
         0,
-        2
+        3
       ],
       "range": {
-        "signal": "[colors.orange, colors.yellow, colors.navy]"
+        "signal": "[colors.orange, colors.yellow, colors.navy, colors.blue]"
       }
     }
   ],
