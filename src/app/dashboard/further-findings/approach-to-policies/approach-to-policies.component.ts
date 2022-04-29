@@ -2,6 +2,8 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {DataProvider} from "../../../services/data.provider";
 import {ChartsService} from "../../../services/charts.service";
 import {delay} from "rxjs";
+// @ts-ignore
+import modern_slavery_policies from "../../../../assets/charts-params/modern-slavery-policies.json";
 
 @Component({
   selector: 'approach-to-policies',
@@ -15,7 +17,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
 
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private chartsService:ChartsService) {
+  constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
   }
 
   ngOnInit(): void {
@@ -27,16 +29,18 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
 
   updateData() {
     this.isLoading = true;
-    this.chartsService.drawPieCustomChart(
+    this.chartsService.drawBarChart(
       "Modern Slavery Supply Chain Policies",
       "div#modern-slavery-supply-chain-policies",
+      350,
+      250,
       [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
-      2722057,
+      modern_slavery_policies,
       this.year,
-      250, 220,
-      ["#c7594b","#FF9300"],
-      ["direct","beyond tier 1"],
-      {renderer: "svg", actions: {source: false, editor: true}}).finally(() => this.isLoading = false)
+      {
+        renderer: "svg",
+        actions: {source: false, editor: true}
+      }).finally(() => this.isLoading = false)
 
   }
 }

@@ -3,6 +3,10 @@ import {DataProvider} from "../../../services/data.provider";
 import {ChartsService} from "../../../services/charts.service";
 // @ts-ignore
 import incidents_remediation from "../../../../assets/charts-params/incidents-remediation.json";
+// @ts-ignore
+import modern_slavery_training from "../../../../assets/charts-params/modern-slavery-training.json";
+import {Filter} from "../../../models/filter.model";
+
 
 @Component({
   selector: 'approach-to-incidents',
@@ -27,6 +31,8 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   }
 
   updateData() {
+
+    this.isLoading = true;
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",
       "div#whistleblowing-mechanisms",
@@ -54,11 +60,11 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "title": "Whistleblower protection",
             "term": "Whistleblower protection",
             "seq": 1
-          },{
+          }, {
             "title": "Hotline, Email, Contact Form",
             "term": "Hotline",
             "seq": 2
-          },{
+          }, {
             "title": "Focal Point",
             "term": "Focal Point",
             "seq": 3
@@ -77,7 +83,19 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
         incidents_remediation,
         this.year,
-        {renderer: "svg", actions: {source: false, editor: true}}).finally(() => this.isLoading = false)
+        {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+        this.chartsService.drawBarChart(
+          "Modern Slavery Training",
+          "div#training",
+          350,
+          350,
+          [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
+          modern_slavery_training,
+          this.year,
+          {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+          this.isLoading = false
+        })
+      })
     })
   }
 

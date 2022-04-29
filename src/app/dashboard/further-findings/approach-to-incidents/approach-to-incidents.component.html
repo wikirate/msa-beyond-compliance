@@ -8,6 +8,18 @@
 <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
   <div class="col-md-6">
     <div class="row">
+      <h5>MODERN SLAVERY TRAINING</h5>
+      <p>provided to increase chances of staff identifying incidents and avoiding practices that increase chances of
+        incidents occuring
+      </p>
+    </div>
+    <div class="row text-center pt-2">
+      <div id="training" class="chart-wrapper">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
       <h5>GRIEVANCE MECHANISMS</h5>
       <p>provided to increase likelihood of incidents being reported</p>
     </div>
@@ -16,8 +28,10 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row justify-content-md-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
   <div class="col-md-6">
-    <div class="row">
+    <div class="row text-md-center">
       <h5>REMEDIATION STRATEGY</h5>
       <p>deployed when specific incidents are identified</p>
     </div>
