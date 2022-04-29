@@ -1,0 +1,49 @@
+[
+  {
+    "seq": 1,
+    "id": 12616892,
+    "metric": "Walk Free+MSA policy (grouped)",
+    "label": "Direct supply chain",
+    "short_label": "direct_supply_chain",
+    "color": 0,
+    "filter_value": [
+      "Direct Supply Chain",
+      "Both"
+    ]
+  },
+  {
+    "seq": 2,
+    "id": 12616892,
+    "metric": "Walk Free+MSA policy (grouped)",
+    "label": "Beyond tier 1 supply chain",
+    "short_label": "beyond_t1",
+    "color": 0,
+    "filter_value": [
+      "Beyond Tier 1 Supply Chain",
+      "Both"
+    ]
+  },
+  {
+    "seq": 3,
+    "id": 12616892,
+    "metric": "Walk Free+MSA policy (grouped)",
+    "label": "Both",
+    "short_label": "both",
+    "color": 3,
+    "filter_value": [
+      "Both"
+    ]
+  },
+  {
+    "seq": 4,
+    "id": 12616892,
+    "metric": "Walk Free+MSA policy (grouped)",
+    "label": "None of the above",
+    "short_label": "none_of_the_above",
+    "color": 1,
+    "filter_value": [
+      "Neither",
+      "Unknown"
+    ]
+  }
+]
