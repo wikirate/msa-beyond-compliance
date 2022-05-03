@@ -11,9 +11,10 @@
         <option [ngValue]="2021">2021</option>
         <option [ngValue]="2020">2020</option>
         <option [ngValue]="2019">2019</option>
-        <!--        <option value="2018">2018</option>-->
-        <!--        <option value="2017">2017</option>-->
-        <!--        <option value="2016">2016</option>-->
+        <option [ngValue]="2018">2018</option>
+        <option [ngValue]="2017">2017</option>
+        <option [ngValue]="2016">2016</option>
+        <option [ngValue]="2015">2015</option>
       </select>
     </div>
     <div class="row">
@@ -58,9 +59,9 @@
         <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
           <td class="col-6 text-end bg-neutral-blue"><a class="metric" href="{{row['url']}}"
                                                         target="_blank">{{row['name']}}</a></td>
-          <td class="col-2 clickable text-center bg-deep-blue" (click)="openURL(row['url'])">{{row['total']}}%</td>
-          <td class="col-2 clickable text-center {{row['uk_color']}}" (click)="openURL(row['url'])">{{row['uk']}}%</td>
-          <td class="col-2 clickable text-center {{row['aus_color']}}" (click)="openURL(row['url'])">{{row['aus']}}%</td>
+          <td class="col-2 clickable text-center bg-deep-blue" (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
+          <td class="col-2 clickable text-center {{row['uk_color']}}" (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
+          <td class="col-2 clickable text-center {{row['aus_color']}}" (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
         </tr>
         </tbody>
       </table>

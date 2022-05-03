@@ -12,9 +12,10 @@
           <option [ngValue]="2021">2021</option>
           <option [ngValue]="2020">2020</option>
           <option [ngValue]="2019">2019</option>
-          <!--        <option [ngValue]="2018">2018</option>-->
-          <!--        <option [ngValue]="2017">2017</option>-->
-          <!--        <option [ngValue]="2016">2016</option>-->
+          <option [ngValue]="2018">2018</option>
+          <option [ngValue]="2017">2017</option>
+          <option [ngValue]="2016">2016</option>
+          <option [ngValue]="2015">2015</option>
         </select>
         <select class="msa-form-select bg-neutral-grey" aria-label="Default select example"
                 [(ngModel)]="legislation" (change)="updateData()">
@@ -25,7 +26,7 @@
       </div>
     </div>
   </div>
-<!--  <hr class="deep-blue">-->
+  <!--  <hr class="deep-blue">-->
   <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
     <div class="col-12 text-center align-self-center">
       <div class="spinner-grow text-warning" role="status">
@@ -61,7 +62,7 @@
     <div class="col-md-6">
       <div class="row">
         <div class="msa-primary-info">
-          15%
+          {{go_beyond_compliance}}%
         </div>
       </div>
       <div class="row">

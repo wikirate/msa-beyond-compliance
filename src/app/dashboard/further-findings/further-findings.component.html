@@ -11,9 +11,10 @@
         <option [ngValue]="2021">2021</option>
         <option [ngValue]="2020">2020</option>
         <option [ngValue]="2019">2019</option>
-        <!--        <option value="2018">2018</option>-->
-        <!--        <option value="2017">2017</option>-->
-        <!--        <option value="2016">2016</option>-->
+        <option [ngValue]="2018">2018</option>
+        <option [ngValue]="2017">2017</option>
+        <option [ngValue]="2016">2016</option>
+        <option [ngValue]="2015">2015</option>
       </select>
     </div>
   </div>
@@ -66,7 +67,7 @@
           <div id="approach-to-policies" class="accordion-collapse collapse" aria-labelledby="approachToPoliciesTitle"
                data-bs-parent="#approach_to_policies">
             <div class="accordion-body">
-              <approach-to-policies [year]="this.year"></approach-to-policies>
+              <approach-to-policies [year]="this.year" [sector]="this.sector"></approach-to-policies>
             </div>
           </div>
         </div>
@@ -84,7 +85,7 @@
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                data-bs-parent="#approach_to_risks_accordion">
             <div class="accordion-body">
-              <approach-to-risks [year]="this.year"></approach-to-risks>
+              <approach-to-risks [year]="this.year" [sector]="this.sector"></approach-to-risks>
             </div>
           </div>
         </div>
@@ -104,7 +105,7 @@
           <div id="collapseApproachToIncidents" class="accordion-collapse collapse"
                aria-labelledby="headingApproachToIncidents" data-bs-parent="#approach_to_incidents">
             <div class="accordion-body">
-              <approach-to-incidents [year]="this.year"></approach-to-incidents>
+              <approach-to-incidents [year]="this.year" [sector]="this.sector"></approach-to-incidents>
             </div>
           </div>
         </div>
