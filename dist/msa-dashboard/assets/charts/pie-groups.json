@@ -129,7 +129,7 @@
         },
         {
           "type": "formula",
-          "expr": "datum.count + ' out of ' + datum.sum_count + ' companies'",
+          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
           "as": "count_label"
         },
         {
