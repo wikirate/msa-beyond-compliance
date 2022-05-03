@@ -26,6 +26,7 @@ import { ApproachToRisksComponent } from './dashboard/further-findings/approach-
 import { ApproachToIncidentsComponent } from './dashboard/further-findings/approach-to-incidents/approach-to-incidents.component';
 import { ApproachToPoliciesComponent } from './dashboard/further-findings/approach-to-policies/approach-to-policies.component';
 import { TreemapComponent } from './dashboard/treemap/treemap.component';
+import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TreemapComponent } from './dashboard/treemap/treemap.component';
     KeyFindingsSectionComponent,
     MinimumRequirementsSectionComponent,
     NumFormatPipe,
+    PercentageFormatPipe,
     GoingBeyondComplianceComponent,
     FurtherFindingsComponent,
     ApproachToRisksComponent,
