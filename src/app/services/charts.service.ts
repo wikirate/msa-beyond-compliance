@@ -24,7 +24,6 @@ export class ChartsService {
                domain: string[],
                options: {}) {
     var pie = JSON.parse(JSON.stringify(pieChart))
-    let transform = pie["data"][0]["transform"]
     pie["description"] = title
     pie["data"][0]["values"] = values
     pie["width"] = width
@@ -38,7 +37,7 @@ export class ChartsService {
                      element: string,
                      assessed_statements_metric_id: number[],
                      metric: number,
-                     year:number | string,
+                     year: number | string,
                      width: number,
                      height: number,
                      colors: string[],
@@ -59,12 +58,12 @@ export class ChartsService {
         "as": ["assessed"]
       },
         {
-          "type":"filter",
-          "expr":"datum.assessed === 'Yes'"
+          "type": "filter",
+          "expr": "datum.assessed === 'Yes'"
         },
         {
-          "type":"formula",
-          "as":"value",
+          "type": "formula",
+          "as": "value",
           "expr": "test(/beyond tier 1/, datum.value)? 'beyond tier 1': 'direct'"
         }]
     })
@@ -109,12 +108,14 @@ export class ChartsService {
     assessed_statements_metric_id: number,
     metrics: [],
     year: number | string,
+    company_group: string,
     options: {}) {
     let bars = JSON.parse(JSON.stringify(barChart))
     let data: any[] = []
     data.push({
-      name: 'assessed',
-      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+      "name": 'assessed',
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "transform": [{"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"}]
     })
     let short_labels: any[] = []
     for (let metric of metrics) {
@@ -127,13 +128,14 @@ export class ChartsService {
       str_array = str_array.substring(0, str_array.length - 1) + ']'
       data.push({
         name: metric['short_label'],
-        "url": `${this.wikirateApiHost}/~${metric['id']}+answer/answer_list.json?limit=0&filter[year]=${year}`,
+        "url": `${this.wikirateApiHost}/~${metric['id']}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
         "transform": [
+          {"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"},
           {
             "type": "lookup",
             "from": "assessed",
-            "key": "company",
-            "fields": ["company"],
+            "key": "key",
+            "fields": ["key"],
             "values": ["value"],
             "as": ["assessed"]
           },
@@ -205,7 +207,7 @@ export class ChartsService {
         },
         {
           "type": "formula",
-          "expr": "datum.count + ' out of ' + datum.sum_count + ' companies'",
+          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
           "as": "count_label"
         },
         {
@@ -232,22 +234,35 @@ export class ChartsService {
     subgroups: any,
     groups: any,
     year: number | string,
+    company_group: string,
     options: {}) {
     let bars = JSON.parse(JSON.stringify(groupedBarsChart))
     let data: any[] = []
     data.push({
-      name: 'uk_assessed',
-      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+      "name": 'uk_assessed',
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        }
+      ]
     })
     data.push({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
       "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
         {
           "type": "lookup",
           "from": "uk_assessed",
-          "key": "company",
-          "fields": ["company"],
+          "key": "key",
+          "fields": ["key"],
           "values": ["value"],
           "as": ["uk_assessed"]
         },
@@ -260,13 +275,18 @@ export class ChartsService {
     })
     data.push({
       "name": "answers",
-      "url": `${this.wikirateApiHost}/~${metric}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "url": `${this.wikirateApiHost}/~${metric}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
       "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
         {
           "type": "lookup",
           "from": "assessed",
-          "key": "company",
-          "fields": ["company"],
+          "key": "key",
+          "fields": ["key"],
           "values": ["value"],
           "as": ["assessed"]
         },
@@ -299,22 +319,35 @@ export class ChartsService {
     assessed_statements_metric_id: number[],
     metrics: [],
     year: number | string,
+    company_group: string,
     options: {}) {
     let bars = JSON.parse(JSON.stringify(barChart))
     let data: any[] = []
     data.push({
-      name: 'uk_assessed',
-      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+      "name": 'uk_assessed',
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        }
+      ]
     })
     data.push({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
       "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
         {
           "type": "lookup",
           "from": "uk_assessed",
-          "key": "company",
-          "fields": ["company"],
+          "key": "key",
+          "fields": ["key"],
           "values": ["value"],
           "as": ["uk_assessed"]
         },
@@ -324,6 +357,12 @@ export class ChartsService {
           "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
         }
       ]
+    })
+
+    data.push({
+      "name": "answers",
+      // @ts-ignore
+      "url": `${this.wikirateApiHost}/~${metrics[0]['id']}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
     })
     let short_labels: any[] = []
     for (let metric of metrics) {
@@ -336,13 +375,18 @@ export class ChartsService {
       str_array = str_array.substring(0, str_array.length - 1) + ']'
       data.push({
         name: metric['short_label'],
-        "url": `${this.wikirateApiHost}/~${metric['id']}+answer/answer_list.json?limit=0&filter[year]=${year}`,
+        "source": ["answers"],
         "transform": [
+          {
+            "type": "formula",
+            "as": "key",
+            "expr": "datum.company + ',' + datum.year"
+          },
           {
             "type": "lookup",
             "from": "assessed",
-            "key": "company",
-            "fields": ["company"],
+            "key": "key",
+            "fields": ["key"],
             "values": ["value"],
             "as": ["assessed"]
           },
@@ -414,7 +458,7 @@ export class ChartsService {
         },
         {
           "type": "formula",
-          "expr": "datum.count + ' out of ' + datum.sum_count + ' companies'",
+          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
           "as": "count_label"
         },
         {
@@ -459,11 +503,16 @@ export class ChartsService {
       "url": `${this.wikirateApiHost}/~${metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
       "transform": [
         {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
+        {
           "type": "lookup",
           "from": "assessed",
-          "key": "company",
+          "key": "key",
           "fields": [
-            "company"
+            "key"
           ],
           "values": [
             "value"
@@ -484,10 +533,15 @@ export class ChartsService {
       "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
       "transform": [
         {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
+        {
           "type": "lookup",
           "from": "uk_assessed",
-          "key": "company",
-          "fields": ["company"],
+          "key": "key",
+          "fields": ["key"],
           "values": ["value"],
           "as": ["uk_assessed"]
         },
@@ -499,8 +553,15 @@ export class ChartsService {
       ]
     })
     pie["data"].unshift({
-      name: 'uk_assessed',
-      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+      "name": 'uk_assessed',
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        }
+      ]
     })
     pie["width"] = width
     pie["height"] = height
