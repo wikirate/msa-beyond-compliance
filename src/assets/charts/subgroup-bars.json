@@ -120,7 +120,7 @@
         {"type": "collect", "sort": {"field": ["group_seq", "subgroup_seq"]}},
         {
           "type": "formula",
-          "expr": "datum.count + ' out of ' + totalAnswers + ' compannies'",
+          "expr": "datum.count + ' out of ' + totalAnswers + ' statements'",
           "as": "count_label"
         },
         {
