@@ -16,6 +16,8 @@ import {Filter} from "../../../models/filter.model";
 export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   @Input()
   year!: number | string;
+  @Input()
+  sector !: string;
 
   isLoading: boolean = true;
 
@@ -31,7 +33,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   }
 
   updateData() {
-
+    let company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true;
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",
@@ -74,6 +76,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
       },
       this.year,
+      company_group,
       {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
       this.chartsService.drawBarChart(
         "Incidents Remediation",
@@ -83,6 +86,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
         incidents_remediation,
         this.year,
+        company_group,
         {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
         this.chartsService.drawBarChart(
           "Modern Slavery Training",
@@ -92,6 +96,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
           [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
           modern_slavery_training,
           this.year,
+          company_group,
           {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
           this.isLoading = false
         })

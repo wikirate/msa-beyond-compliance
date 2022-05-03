@@ -16,6 +16,8 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   isLoading: boolean = true;
   @Input()
   year!: number | string;
+  @Input()
+  sector !: string;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
   }
@@ -28,6 +30,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   }
 
   updateData() {
+    let company_group = this.dataProvider.getCompanyGroup(this.sector);
     this.isLoading = true;
     this.chartsService.drawBarChart(
       "Risk Assessment",
@@ -37,6 +40,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
       [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
       risk_assessment,
       this.year,
+      company_group,
       {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
       this.chartsService.drawBarChart(
         "Risks identified by risk category",
@@ -46,6 +50,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
         risk_identification,
         this.year,
+        company_group,
         {
           renderer: "svg",
           actions: {source: false, editor: true}
@@ -82,6 +87,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
           "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
         },
         this.year,
+        company_group,
         {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.isLoading = false
         //   this.chartsService.drawPieChartGroups(
         //   "RISK ASSESSMENT TOOL & RISKS IDENTIFIED",
