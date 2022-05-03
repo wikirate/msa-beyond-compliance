@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
     this.sectorProvider.getSector().subscribe(sector => {
       if (sector === "all-sectors" && sector !== this.selectedSector) {
         this.selectedSector = "All Sectors"
-      } else if (sector === "garments-sector" && sector !== this.selectedSector) {
-        this.selectedSector = "Garments"
-      } else if (sector === "asset-managers-sector" && sector !== this.selectedSector) {
-        this.selectedSector = "Asset Managers"
+      } else if (sector === "garment-sector" && sector !== this.selectedSector) {
+        this.selectedSector = "Garment"
+      } else if (sector === "financial-sector" && sector !== this.selectedSector) {
+        this.selectedSector = "Financial"
       } else if (sector === "hospitality-sector" && sector !== this.selectedSector) {
         this.selectedSector = "Hospitality"
       }
