@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'treemap',
@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./treemap.component.scss']
 })
 export class TreemapComponent implements OnInit {
-
+  @Input()
+  sector!: string;
   year: number | string = '';
   legislation: string = 'both';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
