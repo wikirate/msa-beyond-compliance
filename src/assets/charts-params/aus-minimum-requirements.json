@@ -26,13 +26,13 @@
   },
   {
     "seq": 3,
-    "id": 12536930,
-    "metric": "Walk_Free+MSA_registry_submission",
+    "id": 12621116,
+    "metric": "Walk_Free+Australian_MSA_Registry_Submission",
     "label": "Registry Submission",
     "short_label": "registry_submission",
     "color": 0,
     "filter_value": [
-      "Australian Registry submission"
+      "Yes"
     ]
   },
   {
