@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
@@ -10,7 +10,9 @@ import {delay} from "rxjs";
   templateUrl: './going-beyond-compliance.component.html',
   styleUrls: ['./going-beyond-compliance.component.scss']
 })
-export class GoingBeyondComplianceComponent implements OnInit {
+export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
+  @Input()
+  sector !: string;
   year: number | string = ''
   beyond_compliance_table_data: any[] = []
   active: string = 'name';
@@ -20,21 +22,26 @@ export class GoingBeyondComplianceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateData()
   }
 
   updateData() {
     this.active = "name"
     this.beyond_compliance_table_data = []
     this.isLoading = true;
+    let company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.dataProvider.getAnswers(
-      this.dataProvider.metrics.uk_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes')]
+      this.dataProvider.metrics.uk_msa_statement_assessed, [
+        new Filter("year", this.year),
+        new Filter('value', 'Yes'),
+        new Filter("company_group", company_group)
+      ]
     ).subscribe(uk_assessed => {
       let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
         return {company: a['company'], year: a['year']}
       })
       this.dataProvider.getAnswers(
-        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes')]
+        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes'),
+          new Filter("company_group", company_group)]
       ).subscribe(aus_assessed => {
         let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
           return {company: a['company'], year: a['year']}
@@ -65,15 +72,27 @@ export class GoingBeyondComplianceComponent implements OnInit {
               for (let value of metric['filter_value']) {
                 filter_value += 'filter[value][]=' + value + '&'
               }
-              this.beyond_compliance_table_data.push({
-                'name': metric['label'],
-                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
-                'uk': uk_percent,
-                'aus': aus_percent,
-                'total': total_percent,
-                'aus_color': metric['aus_color'],
-                'uk_color': metric['uk_color']
-              })
+              if (metric['label'] == "Consultation Process") {
+                this.beyond_compliance_table_data.push({
+                  'name': metric['label'],
+                  'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                  'uk': "N/A",
+                  'aus': aus_percent,
+                  'total': "N/A",
+                  'aus_color': metric['aus_color'],
+                  'uk_color': metric['uk_color']
+                })
+              } else {
+                this.beyond_compliance_table_data.push({
+                  'name': metric['label'],
+                  'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                  'uk': uk_percent,
+                  'aus': aus_percent,
+                  'total': total_percent,
+                  'aus_color': metric['aus_color'],
+                  'uk_color': metric['uk_color']
+                })
+              }
             }, (error) => console.log(error), () => {
               this.sort('total');
               this.isLoading = false
@@ -84,12 +103,18 @@ export class GoingBeyondComplianceComponent implements OnInit {
   }
 
   sort(column: string) {
-    this.beyond_compliance_table_data.sort((a, b) => a[column] > b[column] ? -1 : 0)
+    this.beyond_compliance_table_data.sort((a, b) => {
+      if (b[column] == "N/A") return -1
+      return a[column] > b[column] ? -1 : 0})
     this.active = column
 
   }
 
   openURL(url: string) {
     window.open(url, "_blank")
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.updateData()
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 import {ChartsService} from "../../services/charts.service";
@@ -12,7 +12,9 @@ import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-
   templateUrl: './minimum-requirements-section.component.html',
   styleUrls: ['./minimum-requirements-section.component.scss']
 })
-export class MinimumRequirementsSectionComponent implements OnInit {
+export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
+  @Input()
+  sector !: string;
   year: number | string = ""
   isLoading: boolean = true;
 
@@ -20,22 +22,22 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateData()
   }
 
   updateData() {
+    let company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true;
     this.draw_minimum_requirements_pie_chart(
       "Meet Minimun UK Requirements",
       "div#uk-meet-min-requirements",
       this.dataProvider.metrics.uk_msa_statement_assessed,
-      this.dataProvider.metrics.meet_uk_min_requirements)
+      this.dataProvider.metrics.meet_uk_min_requirements, company_group)
 
     this.draw_minimum_requirements_pie_chart(
       "Meet Minimun Australian Requirements",
       "div#aus-meet-min-requirements",
       this.dataProvider.metrics.aus_msa_statement_assessed,
-      this.dataProvider.metrics.meet_aus_min_requirements)
+      this.dataProvider.metrics.meet_aus_min_requirements, company_group)
 
     this.chartsService.drawMinimumRequirementsBarChart(
       "Which minimum uk requirements do these companies meet?",
@@ -45,7 +47,8 @@ export class MinimumRequirementsSectionComponent implements OnInit {
       this.dataProvider.metrics.uk_msa_statement_assessed,
       uk_minimum_requirements,
       this.year,
-      {renderer: "svg", actions: {source: false, editor: false}})
+      company_group,
+      {renderer: "svg", actions: {source: false, editor: true}})
     this.chartsService.drawMinimumRequirementsBarChart(
       "Which minimum aus requirements do these companies meet?",
       "div#aus-requirements-bars",
@@ -53,15 +56,18 @@ export class MinimumRequirementsSectionComponent implements OnInit {
       this.dataProvider.metrics.aus_msa_statement_assessed,
       aus_minimum_requirements,
       this.year,
-      {renderer: "svg", actions: {source: false, editor: false}})
+      company_group,
+      {renderer: "svg", actions: {source: false, editor: true}})
   }
 
-  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number) {
+  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group:string) {
     this.dataProvider.getAnswers(assessed_statements_metric_id,
-      [new Filter("year", this.year), new Filter("value", "Yes")]).subscribe(data => {
+      [new Filter("year", this.year), new Filter("value", "Yes"),
+        new Filter("company_group",company_group)]).subscribe(data => {
       let assessed = data.length
       this.dataProvider.getAnswers(meet_min_requirements_metric_id,
-        [new Filter("year", this.year), new Filter("value", "Yes")]).subscribe(data => {
+        [new Filter("year", this.year), new Filter("value", "Yes"),
+          new Filter("company_group",company_group)]).subscribe(data => {
         let meet_min_requirements = data.length
         this.chartsService.drawPieChart(
           title,
@@ -80,6 +86,10 @@ export class MinimumRequirementsSectionComponent implements OnInit {
           ["Not Met", "Met"], {renderer: "svg", actions: {source: false, editor: false}})
       }, error => console.log(error), () => this.isLoading = false)
     })
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.updateData()
   }
 
 }
