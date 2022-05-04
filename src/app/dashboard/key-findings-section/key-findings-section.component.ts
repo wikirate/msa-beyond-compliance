@@ -56,7 +56,10 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
                 this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
                   [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
                   beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                    return assessed.findIndex((a: any) => {return a.company == item.company && a.year == item.year}) >= 0})
+                    return assessed.findIndex((a: any) => {
+                      return a.company == item.company && a.year == item.year
+                    }) >= 0
+                  })
                   this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
                 }, (error) => console.log(error), () => this.isLoading = false)
               })
@@ -77,13 +80,20 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
             this.dataProvider.getAnswers(this.dataProvider.metrics.uk_beyond_compliance_disclosure_rate,
               [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
               beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                return assessed.findIndex((a: any) => {return a.company == item.company && a.year == item.year}) >= 0})
+                return assessed.findIndex((a: any) => {
+                  return a.company == item.company && a.year == item.year
+                }) >= 0
+              })
               this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
             }, (error) => console.log(error), () => this.isLoading = false)
           })
         })
       })
     } else {
+      // console.log(this.year)
+      // if (this.year!=='' && this.year !== 'latest' && Number(this.year) < 2020) {
+      //   this.year = 2020
+      // }
       this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
         [new Filter("year", this.year), new Filter("value", ["Yes - Australian Modern Slavery Act"]), new Filter("company_group", company_group)]).subscribe(data => {
         this.numOfCompaniesUnderMSA = data.length
@@ -96,7 +106,10 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
             this.dataProvider.getAnswers(this.dataProvider.metrics.aus_beyond_compliance_disclosure_rate,
               [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
               beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                return assessed.findIndex((a: any) => {return a.company == item.company && a.year == item.year}) >= 0})
+                return assessed.findIndex((a: any) => {
+                  return a.company == item.company && a.year == item.year
+                }) >= 0
+              })
               this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
             }, (error) => console.log(error), () => this.isLoading = false)
           })

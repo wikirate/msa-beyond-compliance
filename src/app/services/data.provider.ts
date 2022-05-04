@@ -16,7 +16,8 @@ export class DataProvider {
     meet_aus_min_requirements: 12601871,
     aus_beyond_compliance_disclosure_rate: 12620676,
     uk_beyond_compliance_disclosure_rate: 6899063,
-    msa_beyond_compliance: 12620974
+    msa_beyond_compliance: 12620974,
+    msa_disclosure_rate: 12602527
   }
 
   constructor(private httpClient: HttpClient) {
@@ -30,11 +31,10 @@ export class DataProvider {
         for (let single_value of filter.value) {
           params = params.append("filter[" + filter.name + "][]", single_value)
         }
-      }else if (filter.value instanceof ValueRange){
+      } else if (filter.value instanceof ValueRange) {
         params = params.append("filter[" + filter.name + "][from]", filter.value.from)
         params = params.append("filter[" + filter.name + "][to]", filter.value.to)
-      }
-      else {
+      } else {
         params = params.append("filter[" + filter.name + "]", filter.value)
       }
     }
@@ -43,14 +43,14 @@ export class DataProvider {
     return this.httpClient.get<any>(url, {params: params})
   }
 
-  getCompanyGroup(sector: string | null){
+  getCompanyGroup(sector: string | null) {
     if (sector === 'garment-sector') {
       return "MSA Garments"
     } else if (sector === 'hospitality-sector') {
       return "MSA Hospitality"
     } else if (sector === 'financial-sector') {
       return "MSA Financial"
-    }else{
+    } else {
       return ""
     }
 
