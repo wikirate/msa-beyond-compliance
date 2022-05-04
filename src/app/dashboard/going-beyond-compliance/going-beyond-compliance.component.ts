@@ -3,7 +3,6 @@ import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
-import {delay} from "rxjs";
 
 @Component({
   selector: 'going-beyond-compliance',
@@ -17,14 +16,19 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
   beyond_compliance_table_data: any[] = []
   active: string = 'name';
   isLoading: boolean = true;
+  garment_avg_disclosure_rate: number = 0;
+  financial_avg_disclosure_rate: number = 0;
+  hospitality_avg_disclosure_rate: number = 0;
+  areDisclosureRatesLoading: boolean = true;
 
   constructor(private dataProvider: DataProvider) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.updateDisclosureRates()
   }
 
-  updateData() {
+  updateBeyondComplianceTable() {
     this.active = "name"
     this.beyond_compliance_table_data = []
     this.isLoading = true;
@@ -47,6 +51,8 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
           return {company: a['company'], year: a['year']}
         })
         let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
+        total_assessed = total_assessed.filter((arr, index, self) =>
+          index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
         for (let metric of beyond_compliance_metrics) {
           this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
             .subscribe(answers => {
@@ -93,11 +99,12 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
                   'uk_color': metric['uk_color']
                 })
               }
-            }, (error) => console.log(error), () => {
-              this.sort('total');
-              this.isLoading = false
             })
         }
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 1000)
+
       })
     })
   }
@@ -105,7 +112,8 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
   sort(column: string) {
     this.beyond_compliance_table_data.sort((a, b) => {
       if (b[column] == "N/A") return -1
-      return a[column] > b[column] ? -1 : 0})
+      return a[column] > b[column] ? -1 : 0
+    })
     this.active = column
 
   }
@@ -114,7 +122,131 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
     window.open(url, "_blank")
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.updateData()
+  ngOnChanges(changes: SimpleChanges) {
+    this.updateBeyondComplianceTable()
+  }
+
+  updateDisclosureRates() {
+    this.areDisclosureRatesLoading = true;
+    this.dataProvider.getAnswers(
+      this.dataProvider.metrics.uk_msa_statement_assessed, [
+        new Filter("year", this.year),
+        new Filter('value', 'Yes'),
+        new Filter("company_group", "MSA Garment")
+      ]
+    ).subscribe(uk_assessed => {
+      let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
+        return {company: a['company'], year: a['year']}
+      })
+      this.dataProvider.getAnswers(
+        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes'),
+          new Filter("company_group", "MSA Garment")]
+      ).subscribe(aus_assessed => {
+        let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
+          return {company: a['company'], year: a['year']}
+        })
+        let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
+        total_assessed = total_assessed.filter((arr, index, self) =>
+          index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
+        this.dataProvider.getAnswers(
+          this.dataProvider.metrics.msa_disclosure_rate, [
+            new Filter("year", this.year),
+            new Filter("company_group", "MSA Garment")
+          ]
+        ).subscribe(disclosure_rates => {
+          this.garment_avg_disclosure_rate = 0;
+          for (let answer of disclosure_rates) {
+            if (total_assessed.find((item: { company: any; year: any; }) => {
+              return item['company'] == answer['company'] && item['year'] == answer['year']
+            }) !== undefined) {
+              this.garment_avg_disclosure_rate += Number(answer['value']);
+            }
+          }
+          this.garment_avg_disclosure_rate = Math.round(this.garment_avg_disclosure_rate / total_assessed.length)
+          this.dataProvider.getAnswers(
+            this.dataProvider.metrics.uk_msa_statement_assessed, [
+              new Filter("year", this.year),
+              new Filter('value', 'Yes'),
+              new Filter("company_group", "MSA Financial")
+            ]
+          ).subscribe(uk_assessed => {
+            let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
+              return {company: a['company'], year: a['year']}
+            })
+            this.dataProvider.getAnswers(
+              this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes'),
+                new Filter("company_group", "MSA Financial")]
+            ).subscribe(aus_assessed => {
+              let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
+                return {company: a['company'], year: a['year']}
+              })
+              let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
+              total_assessed = total_assessed.filter((arr, index, self) =>
+                index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
+              this.dataProvider.getAnswers(
+                this.dataProvider.metrics.msa_disclosure_rate, [
+                  new Filter("year", this.year),
+                  new Filter("company_group", "MSA Financial")
+                ]
+              ).subscribe(disclosure_rates => {
+                this.financial_avg_disclosure_rate = 0;
+                for (let answer of disclosure_rates) {
+                  if (total_assessed.find((item: { company: any; year: any; }) => {
+                    return item['company'] == answer['company'] && item['year'] == answer['year']
+                  }) !== undefined) {
+                    this.financial_avg_disclosure_rate += Number(answer['value']);
+                  }
+                }
+                this.financial_avg_disclosure_rate = Math.round(this.financial_avg_disclosure_rate / total_assessed.length)
+              })
+            })
+          })
+          this.dataProvider.getAnswers(
+            this.dataProvider.metrics.uk_msa_statement_assessed, [
+              new Filter("year", this.year),
+              new Filter('value', 'Yes'),
+              new Filter("company_group", "MSA Hospitality")
+            ]
+          ).subscribe(uk_assessed => {
+            let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
+              return {company: a['company'], year: a['year']}
+            })
+            this.dataProvider.getAnswers(
+              this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes'),
+                new Filter("company_group", "MSA Hospitality")]
+            ).subscribe(aus_assessed => {
+              let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
+                return {company: a['company'], year: a['year']}
+              })
+              let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
+              total_assessed = total_assessed.filter((arr, index, self) =>
+                index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
+              this.dataProvider.getAnswers(
+                this.dataProvider.metrics.msa_disclosure_rate, [
+                  new Filter("year", this.year),
+                  new Filter("company_group", "MSA Hospitality")
+                ]
+              ).subscribe(disclosure_rates => {
+                this.hospitality_avg_disclosure_rate = 0;
+                for (let answer of disclosure_rates) {
+                  if (total_assessed.find((item: { company: any; year: any; }) => {
+                    return item['company'] == answer['company'] && item['year'] == answer['year']
+                  }) !== undefined) {
+                    this.hospitality_avg_disclosure_rate += Number(answer['value']);
+                  }
+                }
+                this.hospitality_avg_disclosure_rate = Math.round(this.hospitality_avg_disclosure_rate / total_assessed.length)
+              }, (error) => console.log(error), () => this.areDisclosureRatesLoading = false)
+            })
+          })
+        })
+
+      })
+    })
+  }
+
+  onYearChange() {
+    this.updateBeyondComplianceTable();
+    this.updateDisclosureRates();
   }
 }

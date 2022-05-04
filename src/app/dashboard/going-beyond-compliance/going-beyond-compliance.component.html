@@ -5,9 +5,9 @@
     </div>
     <div class="col-md-4">
       <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
-              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="onYearChange()">
         <option [ngValue]="''" selected>all years</option>
-        <option [ngValue]="'latest'" selected>latest</option>
+        <option [ngValue]="'latest'">latest</option>
         <option [ngValue]="2021">2021</option>
         <option [ngValue]="2020">2020</option>
         <option [ngValue]="2019">2019</option>
@@ -19,8 +19,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p>Beyond minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions companies
-        should take to ensure their operations and supply chains are free from exploitation.</p>
+        <p>Beyond minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions
+          companies
+          should take to ensure their operations and supply chains are free from exploitation.</p>
       </div>
 
     </div>
@@ -28,7 +29,7 @@
   <!--  <div class="row">-->
   <!--    <p>Are companies compliant with the minimum requirements under the UK or Australian Slavery Act?</p>-->
   <!--  </div>-->
-<!--  <hr class="deep-blue no-margin">-->
+  <!--  <hr class="deep-blue no-margin">-->
   <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
     <div class="col-12 text-center align-self-center">
       <div class="spinner-grow text-warning" role="status">
@@ -59,9 +60,12 @@
         <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
           <td class="col-6 text-end bg-neutral-blue"><a class="metric" href="{{row['url']}}"
                                                         target="_blank">{{row['name']}}</a></td>
-          <td class="col-2 clickable text-center bg-deep-blue" (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
-          <td class="col-2 clickable text-center {{row['uk_color']}}" (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
-          <td class="col-2 clickable text-center {{row['aus_color']}}" (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
+          <td class="col-2 clickable text-center bg-deep-blue"
+              (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
+          <td class="col-2 clickable text-center {{row['uk_color']}}"
+              (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
+          <td class="col-2 clickable text-center {{row['aus_color']}}"
+              (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
         </tr>
         </tbody>
       </table>
@@ -73,38 +77,50 @@
       <p>Average number of measures and actions reported by companies in their modern slavery statements.</p>
     </div>
   </div>
-<!--  <hr class="deep-blue no-margin">-->
-  <div class="row align-middle p-3">
-    <div class="col-3">
-      <div class="msa-primary-info-md"><span class="highlighted-number">6</span>/16</div>
-    </div>
-    <div class="col-6">
-      <div class="msa-primary-info-md">Garment Industry</div>
-    </div>
-    <div class="col-3 text-center">
-      <a class="button transparent-button mt-md-0 mt-3">More</a>
+  <div class="row mt-3" style="height: 150px" *ngIf="areDisclosureRatesLoading">
+    <div class="col-12 text-center align-self-center">
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
-  <div class="row align-middle p-3">
-    <div class="col-3 ">
-      <div class="msa-primary-info-md"><span class="highlighted-number">3</span>/16</div>
+  <!--  <hr class="deep-blue no-margin">-->
+  <div class="disclosure-rates" [ngClass]="!areDisclosureRatesLoading ? 'show-element': 'hide-element'">
+    <div class="row align-middle p-3">
+      <div class="col-3">
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{garment_avg_disclosure_rate}}</span>/15
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="msa-primary-info-md">Garment Industry</div>
+      </div>
+      <div class="col-3 text-center">
+        <a class="button transparent-button mt-md-0 mt-3">More</a>
+      </div>
     </div>
-    <div class="col-6">
-      <div class="msa-primary-info-md">Finance Industry</div>
+    <div class="row align-middle p-3">
+      <div class="col-3 ">
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{financial_avg_disclosure_rate}}</span>/15
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="msa-primary-info-md">Finance Industry</div>
+      </div>
+      <div class="col-3 text-center">
+        <a class="button transparent-button mt-md-0 mt-3">More</a>
+      </div>
     </div>
-    <div class="col-3 text-center">
-      <a class="button transparent-button mt-md-0 mt-3">More</a>
-    </div>
-  </div>
-  <div class="row align-middle p-3">
-    <div class="col-3">
-      <div class="msa-primary-info-md"><span class="highlighted-number">5</span>/16</div>
-    </div>
-    <div class="col-6">
-      <div class="msa-primary-info-md">Hospitality Industry</div>
-    </div>
-    <div class="col-3 text-center">
-      <a class="button transparent-button mt-md-0 mt-3">More</a>
+    <div class="row align-middle p-3">
+      <div class="col-3">
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{hospitality_avg_disclosure_rate}}</span>/15
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="msa-primary-info-md">Hospitality Industry</div>
+      </div>
+      <div class="col-3 text-center">
+        <a class="button transparent-button mt-md-0 mt-3">More</a>
+      </div>
     </div>
   </div>
 </div>
