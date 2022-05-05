@@ -52,7 +52,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
               this.meetsMinRequirements = data.length
               this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
                 [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(data => {
-                this.meetsMinRequirements = Math.round(((this.meetsMinRequirements + data.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
+                this.meetsMinRequirements = Math.round((this.meetsMinRequirements + data.length) * 100 / this.numOfAssessedMSAStatements)
                 this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
                   [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
                   beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
@@ -60,7 +60,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
                       return a.company == item.company && a.year == item.year
                     }) >= 0
                   })
-                  this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
+                  this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
                 }, (error) => console.log(error), () => this.isLoading = false)
               })
             })
@@ -76,7 +76,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
           this.numOfAssessedMSAStatements = assessed.length
           this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
             [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(data => {
-            this.meetsMinRequirements = Math.round(((data.length / this.numOfAssessedMSAStatements) * 100) * 100) / 100
+            this.meetsMinRequirements = Math.round(((data.length / this.numOfAssessedMSAStatements) * 100))
             this.dataProvider.getAnswers(this.dataProvider.metrics.uk_beyond_compliance_disclosure_rate,
               [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
               beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
@@ -84,7 +84,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
                   return a.company == item.company && a.year == item.year
                 }) >= 0
               })
-              this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
+              this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
             }, (error) => console.log(error), () => this.isLoading = false)
           })
         })
@@ -102,7 +102,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
           this.numOfAssessedMSAStatements = assessed.length
           this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
             [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(data => {
-            this.meetsMinRequirements = Math.round(((data.length / this.numOfAssessedMSAStatements) * 100) * 100) / 100
+            this.meetsMinRequirements = Math.round((data.length / this.numOfAssessedMSAStatements) * 100)
             this.dataProvider.getAnswers(this.dataProvider.metrics.aus_beyond_compliance_disclosure_rate,
               [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
               beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
@@ -110,7 +110,7 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
                   return a.company == item.company && a.year == item.year
                 }) >= 0
               })
-              this.go_beyond_compliance = Math.round(((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements) * 100) / 100
+              this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
             }, (error) => console.log(error), () => this.isLoading = false)
           })
         })
