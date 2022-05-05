@@ -10,6 +10,7 @@ export class DataProvider {
   metrics = {
     msa_registry_submission: 12536930,
     modern_slavery_statement: 1827651,
+    msa_statement_assessed: 12621772,
     aus_msa_statement_assessed: 12602630,
     uk_msa_statement_assessed: 12602618,
     meet_uk_min_requirements: 6901749,

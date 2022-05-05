@@ -27,6 +27,7 @@ import { ApproachToIncidentsComponent } from './dashboard/further-findings/appro
 import { ApproachToPoliciesComponent } from './dashboard/further-findings/approach-to-policies/approach-to-policies.component';
 import { TreemapComponent } from './dashboard/treemap/treemap.component';
 import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
+import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosure-rates.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
     ApproachToRisksComponent,
     ApproachToIncidentsComponent,
     ApproachToPoliciesComponent,
-    TreemapComponent
+    TreemapComponent,
+    DisclosureRatesComponent
   ],
   imports: [
     FormsModule,
