@@ -1,10 +1,10 @@
-<div class="section mt-5 bg-neutral-grey p-4">
+<div class="section mt-5 bg-neutral-orange p-4">
   <div class="row">
     <div class="col-md-8">
       <h3 class="title">Further Findings</h3>
     </div>
     <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
+      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
               style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
         <option [ngValue]="''" selected>all years</option>
         <option [ngValue]="'latest'">latest</option>
@@ -54,8 +54,8 @@
     </div>
   </div>
 
-  <div class="dive-deeper" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="row mt-3">
+  <div class="row dive-deeper mt-3" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+    <div class="col-md-4">
       <div class="accordion" id="approach_to_policies">
         <div class="accordion-item">
           <h2 class="accordion-header" id="approachToPoliciesTitle">
@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="row mt-3">
+    <div class="col-md-4">
       <div class="accordion" id="approach_to_risks_accordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
@@ -91,8 +91,7 @@
         </div>
       </div>
     </div>
-
-    <div class="row mt-3">
+    <div class="col-md-4">
       <div class="accordion" id="approach_to_incidents">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingApproachToIncidents">
