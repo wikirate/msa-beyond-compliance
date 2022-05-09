@@ -64,41 +64,40 @@ $light-orange: rgb(255, 147, 0, 0.3);
 
 //style of different sections
 body {
-  font-family: GothamNarrow, sans-serif;
-  color: #000028;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  font-family: GothamNarrow, sans-serif !important;
+  color: #000028 !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
   margin: 0 !important;
 }
 
 
 a {
-  color: $deep_blue;
-  text-decoration: underline;
+  color: $deep_blue !important;
 }
 
 a:focus, a:hover {
-  color: $blue;
+  color: $blue !important;
 }
 
 table a {
-  color: $deep_blue;
-  text-decoration: none;
+  color: $deep_blue !important;
+  text-decoration: none !important;
 }
 
 table a:focus, a:hover {
-  color: $blue;
+  color: $blue !important;
 }
 
 .clickable-header:hover {
-  color: $blue;
-  font-weight: bold;
-  cursor: pointer;
+  color: $blue !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
 }
 
 th.active {
-  color: $blue;
+  color: $blue !important;
 }
 
 .table {
@@ -106,35 +105,35 @@ th.active {
 }
 
 .table tr {
-  color: $deep_blue;
-  font-size: 0.9em;
+  color: $deep_blue !important;
+  font-size: 0.9em !important;
 }
 
 .table > :not(caption) > * > * {
-  padding-top: 0.32rem;
-  padding-bottom: 0.32rem;
+  padding-top: 0.32rem !important;
+  padding-bottom: 0.32rem !important;
 }
 
 .table .clickable:hover {
-  cursor: pointer;
-  font-weight: bold;
+  cursor: pointer !important;
+  font-weight: bold !important;
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.1em !important;
 }
 
 h1.title {
-  font-family: MediaSans;
-  font-size: 4em;
-  text-transform: uppercase;
-  line-height: 1.1;
+  font-family: MediaSans !important;
+  font-size: 4em !important;
+  text-transform: uppercase !important;
+  line-height: 1.1 !important;
 }
 
 @media screen and (max-width: 576px) {
   h1.title {
-    font-size: 2.6em;
-    word-wrap: break-word;
+    font-size: 2.6em !important;
+    word-wrap: break-word !important;
   }
 }
 
@@ -157,46 +156,46 @@ h5 {
 }
 
 .subtitle {
-  font-family: TiemposText;
-  font-size: 1.7em;
-  font-weight: 300;
+  font-family: TiemposText !important;
+  font-size: 1.7em !important;
+  font-weight: 300 !important;
 }
 
 @media screen and (max-width: 500px) {
   .subtitle {
-    font-size: 1.4em;
+    font-size: 1.4em !important;
   }
 }
 
 .quote {
-  font-family: TiemposText;
-  font-style: italic;
-  font-size: 0.8em;
+  font-family: TiemposText !important;
+  font-style: italic !important;
+  font-size: 0.8em !important;
 }
 
 a.button {
-  border: 0;
-  padding: 1em 2.4em 1em 1.2em;
-  font-family: MediaSans;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  text-decoration: none;
-  color: #000028;
-  position: relative;
-  cursor: pointer;
+  border: 0 !important;
+  padding: 1em 2.4em 1em 1.2em !important;
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  color: #000028 !important;
+  position: relative !important;
+  cursor: pointer !important;
 
 }
 
 a.transparent-button {
-  color: $deep_blue;
-  border: 1px solid $deep_blue;
-  border-width: 1px;
+  color: $deep_blue !important;
+  border: 1px solid $deep_blue !important;
+  border-width: 1px !important;
 }
 
 a.transparent-button:hover {
-  background-color: $deep_blue;
-  color: $white;
+  background-color: $deep_blue !important;
+  color: $white !important;
 }
 
 a.orange-button {
@@ -225,11 +224,11 @@ a.button::after {
 //different backgrounds
 
 .bg-neutral-orange {
-  background-color: $neutral_orange;
+  background-color: $neutral_orange !important;
 }
 
 .bg-neutral-grey {
-  background-color: $neutral_grey;
+  background-color: $neutral_grey !important;
 }
 
 .bg-neutral-blue {
@@ -242,7 +241,7 @@ a.button::after {
 }
 
 .bg-yellow {
-  background-color: $yellow;
+  background-color: $yellow !important;
 }
 
 .bg-orange {
@@ -254,16 +253,16 @@ a.button::after {
 }
 
 .bg-white {
-  background-color: $white;
+  background-color: $white !important;
 }
 
 //header
 header-component img.logo {
-  height: 55px;
+  height: 55px !important;
 }
 
 header-component {
-  width: 100%
+  width: 100% !important;
 }
 
 //navigation
@@ -281,118 +280,118 @@ header-component {
 }
 
 button.nav-link {
-  background-color: $deep_blue;
+  background-color: $deep_blue !important;
 }
 
 //footer
 footer .logo {
-  padding: 0 5%;
-  text-align: center;
+  padding: 0 5% !important;
+  text-align: center !important;
 }
 
 footer .logo-right {
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 footer .logo-center {
-  border: 2px solid $deep_blue;
-  border-width: 0 2px;
+  border: 2px solid $deep_blue !important;
+  border-width: 0 2px !important;
 }
 
 footer img {
-  max-width: 100%;
-  max-height: 70px;
+  max-width: 100% !important;
+  max-height: 70px !important;
 }
 
 footer .row {
-  align-items: center;
+  align-items: center !important;
 }
 
 //section
 .section {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
 }
 
 //filter
 .filter-dropdown {
-  float: right;
+  float: right !important;
 }
 
 .filter-dropdown a.dropdown-toggle {
-  border-radius: 0;
-  background: #FF9300;
-  border: 0;
-  font-size: 1em;
-  padding: 0.8em 1.2em;
-  font-family: MediaSans;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  color: #000028;
-  margin: 0.4em 0;
+  border-radius: 0 !important;
+  background: #FF9300 !important;
+  border: 0 !important;
+  font-size: 1em !important;
+  padding: 0.8em 1.2em !important;
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  display: inline-block !important;
+  color: #000028 !important;
+  margin: 0.4em 0 !important;
 
 }
 
 a.dropdown-toggle:hover {
-  background: $yellow;
+  background: $yellow !important;
 }
 
 a.dropdown-toggle::after {
-  color: $blue;
-  margin-left: 10px;
+  color: $blue !important;
+  margin-left: 10px !important;
 }
 
 .filter-dropdown ul.dropdown-menu {
-  border: 0;
-  border-radius: 0;
-  color: $deep_blue;
-  background: $neutral_grey;
-  box-shadow: 0 0 0.5rem 0.25rem #BBBBBB;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: $deep_blue !important;
+  background: $neutral_grey !important;
+  box-shadow: 0 0 0.5rem 0.25rem #BBBBBB !important;
 }
 
 .filter-dropdown a.dropdown-item {
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  font-family: MediaSans;
-  text-transform: uppercase;
+  padding: 15px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
 }
 
 a.dropdown-item .count {
-  padding-left: 1em;
+  padding-left: 1em !important;
 }
 
 .filter-dropdown .reset-item-li {
-  display: none;
+  display: none !important;
 }
 
 //define msa-form-select
 .msa-form-select {
   @extend .form-select;
-  font-family: 'GothamNarrow';
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-family: 'GothamNarrow' !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
   /* font-weight: normal; */
-  font-size: .9em;
-  color: #000028;
-  max-width: 150px;
+  font-size: .9em !important;
+  color: #000028 !important;
+  max-width: 150px !important;
 
 }
 
 .msa-form-select:focus {
-  border-color: $orange;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 147, 0, 0.6);
-  outline: 0 none;
+  border-color: $orange !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 147, 0, 0.6) !important;
+  outline: 0 none !important;
 }
 
 .msa-form-select {
-  border-radius: 0;
-  border-color: $deep_blue;
+  border-radius: 0 !important;
+  border-color: $deep_blue !important;
 }
 
 select.msa-form-select::after {
-  color: $blue;
+  color: $blue !important;
 }
 
 //deep-blue horizontal rule
@@ -414,11 +413,15 @@ hr.deep-blue {
 
 .msa-primary-info-md {
   font-size: 1.8em;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'MediaSans';
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+
 .msa-secondary-info {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .no-padding {
@@ -430,63 +433,133 @@ hr.deep-blue {
 }
 
 .chart-wrapper svg {
-  max-width: 100%;
-  height: auto;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 .accordion-button, .accordion-button:not(.collapsed) {
-  background-color: #FF9300;
-  padding: 1em;
-  border: 0;
+  background-color: #FF9300 !important;
+  padding: 1em !important;
+  border: 0 !important;
   border-radius: 0 !important;
+  border-color: $deep_blue;
 }
 
 .accordion-button:hover {
-  background-color: #FFDC00;
+  background-color: #FFDC00 !important;
+}
+
+.accordion-item{
+  border-color: $deep_blue !important;
 }
 
 .accordion-button:not(.collapsed)::after,
 .accordion-button::after {
-  color: #0037F1;
-  content: "\f107";
-  font-family: FontAwesome;
-  background-image: none;
-  height: auto;
-  font-size: 2.5em;
-  padding-right: 0.75em;
+  color: #0037F1 !important;
+  content: "\f107" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 2.5em !important;
+  padding-right: 0.75em !important;
 }
 
 .accordion-button-text {
-  color: #000028;
-  padding: 0 2%;
+  color: #000028 !important;
+  padding: 0 2% !important;
 }
 
 .accordion-collapse {
-  padding: 2em 2%;
-  background-color: #F6F5EA;
-  border: 0;
+  padding: 2em 2% !important;
+  background-color: $neutral_grey !important;
+  border: 0 !important;
   border-radius: 0 !important;
 }
 
+.accordion-button-white, .accordion-button-white:not(.collapsed) {
+  @extend accordion-button !optional;
+  background-color: $white !important;
+  padding: 1em !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-color: $deep_blue;
+}
+
+.accordion-button-white:hover {
+  background-color: #FFDC00 !important;
+}
+
+.accordion-button-white:not(.collapsed)::after,
+.accordion-button-white::after {
+  color: #0037F1 !important;
+  content: "\f107" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 2.5em !important;
+  padding-right: 0.75em !important;
+}
+
 .subsection-header h3 {
-  background-color: #FFDC00;
-  color: #000028;
-  padding: 0.5em;
-  margin: 1em 0 0.5em 0;
+  background-color: #FFDC00 !important;
+  color: #000028 !important;
+  padding: 0.5em !important;
+  margin: 1em 0 0.5em 0 !important;
 }
 
 a.anchor {
-  display: block;
-  position: relative;
-  top: -100px;
-  visibility: hidden;
+  display: block !important;
+  position: relative !important;
+  top: -100px !important;
+  visibility: hidden !important;
 }
 
 .hide-element {
-  display: none;
+  display: none !important;
 }
 
 .highlighted-number {
-  font-size: 1.7em;
-  font-weight: 600;
+  font-size: 1.7em !important;
+  font-weight: 600 !important;
 }
+
+.tooltip-item {
+  font-weight: bold;
+}
+
+.tooltip-item:hover {
+  color: $blue;
+  cursor: pointer;
+}
+
+.popover-header {
+  background-color: $neutral_grey !important;
+}
+
+.highlight-box {
+  min-height: 150px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: $deep-blue !important;
+}
+
+.msa-primary-info-lg {
+  font-size: 4em;
+  font-weight: 700;
+  font-family: 'MediaSans';
+}
+
+p.highlight {
+  font-size: 1.5em !important;
+}
+
+.align-middle {
+  /* vertical-align: middle!important; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

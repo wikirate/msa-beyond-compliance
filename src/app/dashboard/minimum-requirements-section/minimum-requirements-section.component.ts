@@ -33,12 +33,6 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
       this.dataProvider.metrics.uk_msa_statement_assessed,
       this.dataProvider.metrics.meet_uk_min_requirements, company_group)
 
-    this.draw_minimum_requirements_pie_chart(
-      "Meet Minimun Australian Requirements",
-      "div#aus-meet-min-requirements",
-      this.dataProvider.metrics.aus_msa_statement_assessed,
-      this.dataProvider.metrics.meet_aus_min_requirements, company_group)
-
     this.chartsService.drawMinimumRequirementsBarChart(
       "Which minimum uk requirements do these companies meet?",
       "div#uk-requirements-bars",
@@ -49,26 +43,40 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
       this.year,
       company_group,
       {renderer: "svg", actions: {source: false, editor: true}})
-    this.chartsService.drawMinimumRequirementsBarChart(
-      "Which minimum aus requirements do these companies meet?",
-      "div#aus-requirements-bars",
-      350, 670,
-      this.dataProvider.metrics.aus_msa_statement_assessed,
-      aus_minimum_requirements,
-      this.year,
-      company_group,
-      {renderer: "svg", actions: {source: false, editor: true}})
+
+    if (this.year >= 2020 || this.year == '' || this.year == 'latest') {
+      this.draw_minimum_requirements_pie_chart(
+        "Meet Minimun Australian Requirements",
+        "div#aus-meet-min-requirements",
+        this.dataProvider.metrics.aus_msa_statement_assessed,
+        this.dataProvider.metrics.meet_aus_min_requirements, company_group)
+
+      this.chartsService.drawMinimumRequirementsBarChart(
+        "Which minimum aus requirements do these companies meet?",
+        "div#aus-requirements-bars",
+        350, 670,
+        this.dataProvider.metrics.aus_msa_statement_assessed,
+        aus_minimum_requirements,
+        this.year,
+        company_group,
+        {renderer: "svg", actions: {source: false, editor: true}})
+    }
   }
 
-  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group:string) {
+  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group: string) {
     this.dataProvider.getAnswers(assessed_statements_metric_id,
       [new Filter("year", this.year), new Filter("value", "Yes"),
-        new Filter("company_group",company_group)]).subscribe(data => {
-      let assessed = data.length
+        new Filter("company_group", company_group)]).subscribe(assessed_statements => {
+      let assessed = assessed_statements.length
       this.dataProvider.getAnswers(meet_min_requirements_metric_id,
         [new Filter("year", this.year), new Filter("value", "Yes"),
-          new Filter("company_group",company_group)]).subscribe(data => {
-        let meet_min_requirements = data.length
+          new Filter("company_group", company_group)]).subscribe(meet_min_requirements_statements => {
+        meet_min_requirements_statements.filter((item: { year: number, company: number }) => {
+          return assessed_statements.findIndex((a: any) => {
+            return a.company == item.company && a.year == item.year
+          }) >= 0
+        })
+        let meet_min_requirements = meet_min_requirements_statements.length
         this.chartsService.drawPieChart(
           title,
           element,

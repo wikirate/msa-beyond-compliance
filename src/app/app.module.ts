@@ -28,6 +28,24 @@ import { ApproachToPoliciesComponent } from './dashboard/further-findings/approa
 import { TreemapComponent } from './dashboard/treemap/treemap.component';
 import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
 import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosure-rates.component';
+import {
+  FurtherFindingsAltOneComponent
+} from "./dashboard/further-findings-alternative-one/further-findings-alt-one.component";
+import {
+  ApproachToIncidentsAltOneComponent
+} from "./dashboard/further-findings-alternative-one/approach-to-incidents/approach-to-incidents-alt-one.component";
+import {
+  ApproachToRisksAltOneComponent
+} from "./dashboard/further-findings-alternative-one/approach-to-risks/approach-to-risks-alt-one.component";
+import { ApproachToPoliciesAltTwoComponent } from './dashboard/further-findings-alternative-two/approach-to-policies/approach-to-policies-alt-two.component';
+import { FurtherFindingsAltTwoComponent } from './dashboard/further-findings-alternative-two/further-findings-alt-two.component';
+import { ApproachToIncidentsAltTwoComponent } from './dashboard/further-findings-alternative-two/approach-to-incidents/approach-to-incidents-alt-two.component';
+import {
+  ApproachToRisksAltTwoComponent
+} from "./dashboard/further-findings-alternative-two/approach-to-risks/approach-to-risks-alt-two.component";
+import {
+  ApproachToPoliciesAltOneComponent
+} from "./dashboard/further-findings-alternative-one/approach-to-policies/approach-to-policies-alt-one.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +65,15 @@ import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosur
     ApproachToIncidentsComponent,
     ApproachToPoliciesComponent,
     TreemapComponent,
-    DisclosureRatesComponent
+    DisclosureRatesComponent,
+    FurtherFindingsAltOneComponent,
+    ApproachToIncidentsAltOneComponent,
+    ApproachToRisksAltOneComponent,
+    ApproachToPoliciesAltOneComponent,
+    FurtherFindingsAltTwoComponent,
+    ApproachToIncidentsAltTwoComponent,
+    ApproachToRisksAltTwoComponent,
+    ApproachToPoliciesAltTwoComponent
   ],
   imports: [
     FormsModule,

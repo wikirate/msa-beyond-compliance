@@ -110,7 +110,7 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
   sort(column: string) {
     this.beyond_compliance_table_data.sort((a, b) => {
       if (b[column] == "N/A") return -1
-      return a[column] > b[column] ? -1 : 0
+      return a[column] > b[column] ? -1 : 1
     })
     this.active = column
 

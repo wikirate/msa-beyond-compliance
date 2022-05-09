@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-8">
+    <h3 class="title">Policies</h3>
+  </div>
+</div>
+<hr class="deep-blue">
+<div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+  <div class="col-12 text-center align-self-center">
+    <div class="spinner-grow text-warning" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+<div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <div class="col-md-12">
+    <div class="row">
+      <h5>MODERN SLAVERY SUPPLY CHAIN POLICIES</h5>
+      <p>Does the company's statement detail clear, organisational modern slavery policies that apply to their
+        <b>direct</b> and/or <b>beyond tier 1</b> supply chain?</p>
+    </div>
+    <div class="row text-center pt-2">
+      <div id="modern-slavery-supply-chain-policies-alt-two" class="chart-wrapper">
+      </div>
+    </div>
+  </div>
+</div>

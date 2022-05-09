@@ -1,24 +1,25 @@
 <div class="section mt-5 bg-neutral-grey p-4">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <h3 class="title">Key Findings</h3>
     </div>
-    <div class="col-md-6 ms-md-auto">
+    <div class="col-md-8 ms-md-auto">
       <div class="row ps-3 pe-3 pt-md-0 pt-2">
-        <select class="msa-form-select bg-neutral-grey ms-md-auto me-3" aria-label="Default select example"
-                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
-          <option [ngValue]="''" selected>all years</option>
-          <option [ngValue]="'latest'">latest</option>
-          <option [ngValue]="2021">2021</option>
-          <option [ngValue]="2020">2020</option>
-          <option [ngValue]="2019">2019</option>
-          <option [ngValue]="2018">2018</option>
-          <option [ngValue]="2017">2017</option>
-          <option [ngValue]="2016">2016</option>
-          <option [ngValue]="2015">2015</option>
+        <select #select class="msa-form-select bg-neutral-grey ms-md-auto me-3" aria-label="Default select example"
+                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
+                (ngModelChange)="select.value = updateData($event)">
+          <option value="" selected>all years</option>
+          <option value="latest">latest</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
         </select>
         <select class="msa-form-select bg-neutral-grey" aria-label="Default select example"
-                [(ngModel)]="legislation" (change)="updateData()">
+                [(ngModel)]="legislation" (change)="updateData(year)">
           <option [ngValue]="'both'" selected>Legislation</option>
           <option [ngValue]="'uk'">UK MSA</option>
           <option [ngValue]="'aus'">AUS MSA</option>
@@ -48,12 +49,14 @@
         <div class="msa-primary-info">{{numOfAssessedMSAStatements | numFormat}}</div>
       </div>
       <div class="row">
-        <p>MSA statements assessed by Researchers</p>
+        <p>MSA statements assessed by <span class="tooltip-item" placement="top"
+                                            ngbPopover="As the research effort is ongoing, this is a living project and the dashboard updates as and when new data is contributed to WikiRate.">Researchers</span>
+        </p>
       </div>
     </div>
     <div class="col-md-6 pe-md-2">
       <div class="row">
-        <div class="msa-primary-info">{{meetsMinRequirements}}%</div>
+        <div class="msa-primary-info">{{meetsMinRequirements | percentageFormat}}</div>
       </div>
       <div class="row">
         <p>of the assessed statements meet all minimum requirements of the corresponding MSA legislation</p>
@@ -62,7 +65,7 @@
     <div class="col-md-6">
       <div class="row">
         <div class="msa-primary-info">
-          {{go_beyond_compliance}}%
+          {{go_beyond_compliance | percentageFormat}}
         </div>
       </div>
       <div class="row">
@@ -92,3 +95,18 @@
     </div>
   </div>
 </div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">The Australian Modern Slavery Act</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first statement for
+      financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for this first
+      year the government provided companies with an extension due to the impact of the covid pandemic. As a result,
+      most companies submitted statements under the Australian Act from the financial year 2020 onward.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

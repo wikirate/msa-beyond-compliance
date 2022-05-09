@@ -5,7 +5,8 @@
     </div>
     <div class="col-md-4">
       <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
-              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateBeyondComplianceTable()">
+              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
+              (change)="updateBeyondComplianceTable()">
         <option [ngValue]="''" selected>all years</option>
         <option [ngValue]="'latest'">latest</option>
         <option [ngValue]="2021">2021</option>
@@ -20,8 +21,8 @@
     <div class="row">
       <div class="col-md-12">
         <p>Beyond minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions
-          companies
-          should take to ensure their operations and supply chains are free from exploitation.</p>
+          companies should take to ensure their operations and supply chains are free from exploitation. Click on a
+          metric to find out more about what it entails. </p>
       </div>
     </div>
   </div>

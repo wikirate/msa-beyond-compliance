@@ -21,7 +21,7 @@
   <div class="row">
     <p>Are company statements compliant with the minimum requirements under the UK or Australian Modern Slavery Act?</p>
   </div>
-<!--  <hr class="deep-blue no-margin">-->
+  <!--  <hr class="deep-blue no-margin">-->
   <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
     <div class="col-12 text-center align-self-center">
       <div class="spinner-grow text-warning" role="status">
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="col-md-6 p-3">
+    <div class="p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
       <div class="row text-center">
         <h4>UK Act</h4>
       </div>
@@ -42,9 +42,19 @@
         <div id="uk-requirements-bars" class="chart-wrapper">
         </div>
       </div>
+      <div class="row pt-4 justify-content-center">
+        <div class="col-9">
+          <p class="quote ps-3 pe-3"><i class="bi bi-exclamation-diamond pe-2"></i>The UK legislation only requires
+            three criteria, none of which relate to the quality or content of the
+            statement. While there is accompanying guidance which provides suggested categories – similar to those which
+            appear within the Australian legislation – these are not mandatory. Therefore, arguably the Australian
+            legislation is stronger, making a direct comparison of minimum compliance difficult.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="col-md-6 p-3">
+    <div class="col-md-6 p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
       <div class="row text-center">
         <h4>Australian Act</h4>
       </div>
