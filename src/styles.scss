@@ -198,6 +198,17 @@ a.transparent-button:hover {
   color: $white !important;
 }
 
+a.white-button {
+  color: $white !important;
+  border: 1px solid $white !important;
+  border-width: 1px !important;
+}
+
+a.white-button:hover {
+  background-color: $white !important;
+  color: $deep_blue !important;
+}
+
 a.orange-button {
   background: $orange;
   margin-right: 1em;
@@ -412,13 +423,22 @@ hr.deep-blue {
 }
 
 .msa-primary-info-md {
-  font-size: 1.8em;
+  font-size: 2.3em;
   font-weight: 700;
   font-family: 'MediaSans';
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+@media screen and (max-width: 576px) {
+  .msa-primary-info-md {
+    font-size: 1.3em;
+    font-weight: 700;
+    font-family: 'MediaSans';
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
 
 .msa-secondary-info {
   text-transform: uppercase !important;
@@ -449,7 +469,7 @@ hr.deep-blue {
   background-color: #FFDC00 !important;
 }
 
-.accordion-item{
+.accordion-item {
   border-color: $deep_blue !important;
 }
 
@@ -523,6 +543,11 @@ a.anchor {
   font-weight: 600 !important;
 }
 
+.highlighted-number-lg {
+  font-size: 2em !important;
+  font-weight: 600 !important;
+}
+
 .tooltip-item {
   font-weight: bold;
 }
@@ -560,6 +585,40 @@ p.highlight {
   align-items: center !important;
 }
 
+.number-box {
+  border-radius: 0em 2em 0em 2em !important;
+  background-color: $deep_blue;
+  color: white;
+  padding: 0.5em;
+  height: 220px !important;
+  width: 220px !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  .number-box {
+    border-radius: 0em 1.5em 0em 1.5em !important;
+    padding: 0.3em;
+    height: 130px !important;
+    width: 130px !important;
+  }
+}
+
+.number-box:hover {
+  background-color: $orange;
+}
+
+h6 {
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+}
+
+@media screen and (max-width: 576px) {
+  h5 {
+    font-size: 1rem !important;
+  }
+}
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

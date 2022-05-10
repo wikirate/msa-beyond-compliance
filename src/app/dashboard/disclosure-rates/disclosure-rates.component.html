@@ -5,7 +5,8 @@
     </div>
     <div class="col-md-4">
       <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
-              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateDisclosureRates()">
+              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
+              (change)="updateDisclosureRates()">
         <option [ngValue]="''" selected>all years</option>
         <option [ngValue]="'latest'">latest</option>
         <option [ngValue]="2021">2021</option>
@@ -32,40 +33,24 @@
   </div>
   <!--  <hr class="deep-blue no-margin">-->
   <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="row align-middle p-3">
-      <div class="col-3">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{garment_avg_disclosure_rate | numFormat}}</span>/15
+    <div class="row justify-content-center">
+      <div class="number-box m-md-3 m-1">
+        <div class="msa-primary-info-md"><span
+          class="highlighted-number-lg">{{garment_avg_disclosure_rate | numFormat}}</span>/15
+          <h5 class="text-white">Garment Industry</h5>
         </div>
       </div>
-      <div class="col-6">
-        <div class="msa-primary-info-md">Garment Industry</div>
-      </div>
-      <div class="col-3 text-center">
-        <a class="button transparent-button mt-md-0 mt-3">More</a>
-      </div>
-    </div>
-    <div class="row align-middle p-3">
-      <div class="col-3 ">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{financial_avg_disclosure_rate| numFormat}}</span>/15
+      <div class="number-box m-md-3 m-1">
+        <div class="msa-primary-info-md"><span
+          class="highlighted-number-lg">{{financial_avg_disclosure_rate | numFormat}}</span>/15
+          <h5 class="text-white">Financial Industry</h5>
         </div>
       </div>
-      <div class="col-6">
-        <div class="msa-primary-info-md">Finance Industry</div>
-      </div>
-      <div class="col-3 text-center">
-        <a class="button transparent-button mt-md-0 mt-3">More</a>
-      </div>
-    </div>
-    <div class="row align-middle p-3">
-      <div class="col-3">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{hospitality_avg_disclosure_rate| numFormat}}</span>/15
+      <div class="number-box m-md-3 m-1">
+        <div class="msa-primary-info-md"><span
+          class="highlighted-number-lg">{{hospitality_avg_disclosure_rate | numFormat}}</span>/15
+          <h5 class="text-white">Hospitality Industry</h5>
         </div>
-      </div>
-      <div class="col-6">
-        <div class="msa-primary-info-md">Hospitality Industry</div>
-      </div>
-      <div class="col-3 text-center">
-        <a class="button transparent-button mt-md-0 mt-3">More</a>
       </div>
     </div>
   </div>
