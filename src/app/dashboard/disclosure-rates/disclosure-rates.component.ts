@@ -89,4 +89,9 @@ export class DisclosureRatesComponent implements OnInit {
       })
     })
   }
+
+  openURL(sector: string) {
+    let url = `${this.dataProvider.wikirateApiHost}/~${this.dataProvider.metrics.msa_disclosure_rate}?filter[company_group][]=${sector}&filter[year]=${this.year}`
+    window.open(url, "_blank")
+  }
 }

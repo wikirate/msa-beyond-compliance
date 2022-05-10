@@ -34,22 +34,22 @@
   <!--  <hr class="deep-blue no-margin">-->
   <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
     <div class="row justify-content-center">
-      <div class="number-box m-md-3 m-1">
+      <div class="number-box m-md-3 m-1" (click)="openURL('MSA Garment')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{garment_avg_disclosure_rate | numFormat}}</span>/15
-          <h5 class="text-white">Garment Industry</h5>
+          <h5>Garment Industry</h5>
         </div>
       </div>
-      <div class="number-box m-md-3 m-1">
+      <div class="number-box m-md-3 m-1" (click)="openURL('MSA Financial')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{financial_avg_disclosure_rate | numFormat}}</span>/15
-          <h5 class="text-white">Financial Industry</h5>
+          <h5>Financial Industry</h5>
         </div>
       </div>
-      <div class="number-box m-md-3 m-1">
+      <div class="number-box m-md-3 m-1" (click)="openURL('MSA Hospitality')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{hospitality_avg_disclosure_rate | numFormat}}</span>/15
-          <h5 class="text-white">Hospitality Industry</h5>
+          <h5>Hospitality Industry</h5>
         </div>
       </div>
     </div>

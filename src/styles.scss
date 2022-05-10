@@ -65,13 +65,12 @@ $light-orange: rgb(255, 147, 0, 0.3);
 //style of different sections
 body {
   font-family: GothamNarrow, sans-serif !important;
-  color: #000028 !important;
+  color: $deep_blue !important;
   font-size: 1rem !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
   margin: 0 !important;
 }
-
 
 a {
   color: $deep_blue !important;
@@ -152,7 +151,6 @@ h4 {
 h5 {
   font-family: MediaSans !important;
   text-transform: uppercase !important;
-  color: $deep_blue !important;
 }
 
 .subtitle {
@@ -457,12 +455,16 @@ hr.deep-blue {
   height: auto !important;
 }
 
-.accordion-button, .accordion-button:not(.collapsed) {
+.accordion-button {
   background-color: #FF9300 !important;
   padding: 1em !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  border-color: $deep_blue;
+  border-radius: 0em 1.5em 0em 1.5em !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #FF9300 !important;
+  padding: 1em !important;
+  border-radius: 0em 1.5em 0em 0em !important;
 }
 
 .accordion-button:hover {
@@ -471,6 +473,7 @@ hr.deep-blue {
 
 .accordion-item {
   border-color: $deep_blue !important;
+  border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
 .accordion-button:not(.collapsed)::after,
@@ -493,20 +496,30 @@ hr.deep-blue {
   padding: 2em 2% !important;
   background-color: $neutral_grey !important;
   border: 0 !important;
-  border-radius: 0 !important;
+  border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
-.accordion-button-white, .accordion-button-white:not(.collapsed) {
+.accordion-button-white {
   @extend accordion-button !optional;
-  background-color: $white !important;
+  background-color: $deep_blue !important;
+  color: $white;
   padding: 1em !important;
-  border: 0 !important;
-  border-radius: 0 !important;
+  border-radius: 0em 1.5em 0em 1.5em !important;
   border-color: $deep_blue;
 }
 
+.accordion-button-white:not(.collapsed) {
+    @extend accordion-button !optional;
+    background-color: $deep_blue !important;
+    color: $white;
+    padding: 1em !important;
+    border-radius: 0em 1.5em 0em 0em !important;
+    border-color: $deep_blue;
+  }
+
 .accordion-button-white:hover {
   background-color: #FFDC00 !important;
+  color: $deep_blue;
 }
 
 .accordion-button-white:not(.collapsed)::after,
@@ -569,13 +582,25 @@ a.anchor {
 }
 
 .msa-primary-info-lg {
-  font-size: 4em;
+  font-size: 3.7em;
   font-weight: 700;
   font-family: 'MediaSans';
 }
 
+@media screen and (max-width: 576px) {
+  .msa-primary-info-lg {
+    font-size: 2.5em;
+  }
+}
+
 p.highlight {
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
+}
+
+@media screen and (max-width: 576px) {
+  p.highlight {
+    font-size: 1.1em !important;
+  }
 }
 
 .align-middle {
@@ -588,7 +613,7 @@ p.highlight {
 .number-box {
   border-radius: 0em 2em 0em 2em !important;
   background-color: $deep_blue;
-  color: white;
+  color: $white !important;
   padding: 0.5em;
   height: 220px !important;
   width: 220px !important;
@@ -606,7 +631,9 @@ p.highlight {
 }
 
 .number-box:hover {
-  background-color: $orange;
+  background-color: $yellow;
+  border-color: $deep_blue;
+  color: $deep_blue !important;
 }
 
 h6 {
