@@ -38,7 +38,7 @@ export class ApproachToPoliciesAltTwoComponent implements OnInit, OnChanges {
       "div#modern-slavery-supply-chain-policies-alt-two",
       350,
       250,
-      [this.dataProvider.metrics.uk_msa_statement_assessed, this.dataProvider.metrics.aus_msa_statement_assessed],
+      this.dataProvider.metrics.msa_statement_assessed,
       modern_slavery_policies,
       this.year,
       company_group,

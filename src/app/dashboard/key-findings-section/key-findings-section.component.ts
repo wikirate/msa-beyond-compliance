@@ -42,42 +42,36 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
       this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
         [new Filter("year", this.year), new Filter("company_group", company_group), new Filter("value", ["Yes - UK Modern Slavery Act", "Yes - Australian Modern Slavery Act"])]).subscribe(data => {
         this.numOfCompaniesUnderMSA = data.length
-        this.dataProvider.getAnswers(this.dataProvider.metrics.aus_msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(aus_assessed => {
-          this.dataProvider.getAnswers(this.dataProvider.metrics.uk_msa_statement_assessed,
-            [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(uk_assessed => {
-            let assessed = [...new Set([...aus_assessed, ...uk_assessed])];
-            assessed = assessed.filter((arr, index, self) =>
-              index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
-            this.numOfAssessedMSAStatements = assessed.length
-            this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
-              [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(meets_uk_min_requirements => {
-              meets_uk_min_requirements = meets_uk_min_requirements.filter((item: { year: number, company: number }) => {
+        this.dataProvider.getAnswers(this.dataProvider.metrics.msa_statement_assessed,
+          [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(assessed => {
+          this.numOfAssessedMSAStatements = assessed.length
+          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
+            [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(meets_uk_min_requirements => {
+            meets_uk_min_requirements = meets_uk_min_requirements.filter((item: { year: number, company: number }) => {
+              return assessed.findIndex((a: any) => {
+                return a.company == item.company && a.year == item.year
+              }) >= 0
+            })
+            this.meetsMinRequirements = meets_uk_min_requirements.length
+            this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
+              [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(meets_aus_min_requirements => {
+              meets_aus_min_requirements = meets_aus_min_requirements.filter((item: { year: number, company: number }) => {
                 return assessed.findIndex((a: any) => {
                   return a.company == item.company && a.year == item.year
-                }) >= 0
+                }) >= 0 && meets_uk_min_requirements.findIndex((a: any) => {
+                  return a.company == item.company && a.year == item.year
+                }) < 0
               })
-              this.meetsMinRequirements = meets_uk_min_requirements.length
-              this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
-                [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(meets_aus_min_requirements => {
-                meets_aus_min_requirements = meets_aus_min_requirements.filter((item: { year: number, company: number }) => {
+              this.meetsMinRequirements = Math.round((this.meetsMinRequirements + meets_aus_min_requirements.length) * 100 / this.numOfAssessedMSAStatements)
+              this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
+                [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
+                beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
                   return assessed.findIndex((a: any) => {
                     return a.company == item.company && a.year == item.year
-                  }) >= 0 && meets_uk_min_requirements.findIndex((a: any) => {
-                    return a.company == item.company && a.year == item.year
-                  }) < 0
+                  }) >= 0
                 })
-                this.meetsMinRequirements = Math.round((this.meetsMinRequirements + meets_aus_min_requirements.length) * 100 / this.numOfAssessedMSAStatements)
-                this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
-                  [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(beyond_compliance => {
-                  beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                    return assessed.findIndex((a: any) => {
-                      return a.company == item.company && a.year == item.year
-                    }) >= 0
-                  })
-                  this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
-                }, (error) => console.log(error), () => this.isLoading = false)
-              })
+                this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
+              }, (error) => console.log(error), () => this.isLoading = false)
             })
           })
         })

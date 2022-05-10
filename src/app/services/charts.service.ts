@@ -35,7 +35,7 @@ export class ChartsService {
 
   drawPieCustomChart(title: string,
                      element: string,
-                     assessed_statements_metric_id: number[],
+                     assessed_statements_metric_id: number,
                      metric: number,
                      year: number | string,
                      width: number,
@@ -69,26 +69,7 @@ export class ChartsService {
     })
     data.unshift({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
-      "transform": [
-        {
-          "type": "lookup",
-          "from": "uk_assessed",
-          "key": "company",
-          "fields": ["company"],
-          "values": ["value"],
-          "as": ["uk_assessed"]
-        },
-        {
-          "type": "formula",
-          "as": "value",
-          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
-        }
-      ]
-    })
-    data.unshift({
-      name: 'uk_assessed',
-      url: `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
     })
     pie["data"] = data
     pie["description"] = title
@@ -229,7 +210,7 @@ export class ChartsService {
     title: string,
     element: string,
     width: number,
-    assessed_statements_metric_id: number[],
+    assessed_statements_metric_id: number,
     metric: number,
     subgroups: any,
     groups: any,
@@ -239,37 +220,13 @@ export class ChartsService {
     let bars = JSON.parse(JSON.stringify(groupedBarsChart))
     let data: any[] = []
     data.push({
-      "name": 'uk_assessed',
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        }
-      ]
-    })
-    data.push({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
       "transform": [
         {
           "type": "formula",
           "as": "key",
           "expr": "datum.company + ',' + datum.year"
-        },
-        {
-          "type": "lookup",
-          "from": "uk_assessed",
-          "key": "key",
-          "fields": ["key"],
-          "values": ["value"],
-          "as": ["uk_assessed"]
-        },
-        {
-          "type": "formula",
-          "as": "value",
-          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
         }
       ]
     })
@@ -316,7 +273,7 @@ export class ChartsService {
     element: string,
     width: number,
     height: number,
-    assessed_statements_metric_id: number[],
+    assessed_statements_metric_id: number,
     metrics: [],
     year: number | string,
     company_group: string,
@@ -324,37 +281,13 @@ export class ChartsService {
     let bars = JSON.parse(JSON.stringify(barChart))
     let data: any[] = []
     data.push({
-      "name": 'uk_assessed',
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        }
-      ]
-    })
-    data.push({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
       "transform": [
         {
           "type": "formula",
           "as": "key",
           "expr": "datum.company + ',' + datum.year"
-        },
-        {
-          "type": "lookup",
-          "from": "uk_assessed",
-          "key": "key",
-          "fields": ["key"],
-          "values": ["value"],
-          "as": ["uk_assessed"]
-        },
-        {
-          "type": "formula",
-          "as": "value",
-          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
         }
       ]
     })
@@ -478,7 +411,7 @@ export class ChartsService {
 
   drawPieChartGroups(title: string,
                      year: number | string,
-                     assessed_statements_metric_id: number[],
+                     assessed_statements_metric_id: number,
                      metric_id: number,
                      colors: string[],
                      groups: any[],
@@ -530,31 +463,7 @@ export class ChartsService {
 
     pie["data"].unshift({
       "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[1]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        },
-        {
-          "type": "lookup",
-          "from": "uk_assessed",
-          "key": "key",
-          "fields": ["key"],
-          "values": ["value"],
-          "as": ["uk_assessed"]
-        },
-        {
-          "type": "formula",
-          "as": "value",
-          "expr": "datum.value == 'Yes' || datum.uk_assessed == 'Yes' ? 'Yes' : 'No'"
-        }
-      ]
-    })
-    pie["data"].unshift({
-      "name": 'uk_assessed',
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id[0]}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
+      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
       "transform": [
         {
           "type": "formula",
