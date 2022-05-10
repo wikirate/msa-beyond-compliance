@@ -34,7 +34,7 @@
   <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
     <div class="row align-middle p-3">
       <div class="col-3">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{garment_avg_disclosure_rate}}</span>/15
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{garment_avg_disclosure_rate | numFormat}}</span>/15
         </div>
       </div>
       <div class="col-6">
@@ -46,7 +46,7 @@
     </div>
     <div class="row align-middle p-3">
       <div class="col-3 ">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{financial_avg_disclosure_rate}}</span>/15
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{financial_avg_disclosure_rate| numFormat}}</span>/15
         </div>
       </div>
       <div class="col-6">
@@ -58,7 +58,7 @@
     </div>
     <div class="row align-middle p-3">
       <div class="col-3">
-        <div class="msa-primary-info-md"><span class="highlighted-number">{{hospitality_avg_disclosure_rate}}</span>/15
+        <div class="msa-primary-info-md"><span class="highlighted-number">{{hospitality_avg_disclosure_rate| numFormat}}</span>/15
         </div>
       </div>
       <div class="col-6">
