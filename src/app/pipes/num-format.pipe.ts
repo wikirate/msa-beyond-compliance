@@ -15,7 +15,7 @@ export class NumFormatPipe implements PipeTransform {
       return input
 
     if (Number.isNaN(input)) {
-      return null;
+      return '-';
     }
 
     if (input < 1000) {
