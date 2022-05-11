@@ -8,6 +8,10 @@ import pieGroupsChart from '../../assets/charts/pie-groups.json';
 import barChart from '../../assets/charts/bars.json';
 // @ts-ignore
 import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
+// @ts-ignore
+import uk_tree_map from '../../assets/charts/uk_legislation_tree_map.json';
+// @ts-ignore
+import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
 import {Injectable} from "@angular/core";
 import embed from "vega-embed";
 
@@ -477,5 +481,26 @@ export class ChartsService {
     pie["scales"][0]["range"] = colors
     pie["scales"][0]["range"]["signal"] = range
     return embed(element, pie, options)
+  }
+
+  uk_legislation_tree_map(values: any[],
+                          element: string,
+                          width: number,
+                          height: number,
+                          options: {}) {
+    var treeMap = JSON.parse(JSON.stringify(uk_tree_map))
+    treeMap["data"][0]["values"] = values;
+    return embed(element, treeMap, options);
+  }
+
+  both_legislations_tree_map(values: any[],
+                          element: string,
+                          width: number,
+                          height: number,
+                          options: {}) {
+    var treeMap = JSON.parse(JSON.stringify(both_tree_map))
+    treeMap["data"][0]["values"] = values;
+    console.log(JSON.stringify(treeMap))
+    return embed(element, treeMap, options);
   }
 }

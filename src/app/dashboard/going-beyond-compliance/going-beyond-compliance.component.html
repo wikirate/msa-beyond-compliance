@@ -33,8 +33,8 @@
       </div>
     </div>
   </div>
-  <div class="row p-4 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="col-md-11">
+  <div class="row p-2 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+    <div class="col-md-12">
       <table class="table table-bordered border-light">
         <thead>
         <tr class="bg-light-orange">
@@ -54,7 +54,7 @@
         </thead>
         <tbody>
         <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
-          <td class="col-6 text-end bg-neutral-blue"><a class="metric" href="{{row['url']}}"
+          <td class="col-4 text-end bg-neutral-blue"><a class="metric" href="{{row['url']}}"
                                                         target="_blank">{{row['name']}}</a></td>
           <td class="col-2 clickable text-center bg-deep-blue"
               (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>

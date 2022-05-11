@@ -1,11 +1,12 @@
 <div class="section mt-5 bg-neutral-orange p-4">
   <div class="row">
     <div class="col-md-4">
-      <h3 class="title">Treepmap</h3>
+      <h3 class="title">Statements Overview</h3>
     </div>
     <div class="col-md-8 ms-md-auto">
       <div class="row ps-3 pe-3 pt-md-0 pt-2">
-        <select class="msa-form-select bg-neutral-orange ms-md-auto me-3 mb-md-0 mb-1" aria-label="Default select example"
+        <select class="msa-form-select bg-neutral-orange ms-md-auto me-3 mb-md-0 mb-1"
+                aria-label="Default select example"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
           <option [ngValue]="''" selected>all years</option>
           <option [ngValue]="'latest'" selected>latest</option>
@@ -26,5 +27,14 @@
       </div>
     </div>
   </div>
-  <!--  <hr class="deep-blue">-->
+  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+    <div class="col-12 text-center align-self-center">
+      <div class="spinner-grow text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center pt-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+    <div id="tree-map" class="chart-wrapper"></div>
+  </div>
 </div>

@@ -18,7 +18,8 @@ export class DataProvider {
     aus_beyond_compliance_disclosure_rate: 12620676,
     uk_beyond_compliance_disclosure_rate: 6899063,
     msa_beyond_compliance: 12620974,
-    msa_disclosure_rate: 12602527
+    msa_disclosure_rate: 12602527,
+    turnover_range: 8218724,
   }
 
   constructor(private httpClient: HttpClient) {
