@@ -133,7 +133,12 @@ export class TreemapComponent implements OnInit {
                     }
                   ]
                   console.log(JSON.stringify(json))
-                  this.chartService.both_legislations_tree_map(json, "div#tree-map",0,0,{}).finally(() => {this.isLoading = false})
+                  this.chartService.both_legislations_tree_map(json, "div#tree-map", 0, 0, {
+                    renderer: "svg",
+                    actions: {source: false, editor: true}
+                  }).finally(() => {
+                    this.isLoading = false
+                  })
                 })
               })
             })
@@ -338,30 +343,30 @@ export class TreemapComponent implements OnInit {
                     let json = [{
                       "name": "Statements",
                       "id": 0,
-                      "alt_name":"Statements"
+                      "alt_name": "Statements"
                     }, {
                       "name": "Garment Sector",
                       "id": 1,
                       "parent": 0,
-                      "alt_name":"Garment Sector"
+                      "alt_name": "Garment Sector"
                     },
                       {
                         "name": "Financial Sector",
                         "id": 2,
                         "parent": 0,
-                        "alt_name":"Financial Sector"
+                        "alt_name": "Financial Sector"
                       },
                       {
                         "name": "Hospitality Sector",
                         "id": 3,
                         "parent": 0,
-                        "alt_name":"Hospitality Sector"
+                        "alt_name": "Hospitality Sector"
                       },
                       {
                         "name": "Other",
                         "id": 4,
                         "parent": 0,
-                        "alt_name":"Other"
+                        "alt_name": "Other"
                       },
                       {
                         "id": 5,
@@ -845,7 +850,12 @@ export class TreemapComponent implements OnInit {
                         "size": does_not_meet_min_requirements_other_unknown
                       }
                     ]
-                    this.chartService.uk_legislation_tree_map(json, "div#tree-map",0,0,{}).finally(() => {this.isLoading = false})
+                    this.chartService.uk_legislation_tree_map(json, "div#tree-map", 0, 0, {
+                      renderer: "svg",
+                      actions: {source: false, editor: true}
+                    }).finally(() => {
+                      this.isLoading = false
+                    })
                   })
                 })
               })
@@ -853,7 +863,7 @@ export class TreemapComponent implements OnInit {
           })
         })
       }
-    }else{
+    } else {
       alert("Under Construction...")
     }
   }
