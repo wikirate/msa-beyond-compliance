@@ -118,6 +118,19 @@ th.active {
   font-weight: bold !important;
 }
 
+.table-bordered {
+  color: $white !important;
+}
+
+.table-bordered tr {
+  color: $white !important;
+  font-size: 0.9em !important;
+}
+
+.table-bordered tr a {
+  color: $white !important;
+}
+
 p {
   font-size: 1.1em !important;
 }
@@ -509,13 +522,13 @@ hr.deep-blue {
 }
 
 .accordion-button-white:not(.collapsed) {
-    @extend accordion-button !optional;
-    background-color: $deep_blue !important;
-    color: $white;
-    padding: 1em !important;
-    border-radius: 0em 1.5em 0em 0em !important;
-    border-color: $deep_blue;
-  }
+  @extend accordion-button !optional;
+  background-color: $deep_blue !important;
+  color: $white;
+  padding: 1em !important;
+  border-radius: 0em 1.5em 0em 0em !important;
+  border-color: $deep_blue;
+}
 
 .accordion-button-white:hover {
   background-color: #FFDC00 !important;
@@ -645,6 +658,27 @@ h6 {
   h5 {
     font-size: 1rem !important;
   }
+}
+
+@media screen and (max-width: 576px) {
+  .popover {
+    transform: translate(0px, 273px)!important;
+  }
+  .popover-arrow {
+    position: absolute !important;
+    left: 0px !important;
+    transform: translate(70px) !important;
+  }
+}
+
+.td-bg-color-yellow{
+  background-color: lighten($yellow, 45%) !important;
+  color: $deep_blue;
+}
+
+.td-bg-color-red{
+  background-color: lighten($red,45%) !important;
+  color: $deep_blue;
 }
 
 /* Importing Bootstrap SCSS file. */

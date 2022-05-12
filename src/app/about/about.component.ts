@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+// @ts-ignore
+import methodology_table from '../../assets/methodology_table.json';
 
 @Component({
   selector: 'about',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  table: any[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.table = JSON.parse(JSON.stringify(methodology_table));
   }
 
 }

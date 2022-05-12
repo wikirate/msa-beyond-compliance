@@ -1,40 +1,92 @@
 <div class="container">
   <div class="section">
     <h1 class="title mt-5">
-      Who we are
+      Beyond Compliance
     </h1>
-    <div class="subtitle mt-3">Modern slavery represents a tragic market failure, where some companies maintain
-      competitive
-      advantage and large profits through unethical and unsustainable business practices that rely on the exploitation
-      of workers.
+    <div class="subtitle mt-3">
+      Assessing UK and Australian Modern Slavery Act statements produced by companies and investors.
     </div>
   </div>
   <div class="section row">
     <div class="col-md-7 bg-neutral-orange p-3">
-      <h3>Coming Together</h3>
+      <h3>Modern Slavery Acts</h3>
       <div class="content">
         <p>
-          In 2020, Walk Free, WikiRate, and the Business & Human Rights Resource Centre assessed the statements produced
-          by 79 asset managers identified as having to report under the MSA. These statements were assessed against:
+          Under Section 54 of the 2015 MSA, the UK government requires all companies with a turnover of over GB£36
+          million per annum to release an annual statement on the actions they are taking to tackle modern slavery in
+          their direct operations and supply chains. The 2018 Australian MSA establishes a national Modern Slavery
+          Reporting Requirement, which applies to businesses and other entities in the Australian market with an annual
+          consolidated revenue of at least AU$100 million. These entities are required to identify and address their
+          modern slavery risks and maintain responsible and transparent supply chains.
         </p>
-        <ul>
-          <li>minimum compliance requirements as set forth under Section 54,</li>
-          <li>metrics derived from the Home Office statutory reporting guidance accompanying the Act, and</li>
-          <li>metrics used to assess whether asset managers are considering modern slavery risks in their investment
-            portfolios.
-          </li>
-        </ul>
-
       </div>
     </div>
-    <div class="col-md-4 bg-neutral-grey ms-md-3 p-3 mt-3 mt-md-0">
-      <h3>Another Title</h3>
+    <div class="col-md-5 no-padding">
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <div class="col-md-11 ms-md-auto bg-neutral-grey p-3 mt-3 mt-md-0">
+            <h3>Coming Together</h3>
+            <div class="content">
+              <p>
+                In 2016, when the first companies started publishing their UK Modern Slavery Act statements, Walk Free
+                and
+                WikiRate partnered to set up a research project that could assess their contents; were companies
+                approaching
+                it as another tick box exercise or were they going beyond compliance?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section row">
+    <div class="col-md-12 bg-neutral-blue p-3">
+      <h3>Methodology</h3>
       <div class="content">
         <p>
-          In 2020, Walk Free, WikiRate, and the Business & Human Rights Resource Centre assessed the statements produced
-          by 79 asset managers identified as having to report under the MSA. These statements were assessed against:
+          Drawing on Walk Free's knowledge of modern slavery due diligence and the Home Office Guidance accompanying the
+          UK Act, the partnership developed a <span class="tooltip-item" placement="top" tooltipHtml="true"
+                                                    [ngbPopover]="standardized_metrics_details">set of 16<span>&#42;</span> standardized metrics</span>
+          to assess the content of the statements.
         </p>
+        <p>The following overview shows how both the UK and Australian legislation guidance and requirements map to the
+          projects' standardized metrics.</p>
+        <table class="table table-responsive-md table-bordered table-dark">
+          <thead>
+          <tr>
+            <th scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
+            <th scope="col-3">UK MSA Requirements & Guidance</th>
+            <th scope="col-3">Australia MSA Requirements</th>
+          </tr>
+          <tr>
+            <th scope="col-2">Metric</th>
+            <th scope="col-4">Description</th>
+            <th scope="col-3">Requirements & Guidance</th>
+            <th scope="col-3">Requirements & Criterion</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of table">
+            <td class="col-2"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
+            <td class="col-4">{{item['description']}}</td>
+            <td class="col-3"
+                [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
+            <td class="col-3"
+                [ngClass]="(item['requirements_criterion_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_criterion']}}</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 </div>
+<ng-template #standardized_metrics_details>
+  <p>As the project progressed 3 more standardized metrics have been added. One resulting from the Australian Modern
+    Slavery Act requirements assessing “Consultation process” (see table below) and two looking at best practices
+    such as companies <a href="https://wikirate.org/Walk_Free+MSA_historic_record" target="_blank">providing a historic
+      record of previous statements</a> on their
+    website, and making explicit <a href="https://wikirate.org/Walk_Free+MSA_Impact_on_Company_Behaviour"
+                                    target="_blank">how the legislation impacted company behavior.</a></p>
+</ng-template>
