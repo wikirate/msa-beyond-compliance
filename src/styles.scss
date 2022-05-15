@@ -4,11 +4,11 @@
 //Colors
 $deep_blue: #000028;
 $white: #FFFFFF;
-$yellow: #FFDC00;
-$orange: #FF9300;
+$yellow: #ffdc00;
+$orange: #ff9300;
 $red: #FE0000;
-$blue: #0037F1;
-$neutral_orange: rgb(254, 239, 221);
+$blue: #0037f1;
+$neutral_orange: #ffefd9; //rgb(254, 239, 221);
 $neutral_grey: #F6F5EA;
 $neutral_blue: #DDDDE3;
 $light-orange: rgb(255, 147, 0, 0.3);
@@ -118,16 +118,16 @@ th.active {
   font-weight: bold !important;
 }
 
-.table-bordered {
+.methodology-table.table-bordered {
   color: $white !important;
 }
 
-.table-bordered tr {
+.methodology-table.table-bordered tr {
   color: $white !important;
   font-size: 0.9em !important;
 }
 
-.table-bordered tr a {
+.methodology-table.table-bordered tr a {
   color: $white !important;
 }
 
@@ -181,7 +181,13 @@ h5 {
 .quote {
   font-family: TiemposText !important;
   font-style: italic !important;
-  font-size: 0.8em !important;
+  font-size: 1em !important;
+}
+
+.note {
+  font-family: TiemposText !important;
+  font-style: italic !important;
+  font-size: 0.7em !important;
 }
 
 a.button {
@@ -317,7 +323,7 @@ footer .logo-right {
 
 footer .logo-center {
   border: 2px solid $deep_blue !important;
-  border-width: 0 2px !important;
+  border-width: 0px 0px 0px 2px !important;
 }
 
 footer img {
@@ -507,7 +513,7 @@ hr.deep-blue {
 
 .accordion-collapse {
   padding: 2em 2% !important;
-  background-color: $neutral_grey !important;
+  background-color: $white !important;
   border: 0 !important;
   border-radius: 0em 1.5em 0em 1.5em !important;
 }
@@ -532,7 +538,7 @@ hr.deep-blue {
 
 .accordion-button-white:hover {
   background-color: #FFDC00 !important;
-  color: $deep_blue;
+  color: $deep_blue !important;
 }
 
 .accordion-button-white:not(.collapsed)::after,
@@ -606,13 +612,25 @@ a.anchor {
   }
 }
 
-p.highlight {
-  font-size: 1.4em !important;
+p.accordion-paragraph {
+  min-height: 80px !important;
 }
 
-@media screen and (max-width: 576px) {
-  p.highlight {
-    font-size: 1.1em !important;
+@media screen and (max-width: 1400px) {
+  p.accordion-paragraph {
+    min-height: 110px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  p.accordion-paragraph {
+    min-height: 132px !important;
+  }
+}
+
+@media screen and (max-width: 994px) {
+  p.accordion-paragraph {
+    min-height: 0px !important;
   }
 }
 
@@ -662,7 +680,7 @@ h6 {
 
 @media screen and (max-width: 576px) {
   .popover {
-    transform: translate(0px, 273px)!important;
+    transform: translate(0px, 273px) !important;
   }
   .popover-arrow {
     position: absolute !important;
@@ -671,14 +689,39 @@ h6 {
   }
 }
 
-.td-bg-color-yellow{
+.td-bg-color-yellow {
   background-color: lighten($yellow, 45%) !important;
   color: $deep_blue;
 }
 
-.td-bg-color-red{
-  background-color: lighten($red,45%) !important;
+.td-bg-color-red {
+  background-color: lighten($red, 45%) !important;
   color: $deep_blue;
+}
+
+.blue-title {
+  color: $blue !important;
+}
+
+.text-deep-blue {
+  color: $deep_blue !important;
+}
+
+.legend-box {
+  height: 20px;
+  width: 40px;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
+}
+
+.footer-container {
+  @extend .container;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+  min-height: auto;
 }
 
 /* Importing Bootstrap SCSS file. */
