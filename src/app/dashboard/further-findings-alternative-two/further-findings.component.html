@@ -1,10 +1,10 @@
-<div class="section mt-5 bg-neutral-orange p-4">
+<div class="section mt-5 bg-neutral-white p-4">
   <div class="row">
     <div class="col-md-8">
       <h3 class="title">Further Findings</h3>
     </div>
     <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
+      <select class="msa-form-select ms-md-auto bg-neutral-white" aria-label="Minimum requirements year filter"
               style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
         <option [ngValue]="''" selected>all years</option>
         <option [ngValue]="'latest'">latest</option>
@@ -29,19 +29,20 @@
   <div class="row dive-deeper mt-3 " [ngClass]="!isLoading ? 'show-element': 'hide-element'">
     <div class="col-lg-4 mb-lg-0 mb-3">
       <div class="accordion" id="approach_to_policies">
-        <div class="accordion-item" >
+        <div class="accordion-item">
           <div class="accordion-header" id="approachToPoliciesTitle">
             <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
                  data-bs-target="#approach-to-policies-alt-two" aria-expanded="false" aria-controls="collapseThree">
-              <div class="row mt-3 mb-3">
+              <div class="row mt-3">
                 <div class="row">
-                  <div class="msa-primary-info-lg">{{percentage_of_companies_report_policy_beyond_t1}}%</div>
+                  <div class="msa-primary-info">{{percentage_of_companies_report_policy_beyond_t1}}%</div>
                 </div>
                 <div class="row">
-                  <p class="highlight">of companies report having a modern slavery <b>policy that applies to
+                  <p class="accordion-paragraph">of companies report having a modern slavery <b>policy that applies to
                     stakeholders beyond the 1st
                     tier</b> of
                     their supply chain</p>
+                  <h5 class="blue-title">Policies</h5>
                 </div>
               </div>
             </div>
@@ -62,12 +63,16 @@
           <div class="accordion-header" id="headingThree">
             <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
                  data-bs-target="#ApproachToRisksAltTwo" aria-expanded="false" aria-controls="collapseThree">
-              <div class="row mt-3 mb-3">
+              <div class="row mt-3">
                 <div class="row">
-                  <div class="msa-primary-info-lg">{{percentage_of_companies_identified_risks}}%</div>
+                  <div class="msa-primary-info">{{percentage_of_companies_identified_risks}}%</div>
                 </div>
                 <div class="row">
-                  <p class="highlight">of companies have <b>identified risks likely to occur</b> within operations</p>
+                  <p class="accordion-paragraph">of companies have <b>identified risks likely to occur</b> within
+                    <br>
+                  </p>
+
+                  <h5 class="blue-title">Risks</h5>
                 </div>
               </div>
             </div>
@@ -88,14 +93,15 @@
             <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
                  data-bs-target="#collapseApproachToIncidents-alt-two" aria-expanded="false"
                  aria-controls="collapseApproachToIncidents">
-              <div class="row mt-3 mb-3">
+              <div class="row mt-3">
                 <div class="row">
-                  <div class="msa-primary-info-lg">{{percentage_of_companies_identified_incidents}}%</div>
+                  <div class="msa-primary-info">{{percentage_of_companies_identified_incidents}}%</div>
                 </div>
                 <div class="row">
-                  <p class="highlight">of companies have <b>identified a specific incident of modern slavery</b> in
+                  <p class="accordion-paragraph">of companies have <b>identified a specific incident of modern slavery</b> in
                     their own and/or supply chain
                     operations</p>
+                  <h5 class="blue-title">Incidents</h5>
                 </div>
               </div>
             </div>

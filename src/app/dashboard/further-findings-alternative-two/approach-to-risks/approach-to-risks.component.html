@@ -1,9 +1,3 @@
-<div class="row">
-  <div class="col-md-8">
-    <h3 class="title">Risks</h3>
-  </div>
-</div>
-<hr class="deep-blue">
 <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
   <div class="col-12 text-center align-self-center">
     <div class="spinner-grow text-warning" role="status">
@@ -23,8 +17,8 @@
     </div>
   </div>
 </div>
-<div class="row justify-content-md-center mt-md-3" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-  <div class="col-md-12">
+<div class="row justify-content-md-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <div class="col-md-12 mt-4">
     <div class="row">
       <h5>TYPES OF RISKS IDENTIFIED</h5>
       <p>as likely to occur within operations</p>
@@ -34,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 mt-4">
     <div class="row">
       <h5>RISK MANAGEMENT SYSTEM</h5>
       <p>used to keep an eye on (high risk) operations</p>
