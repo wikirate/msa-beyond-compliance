@@ -1,50 +1,74 @@
 <div class="container">
-  <div class="section">
+  <div class="section row mb-4">
     <h1 class="title mt-5">
-      Beyond Compliance
+      Beyond Compliance Dashboard
     </h1>
     <div class="subtitle mt-3">
-      Assessing UK and Australian Modern Slavery Act statements produced by companies and investors.
+      A living data dashboard assessing modern slavery reporting standards across business sectors
     </div>
   </div>
-  <div class="section row">
-    <div class="col-md-7 bg-neutral-orange p-3">
-      <h3>Modern Slavery Acts</h3>
+  <div class="row">
+    <div class="col-md-12">
       <div class="content">
         <p>
           Under Section 54 of the 2015 MSA, the UK government requires all companies with a turnover of over GB£36
           million per annum to release an annual statement on the actions they are taking to tackle modern slavery in
           their direct operations and supply chains. The 2018 Australian MSA establishes a national Modern Slavery
-          Reporting Requirement, which applies to businesses and other entities in the Australian market with an annual
+          Reporting Requirement, which applies to businesses and other entities in the Australian market with an
+          annual
           consolidated revenue of at least AU$100 million. These entities are required to identify and address their
           modern slavery risks and maintain responsible and transparent supply chains.
         </p>
-      </div>
-    </div>
-    <div class="col-md-5 no-padding">
-      <div class="col-md-12">
-        <div class="col-md-12">
-          <div class="col-md-11 ms-md-auto bg-neutral-grey p-3 mt-3 mt-md-0">
-            <h3>Coming Together</h3>
-            <div class="content">
-              <p>
-                In 2016, when the first companies started publishing their UK Modern Slavery Act statements, Walk Free
-                and
-                WikiRate partnered to set up a research project that could assess their contents; were companies
-                approaching
-                it as another tick box exercise or were they going beyond compliance?
-              </p>
-            </div>
-          </div>
-        </div>
+        <p>
+          In 2016, when the first companies started publishing their UK Modern Slavery Act statements, Walk Free
+          and WikiRate partnered to set up a research project that could assess their contents; were companies
+          approaching it as another tick box exercise or were they going beyond compliance?
+        </p>
       </div>
     </div>
   </div>
-
-  <div class="section row">
-    <div class="col-md-12 bg-neutral-blue p-3">
-      <h3>Methodology</h3>
-      <div class="content">
+  <div class="row mt-2 mb-2" id="action">
+    <div class="col-md-6 mb-md-0 mb-5">
+      <div class="bg-yellow p-4">
+        <div class="call-to-action-title mb-2">Take Action</div>
+        <h5 class="mb-3">We're calling policy makers to</h5>
+        <ul>
+          <li>Implement financial penalties for non-compliance with the MSAs</li>
+          <li>Strengthen MSA legislation to go beyond mandatory reporting to include mandatory due diligence</li>
+          <li>Provide avenues for redress for exploited workers</li>
+        </ul>
+        <div class="note">You can find full sets of recommendations specific to sectors that have been analysed through
+          this project within the reports linked to in the Sector Focus section.
+        </div>
+<!--        <a class="button transparent-button mt-md-3 mt-3"-->
+<!--           href="about#sector_focus">Learn More</a>-->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="bg-yellow p-4">
+        <div class="call-to-action-title mb-2">Take Action</div>
+        <h5 class="mb-3">We're calling companies reporting under MSA legislation to</h5>
+        <ul>
+          <li>Improve reporting under MSA legislations</li>
+          <li>Improve supply chain transparency</li>
+          <li>Implement due diligence with a focus on sector specific risk</li>
+          <li>Establish due diligence processes that demonstrate duty of care for vulnerable workers</li>
+          <li>Engage with industry and non-industry initiatives</li>
+        </ul>
+        <div class="note">You can find full sets of recommendations specific to sectors that have been analysed through
+          this project within the reports linked to in the Sector Focus section.
+        </div>
+<!--        <a class="button transparent-button mt-md-3 mt-3"-->
+<!--           href="about#sector_focus" target="_blank">Learn More</a>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section bg-neutral-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 p-3 pt-4 pb-4">
+        <h3 class="mb-3">Methodology</h3>
         <p>
           Drawing on Walk Free's knowledge of modern slavery due diligence and the Home Office Guidance accompanying the
           UK Act, the partnership developed a <span class="tooltip-item" placement="top" tooltipHtml="true"
@@ -53,31 +77,186 @@
         </p>
         <p>The following overview shows how both the UK and Australian legislation guidance and requirements map to the
           projects' standardized metrics.</p>
-        <table class="table table-responsive-md table-bordered table-dark">
-          <thead>
-          <tr>
-            <th scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
-            <th scope="col-3">UK MSA Requirements & Guidance</th>
-            <th scope="col-3">Australia MSA Requirements</th>
-          </tr>
-          <tr>
-            <th scope="col-2">Metric</th>
-            <th scope="col-4">Description</th>
-            <th scope="col-3">Requirements & Guidance</th>
-            <th scope="col-3">Requirements & Criterion</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let item of table">
-            <td class="col-2"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
-            <td class="col-4">{{item['description']}}</td>
-            <td class="col-3"
-                [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
-            <td class="col-3"
-                [ngClass]="(item['requirements_criterion_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_criterion']}}</td>
-          </tr>
-          </tbody>
-        </table>
+        <div class="content collapse" id="methodology">
+          <table class="table table-responsive-md table-bordered border-light">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
+              <th scope="col-3">UK MSA Requirements & Guidance</th>
+              <th scope="col-3">Australia MSA Requirements</th>
+            </tr>
+            <tr>
+              <th scope="col-2">Metric</th>
+              <th scope="col-4">Description</th>
+              <th scope="col-3">Requirements & Guidance</th>
+              <th scope="col-3">Requirements & Criterion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of table">
+              <td class="col-2"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
+              <td class="col-4">{{item['description']}}</td>
+              <td class="col-3"
+                  [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
+              <td class="col-3"
+                  [ngClass]="(item['requirements_criterion_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_criterion']}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="row ms-2">
+            <div class="row p-1 justify-content-end">
+              <div class="col-auto no-padding">Mandatory</div>
+              <div class="col-auto">
+                <div class="legend-box td-bg-color-red"></div>
+              </div>
+            </div>
+            <div class="row p-1  justify-content-end">
+              <div class="col-auto no-padding">Not Mandatory</div>
+              <div class="col-auto">
+                <div class="legend-box td-bg-color-yellow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="show-more" class="collapsed" data-bs-toggle="collapse" href="#methodology" role="button"
+           aria-expanded="false"
+           aria-controls="methodology"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col-md-12 p-3">
+        <h3 class="mb-3">Collaborative Research</h3>
+        <div class="content">
+          <p>On the WikiRate platform anyone interested can take part in research efforts that gather data about the
+            actions and impacts of companies on people and planet. The data displayed in this dashboard is collected
+            through the Modern Slavery Act research project. This project is organized by Walk Free in collaboration
+            with
+            the WikiRate team, but the research is conducted by a much broader community of passionate researchers. It
+            has
+            been a collaboration between a wide variety of groups including volunteers, University students, and experts
+            from around the world. As the research effort is ongoing, this is a living, breathing project and the
+            dashboard updates as and when new data is contributed to the WikiRate platform. </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-md-0 mb-5">
+        <div class="bg-deep-blue p-4">
+          <div class="call-to-action-title mb-2">Take Action</div>
+          <h5 class="mb-3">Join the Research!</h5>
+          <p>Contribute to MSA research via the WikiRate platform</p>
+          <a class="button white-button mt-md-3 mt-3"
+             href="https://wikirate.org/Research_UK_Modern_Slavery_Act_Research" target="_blank">Learn More</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="bg-deep-blue p-4">
+          <div class="call-to-action-title mb-2">Take Action</div>
+          <h5 class="mb-3">Data Verification!</h5>
+          <p>Find some data you think might be inaccurate? Join the ongoing data verification effort and help us improve
+            the research</p>
+          <a class="button white-button mt-md-3 mt-3"
+             href="https://wikirate.org/Add_Answers#edit_an_answer" target="_blank">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section bg-neutral-blue"  id="sector_focus" data-bs-spy="scroll" data-bs-target="#action" data-offset="150" tabindex="0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 p-3 pt-4 pb-4">
+        <h3 class="mb-3">Sector Focus</h3>
+        <p>
+          Over the years Walk Free has analyzed and published subsets of the data collected through the Modern Slavery
+          Act Research project on WikiRate. Since 2019 these case studies have had a sector specific focus, which so
+          far have included:
+        </p>
+      </div>
+    </div>
+    <div class="row pb-4">
+      <div class="col-md-4">
+        <div class="p-2">
+          <h5>Hotels</h5>
+          <p>The hotel sector is the section of the service industry that deals with guest accomodation. It can include
+            branded hotels and boutique hotels.
+          </p>
+          <div class="note mb-3">Note: The hotel sector is a subset of the hospitality sector. The latter also includes
+            consumer services
+            such
+            as restaurants, recreation, and tourism. This broader category is the sector filter you can apply to the
+            data
+            in this dashboard.
+          </div>
+          <div class="text-start">
+            <a class="button transparent-button mt-md-3 mt-3"
+               href="https://cdn.minderoo.com.au/content/uploads/2019/11/20161202/2632_MSA-statements.V8_FNL.pdf">Learn
+              More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-2">
+          <h5>Asset Managers</h5>
+          <p>Asset owners outsource their investment decisions to investment or asset managers. Owners rely on
+            investment managers to understand the risks that are present in portfolios including environmental, social
+            and governance risks. They have considerable leverage through the provision of advice and can encourage
+            owners to be active, responsible investors.
+          </p>
+          <div class="note mb-3">Note: Asset managers are a subset of the finance sector. The latter also includes
+            banks,
+            pension funds, insurance, real estate and financial service providers. This broader category is the sector
+            filter you can apply to the data in this dashboard.
+          </div>
+          <div class="text-start">
+            <a class="button transparent-button mt-md-3 mt-3"
+               href="https://cdn.walkfree.org/content/uploads/2021/03/18184928/WalkFree_BeyondComplianceInTheFinanceSector_210318.pdf">Learn
+              More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-2">
+          <h5>Garment</h5>
+          <p>The garment sector includes the manufacture of textiles, leather, and allied products for the
+            purpose of assembling garments and footwear, by any means, for sale or exportation to garment companies and
+            brands, and the subsequent sale of garments and footwear by these companies and brands to consumers.
+          </p>
+          <div class="text-start">
+            <a class="button transparent-button mt-md-3 mt-3"
+               href="https://cdn.walkfree.org/content/uploads/2022/02/22150956/Walk-Free-Beyond-Compliance-Garment-Industry.pdf">Learn
+              More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col-md-12 p-3">
+        <h3 class="mb-3">Research Contributors</h3>
+        <p>This research was performed with the contribution of the following organizations</p>
+        <div class="slider mt-3">
+          <div class="slide-track">
+            <div class="slide" *ngFor="let contributor of contributors let i = index">
+              <div class="row col-12 justify-content-center">
+                <div class="image-box d-flex justify-content-center align-items-center m-2">
+                  <img src="{{contributor.logo}}"
+                       alt="{{contributor.contributor}}"/>
+                </div>
+                <div class="contributor-name m3 text-center">
+                  {{contributor.contributor}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -85,7 +264,8 @@
 <ng-template #standardized_metrics_details>
   <p>As the project progressed 3 more standardized metrics have been added. One resulting from the Australian Modern
     Slavery Act requirements assessing “Consultation process” (see table below) and two looking at best practices
-    such as companies <a href="https://wikirate.org/Walk_Free+MSA_historic_record" target="_blank">providing a historic
+    such as companies <a href="https://wikirate.org/Walk_Free+MSA_historic_record" target="_blank">providing a
+      historic
       record of previous statements</a> on their
     website, and making explicit <a href="https://wikirate.org/Walk_Free+MSA_Impact_on_Company_Behaviour"
                                     target="_blank">how the legislation impacted company behavior.</a></p>
