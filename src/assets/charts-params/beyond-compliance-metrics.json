@@ -12,8 +12,8 @@
       "Signed by Managing Director",
       "Signed by Chairman"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 2,
@@ -25,8 +25,8 @@
     "filter_value": [
       "Approved by Board"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 3,
@@ -38,8 +38,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-orange"
   },
   {
     "seq": 4,
@@ -51,8 +51,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 5,
@@ -64,8 +64,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 6,
@@ -78,8 +78,8 @@
       "Geographical",
       "Facility/Supplier"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 7,
@@ -108,8 +108,8 @@
       "Suppliers respect labour rights (wages / freedom of association etc) (direct / tier 1)",
       "Suppliers respect labour rights (wages / freedom of association etc) (beyond tier 1)"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 8,
@@ -123,8 +123,8 @@
       "Use of risk management tool or software",
       "Conducting desk research"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 9,
@@ -139,8 +139,8 @@
       "Workforce",
       "Industry"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 10,
@@ -155,8 +155,8 @@
       "On-site visits (self- reporting)",
       "On-site visits (independent)"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 11,
@@ -173,8 +173,8 @@
       "Focal Point (direct employees)",
       "Focal Point (supply chain workers)"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 12,
@@ -186,8 +186,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 13,
@@ -202,8 +202,8 @@
       "Senior management",
       "Cancel contracts"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 14,
@@ -220,8 +220,8 @@
       "Suppliers",
       "Training provided - not specified to who"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 15,
@@ -233,8 +233,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-deep-blue",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-orange",
+    "uk_color": "bg-deep-blue"
   },
   {
     "seq": 16,
@@ -246,7 +246,7 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue"
   }
 ]
