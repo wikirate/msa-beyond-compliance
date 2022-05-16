@@ -1,0 +1,337 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A beeswarm chart example that uses a force-directed layout to group items by category.",
+  "width": 650,
+  "height": 300,
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 0,
+    "bottom": 30
+  },
+  "autosize": "none",
+  "config": {
+    "axis": {
+      "labelFontSize": 15,
+      "labelFont": "GothamNarrow"
+    }
+  },
+  "signals": [
+    {
+      "name": "cx",
+      "update": "width / 2"
+    },
+    {
+      "name": "cy",
+      "update": "height / 2"
+    }
+  ],
+  "data": [
+    {
+      "name": "turnover",
+      "url": "https://wikirate.org/Home_Office+Turnover_range+Answer.json?view=answer_list&limit=0"
+    },
+    {
+      "name": "revenue",
+      "url": "https://wikirate.org/Australian_Border_Force+Revenue_range+Answer.json?view=answer_list&limit=0"
+    },
+    {
+      "name": "garment",
+      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&value=Yes&filter[company_group]=MSA Garment&field[year]=latest",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "turnover",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "turnover"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "revenue",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "revenue"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small','Unknown')"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == '£100 million to £500 million' || datum.revenue == 'AU$ 250-300M' == datum.revenue == 'AU$ 300-350M' || datum.revenue == 'AU$ 350-400M' || datum.revenue == 'AU$ 400-450M' || datum.revenue == 'AU$ 450-500M' || datum.revenue == 'AU$ 500-600M' || datum.revenue == 'AU$ 600-700M' || datum.revenue == 'AU$ 700-800M', 'Medium',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Over £500 million' || datum.revenue == 'AU$ 800-900M' || datum.revenue == 'AU$ 900M-1BN' || datum.revenue == 'AU$ 1BN+', 'Large',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "sector",
+          "expr": "'Garment'"
+        },
+        {
+          "type": "filter",
+          "expr": "datum.size != 'Unknown'"
+        }
+      ]
+    },
+    {
+      "name": "financial",
+      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&value=Yes&filter[company_group]=MSA Financial&field[year]=latest",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "turnover",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "turnover"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "revenue",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "revenue"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small','Unknown')"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == '£100 million to £500 million' || datum.revenue == 'AU$ 250-300M' == datum.revenue == 'AU$ 300-350M' || datum.revenue == 'AU$ 350-400M' || datum.revenue == 'AU$ 400-450M' || datum.revenue == 'AU$ 450-500M' || datum.revenue == 'AU$ 500-600M' || datum.revenue == 'AU$ 600-700M' || datum.revenue == 'AU$ 700-800M', 'Medium',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Over £500 million' || datum.revenue == 'AU$ 800-900M' || datum.revenue == 'AU$ 900M-1BN' || datum.revenue == 'AU$ 1BN+', 'Large',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "sector",
+          "expr": "'Financial'"
+        },
+        {
+          "type": "filter",
+          "expr": "datum.size != 'Unknown'"
+        }
+      ]
+    },
+    {
+      "name": "hospitality",
+      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&value=Yes&filter[company_group]=MSA Hospitality&field[year]=latest",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "turnover",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "turnover"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "revenue",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "revenue"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small','Unknown')"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == '£100 million to £500 million' || datum.revenue == 'AU$ 250-300M' == datum.revenue == 'AU$ 300-350M' || datum.revenue == 'AU$ 350-400M' || datum.revenue == 'AU$ 400-450M' || datum.revenue == 'AU$ 450-500M' || datum.revenue == 'AU$ 500-600M' || datum.revenue == 'AU$ 600-700M' || datum.revenue == 'AU$ 700-800M', 'Medium',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Over £500 million' || datum.revenue == 'AU$ 800-900M' || datum.revenue == 'AU$ 900M-1BN' || datum.revenue == 'AU$ 1BN+', 'Large',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "sector",
+          "expr": "'Hospitality'"
+        },
+        {
+          "type": "filter",
+          "expr": "datum.size != 'Unknown'"
+        }
+      ]
+    },
+    {
+      "name": "people",
+      "url": "data/miserables.json",
+      "format": {
+        "type": "json",
+        "property": "nodes"
+      }
+    },
+    {
+      "name": "statements",
+      "source": [
+        "garment",
+        "financial",
+        "hospitality"
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "band",
+      "domain": {
+        "data": "statements",
+        "field": "size",
+        "sort": false
+      },
+      "range": "width"
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "data": "statements",
+        "field": "sector"
+      },
+      "range": [
+        "#ffdc00",
+        "#ff9300",
+        "#000028"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "xscale"
+    }
+  ],
+  "marks": [
+    {
+      "name": "nodes",
+      "type": "symbol",
+      "from": {
+        "data": "statements"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "scale": "color",
+            "field": "sector"
+          },
+          "xfocus": {
+            "scale": "xscale",
+            "field": "size",
+            "band": 0.5
+          },
+          "yfocus": {
+            "signal": "cy"
+          },
+          "tooltip": {
+            "signal": "datum.sector+' company'"
+          }
+        },
+        "update": {
+          "size": {
+            "signal": "pow(2 * 4, 2)"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "zindex": {
+            "value": 0
+          }
+        },
+        "hover": {
+          "stroke": {
+            "value": "purple"
+          },
+          "strokeWidth": {
+            "value": 3
+          },
+          "zindex": {
+            "value": 1
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "force",
+          "iterations": 200,
+          "static": false,
+          "forces": [
+            {
+              "force": "collide",
+              "iterations": 1,
+              "radius": 4
+            },
+            {
+              "force": "x",
+              "x": "xfocus",
+              "strength": 0.2
+            },
+            {
+              "force": "y",
+              "y": "yfocus",
+              "strength": 0.1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
