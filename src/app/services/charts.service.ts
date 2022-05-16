@@ -11,6 +11,8 @@ import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
 // @ts-ignore
 import uk_tree_map from '../../assets/charts/uk_legislation_tree_map.json';
 // @ts-ignore
+import beesworm_chart from '../../assets/charts/Beesworm.json';
+// @ts-ignore
 import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
 import {Injectable} from "@angular/core";
 import embed from "vega-embed";
@@ -413,6 +415,25 @@ export class ChartsService {
     return embed(element, bars, options)
   }
 
+  drawBeeSwormChart(title: string,
+                    year: number | string,
+                    assessed_statements_metric_id: number,
+                    colors: string[],
+                    element: string,
+                    width: number,
+                    height: number,
+                    options: {}) {
+    var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
+    var garment_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Garment`;
+    var financial_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Financial`;
+    var hospitality_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Hospitality`;
+    bee_chart['data'][2]['url'] = garment_assessed_url
+    bee_chart['data'][3]['url'] = financial_assessed_url
+    bee_chart['data'][4]['url'] = hospitality_assessed_url
+
+    return embed(element, bee_chart, options);
+  }
+
   drawPieChartGroups(title: string,
                      year: number | string,
                      assessed_statements_metric_id: number,
@@ -494,10 +515,10 @@ export class ChartsService {
   }
 
   both_legislations_tree_map(values: any[],
-                          element: string,
-                          width: number,
-                          height: number,
-                          options: {}) {
+                             element: string,
+                             width: number,
+                             height: number,
+                             options: {}) {
     var treeMap = JSON.parse(JSON.stringify(both_tree_map))
     treeMap["data"][0]["values"] = values;
     console.log(JSON.stringify(treeMap))

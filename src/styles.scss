@@ -712,6 +712,13 @@ h6 {
   width: 40px;
 }
 
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(100%);

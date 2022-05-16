@@ -1,11 +1,12 @@
 <div class="section mt-5 bg-neutral-orange p-4">
   <div class="row">
-    <div class="col-md-4">
-      <h3 class="title">Statements Overview</h3>
+    <div class="col-lg-7">
+      <h3 class="title">Companies' Assessed Statements</h3>
+      <p>By company size and sector</p>
     </div>
-    <div class="col-md-8 ms-md-auto">
-      <div class="row ps-3 pe-3 pt-md-0 pt-2">
-        <select class="msa-form-select bg-neutral-orange ms-md-auto me-3 mb-md-0 mb-1"
+    <div class="col-lg-5 ms-lg-auto">
+      <div class="row ps-3 pe-3 pt-lg-0 pt-2">
+        <select class="msa-form-select bg-neutral-orange ms-lg-auto me-3 mb-lg-0 mb-1"
                 aria-label="Default select example"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
           <option [ngValue]="''" selected>all years</option>
@@ -35,6 +36,22 @@
     </div>
   </div>
   <div class="row text-center pt-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+
     <div id="tree-map" class="chart-wrapper"></div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-auto">
+        <div class="dot bg-yellow"></div>
+      </div>
+      <div class="col-auto no-padding note align-middle">Garment Sector</div>
+
+      <div class="col-auto">
+        <div class="dot bg-orange"></div>
+      </div>
+      <div class="col-auto no-padding note align-middle">Financial Sector</div>
+      <div class="col-auto">
+        <div class="dot bg-deep-blue"></div>
+      </div>
+      <div class="col-auto no-padding note align-middle">Hospitality Sector</div>
+    </div>
   </div>
 </div>
