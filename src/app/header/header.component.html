@@ -1,10 +1,11 @@
 <div class="bg-deep-blue sticky-top">
   <div class="container">
     <nav class="nav navbar">
-      <a class="navbar-brand navbar-expand" routerLink="/dashboard" (click)="onSelectSection('dashboard')">
+      <a class="navbar-brand navbar-expand">
         <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
       </a>
       <div class="navbar me-auto">
+        <a class="nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')">DASHBOARD</a>
         <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')">ABOUT</a>
         <div class="nav-item dropdown col">
           <a class="nav-item nav-link" type="button" id="share" data-bs-toggle="dropdown"
