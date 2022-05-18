@@ -1,0 +1,1181 @@
+[
+  {
+    "id": 5210,
+    "name": "Tesco PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5301,
+    "name": "Inditex",
+    "headquarters": "Spain"
+  },
+  {
+    "id": 5420,
+    "name": "Primark",
+    "headquarters": "Ireland"
+  },
+  {
+    "id": 5505,
+    "name": "Gap inc.",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 5587,
+    "name": "Levi Strauss & Co.",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 5590,
+    "name": "H&M",
+    "headquarters": "Sweden"
+  },
+  {
+    "id": 5800,
+    "name": "Nike Inc.",
+    "headquarters": "Oregon (United States)"
+  },
+  {
+    "id": 7217,
+    "name": "Adidas AG",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 8362,
+    "name": "Kering",
+    "headquarters": "France"
+  },
+  {
+    "id": 8979,
+    "name": "Louis Vuitton Malletier SA (LVMH)",
+    "headquarters": "France"
+  },
+  {
+    "id": 9127,
+    "name": "Esprit Holdings Limited",
+    "headquarters": "Hong Kong"
+  },
+  {
+    "id": 9139,
+    "name": "Burberry Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9269,
+    "name": "Marks and Spencer Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 11708,
+    "name": "Amazon.com, Inc.",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 18104,
+    "name": "Gucci",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 18109,
+    "name": "Puma",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 42714,
+    "name": "Hugo Boss AG",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 44618,
+    "name": "Sports Direct",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 48284,
+    "name": "Hermes International",
+    "headquarters": "France"
+  },
+  {
+    "id": 48305,
+    "name": "Christian Dior",
+    "headquarters": "France"
+  },
+  {
+    "id": 49209,
+    "name": "Next PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 49386,
+    "name": "Tapestry Inc",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 50638,
+    "name": "Dick's Sporting Goods",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 51397,
+    "name": "JC Penney",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 56413,
+    "name": "Richemont",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 56584,
+    "name": "Fast Retailing",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 56597,
+    "name": "L Brands",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 56618,
+    "name": "Nordstrom",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 57199,
+    "name": "Sainsbury's",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 57272,
+    "name": "Swatch Group",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 57485,
+    "name": "Luxottica Group SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 58500,
+    "name": "Foot Locker Inc.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 60914,
+    "name": "Abercrombie & Fitch",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 60982,
+    "name": "Hanesbrands",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 61050,
+    "name": "PVH",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 61065,
+    "name": "Prada",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 61104,
+    "name": "VF",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 61108,
+    "name": "Wesfarmers Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 61176,
+    "name": "Macy's",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 116138,
+    "name": "Gildan Activewear Inc.",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 116498,
+    "name": "Under Armour",
+    "headquarters": "Maryland (United States)"
+  },
+  {
+    "id": 170564,
+    "name": "Asics Corporation",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 170683,
+    "name": "Kathmandu Holdings Ltd",
+    "headquarters": "New Zealand"
+  },
+  {
+    "id": 776665,
+    "name": "Dillard's, Inc.",
+    "headquarters": "Arkansas (United States)"
+  },
+  {
+    "id": 776737,
+    "name": "Tiffany & Co.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 776749,
+    "name": "G-III Apparel Group, LTD.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 792992,
+    "name": "Moncler",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 858415,
+    "name": "Fossil Group, Inc.",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 859389,
+    "name": "Urban Outfitters",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 861719,
+    "name": "Wolverine World Wide",
+    "headquarters": "Michigan (United States)"
+  },
+  {
+    "id": 861862,
+    "name": "Columbia Sportswear",
+    "headquarters": "Oregon (United States)"
+  },
+  {
+    "id": 862441,
+    "name": "American Eagle Outfitters",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 865187,
+    "name": "Caleres Inc",
+    "headquarters": "Missouri (United States)"
+  },
+  {
+    "id": 866117,
+    "name": "Deckers Outdoor Corporation",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 866417,
+    "name": "Skechers USA Inc",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 957395,
+    "name": "TJX",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 1625513,
+    "name": "Woolworths Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 1825510,
+    "name": "lululemon athletica",
+    "headquarters": "British Columbia (Canada)"
+  },
+  {
+    "id": 1829050,
+    "name": "Asos",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1830423,
+    "name": "Scottish Leather Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1830527,
+    "name": "Seasalt Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1830731,
+    "name": "Airwair International Ltd (Dr Martens)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1831284,
+    "name": "John Lewis Partnership",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1831479,
+    "name": "FatFace",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1833443,
+    "name": "New Look Retail Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2241782,
+    "name": "DSW Inc.",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 2265395,
+    "name": "Ralph Lauren Corporation",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2274181,
+    "name": "Genesco Inc.",
+    "headquarters": "Tennessee (United States)"
+  },
+  {
+    "id": 2605005,
+    "name": "Carter's Inc",
+    "headquarters": "Georgia (United States)"
+  },
+  {
+    "id": 2608717,
+    "name": "Zalando SE",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 2608722,
+    "name": "Salvatore Ferragamo SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 2608766,
+    "name": "Mizuno Corporation",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 2612008,
+    "name": "Myer Holdings Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 2612054,
+    "name": "Chanel SA",
+    "headquarters": "France"
+  },
+  {
+    "id": 2612077,
+    "name": "The Very Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2615965,
+    "name": "Rip Curl Group Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 2617988,
+    "name": "N Brown Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2623713,
+    "name": "YOOX NET-A-PORTER Group SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 2624117,
+    "name": "Geox SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 2632164,
+    "name": "Express Inc",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 2632233,
+    "name": "Ascena Retail Group Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 2632287,
+    "name": "Burlington Stores Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 2632311,
+    "name": "Chico's FAS Inc",
+    "headquarters": "Florida (United States)"
+  },
+  {
+    "id": 2632436,
+    "name": "Children's Place Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 2979682,
+    "name": "Vera Bradley Inc.",
+    "headquarters": "Indiana (United States)"
+  },
+  {
+    "id": 2980808,
+    "name": "Buckle Inc",
+    "headquarters": "Nebraska (United States)"
+  },
+  {
+    "id": 3052157,
+    "name": "Cato Corp",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 3075761,
+    "name": "Boot Barn Holdings Inc.",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 3081181,
+    "name": "Bestseller AS",
+    "headquarters": "Denmark"
+  },
+  {
+    "id": 3081273,
+    "name": "Jigsaw",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081306,
+    "name": "Missguided Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081307,
+    "name": "Monsoon Accessorize Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081310,
+    "name": "Mulberry Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081363,
+    "name": "Selfridges & Co Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3084878,
+    "name": "Adidas UK",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3084880,
+    "name": "Aldi Stores Ltd",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 3095632,
+    "name": "Target Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3096086,
+    "name": "Matalan",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3096434,
+    "name": "Cotton on Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3096469,
+    "name": "Arcadia Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3096472,
+    "name": "Edinburgh Woollen Mill",
+    "headquarters": null
+  },
+  {
+    "id": 3096473,
+    "name": "John Lewis",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3097707,
+    "name": "C&J Clark International",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3098195,
+    "name": "Kmart Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3098198,
+    "name": "Hudson's Bay Company",
+    "headquarters": "Ontario, Canada"
+  },
+  {
+    "id": 3151635,
+    "name": "Ted Baker",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152030,
+    "name": "Fred Perry Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152069,
+    "name": "Lidl Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152073,
+    "name": "Capri Holdings Ltd (formerly Michael Kors)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152081,
+    "name": "Pentland Brands Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152865,
+    "name": "WCF Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3453295,
+    "name": "STAFFLINE RECRUITMENT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3624440,
+    "name": "Boohoo.com",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3624447,
+    "name": "Steve Madden",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 3624482,
+    "name": "Superdry plc",
+    "alias": [
+      "Superdry plc",
+      "SuperGroup PlcÂ [Note 2]"
+    ],
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3624517,
+    "name": "Van de Velde",
+    "headquarters": "Belgium"
+  },
+  {
+    "id": 3624592,
+    "name": "JD Sports Fashion plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3666092,
+    "name": "Balenciaga",
+    "headquarters": "Spain"
+  },
+  {
+    "id": 4817668,
+    "name": "Gianni Versace S.r.l.",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 5343259,
+    "name": "Rowlinson Knitwear Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5346371,
+    "name": "Hallenstein Glasson Holdings",
+    "headquarters": "New Zealand"
+  },
+  {
+    "id": 5399412,
+    "name": "Coach Stores Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399422,
+    "name": "Christian Dior UK Limited",
+    "headquarters": null
+  },
+  {
+    "id": 5399451,
+    "name": "Uniqlo Europe Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399502,
+    "name": "Hugo Boss UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399531,
+    "name": "Gucci Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399560,
+    "name": "lululemon athletica UK Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399588,
+    "name": "Louis Vuitton UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399666,
+    "name": "Prada Retail UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399695,
+    "name": "Skechers USA Ltd.",
+    "headquarters": null
+  },
+  {
+    "id": 5399786,
+    "name": "The Net-A-Porter Group Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5399805,
+    "name": "H & M Hennes Mauritz UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5401951,
+    "name": "VF Northern Europe Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5404382,
+    "name": "Joules",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5404705,
+    "name": "Oliver Bonas",
+    "headquarters": null
+  },
+  {
+    "id": 5404957,
+    "name": "Stella McCartney",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5405618,
+    "name": "Farfetch",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5418577,
+    "name": "Retail Holdings Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6356693,
+    "name": "Equip_Outdoor_Technologies_UK_Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6356988,
+    "name": "Hunter_Boot_Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6969950,
+    "name": "Jojo Maman Bebe Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7306851,
+    "name": "Miki Shoko Co Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7321762,
+    "name": "Ann Summers Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7323628,
+    "name": "Tesco Stores Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7447873,
+    "name": "GROUP ZARA AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447874,
+    "name": "LOWES - MANHATTAN PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447875,
+    "name": "MOSAIC BRANDS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447881,
+    "name": "TJX AUSTRALIA HOLDING COMPANY PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447887,
+    "name": "QUIKSILVER AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447891,
+    "name": "ADT Group Holdings Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447895,
+    "name": "JD SPORTS FASHION AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447912,
+    "name": "MUNRO FOOTWEAR GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447914,
+    "name": "UNIQLO AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447916,
+    "name": "TRUE ALLIANCE PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447917,
+    "name": "COGI PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447918,
+    "name": "PREMIER INVESTMENTS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447919,
+    "name": "DAVID JONES PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447923,
+    "name": "COUNTRY ROAD GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447929,
+    "name": "BEST & LESS GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447933,
+    "name": "RETAIL APPAREL GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447936,
+    "name": "ACCENT GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447941,
+    "name": "LORNA JANE PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447942,
+    "name": "CITY CHIC COLLECTIVE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447945,
+    "name": "FACTORY X PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7447947,
+    "name": "ASSOCIATED RETAILERS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7453557,
+    "name": "Super Retail Group Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7626840,
+    "name": "TFG Brands (London) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079793,
+    "name": "Asics UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079799,
+    "name": "Chanel Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079802,
+    "name": "CHRISTIAN LOUBOUTIN UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079809,
+    "name": "Fendi UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079812,
+    "name": "Gap (UK Holdings) Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079818,
+    "name": "Levi Strauss (UK) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079821,
+    "name": "MNG-MANGO U.K. Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079827,
+    "name": "New Balance Athletic Shoes (UK) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079830,
+    "name": "Ralph Lauren UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079833,
+    "name": "ITX UK LIMITED (formerly Zara UK Limited)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079836,
+    "name": "Foot Locker UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8079900,
+    "name": "adidas Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079902,
+    "name": "Amazon Commercial Services Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079908,
+    "name": "Belgravia Group Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079910,
+    "name": "Chanel (Australia) Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079912,
+    "name": "Christian Dior Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079914,
+    "name": "Fast Future Brands Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079918,
+    "name": "GLG Corp Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079922,
+    "name": "HBI Holdings Australasia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079926,
+    "name": "Hermes Australia Pty Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079928,
+    "name": "Internet Services Australia 1 Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079930,
+    "name": "Louis Vuitton Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079932,
+    "name": "Nike Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079934,
+    "name": "PAS Group International Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079936,
+    "name": "PVH Brands Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079938,
+    "name": "RM Williams Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8079940,
+    "name": "Spotlight Group Holdings Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8092114,
+    "name": "Woolworths Group Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8119506,
+    "name": "Decathlon (Australia Pty Ltd)",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8119510,
+    "name": "Costco Wholesale Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8158752,
+    "name": "Frasers Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8183633,
+    "name": "RALPH LAUREN AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185853,
+    "name": "SPECSAVERS PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187618,
+    "name": "Lidl GB Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8210540,
+    "name": "The Trustee for THE GODDARD TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220115,
+    "name": "PRINCESS POLLY ONLINE PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8252652,
+    "name": "C.BREWER & SONS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252660,
+    "name": "CHURCH & CO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252864,
+    "name": "A.E.S. ENGINEERING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252952,
+    "name": "BOODLE & DUNTHORNE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253452,
+    "name": "DAMARTEX UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254042,
+    "name": "CASIO ELECTRONICS CO. LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254696,
+    "name": "CHARLIES STORES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254852,
+    "name": "MARUBENI EUROPE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255172,
+    "name": "TEMPLINE EMPLOYMENT AGENCY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257328,
+    "name": "GAP PERSONNEL HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257632,
+    "name": "OCADO RETAIL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257988,
+    "name": "DUNE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258140,
+    "name": "PRO-DIRECT SPORT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258884,
+    "name": "UBT (EU) LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259272,
+    "name": "HOLDSMYTH LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259912,
+    "name": "GEMPORIA PARTNERSHIP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261328,
+    "name": "THE ENGLISH HERITAGE TRUST",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261676,
+    "name": "SHEL HOLDINGS EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263024,
+    "name": "LPP RESERVED UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263096,
+    "name": "LE CREUSET HOLDING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264752,
+    "name": "ULSTER CARPET MILLS (HOLDINGS) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264844,
+    "name": "CHAIN REACTION CYCLES LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265656,
+    "name": "BEAVERBROOKS THE JEWELLERS LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8423367,
+    "name": "DE BEERS UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8425022,
+    "name": "ROMO (HOLDINGS) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8433081,
+    "name": "JP BODEN (HOLDINGS) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8437003,
+    "name": "LIBERTY ZETA LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8437989,
+    "name": "CAMIRA GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767240,
+    "name": "ALDI STORES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8775436,
+    "name": "PRODRIVE (HOLDINGS) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8776520,
+    "name": "BLINDS 2 GO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8781646,
+    "name": "NEW ERA CAP COMPANY LIMITED",
+    "headquarters": "United Kingdom"
+  }
+]

@@ -210,20 +210,53 @@
       ]
     },
     {
-      "name": "people",
-      "url": "data/miserables.json",
-      "format": {
-        "type": "json",
-        "property": "nodes"
-      }
+      "name": "garment_companies",
+      "url": "../assets/cached/MSA_Garment.json"
     },
+    {
+      "name": "financial_companies",
+      "url": "../assets/cached/MSA_Financial.json"
+    },
+    {
+      "name": "hospitality_companies",
+      "url": "../assets/cached/MSA_Hospitality.json"
+    },
+    {"name":"companies",
+      "source":["garment_companies","financial_companies", "hospitality_companies"]},
     {
       "name": "statements",
       "source": [
         "garment",
         "financial",
         "hospitality"
-      ]
+      ],
+      "transform": [{
+        "type": "lookup",
+        "from": "companies",
+        "key": "id",
+        "fields": [
+          "company"
+        ],
+        "values": [
+          "name",
+          "headquarters"
+        ],
+        "as": [
+          "name",
+          "headquarters"
+        ]
+      },
+        {
+          "type": "formula",
+          "expr": "datum.revenue == null ? 'Unknown' : datum.revenue",
+          "as":"revenue"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.turnover == null ? 'Unknown' : datum.turnover",
+          "as":"turnover"
+        }]
+
     }
   ],
   "scales": [
@@ -233,7 +266,7 @@
       "domain": {
         "data": "statements",
         "field": "size",
-        "sort": false
+        "sort": {"order": "descending"}
       },
       "range": "width"
     },
@@ -254,7 +287,9 @@
   "axes": [
     {
       "orient": "bottom",
-      "scale": "xscale"
+      "scale": "xscale",
+      "domainWidth":{"value": 0},
+      "ticks": false
     }
   ],
   "marks": [
@@ -279,8 +314,8 @@
             "signal": "cy"
           },
           "tooltip": {
-            "signal": "datum.sector+' company'"
-          }
+            "signal": "{'Company': datum.name,'Sector': datum.sector+' company', 'turnover (range)' : datum.turnover, 'revenue':datum.revenue}"}
+
         },
         "update": {
           "size": {
