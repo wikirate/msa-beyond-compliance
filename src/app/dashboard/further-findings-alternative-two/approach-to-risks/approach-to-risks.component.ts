@@ -9,11 +9,11 @@ import {Filter} from "../../../models/filter.model";
 
 
 @Component({
-  selector: 'approach-to-risks-alt-two',
+  selector: 'approach-to-risks',
   templateUrl: './approach-to-risks.component.html',
   styleUrls: ['./approach-to-risks.component.scss']
 })
-export class ApproachToRisksAltTwoComponent implements OnInit, OnChanges {
+export class ApproachToRisksComponent implements OnInit, OnChanges {
   isLoading: boolean = true;
   @Input()
   year!: number | string;

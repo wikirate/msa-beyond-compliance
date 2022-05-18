@@ -1,10 +1,10 @@
-<div class="section mt-5 bg-neutral-grey p-4">
+<div class="section mt-5 bg-neutral-orange p-4">
   <div class="row">
     <div class="col-md-8">
       <h3 class="title">Meeting Minimum Requirements</h3>
     </div>
     <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
+      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
               style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
         <option [ngValue]="''" selected>all years</option>
         <option [ngValue]="'latest'">latest</option>
@@ -42,7 +42,8 @@
         <div id="uk-requirements-bars" class="chart-wrapper">
         </div>
       </div>
-      <div class="row pt-4 justify-content-center">
+      <div class="row pt-4 justify-content-center"
+           [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
         <div class="col-10">
           <p class="quote"><i class="bi bi-exclamation-diamond pe-2"></i><b>The UK legislation only requires
             three criteria, none of which relate to the quality or content of the
@@ -50,6 +51,19 @@
             which
             appear within the Australian legislation – these are not mandatory. Therefore, arguably<b> the Australian
               legislation is stronger</b>, making a direct comparison of minimum compliance difficult.
+          </p>
+        </div>
+      </div>
+
+      <div class="row pt-4 justify-content-center"
+           [ngClass]="year >=2020 || year =='' || year =='latest' ? 'hide-element': 'show-element'">
+        <div class="col-10">
+          <p class="quote"><i class="bi bi-exclamation-diamond pe-2"></i>The <b>Australian Modern Slavery Act was passed
+            in 2018</b> and required companies to produce their first statement for financial year 2019. These needed to
+            be submitted within 3 months after year's end (in 2020) but for this first year the government provided
+            companies with an extension due to the impact of the covid pandemic. As a result, <b>most companies
+              submitted
+              statements under the Australian Act from the financial year 2020 onward.</b>
           </p>
         </div>
       </div>

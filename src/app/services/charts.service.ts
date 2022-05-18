@@ -11,7 +11,9 @@ import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
 // @ts-ignore
 import uk_tree_map from '../../assets/charts/uk_legislation_tree_map.json';
 // @ts-ignore
-import beesworm_chart from '../../assets/charts/Beesworm.json';
+import beesworm_chart from '../../assets/charts/beesworm.json';
+// @ts-ignore
+import sector_beesworm_chart from '../../assets/charts/sector-specific-beesworm.json';
 // @ts-ignore
 import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
 import {Injectable} from "@angular/core";
@@ -415,7 +417,7 @@ export class ChartsService {
     return embed(element, bars, options)
   }
 
-  drawBeeSwormChart(title: string,
+  drawBeeSwarmChart(title: string,
                     year: number | string,
                     assessed_statements_metric_id: number,
                     colors: string[],
@@ -429,7 +431,45 @@ export class ChartsService {
     var hospitality_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Hospitality`;
     bee_chart['data'][2]['url'] = garment_assessed_url
     bee_chart['data'][3]['url'] = financial_assessed_url
+
     bee_chart['data'][4]['url'] = hospitality_assessed_url
+
+    return embed(element, bee_chart, options);
+  }
+
+  drawSectorSpecificBeeSwarmChart(title: string,
+                                  year: number | string,
+                                  assessed_statements_metric_id: number,
+                                  color: string,
+                                  company_group: string,
+                                  element: string,
+                                  width: number,
+                                  height: number,
+                                  options: {}) {
+    var bee_chart = JSON.parse(JSON.stringify(sector_beesworm_chart))
+    var sector_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`;
+    var sector_companies_url = `../assets/cached/${company_group.replace(" ", "_")}.json`;
+    bee_chart['data'][2]['url'] = sector_companies_url
+    bee_chart['data'][3]['url'] = sector_assessed_url
+    if (company_group === "MSA Garments")
+      bee_chart['data'][3]['transform'].push({
+        "type": "formula",
+        "as": "sector",
+        "expr": "'Garment'"
+      })
+    else if (company_group === "MSA Financial")
+      bee_chart['data'][3]['transform'].push({
+        "type": "formula",
+        "as": "sector",
+        "expr": "'Financial'"
+      })
+    else
+      bee_chart['data'][3]['transform'].push({
+        "type": "formula",
+        "as": "sector",
+        "expr": "'Hospitality'"
+      })
+    bee_chart['scales'][1]["range"] = [color]
 
     return embed(element, bee_chart, options);
   }

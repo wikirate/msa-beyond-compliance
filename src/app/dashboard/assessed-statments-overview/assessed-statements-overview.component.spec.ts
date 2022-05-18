@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TreemapComponent } from './treemap.component';
+import { AssessedStatementsOverviewComponent } from './assessed-statements-overview.component';
 
 describe('TreemapComponent', () => {
-  let component: TreemapComponent;
-  let fixture: ComponentFixture<TreemapComponent>;
+  let component: AssessedStatementsOverviewComponent;
+  let fixture: ComponentFixture<AssessedStatementsOverviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TreemapComponent ]
+      declarations: [ AssessedStatementsOverviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TreemapComponent);
+    fixture = TestBed.createComponent(AssessedStatementsOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

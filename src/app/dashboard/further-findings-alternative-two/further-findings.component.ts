@@ -3,11 +3,11 @@ import {Filter} from "../../models/filter.model";
 import {DataProvider} from "../../services/data.provider";
 
 @Component({
-  selector: 'further-findings-alt-two',
+  selector: 'further-findings',
   templateUrl: './further-findings.component.html',
   styleUrls: ['./further-findings.component.scss']
 })
-export class FurtherFindingsAltTwoComponent implements OnInit {
+export class FurtherFindingsComponent implements OnInit {
   @Input()
   sector !: string;
   year: number | string = ''

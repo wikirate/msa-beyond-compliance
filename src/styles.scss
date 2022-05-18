@@ -341,6 +341,15 @@ footer .row {
   margin-bottom: 1em !important;
 }
 
+//section
+.section-top {
+  margin-top: 1em !important;
+}
+
+.section-bottom {
+  margin-bottom: 1em !important;
+}
+
 //filter
 .filter-dropdown {
   float: right !important;
@@ -404,6 +413,7 @@ a.dropdown-item .count {
   font-size: .9em !important;
   color: #000028 !important;
   max-width: 150px !important;
+  height: 35px;
 
 }
 
@@ -720,7 +730,8 @@ h6 {
 }
 
 .carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
+.carousel-control-prev /*, .carousel-indicators */
+{
   filter: invert(100%);
 }
 
@@ -729,6 +740,10 @@ h6 {
   padding-top: 0.5em !important;
   padding-bottom: 0.5em !important;
   min-height: auto;
+}
+
+.fit-height{
+  height: 100%;
 }
 
 /* Importing Bootstrap SCSS file. */

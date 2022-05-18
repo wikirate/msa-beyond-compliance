@@ -4,6 +4,7 @@ import {ChartsService} from "../../../services/charts.service";
 import {delay} from "rxjs";
 // @ts-ignore
 import modern_slavery_policies from "../../../../assets/charts-params/modern-slavery-policies.json";
+import {Filter} from "../../../models/filter.model";
 
 @Component({
   selector: 'approach-to-policies',
@@ -34,7 +35,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
     this.isLoading = true;
     this.chartsService.drawBarChart(
       "Modern Slavery Supply Chain Policies",
-      "div#modern-slavery-supply-chain-policies",
+      "div#modern-slavery-supply-chain-policies-alt-two",
       350,
       250,
       this.dataProvider.metrics.msa_statement_assessed,

@@ -37,7 +37,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
     this.isLoading = true;
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",
-      "div#whistleblowing-mechanisms",
+      "div#whistleblowing-mechanisms-alt-two",
       300,
       this.dataProvider.metrics.msa_statement_assessed,
       2722458,
@@ -80,7 +80,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
       {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
       this.chartsService.drawBarChart(
         "Incidents Remediation",
-        "div#incident-remediation",
+        "div#incident-remediation-alt-two",
         350,
         250,
         this.dataProvider.metrics.msa_statement_assessed,
@@ -90,7 +90,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
         this.chartsService.drawBarChart(
           "Modern Slavery Training",
-          "div#training",
+          "div#training-alt-two",
           350,
           350,
           this.dataProvider.metrics.msa_statement_assessed,

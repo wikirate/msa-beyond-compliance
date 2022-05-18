@@ -100,6 +100,7 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
             })
         }
         setTimeout(() => {
+          this.sort('total')
           this.isLoading = false;
         }, 1000)
 

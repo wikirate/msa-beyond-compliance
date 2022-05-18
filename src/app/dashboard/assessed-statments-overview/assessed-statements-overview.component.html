@@ -1,14 +1,13 @@
-<div class="section mt-5 bg-neutral-orange p-4">
+<div id="tree-map-section" class="section-top mt-5 bg-neutral-grey p-4">
   <div class="row">
     <div class="col-lg-7">
-      <h3 class="title">Companies' Assessed Statements</h3>
-      <p>By company size and sector</p>
+      <h3 class="title">Assessed Statements</h3>
     </div>
     <div class="col-lg-5 ms-lg-auto">
       <div class="row ps-3 pe-3 pt-lg-0 pt-2">
-        <select class="msa-form-select bg-neutral-orange ms-lg-auto me-3 mb-lg-0 mb-1"
-                aria-label="Default select example"
-                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+        <select class="msa-form-select bg-neutral-grey ms-lg-auto me-3 mb-lg-0 mb-1"
+                style="max-width: 120px; font-size: 0.8em;" [(ngModel)]="year"
+                (change)="updateData()">
           <option [ngValue]="''" selected>all years</option>
           <option [ngValue]="'latest'" selected>latest</option>
           <option [ngValue]="2021">2021</option>
@@ -19,7 +18,7 @@
           <option [ngValue]="2016">2016</option>
           <option [ngValue]="2015">2015</option>
         </select>
-        <select class="msa-form-select bg-neutral-orange" aria-label="Default select example"
+        <select class="msa-form-select bg-neutral-grey" style="max-width: 120px; font-size: 0.8em"
                 [(ngModel)]="legislation" (change)="updateData()">
           <option [ngValue]="'both'" selected>Legislation</option>
           <option [ngValue]="'uk'">UK MSA</option>
@@ -28,16 +27,21 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+  <div class="row">
+    <div class="col-md-12">
+      <p>By company size and sector.</p>
+    </div>
+  </div>
+  <div class="row mt-md-3" style="height: 150px" *ngIf="isLoading">
     <div class="col-12 text-center align-self-center">
       <div class="spinner-grow text-warning" role="status">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
   </div>
-  <div class="row text-center pt-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <div class="row text-center pt-md-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
 
-    <div id="tree-map" class="chart-wrapper"></div>
+    <div id="tree-map" class="chart-wrapper" #treemap></div>
     <div class="row justify-content-center mt-3">
       <div class="col-auto">
         <div class="dot bg-yellow"></div>
@@ -54,4 +58,7 @@
       <div class="col-auto no-padding note align-middle">Hospitality Sector</div>
     </div>
   </div>
+</div>
+<div class="section-bottom bg-neutral-grey p-4 ms-auto">
+<!--  <button class="btn btn-primary" (click)="export()">export</button>-->
 </div>

@@ -1,10 +1,10 @@
-<div class="section mt-5 bg-neutral-orange p-4">
+<div class="section mt-5 bg-neutral-grey p-4">
   <div class="row">
     <div class="col-md-8">
       <h3 class="title">Going Beyond Compliance</h3>
     </div>
     <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
+      <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
               style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
               (change)="updateBeyondComplianceTable()">
         <option [ngValue]="''" selected>all years</option>
@@ -34,6 +34,18 @@
     </div>
   </div>
   <div class="row p-2 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+    <div class="row p-1 pe-2">
+      <div class="col-auto no-padding ms-auto">Mandatory</div>
+      <div class="col-auto">
+        <div class="legend-box bg-orange"></div>
+      </div>
+    </div>
+    <div class="row p-1 pe-2 mb-1">
+      <div class="col-auto no-padding ms-auto">Not Mandatory</div>
+      <div class="col-auto">
+        <div class="legend-box bg-deep-blue"></div>
+      </div>
+    </div>
     <div class="col-md-12">
       <table class="table table-bordered border-light">
         <thead>
@@ -65,21 +77,6 @@
         </tr>
         </tbody>
       </table>
-
-      <div class="row ms-2">
-        <div class="row p-1">
-          <div class="col-auto">
-            <div class="legend-box bg-orange"></div>
-          </div>
-          <div class="col-auto no-padding">Mandatory</div>
-        </div>
-        <div class="row p-1">
-          <div class="col-auto">
-            <div class="legend-box bg-deep-blue"></div>
-          </div>
-          <div class="col-auto no-padding">Not Mandatory</div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

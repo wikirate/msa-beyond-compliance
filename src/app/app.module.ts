@@ -21,31 +21,17 @@ import {DataProvider} from "./services/data.provider";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
 import {ChartsService} from "./services/charts.service";
 import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
-import { FurtherFindingsComponent } from './dashboard/further-findings/further-findings.component';
-import { ApproachToRisksComponent } from './dashboard/further-findings/approach-to-risks/approach-to-risks.component';
-import { ApproachToIncidentsComponent } from './dashboard/further-findings/approach-to-incidents/approach-to-incidents.component';
-import { ApproachToPoliciesComponent } from './dashboard/further-findings/approach-to-policies/approach-to-policies.component';
-import { TreemapComponent } from './dashboard/treemap/treemap.component';
+import { AssessedStatementsOverviewComponent } from './dashboard/assessed-statments-overview/assessed-statements-overview.component';
 import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
 import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosure-rates.component';
+import { ApproachToPoliciesComponent } from './dashboard/further-findings-alternative-two/approach-to-policies/approach-to-policies.component';
+import { FurtherFindingsComponent } from './dashboard/further-findings-alternative-two/further-findings.component';
+import { ApproachToIncidentsComponent } from './dashboard/further-findings-alternative-two/approach-to-incidents/approach-to-incidents.component';
 import {
-  FurtherFindingsAltOneComponent
-} from "./dashboard/further-findings-alternative-one/further-findings-alt-one.component";
-import {
-  ApproachToIncidentsAltOneComponent
-} from "./dashboard/further-findings-alternative-one/approach-to-incidents/approach-to-incidents-alt-one.component";
-import {
-  ApproachToRisksAltOneComponent
-} from "./dashboard/further-findings-alternative-one/approach-to-risks/approach-to-risks-alt-one.component";
-import { ApproachToPoliciesAltTwoComponent } from './dashboard/further-findings-alternative-two/approach-to-policies/approach-to-policies-alt-two.component';
-import { FurtherFindingsAltTwoComponent } from './dashboard/further-findings-alternative-two/further-findings-alt-two.component';
-import { ApproachToIncidentsAltTwoComponent } from './dashboard/further-findings-alternative-two/approach-to-incidents/approach-to-incidents-alt-two.component';
-import {
-  ApproachToRisksAltTwoComponent
-} from "./dashboard/further-findings-alternative-two/approach-to-risks/approach-to-risks-alt-two.component";
-import {
-  ApproachToPoliciesAltOneComponent
-} from "./dashboard/further-findings-alternative-one/approach-to-policies/approach-to-policies-alt-one.component";
+  ApproachToRisksComponent
+} from "./dashboard/further-findings-alternative-two/approach-to-risks/approach-to-risks.component";
+import { SectionComponent } from './section/section.component';
+import {ExportAsModule} from "ngx-export-as";
 
 @NgModule({
   declarations: [
@@ -60,20 +46,13 @@ import {
     NumFormatPipe,
     PercentageFormatPipe,
     GoingBeyondComplianceComponent,
-    FurtherFindingsComponent,
-    ApproachToRisksComponent,
-    ApproachToIncidentsComponent,
-    ApproachToPoliciesComponent,
-    TreemapComponent,
+    AssessedStatementsOverviewComponent,
     DisclosureRatesComponent,
-    FurtherFindingsAltOneComponent,
-    ApproachToIncidentsAltOneComponent,
-    ApproachToRisksAltOneComponent,
-    ApproachToPoliciesAltOneComponent,
-    FurtherFindingsAltTwoComponent,
-    ApproachToIncidentsAltTwoComponent,
-    ApproachToRisksAltTwoComponent,
-    ApproachToPoliciesAltTwoComponent
+    ApproachToIncidentsComponent,
+    ApproachToRisksComponent,
+    ApproachToPoliciesComponent,
+    FurtherFindingsComponent,
+    SectionComponent
   ],
   imports: [
     FormsModule,
@@ -81,7 +60,8 @@ import {
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ExportAsModule
   ],
   providers: [SectorProvider, DataProvider, ChartsService],
   bootstrap: [AppComponent]

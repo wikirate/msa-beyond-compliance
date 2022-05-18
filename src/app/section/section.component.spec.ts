@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApproachToPoliciesComponent } from './approach-to-policies.component';
+import { SectionComponent } from './section.component';
 
-describe('ApproachToPoliciesComponent', () => {
-  let component: ApproachToPoliciesComponent;
-  let fixture: ComponentFixture<ApproachToPoliciesComponent>;
+describe('SectionComponent', () => {
+  let component: SectionComponent;
+  let fixture: ComponentFixture<SectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApproachToPoliciesComponent ]
+      declarations: [ SectionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApproachToPoliciesComponent);
+    fixture = TestBed.createComponent(SectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
