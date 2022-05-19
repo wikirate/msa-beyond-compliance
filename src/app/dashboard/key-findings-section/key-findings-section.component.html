@@ -39,7 +39,9 @@
   <div class="row mt-3 mb-3" *ngIf="!isLoading">
     <div class="col-md-6 pe-md-2">
       <div class="row">
-        <div class="msa-primary-info">{{numOfCompaniesUnderMSA | numFormat}}</div>
+        <div class="msa-primary-info"><a
+          href="{{'https://wikirate.org/Business_Human_Rights_Resource_Centre+Modern_Slavery_Statement?filter[year]='+this.year+'&filter[company_group]='+this.company_group+this.legislation_filter}}"
+          target="_blank">{{numOfCompaniesUnderMSA | numFormat}}</a></div>
       </div>
       <div class="row">
         <p>company statements found under MSA</p>
@@ -47,7 +49,10 @@
     </div>
     <div class="col-md-6">
       <div class="row">
-        <div class="msa-primary-info">{{numOfAssessedMSAStatements | numFormat}}</div>
+        <div class="msa-primary-info"><a
+          href="{{'https://wikirate.org/Walk_Free+'+this.msa_statement_assessed_metric+'?filter[value]=Yes&filter[company_group]='+company_group+'&filter[year]='+year}}"
+          target="_blank">{{numOfAssessedMSAStatements | numFormat}}</a>
+        </div>
       </div>
       <div class="row">
         <p>MSA statements assessed by <span style="font-weight: bold">Researchers</span><span
@@ -59,7 +64,9 @@
     </div>
     <div class="col-md-6 pe-md-2">
       <div class="row">
-        <div class="msa-primary-info">{{meetsMinRequirements | percentageFormat}}</div>
+        <div class="msa-primary-info"><a
+          href="{{meet_min_req_metric}}" target="_blank">{{meetsMinRequirements | percentageFormat}}</a>
+        </div>
       </div>
       <div class="row">
         <p>of the assessed statements meet all minimum requirements of the corresponding MSA legislation</p>
@@ -68,7 +75,9 @@
     <div class="col-md-6">
       <div class="row">
         <div class="msa-primary-info">
-          {{go_beyond_compliance | percentageFormat}}
+          <a
+            href="{{beyond_compliance_metric}}"
+            target="_blank">{{go_beyond_compliance | percentageFormat}}</a>
         </div>
       </div>
       <div class="row">

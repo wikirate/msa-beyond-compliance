@@ -47,7 +47,7 @@ export class DataProvider {
 
   getCompanyGroup(sector: string | null) {
     if (sector === 'garment-sector') {
-      return "MSA Garments"
+      return "MSA Garment"
     } else if (sector === 'hospitality-sector') {
       return "MSA Hospitality"
     } else if (sector === 'financial-sector') {

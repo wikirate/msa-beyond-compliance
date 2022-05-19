@@ -1,4 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {SectorProvider} from "../../services/sector.provider";
+import {DataProvider} from "../../services/data.provider";
 
 @Component({
   selector: 'introductory-section',
@@ -7,16 +9,20 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 })
 export class IntroductorySectionComponent implements OnInit, OnChanges {
 
-  @Input()
-  sector!: string;
+  sector: string | null = 'all-sectors';
+  company_group: string = '';
 
-  constructor() {
+  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
   }
 
   ngOnInit(): void {
+    this.sectorProvider.getSector().subscribe(sector => {
+      this.sector = sector;
+      this.company_group = this.dataProvider.getCompanyGroup(sector)
+    })
   }
 
-  ngOnChanges(): void{
+  ngOnChanges(): void {
   }
 
 }

@@ -37,7 +37,7 @@
     },
     {
       "name": "garment",
-      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&value=Yes&filter[company_group]=MSA Garment&field[year]=latest",
+      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&filter[value]=Yes&filter[company_group]=MSA Garment&field[year]=latest",
       "transform": [
         {
           "type": "lookup",
@@ -211,7 +211,7 @@
     },
     {
       "name": "garment_companies",
-      "url": "../assets/cached/MSA_Garments.json"
+      "url": "../assets/cached/MSA_Garment.json"
     },
     {
       "name": "financial_companies",

@@ -43,62 +43,37 @@ export class AssessedStatementsOverviewComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'statements-overview-'+this.sector).subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'statements-overview-' + this.sector).subscribe(() => {
     });
   }
 
   updateData() {
     this.isLoading = true;
+    let msa_statement_assessed_metric_id = this.dataProvider.metrics.msa_statement_assessed;
+    if (this.legislation == 'uk') {
+      msa_statement_assessed_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed;
+    } else if (this.legislation == 'aus') {
+      msa_statement_assessed_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed;
+    }
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
     if (company_group == '') {
-      if (this.legislation == 'both') {
-        this.chartService.drawBeeSwarmChart(
-          "Companies Overview",
-          this.year,
-          this.dataProvider.metrics.msa_statement_assessed,
-          [],
-          'div#tree-map',
-          0,
-          0,
-          {
-            renderer: "svg",
-            actions: false
-          }
-        ).finally(() => this.isLoading = false)
-      } else if (this.legislation === 'uk') {
-        this.chartService.drawBeeSwarmChart(
-          "Companies Overview",
-          this.year,
-          this.dataProvider.metrics.uk_msa_statement_assessed,
-          [],
-          'div#tree-map',
-          0,
-          0,
-          {
-            renderer: "svg",
-            actions: false
-          }
-        ).finally(() => this.isLoading = false)
-      } else {
-        this.chartService.drawBeeSwarmChart(
-          "Companies Overview",
-          this.year,
-          this.dataProvider.metrics.aus_msa_statement_assessed,
-          [],
-          'div#tree-map',
-          0,
-          0,
-          {
-            renderer: "svg",
-            actions: false
-          }
-        ).then(() => {
-        }).finally(() => this.isLoading = false)
-      }
+
+      this.chartService.drawBeeSwarmChart(
+        "Companies Overview",
+        this.year,
+        msa_statement_assessed_metric_id,
+        [],
+        'div#tree-map',
+        0,
+        0,
+        {
+          renderer: "svg",
+          actions: false
+        }
+      ).finally(() => this.isLoading = false)
     } else {
       let color = '#000028'
-      console.log(company_group)
-      if (company_group === 'MSA Garments') {
+      if (company_group === 'MSA Garment') {
         color = '#ffdc00'
       } else if (company_group === 'MSA Financial') {
         color = '#ff9300'
@@ -106,7 +81,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
       this.chartService.drawSectorSpecificBeeSwarmChart(
         "Companies Overview",
         this.year,
-        this.dataProvider.metrics.msa_statement_assessed,
+        msa_statement_assessed_metric_id,
         color,
         company_group,
         'div#tree-map',

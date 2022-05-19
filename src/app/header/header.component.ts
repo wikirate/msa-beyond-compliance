@@ -9,7 +9,7 @@ import {SectorProvider} from "../services/sector.provider";
 export class HeaderComponent implements OnInit {
   selectedSector: string = "All Sectors"
   selectedSection: string = "dashboard"
-  path: string | null = "dashboard"
+  path: string | null = ""
 
   constructor(private sectorProvider: SectorProvider) {
   }
