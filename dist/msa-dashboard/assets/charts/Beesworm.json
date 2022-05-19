@@ -211,7 +211,7 @@
     },
     {
       "name": "garment_companies",
-      "url": "../assets/cached/MSA_Garment.json"
+      "url": "../assets/cached/MSA_Garments.json"
     },
     {
       "name": "financial_companies",
