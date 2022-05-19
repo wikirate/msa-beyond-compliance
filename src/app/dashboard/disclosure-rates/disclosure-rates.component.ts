@@ -4,6 +4,8 @@ import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json";
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {SectorProvider} from "../../services/sector.provider";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'disclosure-rates',
@@ -21,11 +23,17 @@ export class DisclosureRatesComponent implements OnInit {
     elementIdOrContent: "disclosure-rates", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider,
+              private exportAsService: ExportAsService, private sectorProvider: SectorProvider,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.updateDisclosureRates()
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'disclosure-rates')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   updateDisclosureRates() {

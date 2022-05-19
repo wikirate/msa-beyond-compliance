@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
         this.sectorProvider.getSector().next(sector);
       }
     )
+    this.sectorProvider.getPath().next("dashboard")
   }
 
 }

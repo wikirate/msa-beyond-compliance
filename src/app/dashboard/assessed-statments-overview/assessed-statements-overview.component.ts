@@ -2,15 +2,16 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {DataProvider} from "../../services/data.provider";
 import {ExportAsService, ExportAsConfig} from 'ngx-export-as';
 import {ChartsService} from "../../services/charts.service";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {SectorProvider} from "../../services/sector.provider";
 
 @Component({
   selector: 'assessed-statements-overview',
   templateUrl: './assessed-statements-overview.component.html',
   styleUrls: ['./assessed-statements-overview.component.scss']
 })
-export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
-  @Input()
-  sector!: string;
+export class AssessedStatementsOverviewComponent implements OnInit {
+  sector: string = 'all-sectors';
   year: number | string = '';
   legislation: string = 'both';
   isLoading: boolean = true;
@@ -20,15 +21,25 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
     elementIdOrContent: "tree-map-section", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private chartService: ChartsService, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider, private chartService: ChartsService,
+              private exportAsService: ExportAsService, private route: ActivatedRoute,
+              private sectorProvider: SectorProvider) {
   }
 
   ngOnInit(): void {
-    this.updateData()
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.updateData()
+    this.route.paramMap.subscribe((params: ParamMap) => {
+        let sector = params.get('sector');
+        if (sector !== null) {
+          this.sector = sector
+          this.updateData()
+        }
+        this.sectorProvider.getSector().next(sector);
+      }
+    )
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'assessed-statements-overview')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   export() {

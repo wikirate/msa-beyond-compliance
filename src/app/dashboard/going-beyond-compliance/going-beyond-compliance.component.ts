@@ -4,15 +4,16 @@ import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {SectorProvider} from "../../services/sector.provider";
 
 @Component({
   selector: 'going-beyond-compliance',
   templateUrl: './going-beyond-compliance.component.html',
   styleUrls: ['./going-beyond-compliance.component.scss']
 })
-export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
-  @Input()
-  sector !: string;
+export class GoingBeyondComplianceComponent implements OnInit {
+  sector: string = "all-sectors";
   year: number | string = ''
   beyond_compliance_table_data: any[] = []
   active: string = 'name';
@@ -26,10 +27,24 @@ export class GoingBeyondComplianceComponent implements OnInit, OnChanges {
     elementIdOrContent: "going-beyond-compliance", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService,
+              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+        let sector = params.get('sector');
+        if (sector !== null) {
+          this.sector = sector
+          this.updateBeyondComplianceTable()
+        }
+        this.sectorProvider.getSector().next(sector);
+      }
+    )
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'going-beyond-compliance')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   updateBeyondComplianceTable() {

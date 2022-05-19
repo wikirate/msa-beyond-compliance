@@ -33,23 +33,25 @@
            data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</a>
         <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
           <li>
-            <a class="dropdown-item" routerLink="dashboard/all-sectors" (click)="onSelectSector('All Sectors')">
+            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'all-sectors'}}" (click)="onSelectSector('All Sectors')">
               All Sectors
             </a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="dashboard/garment-sector" (click)="onSelectSector('Garment')">
+            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'garment-sector'}}"
+               (click)="onSelectSector('Garment')">
               Garment
             </a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="dashboard/financial-sector"
+            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'financial-sector'}}"
                (click)="onSelectSector('Financial')">
               Financial
             </a>
           </li>
           <li>
-            <a class="dropdown-item" routerLink="dashboard/hospitality-sector" (click)="onSelectSector('Hospitality')">
+            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'hospitality-sector'}}"
+               (click)="onSelectSector('Hospitality')">
               Hospitality
             </a>
           </li>

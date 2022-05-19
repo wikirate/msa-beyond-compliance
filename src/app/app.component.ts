@@ -7,8 +7,18 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  view: string = 'default';
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => {
+          // @ts-ignore
+          this.view = params.view;
+        }
+      );
   }
 
 }

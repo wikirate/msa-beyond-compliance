@@ -4,16 +4,16 @@ import {Filter} from "../../models/filter.model";
 import {ValueRange} from "../../models/valuerange.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {SectorProvider} from "../../services/sector.provider";
 
 @Component({
   selector: 'key-findings-section',
   templateUrl: './key-findings-section.component.html',
   styleUrls: ['./key-findings-section.component.scss']
 })
-export class KeyFindingsSectionComponent implements OnInit, OnChanges {
-
-  @Input()
-  sector !: string;
+export class KeyFindingsSectionComponent implements OnInit {
+  sector: string = "all-sectors";
   @ViewChild("content") content!: TemplateRef<any>;
 
   numOfCompaniesUnderMSA!: number;
@@ -30,14 +30,24 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
     elementIdOrContent: "key-findings-section", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private modalService: NgbModal, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider, private modalService: NgbModal, private exportAsService: ExportAsService,
+              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(): void {
-    this.updateData(this.year)
+    this.route.paramMap.subscribe((params: ParamMap) => {
+        let sector = params.get('sector');
+        if (sector !== null) {
+          this.sector = sector
+          this.updateData(this.year)
+        }
+        this.sectorProvider.getSector().next(sector);
+      }
+    )
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'key-findings')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   updateData($event: any) {

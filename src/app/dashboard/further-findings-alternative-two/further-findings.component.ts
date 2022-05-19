@@ -2,6 +2,8 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {Filter} from "../../models/filter.model";
 import {DataProvider} from "../../services/data.provider";
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {SectorProvider} from "../../services/sector.provider";
 
 @Component({
   selector: 'further-findings',
@@ -9,8 +11,7 @@ import {ExportAsConfig, ExportAsService} from "ngx-export-as";
   styleUrls: ['./further-findings.component.scss']
 })
 export class FurtherFindingsComponent implements OnInit {
-  @Input()
-  sector !: string;
+  sector: string = "all-sectors";
   year: number | string = ''
   percentage_of_companies_identified_incidents: number = 0;
   percentage_of_companies_report_policy_beyond_t1: number = 0;
@@ -23,7 +24,8 @@ export class FurtherFindingsComponent implements OnInit {
     elementIdOrContent: "further-findings-section", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService,
+              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   export() {
@@ -31,11 +33,20 @@ export class FurtherFindingsComponent implements OnInit {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.updateData()
-  }
-
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+        let sector = params.get('sector');
+        if (sector !== null) {
+          this.sector = sector
+          this.updateData()
+        }
+        this.sectorProvider.getSector().next(sector);
+      }
+    )
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'further-findings')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   updateData() {

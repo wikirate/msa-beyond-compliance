@@ -7,15 +7,16 @@ import uk_minimum_requirements from "../../../assets/charts-params/uk-minimum-re
 // @ts-ignore
 import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-requirements.json";
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {SectorProvider} from "../../services/sector.provider";
 
 @Component({
   selector: 'minimum-requirements-section',
   templateUrl: './minimum-requirements-section.component.html',
   styleUrls: ['./minimum-requirements-section.component.scss']
 })
-export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
-  @Input()
-  sector !: string;
+export class MinimumRequirementsSectionComponent implements OnInit {
+  sector: string = "all-sectors";
   year: number | string = ""
   isLoading: boolean = true;
 
@@ -24,10 +25,25 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
     elementIdOrContent: "meeting-min-requirements-section", // the id of html/table element
   }
 
-  constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private exportAsService: ExportAsService) {
+  constructor(private dataProvider: DataProvider, private chartsService: ChartsService,
+              private exportAsService: ExportAsService, private route: ActivatedRoute,
+              private sectorProvider: SectorProvider) {
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+        let sector = params.get('sector');
+        if (sector !== null) {
+          this.sector = sector
+          this.updateData()
+        }
+        this.sectorProvider.getSector().next(sector);
+      }
+    )
+    this.route.url.subscribe(val => {
+      if (val[1].path === 'meeting-minimum-requirements')
+        this.sectorProvider.getPath().next(val[1].path)
+    })
   }
 
   export() {
@@ -102,13 +118,9 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
               'sum_count': assessed
             }],
           210, 180, ["#000028", "#FF9300"],
-          ["Not Met", "Met"], {renderer: "svg",  actions: false})
+          ["Not Met", "Met"], {renderer: "svg", actions: false})
       }, error => console.log(error), () => this.isLoading = false)
     })
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.updateData()
   }
 
 }
