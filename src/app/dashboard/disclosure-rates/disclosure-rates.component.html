@@ -7,8 +7,8 @@
       <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
               style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
               (change)="updateDisclosureRates()">
-        <option [ngValue]="''" selected>all years</option>
-        <option [ngValue]="'latest'">latest</option>
+        <option [ngValue]="''" selected>ALL YEARS</option>
+        <option [ngValue]="'latest'">LATEST</option>
         <option [ngValue]="2021">2021</option>
         <option [ngValue]="2020">2020</option>
         <option [ngValue]="2019">2019</option>
@@ -37,19 +37,19 @@
       <div class="number-box m-md-3 m-1" (click)="openURL('MSA Garment')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{garment_avg_disclosure_rate | numFormat}}</span>/15
-          <h5>Garment Industry</h5>
+          <h5>Garment Sector</h5>
         </div>
       </div>
       <div class="number-box m-md-3 m-1" (click)="openURL('MSA Financial')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{financial_avg_disclosure_rate | numFormat}}</span>/15
-          <h5>Financial Industry</h5>
+          <h5>Financial Sector</h5>
         </div>
       </div>
       <div class="number-box m-md-3 m-1" (click)="openURL('MSA Hospitality')">
         <div class="msa-primary-info-md"><span
           class="highlighted-number-lg">{{hospitality_avg_disclosure_rate | numFormat}}</span>/15
-          <h5>Hospitality Industry</h5>
+          <h5>Hospitality Sector</h5>
         </div>
       </div>
     </div>

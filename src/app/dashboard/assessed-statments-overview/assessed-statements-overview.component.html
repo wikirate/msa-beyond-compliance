@@ -8,8 +8,8 @@
         <select class="msa-form-select bg-neutral-grey ms-lg-auto me-3 mb-lg-0 mb-1"
                 style="max-width: 120px; font-size: 0.8em;" [(ngModel)]="year"
                 (change)="updateData()">
-          <option [ngValue]="''" selected>all years</option>
-          <option [ngValue]="'latest'" selected>latest</option>
+          <option [ngValue]="''" selected>ALL YEARS</option>
+          <option [ngValue]="'latest'" selected>LATEST</option>
           <option [ngValue]="2021">2021</option>
           <option [ngValue]="2020">2020</option>
           <option [ngValue]="2019">2019</option>
@@ -20,7 +20,7 @@
         </select>
         <select class="msa-form-select bg-neutral-grey" style="max-width: 120px; font-size: 0.8em"
                 [(ngModel)]="legislation" (change)="updateData()">
-          <option [ngValue]="'both'" selected>Legislation</option>
+          <option [ngValue]="'both'" selected>LEGISLATION</option>
           <option [ngValue]="'uk'">UK MSA</option>
           <option [ngValue]="'aus'">AUS MSA</option>
         </select>
