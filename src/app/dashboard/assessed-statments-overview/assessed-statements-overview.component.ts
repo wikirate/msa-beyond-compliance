@@ -43,7 +43,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'statements-overview').subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'statements-overview-'+this.sector).subscribe(() => {
     });
   }
 

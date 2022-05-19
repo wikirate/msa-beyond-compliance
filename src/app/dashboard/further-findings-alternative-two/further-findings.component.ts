@@ -29,7 +29,7 @@ export class FurtherFindingsComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'further-findings').subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'further-findings-'+this.sector).subscribe(() => {
     });
   }
 

@@ -147,7 +147,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'going-beyond-compliance').subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'going-beyond-compliance-'+this.sector).subscribe(() => {
     });
   }
 }

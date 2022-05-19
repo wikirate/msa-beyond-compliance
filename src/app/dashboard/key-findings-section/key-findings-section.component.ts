@@ -161,7 +161,7 @@ export class KeyFindingsSectionComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'key-findings').subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'key-findings-'+this.sector).subscribe(() => {
     });
   }
 }

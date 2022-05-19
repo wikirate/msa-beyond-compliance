@@ -47,7 +47,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   }
 
   export() {
-    this.exportAsService.save(this.exportAsConfig, 'meeting-minimum-requirements').subscribe(() => {
+    this.exportAsService.save(this.exportAsConfig, 'meeting-minimum-requirements-' + this.sector).subscribe(() => {
     });
   }
 
