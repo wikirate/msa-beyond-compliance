@@ -44,7 +44,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
       company_group,
       {
         renderer: "svg",
-        actions: {source: false, editor: true}
+        actions: false
       }).finally(() => this.isLoading = false)
 
   }

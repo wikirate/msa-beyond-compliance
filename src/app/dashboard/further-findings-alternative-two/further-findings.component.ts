@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Filter} from "../../models/filter.model";
 import {DataProvider} from "../../services/data.provider";
+import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 
 @Component({
   selector: 'further-findings',
@@ -17,7 +18,17 @@ export class FurtherFindingsComponent implements OnInit {
 
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider) {
+  exportAsConfig: ExportAsConfig = {
+    type: 'png', // the type you want to download
+    elementIdOrContent: "further-findings-section", // the id of html/table element
+  }
+
+  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService) {
+  }
+
+  export() {
+    this.exportAsService.save(this.exportAsConfig, 'further-findings').subscribe(() => {
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -6,6 +6,7 @@ import {ChartsService} from "../../services/charts.service";
 import uk_minimum_requirements from "../../../assets/charts-params/uk-minimum-requirements.json";
 // @ts-ignore
 import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-requirements.json";
+import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 
 @Component({
   selector: 'minimum-requirements-section',
@@ -18,10 +19,20 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
   year: number | string = ""
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
+  exportAsConfig: ExportAsConfig = {
+    type: 'png', // the type you want to download
+    elementIdOrContent: "meeting-min-requirements-section", // the id of html/table element
+  }
+
+  constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private exportAsService: ExportAsService) {
   }
 
   ngOnInit(): void {
+  }
+
+  export() {
+    this.exportAsService.save(this.exportAsConfig, 'meeting-minimum-requirements').subscribe(() => {
+    });
   }
 
   updateData() {
@@ -42,7 +53,7 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
       uk_minimum_requirements,
       this.year,
       company_group,
-      {renderer: "svg", actions: {source: false, editor: true}})
+      {renderer: "svg", actions: false})
 
     if (this.year >= 2020 || this.year == '' || this.year == 'latest') {
       this.draw_minimum_requirements_pie_chart(
@@ -59,7 +70,7 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
         aus_minimum_requirements,
         this.year,
         company_group,
-        {renderer: "svg", actions: {source: false, editor: true}})
+        {renderer: "svg", actions: false})
     }
   }
 
@@ -91,7 +102,7 @@ export class MinimumRequirementsSectionComponent implements OnInit, OnChanges {
               'sum_count': assessed
             }],
           210, 180, ["#000028", "#FF9300"],
-          ["Not Met", "Met"], {renderer: "svg", actions: {source: false, editor: false}})
+          ["Not Met", "Met"], {renderer: "svg",  actions: false})
       }, error => console.log(error), () => this.isLoading = false)
     })
   }

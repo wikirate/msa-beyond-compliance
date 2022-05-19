@@ -3,6 +3,7 @@ import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 import {ValueRange} from "../../models/valuerange.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 
 @Component({
   selector: 'key-findings-section',
@@ -24,7 +25,12 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
   legislation: string = 'both'
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private modalService: NgbModal) {
+  exportAsConfig: ExportAsConfig = {
+    type: 'png', // the type you want to download
+    elementIdOrContent: "key-findings-section", // the id of html/table element
+  }
+
+  constructor(private dataProvider: DataProvider, private modalService: NgbModal, private exportAsService: ExportAsService) {
   }
 
   ngOnInit(): void {
@@ -142,5 +148,10 @@ export class KeyFindingsSectionComponent implements OnInit, OnChanges {
 
   openMessage() {
     this.modalService.open(this.content, {centered: true});
+  }
+
+  export() {
+    this.exportAsService.save(this.exportAsConfig, 'key-findings').subscribe(() => {
+    });
   }
 }

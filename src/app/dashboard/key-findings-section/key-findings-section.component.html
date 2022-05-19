@@ -1,4 +1,4 @@
-<div class="section mt-5 bg-neutral-orange p-4">
+<div id="key-findings-section" class="section-top mt-5 bg-neutral-orange p-4">
   <div class="row">
     <div class="col-md-4">
       <h3 class="title">Key Findings</h3>
@@ -113,3 +113,11 @@
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
   </div>
 </ng-template>
+<div class="section-bottom bg-neutral-orange pe-4 pb-4">
+  <div class="row">
+    <div class="col-md-12 ms-md-auto text-end" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <a class="button-sm deep-blue-button ms-md-auto" (click)="export()">export as png</a>
+      <a class="button-sm deep-blue-button ms-md-auto">share</a>
+    </div>
+  </div>
+</div>

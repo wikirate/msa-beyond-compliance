@@ -77,7 +77,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
       },
       this.year,
       company_group,
-      {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+      {renderer: "svg", actions: false}).finally(() => {
       this.chartsService.drawBarChart(
         "Incidents Remediation",
         "div#incident-remediation-alt-two",
@@ -87,7 +87,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         incidents_remediation,
         this.year,
         company_group,
-        {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+        {renderer: "svg", actions: false}).finally(() => {
         this.chartsService.drawBarChart(
           "Modern Slavery Training",
           "div#training-alt-two",
@@ -97,7 +97,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
           modern_slavery_training,
           this.year,
           company_group,
-          {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+          {renderer: "svg", actions: false}).finally(() => {
           this.isLoading = false
         })
       })

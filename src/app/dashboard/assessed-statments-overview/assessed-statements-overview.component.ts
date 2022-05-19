@@ -51,7 +51,7 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
           0,
           {
             renderer: "svg",
-            actions: {source: false, editor: false}
+            actions: false
           }
         ).finally(() => this.isLoading = false)
       } else if (this.legislation === 'uk') {
@@ -65,7 +65,7 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
           0,
           {
             renderer: "svg",
-            actions: {source: false, editor: false}
+            actions: false
           }
         ).finally(() => this.isLoading = false)
       } else {
@@ -79,7 +79,7 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
           0,
           {
             renderer: "svg",
-            actions: {source: false, editor: false}
+            actions: false
           }
         ).then(() => {
         }).finally(() => this.isLoading = false)
@@ -87,10 +87,10 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
     } else {
       let color = '#000028'
       console.log(company_group)
-      if (company_group === 'MSA Garments'){
-         color = '#ffdc00'
-      }else if (company_group ===  'MSA Financial'){
-         color = '#ff9300'
+      if (company_group === 'MSA Garments') {
+        color = '#ffdc00'
+      } else if (company_group === 'MSA Financial') {
+        color = '#ff9300'
       }
       this.chartService.drawSectorSpecificBeeSwarmChart(
         "Companies Overview",
@@ -103,7 +103,7 @@ export class AssessedStatementsOverviewComponent implements OnInit, OnChanges {
         0,
         {
           renderer: "svg",
-          actions: {source: false, editor: false}
+          actions: false
         }
       ).finally(() => this.isLoading = false)
     }

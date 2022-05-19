@@ -59,6 +59,11 @@
     </div>
   </div>
 </div>
-<div class="section-bottom bg-neutral-grey p-4 ms-auto">
-<!--  <button class="btn btn-primary" (click)="export()">export</button>-->
+<div class="section-bottom bg-neutral-grey p-1 pe-4 pb-4">
+  <div class="row">
+    <div class="col-md-12 ms-md-auto text-end" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <a class="button-sm deep-blue-button ms-md-auto" (click)="export()">export as png</a>
+      <a class="button-sm deep-blue-button  ms-md-auto">share</a>
+    </div>
+  </div>
 </div>

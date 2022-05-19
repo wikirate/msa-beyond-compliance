@@ -3,6 +3,7 @@ import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json";
+import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 
 @Component({
   selector: 'disclosure-rates',
@@ -15,8 +16,12 @@ export class DisclosureRatesComponent implements OnInit {
   garment_avg_disclosure_rate: number = 0;
   financial_avg_disclosure_rate: number = 0;
   hospitality_avg_disclosure_rate: number = 0;
+  exportAsConfig: ExportAsConfig = {
+    type: 'png', // the type you want to download
+    elementIdOrContent: "disclosure-rates", // the id of html/table element
+  }
 
-  constructor(private dataProvider: DataProvider) {
+  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService) {
   }
 
   ngOnInit() {
@@ -93,5 +98,10 @@ export class DisclosureRatesComponent implements OnInit {
   openURL(sector: string) {
     let url = `${this.dataProvider.wikirateApiHost}/~${this.dataProvider.metrics.msa_disclosure_rate}?filter[company_group][]=${sector}&filter[year]=${this.year}`
     window.open(url, "_blank")
+  }
+
+  export() {
+    this.exportAsService.save(this.exportAsConfig, 'beyond-compliance-disclosure-rates').subscribe(() => {
+    });
   }
 }

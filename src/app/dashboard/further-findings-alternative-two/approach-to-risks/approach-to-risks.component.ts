@@ -42,7 +42,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
       risk_assessment,
       this.year,
       company_group,
-      {renderer: "svg", actions: {source: false, editor: true}}).finally(() => {
+      {renderer: "svg", actions: false}).finally(() => {
       this.chartsService.drawBarChart(
         "Risks identified by risk category",
         "div#risk-identification-alt-two",
@@ -54,7 +54,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         company_group,
         {
           renderer: "svg",
-          actions: {source: false, editor: true}
+          actions: false
         }).finally(() => this.chartsService.drawSubgroupsBarChart(
         "Risks Management",
         "div#risk-management-alt-two",
@@ -89,7 +89,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         },
         this.year,
         company_group,
-        {renderer: "svg", actions: {source: false, editor: true}})).finally(() => this.isLoading = false
+        {renderer: "svg", actions: false})).finally(() => this.isLoading = false
         //   this.chartsService.drawPieChartGroups(
         //   "RISK ASSESSMENT TOOL & RISKS IDENTIFIED",
         //   this.year,
