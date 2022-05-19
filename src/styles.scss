@@ -226,6 +226,30 @@ a.white-button:hover {
   color: $deep_blue !important;
 }
 
+a.button-sm {
+  border: 0 !important;
+  padding: 0.5em 2.0em 0.5em 1.2em !important;
+  font-family: MediaSans !important;
+  text-transform: uppercase !important;
+  font-size: 0.8em;
+  letter-spacing: 0.5px;
+  display: inline-block !important;
+  text-decoration: none !important;
+  color: #000028 !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
+
+a.button-sm::after {
+  color: $blue;
+  content: "\f054";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 0.55em;
+}
+
 a.orange-button {
   background: $orange;
   margin-right: 1em;
@@ -236,6 +260,22 @@ a.orange-button {
 a.orange-button:hover {
   background: $yellow;
   border: 1px solid $yellow;
+  border-width: 1px;
+}
+
+//deep-blue-button
+a.deep-blue-button {
+  background: $deep_blue;
+  color: $white !important;
+  margin-right: 1em;
+  border: 1px solid $white;
+  border-width: 1px;
+}
+
+a.deep-blue-button:hover {
+  background: $yellow;
+  border: 1px solid $yellow;
+  color: $deep_blue !important;
   border-width: 1px;
 }
 
@@ -742,7 +782,7 @@ h6 {
   min-height: auto;
 }
 
-.fit-height{
+.fit-height {
   height: 100%;
 }
 
