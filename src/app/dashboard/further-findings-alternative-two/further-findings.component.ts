@@ -1,7 +1,6 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Filter} from "../../models/filter.model";
 import {DataProvider} from "../../services/data.provider";
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
 
@@ -19,18 +18,7 @@ export class FurtherFindingsComponent implements OnInit {
 
   isLoading: boolean = true;
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "further-findings-section", // the id of html/table element
-  }
-
-  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService,
-              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'further-findings-'+this.sector).subscribe(() => {
-    });
+  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   ngOnInit(): void {

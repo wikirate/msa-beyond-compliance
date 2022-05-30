@@ -1,9 +1,8 @@
-import {Component, Input, OnChanges, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 import {ValueRange} from "../../models/valuerange.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
 
@@ -28,15 +27,10 @@ export class KeyFindingsSectionComponent implements OnInit {
 
   legislation_filter: string = '&filter[value][]=Yes - UK Modern Slavery Act&filter[value][]=Yes - Australian Modern Slavery Act'
   beyond_compliance_metric = '#'
-  meet_min_req_metric:string = '#'
+  meet_min_req_metric: string = '#'
   msa_statement_assessed_metric: string = '#'
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "key-findings-section", // the id of html/table element
-  }
-
-  constructor(private dataProvider: DataProvider, private modalService: NgbModal, private exportAsService: ExportAsService,
+  constructor(private dataProvider: DataProvider, private modalService: NgbModal,
               private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
@@ -61,9 +55,9 @@ export class KeyFindingsSectionComponent implements OnInit {
     this.isLoading = true;
     this.numOfAssessedMSAStatements = 0;
     if (this.legislation === 'both') {
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+MSA_Beyond_Compliance?filter[value]=Yes&filter[company_group]='+this.company_group+'&filter[year]='+this.year
+      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+MSA_Beyond_Compliance?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
       this.legislation_filter = "&filter[value][]=Yes - UK Modern Slavery Act&filter[value][]=Yes - Australian Modern Slavery Act"
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_MSA_Requirements?filter[value]=Yes&filter[company_group]='+this.company_group+'&filter[year]='+this.year
+      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
       this.msa_statement_assessed_metric = 'MSA_statement_assessed'
       this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
         [new Filter("year", this.year), new Filter("company_group", this.company_group), new Filter("value", ["Yes - UK Modern Slavery Act", "Yes - Australian Modern Slavery Act"])]).subscribe(data => {
@@ -105,8 +99,8 @@ export class KeyFindingsSectionComponent implements OnInit {
       return $event;
     } else if (this.legislation === 'uk') {
       this.msa_statement_assessed_metric = 'UK_MSA_statement_assessed'
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_UK_MSA_Requirements?filter[value]=Yes&filter[company_group]='+this.company_group+'&filter[year]='+this.year
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+UK_MSA_Beyond_Compliance_Disclosure_Rate?&filter[company_group]='+this.company_group+'&filter[year]='+this.year+"&filter[value][from]=0"
+      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_UK_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
+      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+UK_MSA_Beyond_Compliance_Disclosure_Rate?&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year + "&filter[value][from]=0"
       this.legislation_filter = "&filter[value][]=Yes - UK Modern Slavery Act"
       this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
         [new Filter("year", this.year), new Filter("value", ["Yes - UK Modern Slavery Act"]), new Filter("company_group", this.company_group)]).subscribe(data => {
@@ -137,8 +131,8 @@ export class KeyFindingsSectionComponent implements OnInit {
       return $event;
     } else {
       this.msa_statement_assessed_metric = 'Australian_MSA_statement_assessed'
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_Australian_MSA_Requirements?filter[value]=Yes&filter[company_group]='+this.company_group+'&filter[year]='+this.year
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+AUS_MSA_Beyond_Compliance_Disclosure_Rate?filter[company_group]='+this.company_group+'&filter[year]='+this.year+"&filter[value][from]=0"
+      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_Australian_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
+      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+AUS_MSA_Beyond_Compliance_Disclosure_Rate?filter[company_group]=' + this.company_group + '&filter[year]=' + this.year + "&filter[value][from]=0"
       this.legislation_filter = "&filter[value][]=Yes - Australian Modern Slavery Act"
       if (this.year !== '' && this.year !== 'latest' && Number(this.year) < 2020) {
         this.openMessage();
@@ -176,10 +170,5 @@ export class KeyFindingsSectionComponent implements OnInit {
 
   openMessage() {
     this.modalService.open(this.content, {centered: true});
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'key-findings-'+this.sector).subscribe(() => {
-    });
   }
 }

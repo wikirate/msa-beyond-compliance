@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 import {ChartsService} from "../../services/charts.service";
@@ -6,7 +6,6 @@ import {ChartsService} from "../../services/charts.service";
 import uk_minimum_requirements from "../../../assets/charts-params/uk-minimum-requirements.json";
 // @ts-ignore
 import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-requirements.json";
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
 
@@ -20,13 +19,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   year: number | string = ""
   isLoading: boolean = true;
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "meeting-min-requirements-section", // the id of html/table element
-  }
-
-  constructor(private dataProvider: DataProvider, private chartsService: ChartsService,
-              private exportAsService: ExportAsService, private route: ActivatedRoute,
+  constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private route: ActivatedRoute,
               private sectorProvider: SectorProvider) {
   }
 
@@ -44,11 +37,6 @@ export class MinimumRequirementsSectionComponent implements OnInit {
       if (val[1].path === 'meeting-minimum-requirements')
         this.sectorProvider.getPath().next(val[1].path)
     })
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'meeting-minimum-requirements-' + this.sector).subscribe(() => {
-    });
   }
 
   updateData() {

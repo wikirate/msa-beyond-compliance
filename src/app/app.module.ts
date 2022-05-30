@@ -32,6 +32,7 @@ import {
 } from "./dashboard/further-findings-alternative-two/approach-to-risks/approach-to-risks.component";
 import { SectionComponent } from './section/section.component';
 import {ExportAsModule} from "ngx-export-as";
+import { ExportAsComponent } from './dashboard/export-as/export-as.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {ExportAsModule} from "ngx-export-as";
     ApproachToRisksComponent,
     ApproachToPoliciesComponent,
     FurtherFindingsComponent,
-    SectionComponent
+    SectionComponent,
+    ExportAsComponent
   ],
   imports: [
     FormsModule,

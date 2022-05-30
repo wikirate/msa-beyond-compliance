@@ -1,6 +1,5 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
-import {ExportAsService, ExportAsConfig} from 'ngx-export-as';
 import {ChartsService} from "../../services/charts.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
@@ -16,13 +15,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
   legislation: string = 'both';
   isLoading: boolean = true;
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "tree-map-section", // the id of html/table element
-  }
-
-  constructor(private dataProvider: DataProvider, private chartService: ChartsService,
-              private exportAsService: ExportAsService, private route: ActivatedRoute,
+  constructor(private dataProvider: DataProvider, private chartService: ChartsService, private route: ActivatedRoute,
               private sectorProvider: SectorProvider) {
   }
 
@@ -40,11 +33,6 @@ export class AssessedStatementsOverviewComponent implements OnInit {
       if (val[1].path === 'assessed-statements-overview')
         this.sectorProvider.getPath().next(val[1].path)
     })
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'statements-overview-' + this.sector).subscribe(() => {
-    });
   }
 
   updateData() {

@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json";
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 import {SectorProvider} from "../../services/sector.provider";
 import {ActivatedRoute} from "@angular/router";
 
@@ -18,13 +17,8 @@ export class DisclosureRatesComponent implements OnInit {
   garment_avg_disclosure_rate: number = 0;
   financial_avg_disclosure_rate: number = 0;
   hospitality_avg_disclosure_rate: number = 0;
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "disclosure-rates", // the id of html/table element
-  }
 
-  constructor(private dataProvider: DataProvider,
-              private exportAsService: ExportAsService, private sectorProvider: SectorProvider,
+  constructor(private dataProvider: DataProvider, private sectorProvider: SectorProvider,
               private route: ActivatedRoute) {
   }
 
@@ -106,10 +100,5 @@ export class DisclosureRatesComponent implements OnInit {
   openURL(sector: string) {
     let url = `${this.dataProvider.wikirateApiHost}/~${this.dataProvider.metrics.msa_disclosure_rate}?filter[company_group][]=${sector}&filter[year]=${this.year}`
     window.open(url, "_blank")
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'beyond-compliance-disclosure-rates').subscribe(() => {
-    });
   }
 }

@@ -98,7 +98,8 @@
                   <div class="msa-primary-info">{{percentage_of_companies_identified_incidents}}%</div>
                 </div>
                 <div class="row">
-                  <p class="accordion-paragraph">of companies have <b>identified a specific incident of modern slavery</b> in
+                  <p class="accordion-paragraph">of companies have <b>identified a specific incident of modern
+                    slavery</b> in
                     their own and/or supply chain
                     operations</p>
                   <h5 class="blue-title">Incidents</h5>
@@ -117,12 +118,8 @@
     </div>
   </div>
 </div>
-<div class="section-bottom bg-neutral-white pe-4 pb-4" >
-  <div class="row">
-    <div class="col-md-12 ms-md-auto text-end" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-      <a class="button-sm deep-blue-button ms-md-auto" (click)="export()">export as png</a>
-      <a class="button-sm deep-blue-button  ms-md-auto">share</a>
-    </div>
-  </div>
+<div class="section-bottom bg-neutral-white pe-4 pb-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+  <export-as [sector]="sector" [filePrefix]="'further-findings'"
+             [elementId]="'further-findings-section'"></export-as>
 </div>
 

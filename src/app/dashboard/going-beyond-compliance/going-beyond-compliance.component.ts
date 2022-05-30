@@ -1,9 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
 // @ts-ignore
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
 
@@ -22,13 +21,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
   financial_avg_disclosure_rate: number = 0;
   hospitality_avg_disclosure_rate: number = 0;
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png', // the type you want to download
-    elementIdOrContent: "going-beyond-compliance", // the id of html/table element
-  }
-
-  constructor(private dataProvider: DataProvider, private exportAsService: ExportAsService,
-              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   ngOnInit() {
@@ -144,10 +137,5 @@ export class GoingBeyondComplianceComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     this.updateBeyondComplianceTable()
-  }
-
-  export() {
-    this.exportAsService.save(this.exportAsConfig, 'going-beyond-compliance-'+this.sector).subscribe(() => {
-    });
   }
 }
