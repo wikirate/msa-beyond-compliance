@@ -5,6 +5,8 @@ import {Filter} from "../../models/filter.model";
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
+import {from, mergeMap, toArray} from "rxjs";
+import {error} from "vega";
 
 @Component({
   selector: 'going-beyond-compliance',
@@ -65,59 +67,64 @@ export class GoingBeyondComplianceComponent implements OnInit {
         let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
         total_assessed = total_assessed.filter((arr, index, self) =>
           index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
-        for (let metric of beyond_compliance_metrics) {
-          this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
-            .subscribe(answers => {
-              let uk_count = 0;
-              let aus_count = 0;
-              let total = 0;
-              for (let answer of answers) {
-                let c1 = uk_msa_statements_assessed.find((i: { company: any; year: any; }) => {
-                  return i['company'] == answer['company'] && i['year'] == answer['year']
-                }) !== undefined;
-                let c2 = aus_msa_statements_assessed.find((i: { company: any; year: any; }) => {
-                  return i['company'] == answer['company'] && i['year'] == answer['year']
-                }) !== undefined;
-                if (c1) uk_count++;
-                if (c2) aus_count++;
-                if (c1 || c2) total++;
 
-              }
-              let uk_percent = Math.round(uk_count * 100 / uk_msa_statements_assessed.length)
-              let aus_percent = Math.round(aus_count * 100 / aus_msa_statements_assessed.length)
-              let total_percent = Math.round(total * 100 / total_assessed.length)
-              let filter_value = ''
-              for (let value of metric['filter_value']) {
-                filter_value += 'filter[value][]=' + value + '&'
-              }
-              if (metric['label'] == "Consultation Process") {
-                this.beyond_compliance_table_data.push({
-                  'name': metric['label'],
-                  'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
-                  'uk': "N/A",
-                  'aus': aus_percent,
-                  'total': "N/A",
-                  'aus_color': metric['aus_color'],
-                  'uk_color': metric['uk_color']
-                })
-              } else {
-                this.beyond_compliance_table_data.push({
-                  'name': metric['label'],
-                  'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
-                  'uk': uk_percent,
-                  'aus': aus_percent,
-                  'total': total_percent,
-                  'aus_color': metric['aus_color'],
-                  'uk_color': metric['uk_color']
-                })
-              }
-            })
-        }
-        setTimeout(() => {
-          this.sort('total')
+        const result$ = from(beyond_compliance_metrics).pipe(
+          mergeMap(metric => {
+            // @ts-ignore
+            return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
+          }), toArray()
+        )
+        result$.subscribe(results => {
+          results.forEach((answers, index) => {
+            let metric = beyond_compliance_metrics[index]
+            let uk_count = 0;
+            let aus_count = 0;
+            let total = 0;
+            for (let answer of answers) {
+              let c1 = uk_msa_statements_assessed.find((i: { company: any; year: any; }) => {
+                return i['company'] == answer['company'] && i['year'] == answer['year']
+              }) !== undefined;
+              let c2 = aus_msa_statements_assessed.find((i: { company: any; year: any; }) => {
+                return i['company'] == answer['company'] && i['year'] == answer['year']
+              }) !== undefined;
+              if (c1) uk_count++;
+              if (c2) aus_count++;
+              if (c1 || c2) total++;
+
+            }
+            let uk_percent = Math.round(uk_count * 100 / uk_msa_statements_assessed.length)
+            let aus_percent = Math.round(aus_count * 100 / aus_msa_statements_assessed.length)
+            let total_percent = Math.round(total * 100 / total_assessed.length)
+            let filter_value = ''
+            for (let value of metric['filter_value']) {
+              filter_value += 'filter[value][]=' + value + '&'
+            }
+            if (metric['label'] == "Consultation Process") {
+              this.beyond_compliance_table_data.push({
+                'name': metric['label'],
+                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                'uk': "N/A",
+                'aus': aus_percent,
+                'total': "N/A",
+                'aus_color': metric['aus_color'],
+                'uk_color': metric['uk_color']
+              })
+            } else {
+              this.beyond_compliance_table_data.push({
+                'name': metric['label'],
+                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                'uk': uk_percent,
+                'aus': aus_percent,
+                'total': total_percent,
+                'aus_color': metric['aus_color'],
+                'uk_color': metric['uk_color']
+              })
+            }
+          })
+        }, (error) => console.log(error), () => {
+          this.sort('total');
           this.isLoading = false;
-        }, 1000)
-
+        })
       })
     })
   }
