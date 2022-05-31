@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ExportAsConfig, ExportAsService} from "ngx-export-as";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'export-as',
@@ -13,13 +14,17 @@ export class ExportAsComponent implements OnInit {
   @Input()
   sector: string = 'all-sectors'
   @Input()
-  filePrefix: string = ''
+  section: string = ''
   waiting: boolean = false;
+  src_content: string = "";
 
-  constructor(private exportAsService: ExportAsService) {
+  @ViewChild("embed") embed!: TemplateRef<any>;
+
+  constructor(private exportAsService: ExportAsService, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
+    this.src_content = '<iframe src=\'https://staging.beyondcompliance.wikirate.org/dashboard/' + this.section + '/' + this.sector + '?view=embed\' width=\'100%\' height=\'100%\' frameborder=\'0\'></iframe>';
   }
 
   export() {
@@ -27,15 +32,19 @@ export class ExportAsComponent implements OnInit {
     var exportAsConfig: ExportAsConfig = {
       type: 'png', // the type you want to download
       elementIdOrContent: this.elementId, // the id of html/table element
-      options:{
+      options: {
         scale: 3
       }
     }
-    this.exportAsService.save(exportAsConfig, this.filePrefix + '-' + this.sector).subscribe(() => {
+    this.exportAsService.save(exportAsConfig, this.section + '-' + this.sector).subscribe(() => {
     }, () => {
     }, () => {
       this.waiting = false
     });
+  }
+
+  openModal() {
+    this.modalService.open(this.embed, {centered: true});
   }
 
 

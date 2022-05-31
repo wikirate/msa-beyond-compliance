@@ -2,6 +2,40 @@
   <div class="col-md-12 ms-md-auto text-end">
     <a class="button-sm deep-blue-button ms-md-auto" (click)="export()" [ngClass]="waiting ? 'waiting': ''">export as
       png</a>
-    <a class="button-sm deep-blue-button  ms-md-auto">share</a>
+    <a class="button-sm deep-blue-button  ms-md-auto" type="button" id="share" data-bs-toggle="dropdown"
+       aria-expanded="false">share</a>
+    <ul class="dropdown-menu" aria-labelledby="share">
+      <li><a class="dropdown-item" target="_blank" type="button" ngxClipboard
+             [cbContent]="'https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+        class="bi bi-link-45deg ms-2 me-2"></i>Copy link</a></li>
+      <li><a class="dropdown-item" target="_blank"
+             [href]="'https://www.facebook.com/sharer/sharer.php?u=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+        class="bi bi-facebook ms-2 me-2"></i>facebook</a></li>
+      <li><a class="dropdown-item" target="_blank"
+             [href]="'https://twitter.com/intent/tweet?url=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+        class="bi bi-twitter ms-2 me-2"></i>twitter</a></li>
+      <li><a class="dropdown-item" target="_blank"
+             [href]="'https://www.linkedin.com/shareArticle?mini=true&url=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+        class="bi bi-linkedin ms-2 me-2"></i>linkedin</a></li>
+      <li><a class="dropdown-item" target="_blank"
+             [href]="'mailto:info@example.com?&subject=&cc=&bcc=&body=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+        class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
+    </ul>
+    <a class="button-sm deep-blue-button ms-md-auto" (click)="openModal()">embed</a>
   </div>
 </div>
+<ng-template #embed let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Embed Section</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <pre #code>&lt;iframe src="https://staging.beyondcompliance.wikirate.org/dashboard/{{section}}/{{sector}}
+      ?view=embed" width="100%" height="100%" frameborder="0"&gt;&lt;/iframe&gt;</pre>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" ngxClipboard
+            [cbContent]="src_content" (cbOnSuccess)="modal.close()">Copy
+    </button>
+  </div>
+</ng-template>
