@@ -1,13 +1,15 @@
 <div class="row">
   <div class="col-md-12 ms-md-auto text-end">
-    <a class="button-sm deep-blue-button ms-md-auto" (click)="export()" [ngClass]="waiting ? 'waiting': ''">export as
+    <a class="button-sm me-2 ms-md-auto" (click)="export()" [ngClass]="waiting ? 'waiting': ''">export as
       png</a>
-    <a class="button-sm deep-blue-button  ms-md-auto" type="button" id="share" data-bs-toggle="dropdown"
+    <a class="button-sm ms-md-auto" type="button" id="share" data-bs-toggle="dropdown"
        aria-expanded="false">share</a>
     <ul class="dropdown-menu" aria-labelledby="share">
       <li><a class="dropdown-item" target="_blank" type="button" ngxClipboard
              [cbContent]="'https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
-        class="bi bi-link-45deg ms-2 me-2"></i>Copy link</a></li>
+        class="bi bi-link-45deg ms-2 me-2"></i>copy link</a></li>
+      <li><a class="dropdown-item" (click)="openModal()" type="button"><i
+        class="bi bi-code-square ms-2 me-2"></i>embed</a></li>
       <li><a class="dropdown-item" target="_blank"
              [href]="'https://www.facebook.com/sharer/sharer.php?u=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
         class="bi bi-facebook ms-2 me-2"></i>facebook</a></li>
@@ -21,7 +23,6 @@
              [href]="'mailto:info@example.com?&subject=&cc=&bcc=&body=https://staging.beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
         class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
     </ul>
-    <a class="button-sm deep-blue-button ms-md-auto" (click)="openModal()">embed</a>
   </div>
 </div>
 <ng-template #embed let-modal>

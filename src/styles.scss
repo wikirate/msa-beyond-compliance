@@ -63,10 +63,10 @@ $light-orange: rgb(255, 147, 0, 0.3);
 }
 
 pre {
-  white-space: pre-wrap;       /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 //style of different sections
@@ -234,7 +234,8 @@ a.white-button:hover {
 }
 
 a.button-sm {
-  border: 0 !important;
+  border: 1px solid $deep_blue !important;
+  border-width: 1px !important;
   padding: 0.5em 2.0em 0.5em 1.2em !important;
   font-family: MediaSans !important;
   text-transform: uppercase !important;
@@ -243,8 +244,14 @@ a.button-sm {
   display: inline-block !important;
   text-decoration: none !important;
   color: #000028 !important;
+  background-color: transparent !important;
   position: relative !important;
   cursor: pointer !important;
+}
+
+a.button-sm:hover {
+  background-color: $deep_blue !important;
+  color: $white !important;
 }
 
 a.button-sm::after {
