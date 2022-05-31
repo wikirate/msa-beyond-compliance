@@ -17,6 +17,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
   year!: number | string;
   @Input()
   sector !: string;
+  company_group: string = '';
 
   isLoading: boolean = true;
 
@@ -31,7 +32,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
   }
 
   updateData() {
-    let company_group = this.dataProvider.getCompanyGroup(this.sector)
+    this.company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true;
     this.chartsService.drawBarChart(
       "Modern Slavery Supply Chain Policies",
@@ -41,7 +42,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
       this.dataProvider.metrics.msa_statement_assessed,
       modern_slavery_policies,
       this.year,
-      company_group,
+      this.company_group,
       {
         renderer: "svg",
         actions: false
