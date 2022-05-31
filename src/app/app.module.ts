@@ -33,6 +33,7 @@ import {
 import { SectionComponent } from './section/section.component';
 import {ExportAsModule} from "ngx-export-as";
 import { ExportAsComponent } from './dashboard/export-as/export-as.component';
+import {ClipboardModule} from "ngx-clipboard";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ExportAsComponent } from './dashboard/export-as/export-as.component';
     BrowserAnimationsModule,
     NgbModule,
     AppRoutingModule,
-    ExportAsModule
+    ExportAsModule,
+    ClipboardModule
   ],
   providers: [SectorProvider, DataProvider, ChartsService],
   bootstrap: [AppComponent]
