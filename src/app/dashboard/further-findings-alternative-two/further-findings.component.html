@@ -118,8 +118,8 @@
     </div>
   </div>
 </div>
-<div class="section-bottom bg-neutral-white pe-4 pb-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-  <export-as [sector]="sector" [filePrefix]="'further-findings'"
-             [elementId]="'further-findings-section'"></export-as>
+<div class="section-bottom bg-neutral-white pe-4 pb-4">
+  <export-as [sector]="sector" [section]="'further-findings'"
+             [elementId]="'further-findings-section'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
 </div>
 

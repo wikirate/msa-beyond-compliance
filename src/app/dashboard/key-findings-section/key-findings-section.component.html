@@ -88,28 +88,9 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="AUS-MSA" tabindex="-1" aria-labelledby="AUS-MSA-Label" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="AUS-MSA-Label">Australian Modern Slavery Act</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first statement for
-        financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for this first
-        year the government provided companies with an extension due to the impact of the covid pandemic. As a result,
-        most companies submitted statements under the Australian Act from the financial year 2020 onward.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">The Australian Modern Slavery Act</h4>
+    <h5 class="modal-title">The Australian Modern Slavery Act</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
@@ -122,7 +103,7 @@
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
   </div>
 </ng-template>
-<div class="section-bottom bg-neutral-orange pe-4 pb-4" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-  <export-as [sector]="sector" [filePrefix]="'key-findings'"
-             [elementId]="'key-findings-section'"></export-as>
+<div class="section-bottom bg-neutral-orange pe-4 pb-4">
+  <export-as [sector]="sector" [section]="'key-findings'"
+             [elementId]="'key-findings-section'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
 </div>

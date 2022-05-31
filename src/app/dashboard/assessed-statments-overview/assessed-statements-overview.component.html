@@ -59,7 +59,7 @@
     </div>
   </div>
 </div>
-<div class="section-bottom p-1 pe-4 pb-4 bg-neutral-grey" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-  <export-as [sector]="sector" [filePrefix]="'statements-overview'"
-             [elementId]="'statements-overview-section'"></export-as>
+<div class="section-bottom p-1 pe-4 pb-4 bg-neutral-grey">
+  <export-as [sector]="sector" [section]="'statements-overview'"
+             [elementId]="'statements-overview-section'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
 </div>
