@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
       }
     })
     this.sectorProvider.getPath().subscribe(path => {
-      if (path === "dashboard")
+      if (path === "dashboard" || path === "about" || path === "subscribe")
         this.path = '';
       else {
         this.path = path + '/'

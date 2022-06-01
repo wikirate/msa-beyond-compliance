@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
 import methodology_table from '../../assets/methodology_table.json';
+import {ActivatedRoute} from "@angular/router";
+import {SectorProvider} from "../services/sector.provider";
 
 @Component({
   selector: 'about',
@@ -52,11 +54,16 @@ export class AboutComponent implements OnInit {
       "logo": "https://dq06ugkuram52.cloudfront.net/files/2549359/12602502-medium.jpeg"
     }];
 
-  constructor() {
+  constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
 
   ngOnInit(): void {
     this.table = JSON.parse(JSON.stringify(methodology_table));
+
+    this.route.url.subscribe(val => {
+      if (val[0].path === 'about')
+        this.sectorProvider.getPath().next(val[0].path)
+    })
   }
 
 }

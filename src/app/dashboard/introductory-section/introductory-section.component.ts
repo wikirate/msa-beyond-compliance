@@ -11,6 +11,7 @@ export class IntroductorySectionComponent implements OnInit, OnChanges {
 
   sector: string | null = 'all-sectors';
   company_group: string = '';
+  path: string | null = 'dashboard';
 
   constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
   }
@@ -19,6 +20,9 @@ export class IntroductorySectionComponent implements OnInit, OnChanges {
     this.sectorProvider.getSector().subscribe(sector => {
       this.sector = sector;
       this.company_group = this.dataProvider.getCompanyGroup(sector)
+    })
+    this.sectorProvider.getPath().subscribe(path => {
+      this.path = path;
     })
   }
 

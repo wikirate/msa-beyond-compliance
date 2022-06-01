@@ -12,6 +12,7 @@ import {
 import {GoingBeyondComplianceComponent} from "./dashboard/going-beyond-compliance/going-beyond-compliance.component";
 import {FurtherFindingsComponent} from "./dashboard/further-findings-alternative-two/further-findings.component";
 import {DisclosureRatesComponent} from "./dashboard/disclosure-rates/disclosure-rates.component";
+import {SubscribeComponent} from "./subscribe/subscribe.component";
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: 'dashboard/going-beyond-compliance/:sector', component: GoingBeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},
   {path: 'dashboard/disclosure-rates/:sector', component: DisclosureRatesComponent},
-
+  {path: 'subscribe', component: SubscribeComponent},
   {path: 'about', component: AboutComponent},
   {path: '**', redirectTo: '/dashboard/all-sectors', pathMatch: 'full'}
 ];

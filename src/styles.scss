@@ -800,5 +800,9 @@ h6 {
   height: 100%;
 }
 
+about p{
+  font-size: 20px !important;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

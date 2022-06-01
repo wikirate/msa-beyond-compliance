@@ -34,6 +34,7 @@ import { SectionComponent } from './section/section.component';
 import {ExportAsModule} from "ngx-export-as";
 import { ExportAsComponent } from './dashboard/export-as/export-as.component';
 import {ClipboardModule} from "ngx-clipboard";
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {ClipboardModule} from "ngx-clipboard";
     ApproachToPoliciesComponent,
     FurtherFindingsComponent,
     SectionComponent,
-    ExportAsComponent
+    ExportAsComponent,
+    SubscribeComponent
   ],
   imports: [
     FormsModule,
