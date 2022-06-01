@@ -319,7 +319,7 @@
         },
         "update": {
           "size": {
-            "signal": "pow(2 * 4, 2)"
+            "signal": "pow(2 * 5, 2)"
           },
           "stroke": {
             "value": "white"
@@ -352,7 +352,7 @@
             {
               "force": "collide",
               "iterations": 1,
-              "radius": 4
+              "radius": 5
             },
             {
               "force": "x",
