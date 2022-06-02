@@ -44,7 +44,7 @@
           target="_blank">{{numOfCompaniesUnderMSA | numFormat}}</a></div>
       </div>
       <div class="row">
-        <p>company statements found under MSA</p>
+        <p>company statements found under Modern Slavery Act (MSA) legislation</p>
       </div>
     </div>
     <div class="col-md-6">
@@ -55,10 +55,8 @@
         </div>
       </div>
       <div class="row">
-        <p>MSA statements assessed by <span style="font-weight: bold">Researchers</span><span
-          class="tooltip-item ps-1" placement="top"
-          ngbPopover="As the research effort is ongoing, this is a living project and the dashboard updates as and when new data is contributed to WikiRate."><i
-          class="bi bi-info-circle-fill"></i></span>
+        <p>MSA statements assessed by <a type="button" style="font-weight: bold"
+                                         [ngbTooltip]="'Anyone can participate in the assessment of statements. See About page for more information.'">researchers</a>
         </p>
       </div>
     </div>
@@ -69,7 +67,9 @@
         </div>
       </div>
       <div class="row">
-        <p>of the assessed statements meet all minimum requirements of the corresponding MSA legislation</p>
+        <p>of assessed statements meet all <a type="button" style="font-weight: bold"
+                                              [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
+          requirements</a> of the corresponding MSA legislation</p>
       </div>
     </div>
     <div class="col-md-6">
@@ -81,7 +81,9 @@
         </div>
       </div>
       <div class="row">
-        <p>of the assessed statements go beyond compliance and report additional guidelines</p>
+        <p>of assessed statements go <a type="button" style="font-weight: bold"
+                                        [ngbTooltip]="'Statements that met the minimum requirements and disclosed additional information as advised in the MSA guidance'">beyond
+          compliance</a> for the corresponding MSA legislation</p>
       </div>
     </div>
   </div>

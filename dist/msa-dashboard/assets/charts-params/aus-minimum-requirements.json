@@ -3,7 +3,7 @@
     "seq": 1,
     "id": 1831852,
     "metric": "Business_Human_Rights_Resource_Centre+MSA_statement_signed",
-    "label": "Signed by Appropriate Person",
+    "label": "Signed by appropriate person",
     "short_label": "signed",
     "color": 0,
     "filter_value": [
@@ -17,7 +17,7 @@
     "seq": 2,
     "id": 1827915,
     "metric": "Business_Human_Rights_Resource_Centre+MSA_Statement_Approval",
-    "label": "Board Approval",
+    "label": "Board approval",
     "short_label": "approved",
     "color": 0,
     "filter_value": [
@@ -28,7 +28,7 @@
     "seq": 3,
     "id": 12621116,
     "metric": "Walk_Free+Australian_MSA_Registry_Submission",
-    "label": "Registry Submission",
+    "label": "Registry submission",
     "short_label": "registry_submission",
     "color": 0,
     "filter_value": [
@@ -39,7 +39,7 @@
     "seq": 4,
     "id": 5454264,
     "metric": "Walk_Free+MSA_registry_submission",
-    "label": "Organizational Structure and Operations",
+    "label": "Organizational structure and operations",
     "short_label": "organizational_structure",
     "color": 0,
     "filter_value": [
@@ -50,7 +50,7 @@
     "seq": 5,
     "id": 1831908,
     "metric": "Walk_Free+MSA_supply_chain_disclosure",
-    "label": "Supply Chain Disclosure",
+    "label": "Supply chain disclosure",
     "short_label": "supply_chain_disclosure",
     "color": 0,
     "filter_value": [
@@ -62,7 +62,7 @@
     "seq": 6,
     "id": 1831932,
     "metric": "Walk_Free+MSA_Identification_of_risks",
-    "label": "Identification of Risks",
+    "label": "Identification of risks",
     "short_label": "risk_identification",
     "color": 0,
     "filter_value": [
@@ -76,7 +76,7 @@
     "seq": 7,
     "id": 2722223,
     "metric": "Walk_Free+MSA_risk_assessment",
-    "label": "Risk Assessment",
+    "label": "Risk assessment",
     "short_label": "risk_assessment",
     "color": 0,
     "filter_value": [
@@ -89,7 +89,7 @@
     "seq": 8,
     "id": 2722169,
     "metric": "Walk_Free+MSA_risk_management",
-    "label": "Risk Management",
+    "label": "Risk management",
     "short_label": "risk_management",
     "color": 0,
     "filter_value": [
@@ -103,7 +103,7 @@
     "seq": 9,
     "id": 2722444,
     "metric": "Walk_Free+MSA_incidents_remediation_revised",
-    "label": "Incidents Remediation",
+    "label": "Incidents remediation",
     "short_label": "incident_remediation",
     "color": 0,
     "filter_value": [
@@ -133,7 +133,7 @@
     "seq": 11,
     "id": 1832024,
     "metric": "Walk_Free+MSA_Performance_Indicators",
-    "label": "Key Performance Indicators",
+    "label": "Key performance indicators",
     "short_label": "kpis",
     "color": 0,
     "filter_value": [
@@ -144,7 +144,7 @@
     "seq": 12,
     "id": 8772491,
     "metric": "Walk_Free+MSA_Consultation_Process",
-    "label": "Consultation Process",
+    "label": "Consultation process",
     "short_label": "consultation_process",
     "color": 0,
     "filter_value": [

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, Input, OnChanges, OnInit} from '@angular/core';
 import {SectorProvider} from "../../services/sector.provider";
 import {DataProvider} from "../../services/data.provider";
 
@@ -7,13 +7,13 @@ import {DataProvider} from "../../services/data.provider";
   templateUrl: './introductory-section.component.html',
   styleUrls: ['./introductory-section.component.scss']
 })
-export class IntroductorySectionComponent implements OnInit, OnChanges {
+export class IntroductorySectionComponent implements OnInit, AfterViewInit {
 
   sector: string | null = 'all-sectors';
   company_group: string = '';
-  path: string | null = 'dashboard';
+  page: string | null = 'dashboard';
 
-  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
+  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider, private cd: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -21,12 +21,16 @@ export class IntroductorySectionComponent implements OnInit, OnChanges {
       this.sector = sector;
       this.company_group = this.dataProvider.getCompanyGroup(sector)
     })
-    this.sectorProvider.getPath().subscribe(path => {
-      this.path = path;
-    })
   }
 
-  ngOnChanges(): void {
+  ngAfterViewInit(): void {
+    this.sectorProvider.getPath().subscribe(path => {
+      this.page = path;
+    }, error => {
+    }, () => {
+      this.cd.detectChanges()
+    })
+
   }
 
 }

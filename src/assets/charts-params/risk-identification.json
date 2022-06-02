@@ -3,7 +3,7 @@
     "seq": 1,
     "id": 6949027,
     "metric": "Walk_Free+MSA_Identification_of_risks",
-    "label": "Geographic/Risk Region",
+    "label": "Geographic/Risk region",
     "short_label": "geographic",
     "color": 0,
     "filter_value": [
@@ -14,7 +14,7 @@
     "seq": 2,
     "id": 6949027,
     "metric": "Walk_Free+MSA_Identification_of_risks",
-    "label": "Industry Risk",
+    "label": "Industry risk",
     "short_label": "industry",
     "color": 0,
     "filter_value": [
@@ -25,7 +25,7 @@
     "seq": 3,
     "id": 6949027,
     "metric": "Walk_Free+MSA_Identification_of_risks",
-    "label": "Resource Risk",
+    "label": "Resource risk",
     "short_label": "resource",
     "color": 0,
     "filter_value": [
@@ -36,7 +36,7 @@
     "seq": 4,
     "id": 6949027,
     "metric": "Walk_Free+MSA_Identification_of_risks",
-    "label": "Workforce Risk",
+    "label": "Workforce risk",
     "short_label": "workforce_risk",
     "color": 0,
     "filter_value": [

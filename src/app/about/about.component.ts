@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import methodology_table from '../../assets/methodology_table.json';
 import {ActivatedRoute} from "@angular/router";
 import {SectorProvider} from "../services/sector.provider";
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'about',
@@ -54,7 +55,7 @@ export class AboutComponent implements OnInit {
       "logo": "https://dq06ugkuram52.cloudfront.net/files/2549359/12602502-medium.jpeg"
     }];
 
-  constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+  constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider,private scroll: ViewportScroller) {
   }
 
   ngOnInit(): void {
@@ -64,6 +65,12 @@ export class AboutComponent implements OnInit {
       if (val[0].path === 'about')
         this.sectorProvider.getPath().next(val[0].path)
     })
+
+    this.scrollToTop();
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
 }

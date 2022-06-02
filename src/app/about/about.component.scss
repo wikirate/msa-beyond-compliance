@@ -5,17 +5,28 @@ p, li {
   letter-spacing: 0.3px;
 }
 
+.content-box p, li{
+  font-size: 18px !important;
+  line-height: 27px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.3px;
+}
+
+li{
+  padding-bottom: 7px;
+}
+
 .call-to-action-title{
   font-size: 0.8em;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
-a#show-more.collapsed::after {
+a.show-more.collapsed::after {
   content: '+ Show More';
 }
 
-a#show-more:not(.collapsed)::after {
+a.show-more:not(.collapsed)::after {
   content: '- Show Less';
 }
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Data, ParamMap} from "@angular/router";
 import {SectorProvider} from "../services/sector.provider";
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'dashboard',
@@ -10,7 +11,7 @@ import {SectorProvider} from "../services/sector.provider";
 export class DashboardComponent implements OnInit {
   sector: string = "all-sectors"
 
-  constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+  constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider, private scroll: ViewportScroller) {
   }
 
   ngOnInit(): void {
@@ -23,6 +24,11 @@ export class DashboardComponent implements OnInit {
       }
     )
     this.sectorProvider.getPath().next("dashboard")
+    this.scrollToTop()
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
 }

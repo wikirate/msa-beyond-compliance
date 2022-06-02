@@ -1,13 +1,13 @@
 <div class="section mt-5">
   <h1 class="title">Beyond Compliance</h1>
   <div class="subtitle mt-4">
-    A living data dashboard assessing modern slavery reporting standards business sectors.
+    A living data dashboard assessing modern slavery reporting across business sectors.
   </div>
-  <div class="mt-4 mb-5" *ngIf="path !== 'subscribe'">
-    <a class="button orange-button" type="button" routerLink="subscribe">
-<!--       href="{{'https://wikirate.org/MSA_Beyond_Compliance_Research?filter[company_group]='+company_group}}"-->
+  <div class="mt-4 mb-5" *ngIf="page === 'dashboard'">
+    <a class="button orange-button" type="button" routerLink="about">
+      <!--       href="{{'https://wikirate.org/MSA_Beyond_Compliance_Research?filter[company_group]='+company_group}}"-->
 
-      Subscribe</a>
+      Take Action</a>
     <a class="button transparent-button mt-md-0 mt-3"
        href="{{'https://wikirate.org/MSA_Beyond_Compliance_Dashboard?filter[company_group]='+company_group}}"
        target="_blank">Download Dataset</a>

@@ -3,7 +3,7 @@
     "seq": 1,
     "id": 1831852,
     "metric": "Business_Human_Rights_Resource_Centre+MSA_statement_signed",
-    "label": "Signed by Appropriate Person",
+    "label": "Signed by appropriate person",
     "short_label":"signed",
     "color": 0,
     "filter_value": [
@@ -17,7 +17,7 @@
     "seq": 2,
     "id": 1827915,
     "metric": "Business_Human_Rights_Resource_Centre+MSA_Statement_Approval",
-    "label": "Board Approval",
+    "label": "Board approval",
     "short_label":"approved",
     "color": 0,
     "filter_value": [
@@ -28,7 +28,7 @@
     "seq": 3,
     "id": 7046195,
     "metric": "Walk Free+MSA statement homepage link",
-    "label": "Homepage Link",
+    "label": "Homepage link",
     "short_label":"homepage",
     "color": 0,
     "filter_value": [

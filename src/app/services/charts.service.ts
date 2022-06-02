@@ -432,6 +432,7 @@ export class ChartsService {
     bee_chart['data'][2]['url'] = garment_assessed_url
     bee_chart['data'][3]['url'] = financial_assessed_url
     bee_chart['data'][4]['url'] = hospitality_assessed_url
+    console.log(JSON.stringify(bee_chart))
 
     return embed(element, bee_chart, options);
   }

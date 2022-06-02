@@ -221,8 +221,14 @@
       "name": "hospitality_companies",
       "url": "../assets/cached/MSA_Hospitality.json"
     },
-    {"name":"companies",
-      "source":["garment_companies","financial_companies", "hospitality_companies"]},
+    {
+      "name": "companies",
+      "source": [
+        "garment_companies",
+        "financial_companies",
+        "hospitality_companies"
+      ]
+    },
     {
       "name": "statements",
       "source": [
@@ -230,33 +236,34 @@
         "financial",
         "hospitality"
       ],
-      "transform": [{
-        "type": "lookup",
-        "from": "companies",
-        "key": "id",
-        "fields": [
-          "company"
-        ],
-        "values": [
-          "name",
-          "headquarters"
-        ],
-        "as": [
-          "name",
-          "headquarters"
-        ]
-      },
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "companies",
+          "key": "id",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "name",
+            "headquarters"
+          ],
+          "as": [
+            "name",
+            "headquarters"
+          ]
+        },
         {
           "type": "formula",
           "expr": "datum.revenue == null ? 'Unknown' : datum.revenue",
-          "as":"revenue"
+          "as": "revenue"
         },
         {
           "type": "formula",
           "expr": "datum.turnover == null ? 'Unknown' : datum.turnover",
-          "as":"turnover"
-        }]
-
+          "as": "turnover"
+        }
+      ]
     }
   ],
   "scales": [
@@ -266,7 +273,9 @@
       "domain": {
         "data": "statements",
         "field": "size",
-        "sort": {"order": "descending"}
+        "sort": {
+          "order": "descending"
+        }
       },
       "range": "width"
     },
@@ -288,8 +297,20 @@
     {
       "orient": "bottom",
       "scale": "xscale",
-      "domainWidth":{"value": 0},
-      "ticks": false
+      "domainWidth": {
+        "value": 0
+      },
+      "ticks": false,
+      "encode": {
+        "labels": {
+          "interactive": true,
+          "update": {
+            "tooltip": {
+              "signal": "datum.label == 'Small'? {'turnover':'less than £100M','revenue': 'less than AU$ 250'} : (datum.label == 'Medium' ?{'turnover':'between £100M and £500M', 'revenue':'between AU$ 250M and AU$ 800M'}: {'turnover':'over £500M','revenue':'over than AU$ 800M'})"
+            }
+          }
+        }
+      }
     }
   ],
   "marks": [
@@ -314,8 +335,8 @@
             "signal": "cy"
           },
           "tooltip": {
-            "signal": "{'Company': datum.name,'Sector': datum.sector+' company', 'turnover (range)' : datum.turnover, 'revenue':datum.revenue}"}
-
+            "signal": "{'Company': datum.name,'Sector': datum.sector+' company', 'turnover (range)' : datum.turnover, 'revenue':datum.revenue}"
+          }
         },
         "update": {
           "size": {
