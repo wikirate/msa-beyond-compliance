@@ -1,0 +1,240 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A beeswarm chart example that uses a force-directed layout to group items by category.",
+  "width": 750,
+  "height": 400,
+  "padding": {
+    "left": 5,
+    "right": 5,
+    "top": 0,
+    "bottom": 30
+  },
+  "autosize": "none",
+  "config": {
+    "axis": {
+      "labelFontSize": 17,
+      "labelFont": "GothamNarrow"
+    }
+  },
+  "signals": [
+    {
+      "name": "cx",
+      "update": "width / 2"
+    },
+    {
+      "name": "cy",
+      "update": "height / 2"
+    }
+  ],
+  "data": [
+    {
+      "name": "turnover",
+      "url": "https://wikirate.org/Home_Office+Turnover_range+Answer.json?view=answer_list&limit=0"
+    },
+    {
+      "name": "revenue",
+      "url": "https://wikirate.org/Australian_Border_Force+Revenue_range+Answer.json?view=answer_list&limit=0"
+    },
+    {
+      "name": "garment_companies",
+      "url": "../assets/cached/MSA_Garment.json"
+    },
+    {
+      "name": "statements",
+      "url": "https://wikirate.org/Walk_Free+MSA_statement_assessed+Answer.json?view=answer_list&limit=0&value=Yes&filter[company_group]=MSA Hospitality&field[year]=latest",
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "turnover",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "turnover"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "revenue",
+          "key": "company",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "value"
+          ],
+          "as": [
+            "revenue"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small',' Unknown')"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == '£100 million to £500 million' || datum.revenue == 'AU$ 250-300M' == datum.revenue == 'AU$ 300-350M' || datum.revenue == 'AU$ 350-400M' || datum.revenue == 'AU$ 400-450M' || datum.revenue == 'AU$ 450-500M' || datum.revenue == 'AU$ 500-600M' || datum.revenue == 'AU$ 600-700M' || datum.revenue == 'AU$ 700-800M', 'Medium',datum.size)"
+        },
+        {
+          "type": "formula",
+          "as": "size",
+          "expr": "if(datum.turnover == 'Over £500 million' || datum.revenue == 'AU$ 800-900M' || datum.revenue == 'AU$ 900M-1BN' || datum.revenue == 'AU$ 1BN+', 'Large',datum.size)"
+        },
+        {
+          "type": "lookup",
+          "from": "garment_companies",
+          "key": "id",
+          "fields": [
+            "company"
+          ],
+          "values": [
+            "name",
+            "headquarters"
+          ],
+          "as": [
+            "name",
+            "headquarters"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.revenue == null ? '  Unknown' : datum.revenue",
+          "as": "revenue"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.turnover == null ? ' Unknown' : datum.turnover",
+          "as": "turnover"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "band",
+      "domain": {
+        "data": "statements",
+        "field": "size",
+        "sort": {
+          "order": "descending"
+        }
+      },
+      "range": "width"
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "data": "statements",
+        "field": "sector"
+      },
+      "range": [
+        "#000028"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "xscale",
+      "domainWidth": {
+        "value": 0
+      },
+      "ticks": false,
+      "encode": {
+      "labels": {
+        "interactive": true,
+        "update": {
+          "tooltip": {
+            "signal": "datum.label == 'Small'? {'turnover':'less than £100M','revenue': 'less than AU$ 250'} : (datum.label == 'Medium' ?{'turnover':'between £100M and £500M', 'revenue':'between AU$ 250M and AU$ 800M'}: (datum.label == 'Large'? {'turnover':'over £500M','revenue':'over than AU$ 800M'}: 'Companies that have not disclosed their turnover or revenue range in the UK or Australian Modern Slavery registry'))"
+          }
+        }
+      }
+    }
+    }
+  ],
+  "marks": [
+    {
+      "name": "nodes",
+      "type": "symbol",
+      "from": {
+        "data": "statements"
+      },
+      "encode": {
+        "enter": {
+          "fill": {
+            "scale": "color",
+            "field": "sector"
+          },
+          "xfocus": {
+            "scale": "xscale",
+            "field": "size",
+            "band": 0.5
+          },
+          "yfocus": {
+            "signal": "cy"
+          },
+          "tooltip": {
+            "signal": "{'Company': datum.name,'Sector': datum.sector+' company', 'turnover (range)' : datum.turnover, 'revenue':datum.revenue}"
+          }
+        },
+        "update": {
+          "size": {
+            "signal": "pow(2 * 5, 2)"
+          },
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "zindex": {
+            "value": 0
+          }
+        },
+        "hover": {
+          "stroke": {
+            "value": "black"
+          },
+          "strokeWidth": {
+            "value": 3
+          },
+          "zindex": {
+            "value": 1
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "force",
+          "iterations": 200,
+          "static": false,
+          "forces": [
+            {
+              "force": "collide",
+              "iterations": 1,
+              "radius": 5
+            },
+            {
+              "force": "x",
+              "x": "xfocus",
+              "strength": 0.4
+            },
+            {
+              "force": "y",
+              "y": "yfocus",
+              "strength": 0.1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
