@@ -163,6 +163,13 @@ h1.title {
   }
 }
 
+@media screen and (max-width: 380px) {
+  h1.title {
+    font-size: 2.2em !important;
+    word-wrap: break-word !important;
+  }
+}
+
 h3 {
   font-family: MediaSans !important;
   text-transform: uppercase !important;
@@ -188,7 +195,7 @@ h5 {
 
 @media screen and (max-width: 500px) {
   .subtitle {
-    font-size: 1.4em !important;
+    font-size: 1.3em !important;
   }
 }
 
