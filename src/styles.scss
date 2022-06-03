@@ -149,6 +149,13 @@ h1.title {
   line-height: 1.1 !important;
 }
 
+@media screen and (max-width: 1200px) {
+  h1.title {
+    font-size: 3em !important;
+    word-wrap: break-word !important;
+  }
+}
+
 @media screen and (max-width: 576px) {
   h1.title {
     font-size: 2.6em !important;

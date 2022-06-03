@@ -1,6 +1,4 @@
 <header-component *ngIf="view !== 'embed'">></header-component>
-<div class="container">
   <introductory-section *ngIf="view !== 'embed'"></introductory-section>
   <router-outlet></router-outlet>
-</div>
 <footer *ngIf="view !== 'embed'"></footer>

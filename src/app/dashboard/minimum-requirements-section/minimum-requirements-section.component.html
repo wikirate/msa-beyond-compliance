@@ -1,90 +1,97 @@
-<div id="meeting-min-requirements-section" class="section-top mt-5 bg-neutral-orange p-4">
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="title">Meeting Minimum Requirements</h3>
-    </div>
-    <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
-              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
-        <option [ngValue]="''" selected>ALL YEARS</option>
-        <option [ngValue]="'latest'">LATEST</option>
-        <option [ngValue]="2021">2021</option>
-        <option [ngValue]="2020">2020</option>
-        <option [ngValue]="2019">2019</option>
-        <option [ngValue]="2018">2018</option>
-        <option [ngValue]="2017">2017</option>
-        <option [ngValue]="2016">2016</option>
-        <option [ngValue]="2015">2015</option>
-      </select>
-    </div>
-  </div>
-  <div class="row">
-    <p>Are company statements compliant with the minimum requirements under the UK or Australian Modern Slavery Act?</p>
-  </div>
-  <!--  <hr class="deep-blue no-margin">-->
-  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
-    <div class="col-12 text-center align-self-center">
-      <div class="spinner-grow text-warning" role="status">
-        <span class="sr-only">Loading...</span>
+<div class="container">
+  <div id="meeting-min-requirements-section" class="section-top mt-4 bg-neutral-orange p-4">
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="title">Meeting Minimum Requirements</h3>
+      </div>
+      <div class="col-md-4">
+        <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
+                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+          <option [ngValue]="''" selected>ALL YEARS</option>
+          <option [ngValue]="'latest'">LATEST</option>
+          <option [ngValue]="2021">2021</option>
+          <option [ngValue]="2020">2020</option>
+          <option [ngValue]="2019">2019</option>
+          <option [ngValue]="2018">2018</option>
+          <option [ngValue]="2017">2017</option>
+          <option [ngValue]="2016">2016</option>
+          <option [ngValue]="2015">2015</option>
+        </select>
       </div>
     </div>
-  </div>
-  <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
-      <div class="row text-center">
-        <h4>UK Act</h4>
-      </div>
-      <div class="row text-center pt-4">
-        <div id="uk-meet-min-requirements" class="chart-wrapper">
+    <div class="row">
+      <p>Are company statements compliant with the minimum requirements under the UK or Australian Modern Slavery
+        Act?</p>
+    </div>
+    <!--  <hr class="deep-blue no-margin">-->
+    <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+      <div class="col-12 text-center align-self-center">
+        <div class="spinner-grow text-warning" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
-      <div class="row text-center pt-4">
-        <div id="uk-requirements-bars" class="chart-wrapper">
+    </div>
+    <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <div class="p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
+        <div class="row text-center">
+          <h4>UK Act</h4>
+        </div>
+        <div class="row text-center pt-4">
+          <div id="uk-meet-min-requirements" class="chart-wrapper">
+          </div>
+        </div>
+        <div class="row text-center pt-4">
+          <div id="uk-requirements-bars" class="chart-wrapper">
+          </div>
+        </div>
+        <div class="row pt-4 justify-content-center ps-5 pe-5"
+             [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
+          <div class="col-12 bg-deep-blue p-4">
+            <p class="quote no-margin"><i class="bi bi-exclamation-diamond pe-2"></i>The UK legislation only requires
+              three criteria, none of which relate to the quality of the statement. While the accompanying guidance
+              provides suggested categories – similar to those in the Australian legislation – these are not mandatory.
+              Therefore, arguably the Australian legislation is stronger, making a direct comparison of minimum
+              compliance
+              difficult.
+            </p>
+          </div>
+        </div>
+
+        <div class="row pt-4 justify-content-center"
+             [ngClass]="year >=2020 || year =='' || year =='latest' ? 'hide-element': 'show-element'">
+          <div class="col-10">
+            <p class="quote"><i class="bi bi-exclamation-diamond pe-2"></i>The <b>Australian Modern Slavery Act was
+              passed
+              in 2018</b> and required companies to produce their first statement for financial year 2019. These needed
+              to
+              be submitted within 3 months after year's end (in 2020) but for this first year the government provided
+              companies with an extension due to the impact of the covid pandemic. As a result, <b>most companies
+                submitted
+                statements under the Australian Act from the financial year 2020 onward.</b>
+            </p>
+          </div>
         </div>
       </div>
-      <div class="row pt-4 justify-content-center ps-5 pe-5"
+
+      <div class="col-md-6 p-3"
            [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
-        <div class="col-12 bg-deep-blue p-4">
-          <p class="quote no-margin"><i class="bi bi-exclamation-diamond pe-2"></i>The UK legislation only requires
-            three criteria, none of which relate to the quality of the statement. While the accompanying guidance
-            provides suggested categories – similar to those in the Australian legislation – these are not mandatory.
-            Therefore, arguably the Australian legislation is stronger, making a direct comparison of minimum compliance
-            difficult.
-          </p>
+        <div class="row text-center">
+          <h4>Australian Act</h4>
         </div>
-      </div>
-
-      <div class="row pt-4 justify-content-center"
-           [ngClass]="year >=2020 || year =='' || year =='latest' ? 'hide-element': 'show-element'">
-        <div class="col-10">
-          <p class="quote"><i class="bi bi-exclamation-diamond pe-2"></i>The <b>Australian Modern Slavery Act was passed
-            in 2018</b> and required companies to produce their first statement for financial year 2019. These needed to
-            be submitted within 3 months after year's end (in 2020) but for this first year the government provided
-            companies with an extension due to the impact of the covid pandemic. As a result, <b>most companies
-              submitted
-              statements under the Australian Act from the financial year 2020 onward.</b>
-          </p>
+        <div class="row text-center pt-4">
+          <div id="aus-meet-min-requirements" class="chart-wrapper">
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-md-6 p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
-      <div class="row text-center">
-        <h4>Australian Act</h4>
-      </div>
-      <div class="row text-center pt-4">
-        <div id="aus-meet-min-requirements" class="chart-wrapper">
-        </div>
-      </div>
-      <div class="row text-center pt-4">
-        <div id="aus-requirements-bars" class="chart-wrapper">
+        <div class="row text-center pt-4">
+          <div id="aus-requirements-bars" class="chart-wrapper">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="section-bottom bg-neutral-orange pe-4 pb-4">
-  <export-as [sector]="sector" [section]="'meeting-minimum-requirements'"
-             [elementId]="'meeting-min-requirements-section'"
-             [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+  <div class="section-bottom bg-neutral-orange pe-4 pb-4">
+    <export-as [sector]="sector" [section]="'meeting-minimum-requirements'"
+               [elementId]="'meeting-min-requirements-section'"
+               [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+  </div>
 </div>

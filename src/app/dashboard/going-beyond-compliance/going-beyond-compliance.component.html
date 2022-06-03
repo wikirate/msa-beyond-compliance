@@ -1,88 +1,90 @@
-<div id="going-beyond-compliance" class="section-top mt-5 bg-neutral-grey p-4">
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="title">Going Beyond Compliance</h3>
-    </div>
-    <div class="col-md-4">
-      <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
-              style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-              (change)="updateBeyondComplianceTable()">
-        <option [ngValue]="''" selected>ALL YEARS</option>
-        <option [ngValue]="'latest'">LATEST</option>
-        <option [ngValue]="2021">2021</option>
-        <option [ngValue]="2020">2020</option>
-        <option [ngValue]="2019">2019</option>
-        <option [ngValue]="2018">2018</option>
-        <option [ngValue]="2017">2017</option>
-        <option [ngValue]="2016">2016</option>
-        <option [ngValue]="2015">2015</option>
-      </select>
-    </div>
+<div class="container">
+  <div id="going-beyond-compliance" class="section-top mt-4 bg-neutral-grey p-4">
     <div class="row">
+      <div class="col-md-8">
+        <h3 class="title">Going Beyond Compliance</h3>
+      </div>
+      <div class="col-md-4">
+        <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
+                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
+                (change)="updateBeyondComplianceTable()">
+          <option [ngValue]="''" selected>ALL YEARS</option>
+          <option [ngValue]="'latest'">LATEST</option>
+          <option [ngValue]="2021">2021</option>
+          <option [ngValue]="2020">2020</option>
+          <option [ngValue]="2019">2019</option>
+          <option [ngValue]="2018">2018</option>
+          <option [ngValue]="2017">2017</option>
+          <option [ngValue]="2016">2016</option>
+          <option [ngValue]="2015">2015</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Beyond the minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions
+            companies should take and report on to ensure their operations and supply chains are free from
+            exploitation. </p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+      <div class="col-12 text-center align-self-center">
+        <div class="spinner-grow text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <div class="row p-1 pe-2">
+        <div class="col-auto no-padding ms-auto">Mandatory</div>
+        <div class="col-auto">
+          <div class="legend-box bg-orange"></div>
+        </div>
+      </div>
+      <div class="row p-1 pe-2 mb-1">
+        <div class="col-auto no-padding ms-auto">Not Mandatory</div>
+        <div class="col-auto">
+          <div class="legend-box bg-deep-blue"></div>
+        </div>
+      </div>
       <div class="col-md-12">
-        <p>Beyond the minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions
-          companies should take and report on to ensure their operations and supply chains are free from
-          exploitation. </p>
+        <table class="table table-bordered border-light">
+          <thead>
+          <tr class="bg-light-orange">
+            <th scope="col" class="clickable-header text-end" [ngClass]="{'active': active === 'name'}"
+            ><a class="tooltip-term" type="button"
+                [ngbTooltip]="'Click on a metric to find out what it entails, how it was assessed, and which companies met the requirements.'">Metric</a>
+            </th>
+            <th scope="col" class="text-center clickable-header active" [ngClass]="{'active': active === 'total'}"
+                (click)="sort('total')">Total
+            </th>
+            <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'uk'}"
+                (click)="sort('uk')">UK
+            </th>
+            <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'aus'}"
+                (click)="sort('aus')">AUS
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
+            <td class="col-4 text-end bg-neutral-blue text-deep-blue"><a class="metric" href="{{row['url']}}"
+                                                                         target="_blank">{{row['name']}}</a></td>
+            <td class="col-2 clickable text-center bg-deep-blue"
+                (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
+            <td class="col-2 clickable text-center {{row['uk_color']}}"
+                (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
+            <td class="col-2 clickable text-center {{row['aus_color']}}"
+                (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
-    <div class="col-12 text-center align-self-center">
-      <div class="spinner-grow text-warning" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
+  <div class="section-bottom bg-neutral-grey p-1 pe-4 pb-4">
+    <export-as [sector]="sector" [section]="'going-beyond-compliance'"
+               [elementId]="'going-beyond-compliance'"
+               [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>
-  <div class="row p-2 row justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-    <div class="row p-1 pe-2">
-      <div class="col-auto no-padding ms-auto">Mandatory</div>
-      <div class="col-auto">
-        <div class="legend-box bg-orange"></div>
-      </div>
-    </div>
-    <div class="row p-1 pe-2 mb-1">
-      <div class="col-auto no-padding ms-auto">Not Mandatory</div>
-      <div class="col-auto">
-        <div class="legend-box bg-deep-blue"></div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <table class="table table-bordered border-light">
-        <thead>
-        <tr class="bg-light-orange">
-          <th scope="col" class="clickable-header text-end" [ngClass]="{'active': active === 'name'}"
-          ><a class="tooltip-term" type="button"
-              [ngbTooltip]="'Click on a metric to find out what it entails, how it was assessed, and which companies met the requirements.'">Metric</a>
-          </th>
-          <th scope="col" class="text-center clickable-header active" [ngClass]="{'active': active === 'total'}"
-              (click)="sort('total')">Total
-          </th>
-          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'uk'}"
-              (click)="sort('uk')">UK
-          </th>
-          <th scope="col" class="text-center clickable-header" [ngClass]="{'active': active === 'aus'}"
-              (click)="sort('aus')">AUS
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
-          <td class="col-4 text-end bg-neutral-blue text-deep-blue"><a class="metric" href="{{row['url']}}"
-                                                                       target="_blank">{{row['name']}}</a></td>
-          <td class="col-2 clickable text-center bg-deep-blue"
-              (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
-          <td class="col-2 clickable text-center {{row['uk_color']}}"
-              (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
-          <td class="col-2 clickable text-center {{row['aus_color']}}"
-              (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<div class="section-bottom bg-neutral-grey p-1 pe-4 pb-4">
-  <export-as [sector]="sector" [section]="'going-beyond-compliance'"
-             [elementId]="'going-beyond-compliance'"
-             [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
 </div>
