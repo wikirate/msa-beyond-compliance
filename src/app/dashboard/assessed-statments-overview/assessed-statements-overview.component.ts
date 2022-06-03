@@ -45,10 +45,14 @@ export class AssessedStatementsOverviewComponent implements OnInit {
     }
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
     if (company_group == '') {
-
+      let year: string | number = 'latest'
+      if(this.year != ''){
+        year = this.year
+      }
+      console.log(year)
       this.chartService.drawBeeSwarmChart(
         "Companies Overview",
-        this.year,
+        year,
         msa_statement_assessed_metric_id,
         [],
         'div#tree-map',

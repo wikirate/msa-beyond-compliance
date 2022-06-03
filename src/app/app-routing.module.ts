@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'dashboard/meeting-minimum-requirements/:sector', component: MinimumRequirementsSectionComponent},
   {path: 'dashboard/going-beyond-compliance/:sector', component: GoingBeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},
-  {path: 'dashboard/disclosure-rates/:sector', component: DisclosureRatesComponent},
+  {path: 'dashboard/sector-disclosure-rates/:sector', component: DisclosureRatesComponent},
   {path: 'subscribe', component: SubscribeComponent},
   {path: 'about', component: AboutComponent},
   {path: '**', redirectTo: '/dashboard/all-sectors', pathMatch: 'full'}

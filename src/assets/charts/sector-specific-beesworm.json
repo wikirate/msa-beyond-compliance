@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "A beeswarm chart example that uses a force-directed layout to group items by category.",
-  "width": 650,
-  "height": 300,
+  "width": 750,
+  "height": 400,
   "padding": {
     "left": 5,
     "right": 5,
@@ -12,7 +12,7 @@
   "autosize": "none",
   "config": {
     "axis": {
-      "labelFontSize": 15,
+      "labelFontSize": 17,
       "labelFont": "GothamNarrow"
     }
   },
@@ -74,7 +74,7 @@
         {
           "type": "formula",
           "as": "size",
-          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small','Unknown')"
+          "expr": "if(datum.turnover == 'Under £36 million'  || datum.turnover == '£36 million to £60 million' || datum.turnover == '£60 million to £100 million' || datum.revenue == 'AU$ 0-99M' || datum.revenue == 'AU$ 100-150M' || datum.revenue == 'AU$ 150-200M' || datum.revenue == 'AU$ 200-250M', 'Small',' Unknown')"
         },
         {
           "type": "formula",
@@ -85,10 +85,6 @@
           "type": "formula",
           "as": "size",
           "expr": "if(datum.turnover == 'Over £500 million' || datum.revenue == 'AU$ 800-900M' || datum.revenue == 'AU$ 900M-1BN' || datum.revenue == 'AU$ 1BN+', 'Large',datum.size)"
-        },
-        {
-          "type": "filter",
-          "expr": "datum.size != 'Unknown'"
         },
         {
           "type": "lookup",
@@ -108,12 +104,12 @@
         },
         {
           "type": "formula",
-          "expr": "datum.revenue == null ? 'Unknown' : datum.revenue",
+          "expr": "datum.revenue == null ? '  Unknown' : datum.revenue",
           "as": "revenue"
         },
         {
           "type": "formula",
-          "expr": "datum.turnover == null ? 'Unknown' : datum.turnover",
+          "expr": "datum.turnover == null ? ' Unknown' : datum.turnover",
           "as": "turnover"
         }
       ]
@@ -151,7 +147,17 @@
       "domainWidth": {
         "value": 0
       },
-      "ticks": false
+      "ticks": false,
+      "encode": {
+      "labels": {
+        "interactive": true,
+        "update": {
+          "tooltip": {
+            "signal": "datum.label == 'Small'? {'turnover':'less than £100M','revenue': 'less than AU$ 250'} : (datum.label == 'Medium' ?{'turnover':'between £100M and £500M', 'revenue':'between AU$ 250M and AU$ 800M'}: (datum.label == 'Large'? {'turnover':'over £500M','revenue':'over than AU$ 800M'}: 'Companies that have not disclosed their turnover or revenue range in the UK or Australian Modern Slavery registry'))"
+          }
+        }
+      }
+    }
     }
   ],
   "marks": [
@@ -181,7 +187,7 @@
         },
         "update": {
           "size": {
-            "signal": "pow(2 * 4, 2)"
+            "signal": "pow(2 * 5, 2)"
           },
           "stroke": {
             "value": "white"
@@ -195,7 +201,7 @@
         },
         "hover": {
           "stroke": {
-            "value": "purple"
+            "value": "black"
           },
           "strokeWidth": {
             "value": 3
@@ -214,12 +220,12 @@
             {
               "force": "collide",
               "iterations": 1,
-              "radius": 4
+              "radius": 5
             },
             {
               "force": "x",
               "x": "xfocus",
-              "strength": 0.2
+              "strength": 0.4
             },
             {
               "force": "y",

@@ -426,14 +426,8 @@ export class ChartsService {
                     height: number,
                     options: {}) {
     var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
-    var garment_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Garment&filter[value]=Yes`;
-    var financial_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Financial&filter[value]=Yes`;
-    var hospitality_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=MSA Hospitality&filter[value]=Yes`;
-    bee_chart['data'][2]['url'] = garment_assessed_url
-    bee_chart['data'][3]['url'] = financial_assessed_url
-    bee_chart['data'][4]['url'] = hospitality_assessed_url
-    console.log(JSON.stringify(bee_chart))
-
+    var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value]=Yes`;
+    bee_chart['data'][7]['url'] = assessed_statements_url
     return embed(element, bee_chart, options);
   }
 
