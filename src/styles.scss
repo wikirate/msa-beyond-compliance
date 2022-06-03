@@ -804,5 +804,9 @@ about p{
   font-size: 20px !important;
 }
 
+a.tooltip-term {
+  text-decoration: underline!important;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

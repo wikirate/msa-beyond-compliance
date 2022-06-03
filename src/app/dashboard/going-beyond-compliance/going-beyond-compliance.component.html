@@ -22,7 +22,7 @@
       <div class="col-md-12">
         <p>Beyond the minimum requirements, the accompanying guidance of the MSAs outlines the measures and actions
           companies should take and report on to ensure their operations and supply chains are free from
-          exploitation.</p>
+          exploitation. </p>
       </div>
     </div>
   </div>
@@ -51,7 +51,8 @@
         <thead>
         <tr class="bg-light-orange">
           <th scope="col" class="clickable-header text-end" [ngClass]="{'active': active === 'name'}"
-              (click)="sort('name')">Metric
+          ><a class="tooltip-term" type="button"
+              [ngbTooltip]="'Click on a metric to find out what it entails, how it was assessed, and which companies met the requirements.'">Metric</a>
           </th>
           <th scope="col" class="text-center clickable-header active" [ngClass]="{'active': active === 'total'}"
               (click)="sort('total')">Total
