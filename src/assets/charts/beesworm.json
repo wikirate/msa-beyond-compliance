@@ -157,7 +157,7 @@
           "interactive": true,
           "update": {
             "tooltip": {
-              "signal": "datum.label == 'Small'? {'turnover':'less than £100M','revenue': 'less than AU$ 250'} : (datum.label == 'Medium' ?{'turnover':'between £100M and £500M', 'revenue':'between AU$ 250M and AU$ 800M'}: (datum.label == 'Large'? {'turnover':'over £500M','revenue':'over than AU$ 800M'}: 'Companies that have not disclosed their turnover or revenue range in the UK or Australian Modern Slavery registry'))"
+              "signal": "datum.label == 'Small'? {'turnover':'below £100M','revenue': 'below AU$ 250'} : (datum.label == 'Medium' ?{'turnover':'between £100M and £500M', 'revenue':'between AU$ 250M and AU$ 800M'}: (datum.label == 'Large'? {'turnover':'over £500M','revenue':'over AU$ 800M'}: 'Companies that have not disclosed their turnover or revenue range in the UK or Australian Modern Slavery registry'))"
             }
           }
         }
