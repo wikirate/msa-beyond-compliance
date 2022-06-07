@@ -18,6 +18,8 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   sector: string = "all-sectors";
   year: number | string = ""
   isLoading: boolean = true;
+  aus_assessed = 0;
+  uk_assessed = 0;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private route: ActivatedRoute,
               private sectorProvider: SectorProvider) {
@@ -83,6 +85,11 @@ export class MinimumRequirementsSectionComponent implements OnInit {
       [new Filter("year", this.year), new Filter("value", "Yes"),
         new Filter("company_group", company_group)]).subscribe(assessed_statements => {
       let assessed = assessed_statements.length
+      if (assessed_statements_metric_id === this.dataProvider.metrics.uk_msa_statement_assessed) {
+        this.uk_assessed = assessed_statements.length
+      } else {
+        this.aus_assessed = assessed_statements.length
+      }
       this.dataProvider.getAnswers(meet_min_requirements_metric_id,
         [new Filter("year", this.year), new Filter("value", "Yes"),
           new Filter("company_group", company_group)]).subscribe(meet_min_requirements_statements => {
@@ -107,7 +114,9 @@ export class MinimumRequirementsSectionComponent implements OnInit {
             }],
           210, 180, ["#000028", "#FF9300"],
           ["Not Met", "Met"], {renderer: "svg", actions: false})
-      }, error => console.log(error), () => this.isLoading = false)
+      }, error => {
+        console.log(error)
+      }, () => this.isLoading = false)
     })
   }
 

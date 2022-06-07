@@ -36,12 +36,19 @@
         <div class="row text-center">
           <h4>UK Act</h4>
         </div>
-        <div class="row text-center pt-4">
-          <div id="uk-meet-min-requirements" class="chart-wrapper">
+        <div [ngClass]="uk_assessed > 0 ? 'show-element': 'hide-element'">
+          <div class="row text-center pt-4">
+            <div id="uk-meet-min-requirements" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="row text-center pt-4">
+            <div id="uk-requirements-bars" class="chart-wrapper">
+            </div>
           </div>
         </div>
-        <div class="row text-center pt-4">
-          <div id="uk-requirements-bars" class="chart-wrapper">
+        <div *ngIf="uk_assessed == 0">
+          <div class="row text-center pt-4">
+            <p style="font-style: italic">No data available!</p>
           </div>
         </div>
         <div class="row pt-4 justify-content-center"
@@ -81,12 +88,19 @@
         <div class="row text-center">
           <h4>Australian Act</h4>
         </div>
-        <div class="row text-center pt-4">
-          <div id="aus-meet-min-requirements" class="chart-wrapper">
+        <div [ngClass]="aus_assessed > 0 ? 'show-element': 'hide-element'">
+          <div class="row text-center pt-4">
+            <div id="aus-meet-min-requirements" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="row text-center pt-4">
+            <div id="aus-requirements-bars" class="chart-wrapper">
+            </div>
           </div>
         </div>
-        <div class="row text-center pt-4">
-          <div id="aus-requirements-bars" class="chart-wrapper">
+        <div *ngIf="aus_assessed == 0">
+          <div class="row text-center pt-4">
+            <p style="font-style: italic">No data available!</p>
           </div>
         </div>
       </div>
