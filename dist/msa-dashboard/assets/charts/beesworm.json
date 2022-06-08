@@ -218,7 +218,9 @@
       "domain": {
         "data": "statements",
         "field": "sector",
-        "sort": true
+        "sort": {
+          "order": "ascending"
+        }
       },
       "range": [
         "#ff9300",
