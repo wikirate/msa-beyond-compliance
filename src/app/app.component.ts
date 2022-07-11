@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
+
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -9,10 +12,11 @@ import {ActivatedRoute} from "@angular/router";
 export class AppComponent {
   view: string = 'default';
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.setUpAnalytics();
     this.route.queryParams
       .subscribe(params => {
           // @ts-ignore
@@ -21,4 +25,16 @@ export class AppComponent {
       );
   }
 
+
+  private setUpAnalytics() {
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
+      // @ts-ignore
+      .subscribe((event: NavigationEnd) => {
+        gtag('config', 'UA-',
+          {
+            'page_path': event.urlAfterRedirects
+          }
+        );
+      });
+  }
 }

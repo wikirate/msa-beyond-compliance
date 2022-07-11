@@ -49,7 +49,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
       if(this.year != ''){
         year = this.year
       }
-      console.log(year)
+
       this.chartService.drawBeeSwarmChart(
         "Companies Overview",
         year,
