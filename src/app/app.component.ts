@@ -30,7 +30,7 @@ export class AppComponent {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       // @ts-ignore
       .subscribe((event: NavigationEnd) => {
-        gtag('config', 'UA-',
+        gtag('config', 'UA-34941429-10',
           {
             'page_path': event.urlAfterRedirects
           }
