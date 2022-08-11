@@ -64,15 +64,15 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "term": "Whistleblower protection",
             "seq": 1
           }, {
-            "title": "Hotline, Email, Contact Form",
+            "title": "Hotline, email, contact form",
             "term": "Hotline",
             "seq": 2
           }, {
-            "title": "Focal Point",
+            "title": "Focal point",
             "term": "Focal Point",
             "seq": 3
           },
-          {"title": "None of the Above", "term": "No", "seq": 3}
+          {"title": "None of the above", "term": "No", "seq": 3}
         ],
         "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
       },
