@@ -5,6 +5,7 @@ import {ValueRange} from "../../models/valuerange.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'key-findings-section',
@@ -31,7 +32,9 @@ export class KeyFindingsSectionComponent implements OnInit {
   msa_statement_assessed_metric: string = '#'
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
-              private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+              private route: ActivatedRoute, private sectorProvider: SectorProvider,
+              private titleService: Title, private meta: Meta) {
+
   }
 
   ngOnInit(): void {
@@ -46,8 +49,32 @@ export class KeyFindingsSectionComponent implements OnInit {
       }
     )
     this.route.url.subscribe(val => {
-      if (val[1].path === 'key-findings')
+      if (val[1].path === 'key-findings') {
+        this.titleService.setTitle("Beyond Compliance: Key Findings")
+        this.meta.updateTag({
+          name: 'og:title',
+          content: "Beyond Compliance: Key Findings"
+        })
+        this.meta.updateTag({
+          name: 'twitter:title',
+          content: "Beyond Compliance: Key Findings"
+        })
         this.sectorProvider.getPath().next(val[1].path)
+      } else {
+        this.titleService.setTitle("Beyond Compliance")
+        this.meta.updateTag({
+          name: 'description',
+          content: "Discover ESG data disclosure ratings and supplier transparency of the biggest 100 apparel companies in infographics, charts, and maps by Wikirate."
+        })
+        this.meta.updateTag({
+          name: 'og:description',
+          content: "@walkfree & @wikirate have simplified the data on the current state of modern slavery reporting in Australia and the UK. Explore the interactive dashboard to see trends on the effectiveness of this measure to #endmodernslavery."
+        })
+        this.meta.updateTag({
+          name: 'twitter:description',
+          content: "Discover ESG data disclosure ratings and supplier transparency of the biggest 100 apparel companies in infographics, charts, and maps by Wikirate."
+        })
+      }
     })
   }
 

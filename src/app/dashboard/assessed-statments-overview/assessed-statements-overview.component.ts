@@ -3,6 +3,7 @@ import {DataProvider} from "../../services/data.provider";
 import {ChartsService} from "../../services/charts.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'assessed-statements-overview',
@@ -16,7 +17,8 @@ export class AssessedStatementsOverviewComponent implements OnInit {
   isLoading: boolean = true;
 
   constructor(private dataProvider: DataProvider, private chartService: ChartsService, private route: ActivatedRoute,
-              private sectorProvider: SectorProvider) {
+              private sectorProvider: SectorProvider, private titleService: Title, private meta: Meta) {
+
   }
 
   ngOnInit(): void {
@@ -30,8 +32,30 @@ export class AssessedStatementsOverviewComponent implements OnInit {
       }
     )
     this.route.url.subscribe(val => {
-      if (val[1].path === 'assessed-statements-overview')
+      if (val[1].path === 'assessed-statements-overview') {
+        this.titleService.setTitle("Beyond Compliance: Assessed Statements")
+        this.meta.updateTag({
+          name: 'og:title',
+          content: "Beyond Compliance: Assessed Statements"
+        })
+        this.meta.updateTag({
+          name: 'twitter:title',
+          content: "Beyond Compliance: Assessed Statements."
+        })
+        this.meta.updateTag({
+          name: 'description',
+          content: "Whose statements have been assessed? The larger the company's turnover or revenue the bigger their operations and influence tend to be."
+        })
+        this.meta.updateTag({
+          name: 'og:description',
+          content: "Whose statements have been assessed? The larger the company's turnover or revenue the bigger their operations and influence tend to be."
+        })
+        this.meta.updateTag({
+          name: 'twitter:description',
+          content: "Whose statements have been assessed? The larger the company's turnover or revenue the bigger their operations and influence tend to be."
+        })
         this.sectorProvider.getPath().next(val[1].path)
+      }
     })
   }
 
@@ -46,7 +70,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
     if (company_group == '') {
       let year: string | number = 'latest'
-      if(this.year != ''){
+      if (this.year != '') {
         year = this.year
       }
 

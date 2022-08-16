@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.setUpAnalytics();
+    // this.setUpAnalytics();
     this.route.queryParams
       .subscribe(params => {
           // @ts-ignore
