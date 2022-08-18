@@ -14,7 +14,7 @@
     "seq": 2,
     "id": 2722444,
     "metric": "Walk_Free+MSA_incidents_remediation_revised",
-    "label": "Incidents remediation",
+    "label": "Corrective action plan",
     "short_label": "corrective_action_plan",
     "color": 0,
     "filter_value": [
