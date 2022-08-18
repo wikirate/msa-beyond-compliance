@@ -5,8 +5,9 @@ import {Filter} from "../../models/filter.model";
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
-import {from, mergeMap, toArray} from "rxjs";
+import {forkJoin, from, mergeMap, Observable, toArray} from "rxjs";
 import {error} from "vega";
+import {ValueRange} from 'src/app/models/valuerange.model';
 
 @Component({
   selector: 'going-beyond-compliance',
@@ -68,13 +69,12 @@ export class GoingBeyondComplianceComponent implements OnInit {
         total_assessed = total_assessed.filter((arr, index, self) =>
           index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
 
-        const result$ = from(beyond_compliance_metrics).pipe(
-          mergeMap(metric => {
-            // @ts-ignore
-            return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
-          }), toArray()
-        )
-        result$.subscribe(results => {
+        var observables = beyond_compliance_metrics.map((metric: any) => {
+          return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
+        })
+
+        forkJoin(observables).subscribe(results => {
+          // @ts-ignore
           results.forEach((answers, index) => {
             let metric = beyond_compliance_metrics[index]
             let uk_count = 0;
@@ -99,7 +99,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
             for (let value of metric['filter_value']) {
               filter_value += 'filter[value][]=' + value + '&'
             }
-            if (metric['label'] == "Consultation Process") {
+            if (metric['label'] == "Consultation process") {
               this.beyond_compliance_table_data.push({
                 'name': metric['label'],
                 'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
