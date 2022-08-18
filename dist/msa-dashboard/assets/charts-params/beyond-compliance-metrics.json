@@ -57,7 +57,7 @@
   {
     "seq": 5,
     "id": 5454264,
-    "metric": "Walk_Free+MSA_registry_submission",
+    "metric": "Walk_Free+MSA_Organizational_structure_and_operations",
     "label": "Organizational structure and operations",
     "short_label": "organizational_structure",
     "color": 0,
@@ -121,7 +121,7 @@
     "filter_value": [
       "Risk-based questionnaires",
       "Use of risk management tool or software",
-      "Conducting desk research"
+      "Conducting research"
     ],
     "aus_color": "bg-orange",
     "uk_color": "bg-deep-blue"
@@ -208,7 +208,7 @@
   {
     "seq": 14,
     "id": 2722482,
-    "metric": "Walk Free+MSA training (revised)",
+    "metric": "Walk_Free+MSA_training_revised",
     "label": "Modern slavery training",
     "short_label": "training",
     "color": 0,
