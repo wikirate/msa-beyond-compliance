@@ -88,11 +88,11 @@ export class AssessedStatementsOverviewComponent implements OnInit {
         }
       ).finally(() => this.isLoading = false)
     } else {
-      let color = '#000028'
+      let color = '#000029'
       if (company_group === 'MSA Garment') {
-        color = '#ffdc00'
+        color = '#FFCB2B'
       } else if (company_group === 'MSA Financial') {
-        color = '#ff9300'
+        color = '#FF5C45'
       }
       this.chartService.drawSectorSpecificBeeSwarmChart(
         "Companies Overview",

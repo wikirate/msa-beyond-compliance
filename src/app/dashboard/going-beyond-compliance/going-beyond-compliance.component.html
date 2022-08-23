@@ -1,11 +1,11 @@
 <div class="container">
-  <div id="going-beyond-compliance" class="section-top mt-4 bg-neutral-grey p-4">
+  <div id="going-beyond-compliance" class="section-top mt-4 bg-grey p-4">
     <div class="row">
       <div class="col-md-8">
         <h3 class="title">Going Beyond Compliance</h3>
       </div>
       <div class="col-md-4">
-        <select class="msa-form-select ms-md-auto bg-neutral-grey" aria-label="Minimum requirements year filter"
+        <select class="msa-form-select ms-md-auto bg-grey" aria-label="Minimum requirements year filter"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
                 (change)="updateBeyondComplianceTable()">
           <option [ngValue]="''" selected>ALL YEARS</option>
@@ -29,7 +29,7 @@
     </div>
     <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
       <div class="col-12 text-center align-self-center">
-        <div class="spinner-grow text-warning" role="status">
+        <div class="spinner-grow text-warning bg-deep-blue" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <div class="row p-1 pe-2">
         <div class="col-auto no-padding ms-auto">Mandatory</div>
         <div class="col-auto">
-          <div class="legend-box bg-orange"></div>
+          <div class="legend-box bg-deep-orange"></div>
         </div>
       </div>
       <div class="row p-1 pe-2 mb-1">
@@ -48,11 +48,11 @@
         </div>
       </div>
       <div class="col-md-12">
-        <table class="table table-bordered border-light">
+        <table class="table">
           <thead>
-          <tr class="bg-light-orange">
+          <tr class="bg-grey">
             <th scope="col" class="clickable-header text-end" [ngClass]="{'active': active === 'name'}"
-            ><a class="tooltip-term" type="button"
+            ><a class="clickable-header tooltip-term" type="button"
                 [ngbTooltip]="'Click on a metric to find out what it entails, how it was assessed, and which companies met the requirements.'">Metric</a>
             </th>
             <th scope="col" class="text-center clickable-header active" [ngClass]="{'active': active === 'total'}"
@@ -68,7 +68,7 @@
           </thead>
           <tbody>
           <tr class="text-white" *ngFor="let row of beyond_compliance_table_data">
-            <td class="col-4 text-end bg-neutral-blue text-deep-blue"><a class="metric" href="{{row['url']}}"
+            <td class="col-4 text-end bg-grey text-deep-blue"><a class="metric" href="{{row['url']}}"
                                                                          target="_blank">{{row['name']}}</a></td>
             <td class="col-2 clickable text-center bg-deep-blue"
                 (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
@@ -82,7 +82,7 @@
       </div>
     </div>
   </div>
-  <div class="section-bottom bg-neutral-grey p-1 pe-4 pb-4">
+  <div class="section-bottom bg-grey p-1 pe-4 pb-4">
     <export-as [sector]="sector" [section]="'going-beyond-compliance'"
                [elementId]="'going-beyond-compliance'"
                [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>

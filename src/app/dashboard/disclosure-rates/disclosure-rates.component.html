@@ -1,11 +1,11 @@
 <div class="container">
-  <div id="disclosure-rates" class="section-top mt-4 bg-neutral-orange p-4">
+  <div id="disclosure-rates" class="section-top mt-4 p-4">
     <div class="row">
       <div class="col-md-8">
         <h3 class="title">Sector Disclosure Rates</h3>
       </div>
       <div class="col-md-4">
-        <select class="msa-form-select ms-md-auto bg-neutral-orange" aria-label="Minimum requirements year filter"
+        <select class="msa-form-select ms-md-auto" aria-label="Minimum requirements year filter"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
                 (change)="updateDisclosureRates()">
           <option [ngValue]="''" selected>ALL YEARS</option>
@@ -27,7 +27,7 @@
     </div>
     <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
       <div class="col-12 text-center align-self-center">
-        <div class="spinner-grow text-warning" role="status">
+        <div class="spinner-grow text-warning bg-deep-blue" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
@@ -35,28 +35,28 @@
     <!--  <hr class="deep-blue no-margin">-->
     <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="row justify-content-center">
-        <div class="number-box m-md-3 m-1" (click)="openURL('MSA Garment')">
-          <div class="msa-primary-info-md"><span
-            class="highlighted-number-lg">{{garment_avg_disclosure_rate | numFormat}}</span>/15
+        <div class="col-md-4 mt-md-0 mt-2" (click)="openURL('MSA Garment')">
+          <div class="number-box p-3"><span
+            class="msa-primary-info">{{garment_avg_disclosure_rate | numFormat}}</span><span class="highlighted-number">/15</span>
             <h5>Garment</h5> <h5>Sector</h5>
           </div>
         </div>
-        <div class="number-box m-md-3 m-1" (click)="openURL('MSA Financial')">
-          <div class="msa-primary-info-md"><span
-            class="highlighted-number-lg">{{financial_avg_disclosure_rate | numFormat}}</span>/15
+        <div class="col-md-4 mt-md-0 mt-2" (click)="openURL('MSA Financial')">
+          <div class="number-box p-3"><span
+            class="msa-primary-info">{{financial_avg_disclosure_rate | numFormat}}</span><span class="highlighted-number">/15</span>
             <h5>Financial</h5> <h5>Sector</h5>
           </div>
         </div>
-        <div class="number-box m-md-3 m-1" (click)="openURL('MSA Hospitality')">
-          <div class="msa-primary-info-md"><span
-            class="highlighted-number-lg">{{hospitality_avg_disclosure_rate | numFormat}}</span>/15
+        <div class="col-md-4 mt-md-0 mt-2" (click)="openURL('MSA Hospitality')">
+          <div class="number-box p-3"><span
+            class="msa-primary-info">{{hospitality_avg_disclosure_rate | numFormat}}</span><span class="highlighted-number">/15</span>
             <h5>Hospitality</h5> <h5>Sector</h5>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="section-bottom bg-neutral-orange p-1 pe-4 pb-4">
+  <div class="section-bottom p-1 pe-4 pb-4">
     <export-as [sector]="'all-sectors'" [section]="'sector-disclosure-rates'"
                [elementId]="'disclosure-rates'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>

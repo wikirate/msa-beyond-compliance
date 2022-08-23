@@ -2,18 +2,196 @@
 @import "~bootstrap";
 @import '~bootstrap/scss/bootstrap';
 //Colors
-$deep_blue: #000028;
+$deep_blue: #000029;
 $white: #FFFFFF;
 $yellow: #ffdc00;
-$orange: #ff9300;
+$orange: #FFCB2B;
+$deep_orange: #FF5C45;
 $red: #FE0000;
 $blue: #0037f1;
 $neutral_orange: #ffefd9; //rgb(254, 239, 221);
 $neutral_grey: #F6F5EA;
+$darker-grey: #C4C4C4;
 $neutral_blue: #DDDDE3;
+$grey: #F2F2F2;
 $light-orange: rgb(255, 147, 0, 0.3);
 
 //Typography
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Light.ttf) format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Italic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Medium.ttf) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-SemiBoldItalic.ttf) format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-BoldItalic.ttf) format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-ExtraBold.ttf) format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-ExtraBoldItalic.ttf) format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-Black.ttf) format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: local("rubik"), url(assets/fonts/Rubik/Rubik-BlackItalic.ttf) format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+//SourceSansPro
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Light.ttf) format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Italic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-SemiBoldItalic.ttf) format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-BoldItalic.ttf) format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-Black.ttf) format("truetype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: local("sourcesanspro"), url(assets/fonts/SourceSansPro/SourceSansPro-BlackItalic.ttf) format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
 @font-face {
   font-family: "MediaSans";
   src: local("mediasans"), url(./assets/fonts/mediasans.otf) format("truetype");
@@ -71,7 +249,7 @@ pre {
 
 //style of different sections
 body {
-  font-family: GothamNarrow, sans-serif !important;
+  font-family: SourceSansPro !important;
   color: $deep_blue !important;
   font-size: 1rem !important;
   font-weight: 400 !important;
@@ -84,7 +262,7 @@ a {
 }
 
 a:focus, a:hover {
-  color: $blue !important;
+  color: $deep_orange !important;
 }
 
 table a {
@@ -92,8 +270,17 @@ table a {
   text-decoration: none !important;
 }
 
+table th > a {
+  color: $white !important;
+  text-decoration: none !important;
+}
+
+table th > a:focus, table th > a:hover {
+  color: $deep_orange !important;
+}
+
 table a:focus, a:hover {
-  color: $blue !important;
+  color: $deep_orange !important;
 }
 
 .clickable-header:hover {
@@ -107,7 +294,14 @@ th.active {
 }
 
 .table {
+  border: 1px solid transparent !important;
   color: $white !important;
+  font-family: SourceSansPro !important;
+  font-size: 16px !important;
+}
+
+.table td {
+  border: 1px solid $grey !important;
 }
 
 .table tr {
@@ -143,10 +337,19 @@ p {
 }
 
 h1.title {
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
   font-size: 4em !important;
   text-transform: uppercase !important;
   line-height: 1.1 !important;
+}
+
+.text-deep-blue {
+  color: $deep_blue !important;
+}
+
+.text-white {
+  color: $white !important;
 }
 
 @media screen and (max-width: 1200px) {
@@ -171,25 +374,28 @@ h1.title {
 }
 
 h3 {
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
   color: $deep_blue !important;
 }
 
 h4 {
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
   color: $deep_blue !important;
 }
 
 h5 {
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
 }
 
 .subtitle {
   font-family: TiemposText !important;
-  font-size: 1.7em !important;
+  font-size: 1.4em !important;
   font-weight: 300 !important;
 }
 
@@ -205,17 +411,18 @@ h5 {
 }
 
 .note {
-  font-family: TiemposText !important;
+  font-family: SourceSansPro !important;
   font-style: italic !important;
-  font-size: 0.7em !important;
+  font-size: 12px !important;
 }
 
 a.button {
   border: 0 !important;
-  padding: 1em 2.4em 1em 1.2em !important;
-  font-family: MediaSans !important;
+  padding: 0.5em 1em 0.5em 1em !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
+  //letter-spacing: 1px !important;
   display: inline-block !important;
   text-decoration: none !important;
   color: #000028 !important;
@@ -225,14 +432,15 @@ a.button {
 }
 
 a.transparent-button {
-  color: $deep_blue !important;
-  border: 1px solid $deep_blue !important;
+  color: $white !important;
+  border: 1px solid $white !important;
   border-width: 1px !important;
 }
 
 a.transparent-button:hover {
-  background-color: $deep_blue !important;
-  color: $white !important;
+  background-color: $white !important;
+  border: 1px solid $white !important;
+  color: $deep_blue !important;
 }
 
 a.white-button {
@@ -247,47 +455,54 @@ a.white-button:hover {
 }
 
 a.button-sm {
-  border: 1px solid $deep_blue !important;
-  border-width: 1px !important;
-  padding: 0.5em 2.0em 0.5em 1.2em !important;
-  font-family: MediaSans !important;
+  padding: 0.5em 1.2em 0.5em 1.2em !important;
+  font-family: Rubik !important;
+  font-weight: 700;
   text-transform: uppercase !important;
   font-size: 0.8em;
   letter-spacing: 0.5px;
   display: inline-block !important;
   text-decoration: none !important;
-  color: #000028 !important;
-  background-color: transparent !important;
   position: relative !important;
   cursor: pointer !important;
 }
 
-a.button-sm:hover {
-  background-color: $deep_blue !important;
-  color: $white !important;
+
+.btn-transparent {
+  background-color: transparent !important;
+  color: $deep_blue !important;
+  border: 1px solid $deep_blue !important;
 }
 
-a.button-sm::after {
-  color: $blue;
-  content: "\f054";
-  font-family: FontAwesome;
-  display: inline-block;
-  position: absolute;
-  top: calc(50% - 9px);
-  right: 0.55em;
+.btn-transparent:hover {
+  background-color: $deep_blue !important;
+  color: $white !important;
+  border: 1px solid $deep_blue !important;
+}
+
+.btn-deep-blue {
+  background-color: $deep-blue !important;
+  color: $white !important;
+  border: 1px solid $deep_blue !important;
+}
+
+.btn-deep-blue:hover {
+  background-color: transparent !important;
+  color: $deep_blue !important;
+  border: 1px solid $deep_blue !important;
 }
 
 a.orange-button {
   background: $orange;
   margin-right: 1em;
-  border: 1px solid $orange;
+  border: 1px solid $orange !important;
   border-width: 1px;
 }
 
 a.orange-button:hover {
-  background: $yellow;
-  border: 1px solid $yellow;
-  border-width: 1px;
+  background: transparent;
+  color: $orange !important;
+  border: 1px solid $orange !important;
 }
 
 //deep-blue-button
@@ -306,16 +521,6 @@ a.deep-blue-button:hover {
   border-width: 1px;
 }
 
-a.button::after {
-  color: $blue;
-  content: "\f054";
-  font-family: FontAwesome;
-  display: inline-block;
-  position: absolute;
-  top: calc(50% - 10px);
-  right: 0.75em;
-}
-
 //different backgrounds
 
 .bg-neutral-orange {
@@ -324,6 +529,18 @@ a.button::after {
 
 .bg-neutral-grey {
   background-color: $neutral_grey !important;
+}
+
+.bg-grey {
+  background-color: $grey !important;
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-darker-grey {
+  background-color: $darker-grey !important;
 }
 
 .bg-neutral-blue {
@@ -335,12 +552,25 @@ a.button::after {
   color: $white;
 }
 
+.bg-dark-orange {
+  background-color: $deep_orange !important;
+}
+
+.bg-deep-blue-transparent {
+  background-color: rgba(0, 0, 41, 0.75) !important;
+  color: $white;
+}
+
 .bg-yellow {
   background-color: $yellow !important;
 }
 
 .bg-orange {
   background-color: $orange !important;
+}
+
+.bg-deep-orange {
+  background-color: $deep_orange !important;
 }
 
 .bg-light-orange {
@@ -353,7 +583,7 @@ a.button::after {
 
 //header
 header-component img.logo {
-  height: 55px !important;
+  height: 45px !important;
 }
 
 header-component {
@@ -363,7 +593,8 @@ header-component {
 //navigation
 .nav-link {
   color: $white !important;
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700 !important;
 }
 
 .nav-link {
@@ -380,6 +611,7 @@ button.nav-link {
 
 //footer
 footer .logo {
+  height: 45px !important;
   padding: 0 5% !important;
   text-align: center !important;
 }
@@ -417,33 +649,32 @@ footer .row {
   margin-bottom: 1em !important;
 }
 
-//filter
-.filter-dropdown {
-  float: right !important;
-}
-
-.filter-dropdown a.dropdown-toggle {
+.filter-dropdown .sector-filter {
   border-radius: 0 !important;
-  background: #FF9300 !important;
-  border: 0 !important;
-  font-size: 1em !important;
-  padding: 0.8em 1.2em !important;
-  font-family: MediaSans !important;
+  background: $deep_blue !important;
+  border-radius: 2px !important;
+  border-color: $white;
+  font-size: 0.8em !important;
+  font-family: Rubik !important;
+  font-weight: 700;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
   display: inline-block !important;
-  color: #000028 !important;
-  margin: 0.4em 0 !important;
+  color: $white !important;
+  margin: 0.5em 0 !important;
 
 }
 
-a.dropdown-toggle:hover {
-  background: $yellow !important;
+.sector-filter:hover {
+  background: $white !important;
+  color: $deep_blue !important;
 }
 
-a.dropdown-toggle::after {
-  color: $blue !important;
-  margin-left: 10px !important;
+.sector-filter::after {
+  content: "\f107" !important;
+  font-family: FontAwesome !important;
+  font-size: 1.1em;
+  color: $orange;
+  padding-left: 0.4em;
 }
 
 .filter-dropdown ul.dropdown-menu {
@@ -455,10 +686,12 @@ a.dropdown-toggle::after {
 }
 
 .filter-dropdown a.dropdown-item {
-  padding: 15px !important;
+  padding: 10px !important;
   display: flex !important;
   justify-content: space-between !important;
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
+  font-weight: 700;
+  font-size: 0.8em;
   text-transform: uppercase !important;
 }
 
@@ -473,20 +706,20 @@ a.dropdown-item .count {
 //define msa-form-select
 .msa-form-select {
   @extend .form-select;
-  font-family: 'GothamNarrow' !important;
+  font-family: Rubik !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  /* font-weight: normal; */
+  line-height: 40px;
+  //letter-spacing: 0.5px !important;
+  font-weight: normal !important;
   font-size: .9em !important;
   color: #000028 !important;
   max-width: 150px !important;
   height: 35px;
-
 }
 
 .msa-form-select:focus {
-  border-color: $orange !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 147, 0, 0.6) !important;
+  border-color: $deep_blue !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 41, 0.6) !important;
   outline: 0 none !important;
 }
 
@@ -513,22 +746,21 @@ hr.deep-blue {
 .msa-primary-info {
   font-size: 3em;
   font-weight: 700;
-  font-family: 'MediaSans';
+  font-family: 'Rubik';
 }
 
 .msa-primary-info-md {
-  font-size: 2.3em;
+  font-size: 2.3em !important;
   font-weight: 700;
-  font-family: 'MediaSans';
+  font-family: 'Rubik';
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 @media screen and (max-width: 576px) {
   .msa-primary-info-md {
-    font-size: 1.3em;
+    font-size: 1.3em !important;
     font-weight: 700;
-    font-family: 'MediaSans';
+    font-family: 'Rubik';
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -554,13 +786,13 @@ hr.deep-blue {
 .accordion-button {
   background-color: #FF9300 !important;
   padding: 1em !important;
-  border-radius: 0em 1.5em 0em 1.5em !important;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
 .accordion-button:not(.collapsed) {
   background-color: #FF9300 !important;
   padding: 1em !important;
-  border-radius: 0em 1.5em 0em 0em !important;
+  //border-radius: 0em 1.5em 0em 0em !important;
 }
 
 .accordion-button:hover {
@@ -569,11 +801,21 @@ hr.deep-blue {
 
 .accordion-item {
   border-color: $deep_blue !important;
-  border-radius: 0em 1.5em 0em 1.5em !important;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
+}
+
+.accordion-button::after {
+  color: #0037F1 !important;
+  content: "\f105" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 2.5em !important;
+  padding-right: 0.75em !important;
 }
 
 .accordion-button:not(.collapsed)::after,
-.accordion-button::after {
+{
   color: #0037F1 !important;
   content: "\f107" !important;
   font-family: FontAwesome !important;
@@ -584,7 +826,7 @@ hr.deep-blue {
 }
 
 .accordion-button-text {
-  color: #000028 !important;
+  color: $deep_blue !important;
   padding: 0 2% !important;
 }
 
@@ -592,41 +834,49 @@ hr.deep-blue {
   padding: 2em 2% !important;
   background-color: $white !important;
   border: 0 !important;
-  border-radius: 0em 1.5em 0em 1.5em !important;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
 .accordion-button-white {
   @extend accordion-button !optional;
-  background-color: $deep_blue !important;
-  color: $white;
+  background-color: $white !important;
+  color: $deep_blue;
   padding: 1em !important;
-  border-radius: 0em 1.5em 0em 1.5em !important;
-  border-color: $deep_blue;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
+  border-color: $white;
 }
 
 .accordion-button-white:not(.collapsed) {
   @extend accordion-button !optional;
-  background-color: $deep_blue !important;
-  color: $white;
+  background-color: $white !important;
+  color: $deep_blue;
   padding: 1em !important;
-  border-radius: 0em 1.5em 0em 0em !important;
+  //border-radius: 0em 1.5em 0em 0em !important;
   border-color: $deep_blue;
 }
 
 .accordion-button-white:hover {
-  background-color: #FFDC00 !important;
-  color: $deep_blue !important;
+  background-color: $deep_blue !important;
+  color: $white !important;
 }
 
-.accordion-button-white:not(.collapsed)::after,
-.accordion-button-white::after {
-  color: #0037F1 !important;
+.accordion-button-white:not(.collapsed) .on-details::after,
+.accordion-button-white .on-details::after {
   content: "\f107" !important;
   font-family: FontAwesome !important;
   background-image: none !important;
   height: auto !important;
-  font-size: 2.5em !important;
-  padding-right: 0.75em !important;
+  font-size: 1.2em !important;
+  padding-left: 0.5em !important;
+}
+
+.accordion-button-white .on-details::after {
+  content: "\f105" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 1.2em !important;
+  padding-left: 0.5em !important;
 }
 
 .subsection-header h3 {
@@ -648,12 +898,13 @@ a.anchor {
 }
 
 .highlighted-number {
-  font-size: 1.7em !important;
-  font-weight: 600 !important;
+  font-size: 2em !important;
+  font-weight: 700 !important;
+  font-family: Rubik !important;
 }
 
 .highlighted-number-lg {
-  font-size: 2em !important;
+  font-size: 1.5em !important;
   font-weight: 600 !important;
 }
 
@@ -680,7 +931,7 @@ a.anchor {
 .msa-primary-info-lg {
   font-size: 3.7em;
   font-weight: 700;
-  font-family: 'MediaSans';
+  font-family: 'Rubik';
 }
 
 @media screen and (max-width: 576px) {
@@ -719,33 +970,21 @@ p.accordion-paragraph {
 }
 
 .number-box {
-  border-radius: 0em 2em 0em 2em !important;
-  background-color: $deep_blue;
-  color: $white !important;
+  color: $deep_blue !important;
+  border: 1px solid $deep_blue !important;
   padding: 0.5em;
-  height: 220px !important;
-  width: 220px !important;
   text-align: center;
   cursor: pointer;
 }
 
-@media screen and (max-width: 576px) {
-  .number-box {
-    border-radius: 0em 1.5em 0em 1.5em !important;
-    padding: 0.3em;
-    height: 130px !important;
-    width: 130px !important;
-  }
-}
-
 .number-box:hover {
-  background-color: $yellow;
-  border-color: $deep_blue;
-  color: $deep_blue !important;
+  background-color: $deep_blue;
+  border-color: $white;
+  color: $white !important;
 }
 
 h6 {
-  font-family: MediaSans !important;
+  font-family: Rubik !important;
   text-transform: uppercase !important;
 }
 
@@ -767,12 +1006,12 @@ h6 {
 }
 
 .td-bg-color-yellow {
-  background-color: lighten($yellow, 45%) !important;
+  background-color: rgba(255, 203, 43, 0.25) !important;
   color: $deep_blue;
 }
 
 .td-bg-color-red {
-  background-color: lighten($red, 45%) !important;
+  background-color: rgba(255, 92, 69, 0.25) !important;
   color: $deep_blue;
 }
 
@@ -813,12 +1052,23 @@ h6 {
   height: 100%;
 }
 
-about p{
+about p {
   font-size: 20px !important;
 }
 
 a.tooltip-term {
-  text-decoration: underline!important;
+  color: $deep_blue !important;
+}
+
+.btn-warning {
+  background-color: $orange !important;
+  font-family: Rubik !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+.btn-warning:hover {
+  background-color: darken($orange, 10%) !important;
 }
 
 /* Importing Bootstrap SCSS file. */

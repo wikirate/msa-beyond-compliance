@@ -4,8 +4,9 @@
       <a class="navbar-brand navbar-expand">
         <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
       </a>
-      <div class="navbar me-auto">
-        <a class="nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')" routerLinkActive="active">DASHBOARD</a>
+      <div class="navbar ms-md-auto">
+        <a class="nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
+           routerLinkActive="active">DASHBOARD</a>
         <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
         <div class="nav-item dropdown col">
           <a class="nav-item nav-link" type="button" id="share" data-bs-toggle="dropdown"
@@ -27,36 +28,36 @@
               class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
           </ul>
         </div>
-      </div>
-      <div class="filter-dropdown dropdown">
-        <a class="btn btn-secondary dropdown-toggle" type="button" id="sector-filter"
-           data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</a>
-        <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
-          <li>
-            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'all-sectors'}}"
-               (click)="onSelectSector('All Sectors')">
-              All Sectors
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'garment-sector'}}"
-               (click)="onSelectSector('Garment')">
-              Garment
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'financial-sector'}}"
-               (click)="onSelectSector('Financial')">
-              Financial
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="{{'dashboard/'+path+'hospitality-sector'}}"
-               (click)="onSelectSector('Hospitality')">
-              Hospitality
-            </a>
-          </li>
-        </ul>
+        <div class="filter-dropdown dropdown ms-2">
+          <span class="btn btn-secondary sector-filter" type="button" id="sector-filter"
+             data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</span>
+          <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
+            <li>
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'all-sectors'}}"
+                 (click)="onSelectSector('All Sectors')">
+                All Sectors
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'garment-sector'}}"
+                 (click)="onSelectSector('Garment')">
+                Garment
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'financial-sector'}}"
+                 (click)="onSelectSector('Financial')">
+                Financial
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'hospitality-sector'}}"
+                 (click)="onSelectSector('Hospitality')">
+                Hospitality
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </div>

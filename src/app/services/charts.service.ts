@@ -309,12 +309,12 @@ export class ChartsService {
     let short_labels: any[] = []
     for (let metric of metrics) {
       short_labels.push(metric['short_label'])
-      let str_array = '['
+      let condition = '';
       // @ts-ignore
       for (let value of metric['filter_value']) {
-        str_array += '\'' + value + '\','
+        condition += 'indexof(datum.value, \'' + value + '\') >= 0 || '
       }
-      str_array = str_array.substring(0, str_array.length - 1) + ']'
+      condition = condition.substring(0, condition.length - 3)
       data.push({
         name: metric['short_label'],
         "source": ["answers"],
@@ -339,7 +339,7 @@ export class ChartsService {
           {
             "type": "formula",
             "as": "accepted_value",
-            "expr": "indexof(" + str_array + ", datum.value) >= 0"
+            "expr": "if(" + condition + ", true, false)"
           },
           {"type": "aggregate", "groupby": ["accepted_value"]},
           {

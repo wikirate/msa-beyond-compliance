@@ -11,12 +11,11 @@
     {
       "name": "colors",
       "value": {
-        "orange": "#FF9300",
+        "orange": "#FF5C45",
         "red": "#FE0000",
-        "blue": "#0037F1",
+        "blue": "#7EB2E2",
         "navy": "#000028",
-        "yellow":"#FFDC00",
-        "orange_purple": "#c7594b"
+        "yellow":"#FFCB2B"
       }
     },
     {
@@ -156,13 +155,13 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "counts", "field": "subgroup_label"},
-      "range": {"signal": "[colors.orange, colors.orange_purple, colors.yellow, colors.navy]"}
+      "range": {"signal": "[colors.orange, colors.blue, colors.yellow, colors.navy]"}
     },
     {
       "name": "textColor",
       "type": "linear",
       "domain": [0, 3],
-      "range": {"signal": "[colors.orange, colors.orange_purple, colors.yellow, colors.navy]"}
+      "range": {"signal": "[colors.orange, colors.blue, colors.yellow, colors.navy]"}
     }
   ],
   "marks": [

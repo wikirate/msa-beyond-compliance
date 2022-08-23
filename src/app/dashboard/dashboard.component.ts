@@ -10,6 +10,7 @@ import {ViewportScroller} from "@angular/common";
 })
 export class DashboardComponent implements OnInit {
   sector: string = "all-sectors"
+  view: string = "default";
 
   constructor(private route: ActivatedRoute, private sectorProvider: SectorProvider, private scroll: ViewportScroller) {
   }
@@ -23,6 +24,12 @@ export class DashboardComponent implements OnInit {
         this.sectorProvider.getSector().next(sector);
       }
     )
+    this.route.queryParams
+      .subscribe(params => {
+          // @ts-ignore
+          this.view = params.view;
+        }
+      );
     this.sectorProvider.getPath().next("dashboard")
     this.scrollToTop()
   }

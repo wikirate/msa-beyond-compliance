@@ -1,14 +1,23 @@
 p, li {
-  font-size: 20px !important;
-  line-height: 29px !important;
-  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 25px !important;
+  font-weight: 400 !important;
   letter-spacing: 0.3px;
+  font-family: SourceSansPro !important;
+}
+
+p.intro {
+  font-size: 32px !important;
+  line-height: 38.4px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.3px;
+  font-family: TiemposText !important;
 }
 
 .content-box p, li{
-  font-size: 18px !important;
-  line-height: 27px !important;
-  font-weight: 300 !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+  font-weight: 400 !important;
   letter-spacing: 0.3px;
 }
 
@@ -16,18 +25,40 @@ li{
   padding-bottom: 7px;
 }
 
-.call-to-action-title{
-  font-size: 0.8em;
-  letter-spacing: 0.5px;
+.show-more.collapsed::before {
+  content: 'Show More';
   text-transform: uppercase;
+  font-family: Rubik !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  padding-right: 0.4em;
 }
 
-a.show-more.collapsed::after {
-  content: '+ Show More';
+.show-more.collapsed::after {
+  content: '\f105';
+  font-size: 16px !important;
+  font-weight: 600;
+  font-family: FontAwesome !important;
 }
 
-a.show-more:not(.collapsed)::after {
-  content: '- Show Less';
+.show-more:not(.collapsed)::before {
+  content: 'Show Less';
+  font-family: Rubik !important;
+  text-transform: uppercase;
+  font-size: 14px !important;
+  font-weight: 600;
+  padding-right: 0.4em;
+}
+
+.show-more:not(.collapsed)::after {
+  content: '\f106';
+  font-size: 16px !important;
+  font-weight: 600;
+  font-family: FontAwesome !important;
+}
+
+.show-more:hover{
+  color: #FF5C45 !important;
 }
 
 .img {

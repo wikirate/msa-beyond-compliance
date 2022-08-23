@@ -12,8 +12,8 @@
       "Signed by Managing Director",
       "Signed by Chairman"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange"
   },
   {
     "seq": 2,
@@ -25,8 +25,8 @@
     "filter_value": [
       "Approved by Board"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange"
   },
   {
     "seq": 3,
@@ -38,8 +38,8 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
-    "uk_color": "bg-orange"
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange"
   },
   {
     "seq": 4,
@@ -51,7 +51,7 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -64,7 +64,7 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -78,7 +78,7 @@
       "Geographical",
       "Facility/Supplier"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -123,7 +123,7 @@
       "Use of risk management tool or software",
       "Conducting research"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -139,7 +139,7 @@
       "Workforce",
       "Industry"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -155,7 +155,7 @@
       "On-site visits (self- reporting)",
       "On-site visits (independent)"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -173,7 +173,7 @@
       "Focal Point (direct employees)",
       "Focal Point (supply chain workers)"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -202,7 +202,7 @@
       "Senior management",
       "Cancel contracts"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
@@ -233,7 +233,7 @@
     "filter_value": [
       "Yes"
     ],
-    "aus_color": "bg-orange",
+    "aus_color": "bg-deep-orange",
     "uk_color": "bg-deep-blue"
   },
   {
