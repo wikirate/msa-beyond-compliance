@@ -304,6 +304,13 @@ th.active {
   border: 1px solid $grey !important;
 }
 
+td.bg-deep-blue:hover{
+  background-color: lighten($deep_blue, 10%) !important;
+}
+
+td.bg-deep-orange:hover{
+  background-color: lighten($deep_orange, 10%) !important;
+}
 .table tr {
   color: $deep_blue !important;
   font-size: 0.9em !important;
