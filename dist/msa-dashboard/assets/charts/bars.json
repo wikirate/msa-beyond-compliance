@@ -442,7 +442,7 @@
       "encode": {
         "update": {
           "fontSize": {"value": 15},
-          "font": {"value": "GothamNarrow"},
+          "font": {"value": "SourceSansPro"},
           "x": {
             "scale": "xscale",
             "value": 1
@@ -484,7 +484,7 @@
       "encode": {
         "update": {
           "fontSize": {"value": 15},
-          "font": {"value": "GothamNarrow"},
+          "font": {"value": "SourceSansPro"},
           "x": {
             "value": 0
           },

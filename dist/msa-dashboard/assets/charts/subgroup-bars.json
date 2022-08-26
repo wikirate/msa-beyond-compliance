@@ -239,7 +239,7 @@
           "encode": {
             "update": {
               "fontSize": {"value": 15},
-              "font": {"value": "GothamNarrow"},
+              "font": {"value": "SourceSansPro"},
               "x": {"scale": "xscale", "signal": "totalAnswers", "offset": 4},
               "y": {"scale": "yscale", "field": "title", "offset": 2},
               "baseline": {"value": "top"},
@@ -261,7 +261,7 @@
       "encode": {
         "update": {
           "fontSize": {"value": 15},
-          "font": {"value": "GothamNarrow"},
+          "font": {"value": "SourceSansPro"},
           "x": {"value": 0},
           "y": {"scale": "ygroupscale", "field": "term", "offset": -2},
           "text": {"field": "title"},

@@ -209,7 +209,7 @@
       "encode": {
         "enter": {
           "font": {
-            "value": "GothamNarrow"
+            "value": "SourceSansPro"
           },
           "align": {
             "value": "center"

@@ -284,13 +284,13 @@ table a:focus, a:hover {
 }
 
 .clickable-header:hover {
-  color: $blue !important;
+  color: $deep_orange !important;
   font-weight: bold !important;
   cursor: pointer !important;
 }
 
 th.active {
-  color: $blue !important;
+  color: $deep_orange !important;
 }
 
 .table {
@@ -305,11 +305,13 @@ th.active {
 }
 
 td.bg-deep-blue:hover{
-  background-color: lighten($deep_blue, 10%) !important;
+  background-color: $white !important;
+  color: $deep_blue !important;
 }
 
 td.bg-deep-orange:hover{
-  background-color: lighten($deep_orange, 10%) !important;
+  background-color: $white !important;
+  color: $deep_orange !important;
 }
 .table tr {
   color: $deep_blue !important;
@@ -413,7 +415,7 @@ h5 {
 }
 
 .quote {
-  font-family: TiemposText !important;
+  font-family: SourceSansPro !important;
   font-size: 0.9em !important;
 }
 
@@ -423,7 +425,7 @@ h5 {
   font-size: 12px !important;
 }
 
-a.button {
+.button {
   border: 0 !important;
   padding: 0.5em 1em 0.5em 1em !important;
   font-family: Rubik !important;
@@ -499,14 +501,14 @@ a.button-sm {
   border: 1px solid $deep_blue !important;
 }
 
-a.orange-button {
+.orange-button {
   background: $orange;
   margin-right: 1em;
   border: 1px solid $orange !important;
   border-width: 1px;
 }
 
-a.orange-button:hover {
+.orange-button:hover {
   background: transparent;
   color: $orange !important;
   border: 1px solid $orange !important;

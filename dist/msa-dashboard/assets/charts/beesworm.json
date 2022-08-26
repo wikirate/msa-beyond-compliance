@@ -13,7 +13,7 @@
   "config": {
     "axis": {
       "labelFontSize": 17,
-      "labelFont": "GothamNarrow"
+      "labelFont": "SourceSansPro"
     }
   },
   "signals": [
