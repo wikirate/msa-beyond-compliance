@@ -7,7 +7,7 @@
 </div>
 <div class="container mt-4 mb-4">
   <h3 class="mb-4">Take Action</h3>
-  <div class="row">
+  <div class="row ms-lg-0 me-lg-0 ms-1 me-1">
     <div class="col-lg-4 mb-lg-0 mb-3 no-padding pe-lg-2 content-box">
       <div class="bg-yellow p-4 fit-height">
         <h5 class="mb-3">Policy maker</h5>
@@ -75,7 +75,7 @@
           <table class="table table-responsive-md">
             <thead class="thead-dark">
             <tr>
-              <th class="bg-deep-blue" scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
+              <th class="bg-deep-blue wikirate-metrics" scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
               <th class="bg-deep-blue" scope="col-3"><a
                 href="https://www.gov.uk/government/publications/transparency-in-supply-chains-a-practical-guide">UK MSA
                 Requirements & Guidance</a></th>
@@ -83,16 +83,16 @@
               </th>
             </tr>
             <tr>
-              <th class="bg-white" scope="col-2">Metric</th>
-              <th class="bg-white" scope="col-4">Description</th>
+              <th class="bg-white wikirate-metrics" scope="col-2">Metric</th>
+              <th class="bg-white wikirate-metrics" scope="col-4">Description</th>
               <th class="bg-white" scope="col-3">Requirements & Guidance</th>
               <th class="bg-white" scope="col-3">Requirements & Criterion</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let item of table">
-              <td class="col-2 bg-neutral-blue"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
-              <td class="col-4 bg-neutral-blue">{{item['description']}}</td>
+              <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
+              <td class="col-4 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
               <td class="col-3"
                   [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
               <td class="col-3"
@@ -137,7 +137,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row ms-lg-0 me-lg-0 ms-1 me-1">
       <div class="col-lg-6 mb-lg-0 mb-3 no-padding pe-lg-2 content-box">
         <div class="bg-deep-blue p-4 fit-height">
           <h5 class="mb-3">Join the Research</h5>

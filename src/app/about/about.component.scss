@@ -14,6 +14,22 @@ p.intro {
   font-family: TiemposText !important;
 }
 
+@media only screen and (max-width: 576px) {
+  .wikirate-metrics {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  p.intro {
+    font-size: 26px !important;
+    line-height: 32px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px;
+    font-family: TiemposText !important;
+  }
+}
+
 .content-box p, li{
   font-size: 16px !important;
   line-height: 22px !important;

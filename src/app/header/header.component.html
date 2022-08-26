@@ -4,12 +4,12 @@
       <a class="navbar-brand navbar-expand">
         <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
       </a>
-      <div class="navbar ms-md-auto">
-        <a class="nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
+      <div class="navbar ms-md-auto ms-0">
+        <a class="dashboard nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
            routerLinkActive="active">DASHBOARD</a>
         <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
-        <div class="nav-item dropdown col">
-          <a class="nav-item nav-link" type="button" id="share" data-bs-toggle="dropdown"
+        <div class="share nav-item dropdown col">
+          <a class="nav-item nav-link text-nowrap" type="button" id="share" data-bs-toggle="dropdown"
              aria-expanded="false">
             SHARE <i class="bi bi-share-fill ms-2"></i>
           </a>
