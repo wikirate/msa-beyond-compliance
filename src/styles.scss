@@ -261,7 +261,7 @@ a {
   color: $deep_blue !important;
 }
 
-a:focus, a:hover {
+a:hover {
   color: $deep_orange !important;
 }
 
@@ -704,6 +704,10 @@ footer .row {
   text-transform: uppercase !important;
 }
 
+a.dropdown-item:focus{
+  background-color:#e9ecef;
+}
+
 a.dropdown-item .count {
   padding-left: 1em !important;
 }
@@ -922,8 +926,12 @@ a.anchor {
 }
 
 .tooltip-item:hover {
-  color: $blue;
+  color: $deep_orange;
   cursor: pointer;
+}
+
+a.tooltip-term:hover{
+  color: $deep_orange !important;
 }
 
 .popover-header {
