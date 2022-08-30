@@ -351,6 +351,7 @@ h1.title {
   font-size: 4em !important;
   text-transform: uppercase !important;
   line-height: 1.1 !important;
+  max-width: 490px !important;
 }
 
 .text-deep-blue {
@@ -364,6 +365,13 @@ h1.title {
 @media screen and (max-width: 1200px) {
   h1.title {
     font-size: 3em !important;
+    word-wrap: break-word !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  h1.title {
+    font-size: 2.75em !important;
     word-wrap: break-word !important;
   }
 }
@@ -406,6 +414,7 @@ h5 {
   font-family: TiemposText !important;
   font-size: 1.4em !important;
   font-weight: 300 !important;
+  max-width: 490px !important;
 }
 
 @media screen and (max-width: 500px) {

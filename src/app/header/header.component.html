@@ -6,12 +6,12 @@
       </a>
       <div class="navbar ms-md-auto ms-0">
         <a class="dashboard nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
-           routerLinkActive="active">DASHBOARD</a>
+           routerLinkActive="active">HOME</a>
         <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
-        <div class="share nav-item dropdown col">
+        <div class="nav-item dropdown col">
           <a class="nav-item nav-link text-nowrap" type="button" id="share" data-bs-toggle="dropdown"
              aria-expanded="false">
-            SHARE <i class="bi bi-share-fill ms-2"></i>
+            <span class="share">SHARE</span><i class="bi bi-share-fill ms-0 ms-sm-2"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="share">
             <li><a class="dropdown-item" target="_blank"

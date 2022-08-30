@@ -6,25 +6,20 @@ a.nav-link:active {
   .share {
     display: none;
   }
-  .nav-link{
-    padding: 0.3rem 0.7rem!important;
-  }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 359px) {
   .share {
     display: none;
   }
   .dashboard {
     display: none;
   }
-  .nav-link{
-    padding: 0.3rem 0.7rem!important;
-  }
 }
 
 a.nav-link {
   color: white !important;
+  padding: 0.4rem 0.8rem!important;
 }
 
 a.nav-link.active {
