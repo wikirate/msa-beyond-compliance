@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, OnDestroy {
       var eqPos = cookie.indexOf("=");
       var name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
       if (name.includes("_ga") || name.includes("_gid") || name.includes("_gat")) {
-        document.cookie = name + '=; path=/; domain=' + 'beyondcompliance.wikirate.org' + '; expires=' + new Date(0).toUTCString();
+        document.cookie = name + '=; path=/; domain=' + '.wikirate.org' + '; expires=' + new Date(0).toUTCString();
       }
     }
   }

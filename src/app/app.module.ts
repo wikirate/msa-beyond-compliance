@@ -39,7 +39,7 @@ import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent"
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
-    domain: 'beyondcompliance.wikirate.org'
+    domain: '.wikirate.org'
   },
   palette: {
     popup: {
