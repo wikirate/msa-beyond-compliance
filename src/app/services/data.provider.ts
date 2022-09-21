@@ -55,7 +55,6 @@ export class DataProvider {
     } else {
       return ""
     }
-
   }
 
 

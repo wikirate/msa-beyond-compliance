@@ -304,15 +304,16 @@ th.active {
   border: 1px solid $grey !important;
 }
 
-td.bg-deep-blue:hover{
+td.bg-deep-blue:hover {
   background-color: $white !important;
   color: $deep_blue !important;
 }
 
-td.bg-deep-orange:hover{
+td.bg-deep-orange:hover {
   background-color: $white !important;
   color: $deep_orange !important;
 }
+
 .table tr {
   color: $deep_blue !important;
   font-size: 0.9em !important;
@@ -713,8 +714,8 @@ footer .row {
   text-transform: uppercase !important;
 }
 
-a.dropdown-item:focus{
-  background-color:#e9ecef;
+a.dropdown-item:focus {
+  background-color: #e9ecef;
 }
 
 a.dropdown-item .count {
@@ -939,7 +940,7 @@ a.anchor {
   cursor: pointer;
 }
 
-a.tooltip-term:hover{
+a.tooltip-term:hover {
   color: $deep_orange !important;
 }
 
@@ -1086,5 +1087,44 @@ a.tooltip-term {
   background-color: darken($orange, 10%) !important;
 }
 
+.cc-message{
+  padding: 10px !important;
+}
+a.cc-deny:hover {
+  color: $orange !important;
+}
+
+a.cc-deny {
+  background-color: $deep_blue !important;
+  color: $white !important;
+}
+
+a.cc-allow:hover {
+  background-color: darken($orange, 10%) !important;
+}
+
+a.cc-link{
+  color: $white !important;
+}
+
+a.cc-allow {
+  background-color: $orange !important;
+  color: $deep_blue!important;
+}
+
+a.cc-btn {
+  margin: 5px !important;
+  text-transform: uppercase !important;
+  font-family: Rubik !important;
+  text-decoration: none !important;
+  height: 100%;
+}
+
+@media screen and (max-width: 740px) {
+  .cc-btn {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

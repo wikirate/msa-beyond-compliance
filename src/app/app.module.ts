@@ -35,6 +35,39 @@ import {ExportAsModule} from "ngx-export-as";
 import { ExportAsComponent } from './dashboard/export-as/export-as.component';
 import {ClipboardModule} from "ngx-clipboard";
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
+
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: 'beyondcompliance.wikirate.org'
+  },
+  palette: {
+    popup: {
+      background: '#000029'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out',
+  layout: 'my-custom-layout',
+  layouts: {
+    "my-custom-layout": '{{messagelink}}{{compliance}}'
+  },
+  elements:{
+    messagelink: `
+    <span id="cookieconsent:desc" class="cc-message">{{message}}
+      <a aria-label="learn more about our privacy policy" tabindex="1" class="cc-link" href="{{privacyPolicyHref}}" target="_blank">{{privacyPolicyLink}}</a>.
+    </span>
+    `,
+  },
+  content:{
+    message: 'The Beyond Compliance Dashboard uses cookies to collect and analyze site performance and usage. By clicking the Accept button, you agree to allow us to place cookies and share information with Google Analytics. For more information, please read our ',
+    privacyPolicyLink: 'Privacy Policy',
+    privacyPolicyHref: 'https://www.walkfree.org/privacy-policy/'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -67,10 +100,12 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
     NgbModule,
     AppRoutingModule,
     ExportAsModule,
-    ClipboardModule
+    ClipboardModule,
+    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [SectorProvider, DataProvider, ChartsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+

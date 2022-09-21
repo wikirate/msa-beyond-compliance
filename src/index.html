@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+    // Define dataLayer and the gtag function.
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    // Default ad_storage to 'denied'.
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied'
+    });
+  </script>
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
     w[l] = w[l] || [];
@@ -43,10 +57,6 @@
 </head>
 <body>
 <app-root></app-root>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX4LDBJ"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <script src="https://use.fontawesome.com/eacca44f89.js"></script>
 <script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>
 </body>
