@@ -82,7 +82,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
 
   draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group: string) {
     this.dataProvider.getAnswers(assessed_statements_metric_id,
-      [new Filter("year", this.year), new Filter("value", "Yes"),
+      [new Filter("year", this.year), new Filter("value", ["Yes"]),
         new Filter("company_group", company_group)]).subscribe(assessed_statements => {
       let assessed = assessed_statements.length
       if (assessed_statements_metric_id === this.dataProvider.metrics.uk_msa_statement_assessed) {
@@ -91,7 +91,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
         this.aus_assessed = assessed_statements.length
       }
       this.dataProvider.getAnswers(meet_min_requirements_metric_id,
-        [new Filter("year", this.year), new Filter("value", "Yes"),
+        [new Filter("year", this.year), new Filter("value", ["Yes"]),
           new Filter("company_group", company_group)]).subscribe(meet_min_requirements_statements => {
         meet_min_requirements_statements.filter((item: { year: number, company: number }) => {
           return assessed_statements.findIndex((a: any) => {
