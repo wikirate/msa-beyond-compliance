@@ -1,6 +1,7 @@
 <div class="container mt-4 mb-4">
   <h1 class="title pt-4 pb-4">About</h1>
-  <p class="intro pb-4">This tool shines a light on business reporting under modern slavery legislation. Only with transparency can we
+  <p class="intro pb-4">This tool shines a light on business reporting under modern slavery legislation. Only with
+    transparency can we
     understand how legislation is affecting business practice, hold non-compliance to account and improve industry
     standards. Promoting respect for human rights and labour standards is crucial to build a more sustainable and
     resilient global economy - join us in our efforts!</p>
@@ -37,7 +38,8 @@
           <li>Share findings on social media to highlight where companies can do more
           </li>
           <li>Spread the word! Share the dashboard so that others can engage too</li>
-          <li> Join the MSA research on the <a class="text-white" href="https://wikirate.org/MSA_Beyond_Compliance_Research">WikiRate
+          <li> Join the MSA research on the <a class="text-white"
+                                               href="https://wikirate.org/MSA_Beyond_Compliance_Research">WikiRate
             platform</a></li>
         </ul>
       </div>
@@ -75,11 +77,14 @@
           <table class="table table-responsive-md">
             <thead class="thead-dark">
             <tr>
-              <th class="bg-deep-blue wikirate-metrics" scope="col-3" colspan="2">Walk Free metrics on WikiRate platform</th>
+              <th class="bg-deep-blue wikirate-metrics" scope="col-3" colspan="2">Walk Free metrics on WikiRate
+                platform
+              </th>
               <th class="bg-deep-blue" scope="col-3"><a
                 href="https://www.gov.uk/government/publications/transparency-in-supply-chains-a-practical-guide">UK MSA
                 Requirements & Guidance</a></th>
-              <th class="bg-deep-blue" scope="col-3"><a href="https://modernslaveryregister.gov.au/resources/">Australia MSA Requirements</a>
+              <th class="bg-deep-blue" scope="col-3"><a href="https://modernslaveryregister.gov.au/resources/">Australia
+                MSA Requirements</a>
               </th>
             </tr>
             <tr>
@@ -91,7 +96,8 @@
             </thead>
             <tbody>
             <tr *ngFor="let item of table">
-              <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}" target="_blank">{{item['metric']}}</a></td>
+              <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
+                                                                    target="_blank">{{item['metric']}}</a></td>
               <td class="col-4 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
               <td class="col-3"
                   [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
@@ -116,8 +122,8 @@
           </div>
         </div>
         <span id="show-more" class="show-more collapsed" data-bs-toggle="collapse" href="#methodology" role="button"
-           aria-expanded="false"
-           aria-controls="methodology"></span>
+              aria-expanded="false"
+              aria-controls="methodology"></span>
       </div>
     </div>
   </div>
@@ -134,6 +140,8 @@
             is conducted by a much broader community of passionate researchers including volunteers, University
             students, and experts from around the world. As the research is ongoing, this is a dynamic dashboard that
             updates as and when new data is contributed to the WikiRate platform.</p>
+          <p><i>The data feeding into this dashboard includes raw assessment from our team of student volunteers. The
+            data used in our research publications undergoes an additional layer of quality assurance.</i></p>
         </div>
       </div>
     </div>
