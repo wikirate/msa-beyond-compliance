@@ -30,12 +30,18 @@
         </div>
         <div class="filter-dropdown dropdown ms-2">
           <span class="btn btn-secondary sector-filter" type="button" id="sector-filter"
-             data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</span>
+                data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</span>
           <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
             <li>
               <a class="dropdown-item" routerLink="{{'dashboard/'+path+'all-sectors'}}"
                  (click)="onSelectSector('All Sectors')">
                 All Sectors
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'food-and-beverage'}}"
+                 (click)="onSelectSector('Food & Beverage')">
+                Food & Beverage
               </a>
             </li>
             <li>
