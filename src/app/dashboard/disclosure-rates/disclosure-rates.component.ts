@@ -17,6 +17,7 @@ export class DisclosureRatesComponent implements OnInit {
   garment_avg_disclosure_rate: number = 0;
   financial_avg_disclosure_rate: number = 0;
   hospitality_avg_disclosure_rate: number = 0;
+  food_bev_avg_disclosure_rate: number = 0;
 
   constructor(private dataProvider: DataProvider, private sectorProvider: SectorProvider,
               private route: ActivatedRoute) {
@@ -92,6 +93,28 @@ export class DisclosureRatesComponent implements OnInit {
             this.hospitality_avg_disclosure_rate += Number(answer['value']);
           }
           this.hospitality_avg_disclosure_rate = Math.round(this.hospitality_avg_disclosure_rate / disclosure_rates.length)
+        }, (error) => console.log(error), () => this.isLoading = false)
+      })
+
+      this.dataProvider.getAnswers(
+        this.dataProvider.metrics.msa_statement_assessed, [
+          new Filter("year", this.year),
+          new Filter('value', 'Yes'),
+          new Filter("company_group", "MSA Food Beverage")
+        ]
+      ).subscribe(assessed => {
+        this.dataProvider.getAnswers(
+          this.dataProvider.metrics.msa_disclosure_rate, [
+            new Filter("year", this.year),
+            new Filter("company_group", "MSA Food Beverage")
+          ]
+        ).subscribe(disclosure_rates => {
+          this.food_bev_avg_disclosure_rate = 0;
+          disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
+          for (let answer of disclosure_rates) {
+            this.food_bev_avg_disclosure_rate += Number(answer['value']);
+          }
+          this.food_bev_avg_disclosure_rate = Math.round(this.food_bev_avg_disclosure_rate / disclosure_rates.length)
         }, (error) => console.log(error), () => this.isLoading = false)
       })
     })
