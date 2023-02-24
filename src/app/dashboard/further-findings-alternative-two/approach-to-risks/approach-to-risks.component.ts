@@ -19,6 +19,8 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   year!: number | string;
   @Input()
   sector !: string;
+  @Input()
+  legislation !: string;
   company_group: string = '';
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
@@ -34,12 +36,18 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   updateData() {
     this.company_group = this.dataProvider.getCompanyGroup(this.sector);
     this.isLoading = true;
+    let assessed_statements_metric_id = this.dataProvider.metrics.msa_statement_assessed
+    if (this.legislation == 'uk')
+      assessed_statements_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed
+    else if (this.legislation == 'aus')
+      assessed_statements_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed
+
     this.chartsService.drawBarChart(
       "Risk Assessment",
       "div#risk-assessment-alt-two",
       350,
       200,
-      this.dataProvider.metrics.msa_statement_assessed,
+      assessed_statements_metric_id,
       risk_assessment,
       this.year,
       this.company_group,
@@ -49,7 +57,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         "div#risk-identification-alt-two",
         350,
         250,
-        this.dataProvider.metrics.msa_statement_assessed,
+        assessed_statements_metric_id,
         risk_identification,
         this.year,
         this.company_group,
@@ -60,7 +68,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
         "Risks Management",
         "div#risk-management-alt-two",
         350,
-        this.dataProvider.metrics.msa_statement_assessed,
+        assessed_statements_metric_id,
         6948944,
         {
           "name": "subgroups",

@@ -18,6 +18,8 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   year!: number | string;
   @Input()
   sector !: string;
+  @Input()
+  legislation!: string;
   company_group: string = ''
 
   isLoading: boolean = true;
@@ -36,11 +38,17 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   updateData() {
     this.company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true;
+    let assessed_statements_metric_id = this.dataProvider.metrics.msa_statement_assessed
+    if (this.legislation == 'uk')
+      assessed_statements_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed
+    else if (this.legislation == 'aus')
+      assessed_statements_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed
+
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",
       "div#whistleblowing-mechanisms-alt-two",
       300,
-      this.dataProvider.metrics.msa_statement_assessed,
+      assessed_statements_metric_id,
       2722458,
       {
         "name": "subgroups",
@@ -84,7 +92,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         "div#incident-remediation-alt-two",
         350,
         250,
-        this.dataProvider.metrics.msa_statement_assessed,
+        assessed_statements_metric_id,
         incidents_remediation,
         this.year,
         this.company_group,
@@ -94,7 +102,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
           "div#training-alt-two",
           350,
           350,
-          this.dataProvider.metrics.msa_statement_assessed,
+          assessed_statements_metric_id,
           modern_slavery_training,
           this.year,
           this.company_group,

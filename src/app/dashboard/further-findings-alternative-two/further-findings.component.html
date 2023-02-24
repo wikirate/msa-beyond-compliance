@@ -1,22 +1,31 @@
 <div class="container">
   <div id="further-findings-section" class="section mt-4 bg-neutral-white p-4">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-4">
         <h3 class="title">Further Findings</h3>
       </div>
-      <div class="col-md-4">
-        <select class="msa-form-select ms-md-auto bg-neutral-white" aria-label="Minimum requirements year filter"
-                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
-          <option [ngValue]="''" selected>ALL YEARS</option>
-          <option [ngValue]="'latest'">LATEST</option>
-          <option [ngValue]="2021">2021</option>
-          <option [ngValue]="2020">2020</option>
-          <option [ngValue]="2019">2019</option>
-          <option [ngValue]="2018">2018</option>
-          <option [ngValue]="2017">2017</option>
-          <option [ngValue]="2016">2016</option>
-          <option [ngValue]="2015">2015</option>
-        </select>
+      <div class="col-md-8">
+        <div class="row ps-3 pe-3 pt-md-0 pt-2">
+          <select class="msa-form-select bg-neutral-white ms-md-auto me-3 mb-md-0 mb-1" aria-label="Minimum requirements year filter"
+                  style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
+                  (change)="updateData()">
+            <option [ngValue]="''" selected>ALL YEARS</option>
+            <option [ngValue]="'latest'">LATEST</option>
+            <option [ngValue]="2021">2021</option>
+            <option [ngValue]="2020">2020</option>
+            <option [ngValue]="2019">2019</option>
+            <option [ngValue]="2018">2018</option>
+            <option [ngValue]="2017">2017</option>
+            <option [ngValue]="2016">2016</option>
+            <option [ngValue]="2015">2015</option>
+          </select>
+          <select class="msa-form-select" aria-label="Legislation filter"
+                  [(ngModel)]="legislation" (change)="updateData()">
+            <option [ngValue]="'both'" selected>LEGISLATION</option>
+            <option [ngValue]="'uk'">UK MSA</option>
+            <option [ngValue]="'aus'">AUS MSA</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
@@ -50,7 +59,7 @@
                  aria-labelledby="approachToPoliciesTitle"
                  data-bs-parent="#approach_to_policies">
               <div class="accordion-body">
-                <approach-to-policies [year]="this.year" [sector]="this.sector"></approach-to-policies>
+                <approach-to-policies [year]="this.year" [legislation]="this.legislation" [sector]="this.sector"></approach-to-policies>
               </div>
             </div>
           </div>
@@ -80,7 +89,7 @@
             <div id="ApproachToRisksAltTwo" class="accordion-collapse collapse" aria-labelledby="headingThree"
                  data-bs-parent="#approach_to_risks_accordion">
               <div class="accordion-body">
-                <approach-to-risks [year]="this.year" [sector]="this.sector"></approach-to-risks>
+                <approach-to-risks [year]="this.year" [legislation]="this.legislation" [sector]="this.sector"></approach-to-risks>
               </div>
             </div>
           </div>
@@ -108,7 +117,7 @@
             <div id="collapseApproachToIncidents-alt-two" class="accordion-collapse collapse"
                  aria-labelledby="headingApproachToIncidents" data-bs-parent="#approach_to_incidents">
               <div class="accordion-body">
-                <approach-to-incidents [year]="this.year" [sector]="this.sector"></approach-to-incidents>
+                <approach-to-incidents [year]="this.year" [legislation]="this.legislation" [sector]="this.sector"></approach-to-incidents>
               </div>
             </div>
           </div>

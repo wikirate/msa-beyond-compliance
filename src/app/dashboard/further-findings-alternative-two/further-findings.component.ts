@@ -11,6 +11,7 @@ import {SectorProvider} from "../../services/sector.provider";
 })
 export class FurtherFindingsComponent implements OnInit {
   sector: string = "all-sectors";
+  legislation: string = 'both';
   year: number | string = ''
   percentage_of_companies_identified_incidents: number = 0;
   percentage_of_companies_report_policy_beyond_t1: number = 0;
@@ -40,7 +41,14 @@ export class FurtherFindingsComponent implements OnInit {
   updateData() {
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true
-    this.dataProvider.getAnswers(this.dataProvider.metrics.msa_statement_assessed,
+
+    let assessed_statements_metric_id = this.dataProvider.metrics.msa_statement_assessed
+    if (this.legislation === 'uk')
+      assessed_statements_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed
+    else if (this.legislation === 'aus')
+      assessed_statements_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed
+
+    this.dataProvider.getAnswers(assessed_statements_metric_id,
       [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(assessed => {
       this.dataProvider.getAnswers(1831964,
         [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", company_group)]).subscribe(reported_incidents => {
