@@ -385,6 +385,11 @@
     "headquarters": "United Kingdom"
   },
   {
+    "id": 5405947,
+    "name": "Awaze",
+    "headquarters": "United Kingdom"
+  },
+  {
     "id": 49421,
     "name": "EasyJet",
     "headquarters": "United Kingdom"
@@ -422,7 +427,7 @@
   {
     "id": 2872491,
     "name": "Enterprise Rent A Car UK Ltd.",
-    "headquarters": null
+    "headquarters": "United Kingdom"
   },
   {
     "id": 3081300,
@@ -442,11 +447,6 @@
   {
     "id": 3152889,
     "name": "WH Smith Plc",
-    "headquarters": "United Kingdom"
-  },
-  {
-    "id": 5405947,
-    "name": "Awaze",
     "headquarters": "United Kingdom"
   },
   {
@@ -570,6 +570,11 @@
     "headquarters": "United Kingdom"
   },
   {
+    "id": 8261136,
+    "name": "CPFC 2010 LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
     "id": 8261448,
     "name": "BREAD HOLDINGS LIMITED",
     "headquarters": "United Kingdom"
@@ -655,13 +660,293 @@
     "headquarters": "United Kingdom"
   },
   {
+    "id": 9749687,
+    "name": "PARKWOOD LEISURE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
     "id": 10737173,
     "name": "CARNIVAL PLC",
     "headquarters": "United Kingdom"
   },
   {
+    "id": 13690188,
+    "name": "NOVOMATIC UK LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690732,
+    "name": "JALUX INC. EUROPE BRANCH",
+    "headquarters": "United Kingdom"
+  },
+  {
     "id": 9269,
     "name": "Marks and Spencer Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 58399,
+    "name": "Crown Resorts",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3092937,
+    "name": "Co-operative Group Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460932,
+    "name": "Saga plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7453561,
+    "name": "The Arnhem Land Progress Aboriginal Corporation",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172544,
+    "name": "LIFESTYLE COMMUNITIES LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172919,
+    "name": "Ausco Holdings Pty Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174435,
+    "name": "MULAWA HOLDINGS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175059,
+    "name": "WESTERN SUBURBS (N'CLE) LEAGUES CLUB LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175206,
+    "name": "FLIGHT CENTRE TRAVEL GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178058,
+    "name": "TT-LINE COMPANY PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178171,
+    "name": "ANGLICAN COMMUNITY SERVICES",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178449,
+    "name": "INVOCARE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178572,
+    "name": "RSL LIFECARE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178668,
+    "name": "REDCAPE HOTEL GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178712,
+    "name": "SGS AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178724,
+    "name": "MULPHA AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178728,
+    "name": "ROYAL AUTOMOBILE CLUB OF VICTORIA (RACV) LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179908,
+    "name": "KELSIAN GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182623,
+    "name": "ARDENT LEISURE GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184404,
+    "name": "WEBJET LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184416,
+    "name": "LEWIS LAND HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184662,
+    "name": "GOODSTART EARLY LEARNING LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185245,
+    "name": "NATIONAL ROADS AND MOTORISTS' ASSOCIATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186220,
+    "name": "THE STAR ENTERTAINMENT GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186417,
+    "name": "AAPC LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186490,
+    "name": "GREGALA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186568,
+    "name": "FITNESS AND LIFESTYLE GROUP BIDCO PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187257,
+    "name": "Victoria Amateur Turf Club",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187566,
+    "name": "Tourism Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212170,
+    "name": "MELBOURNE CRICKET CLUB",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219652,
+    "name": "Carnival PLC (AUS Branch)",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219823,
+    "name": "WYNDHAM DESTINATIONS ASIA PACIFIC PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219843,
+    "name": "HERTZ AUSTRALIA PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219989,
+    "name": "HEINEMANN AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220680,
+    "name": "SUMMERSET GROUP HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8252392,
+    "name": "BIBBY MARINE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254042,
+    "name": "CASIO ELECTRONICS CO. LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254122,
+    "name": "COSTA LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261328,
+    "name": "THE ENGLISH HERITAGE TRUST",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264228,
+    "name": "FARNBOROUGH AIRPORT BIDCO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264624,
+    "name": "CATALYST HOUSING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265764,
+    "name": "TASTY PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422127,
+    "name": "GENTING CASINOS UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422131,
+    "name": "GENTING UK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428948,
+    "name": "WALSALL HOUSING GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8430438,
+    "name": "IN TOUCH GAMES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8439392,
+    "name": "TRAVELOPIA GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8758444,
+    "name": "WHITBREAD GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8779141,
+    "name": "ENTERPRISE RENT-A-CAR EUROPEAN HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8784823,
+    "name": "DELAWARE NORTH COMPANIES (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13292143,
+    "name": "HOSTMORE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13292255,
+    "name": "YORK COTTAGE SPA LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13745415,
+    "name": "AIRBNB UK LIMITED",
     "headquarters": "United Kingdom"
   },
   {
@@ -690,28 +975,38 @@
     "headquarters": "United Kingdom"
   },
   {
-    "id": 8254042,
-    "name": "CASIO ELECTRONICS CO. LIMITED",
+    "id": 3081246,
+    "name": "Grand Union Housing Group",
     "headquarters": "United Kingdom"
   },
   {
-    "id": 8254122,
-    "name": "COSTA LIMITED",
+    "id": 8264544,
+    "name": "HIC FIRST LLC",
     "headquarters": "United Kingdom"
   },
   {
-    "id": 8261136,
-    "name": "CPFC 2010 LIMITED",
+    "id": 8419050,
+    "name": "JOSEPH HOLT LIMITED",
     "headquarters": "United Kingdom"
   },
   {
-    "id": 8264624,
-    "name": "CATALYST HOUSING LIMITED",
+    "id": 8428332,
+    "name": "PLACES FOR PEOPLE GROUP LIMITED",
     "headquarters": "United Kingdom"
   },
   {
-    "id": 8265764,
-    "name": "TASTY PLC",
+    "id": 8431208,
+    "name": "MORRIS & COMPANY (SHREWSBURY) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9750630,
+    "name": "HICP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13751455,
+    "name": "BUZZ GROUP LIMITED",
     "headquarters": "United Kingdom"
   }
 ]

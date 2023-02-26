@@ -3,28 +3,12 @@
   "description": "A beeswarm chart example that uses a force-directed layout to group items by category.",
   "width": 750,
   "height": 400,
-  "padding": {
-    "left": 5,
-    "right": 5,
-    "top": 0,
-    "bottom": 30
-  },
+  "padding": {"left": 5, "right": 5, "top": 0, "bottom": 30},
   "autosize": "none",
-  "config": {
-    "axis": {
-      "labelFontSize": 17,
-      "labelFont": "SourceSansPro"
-    }
-  },
+  "config": {"axis": {"labelFontSize": 17, "labelFont": "SourceSansPro"}},
   "signals": [
-    {
-      "name": "cx",
-      "update": "width / 2"
-    },
-    {
-      "name": "cy",
-      "update": "height / 2"
-    }
+    {"name": "cx", "update": "width / 2"},
+    {"name": "cy", "update": "height / 2"}
   ],
   "data": [
     {
@@ -38,34 +22,25 @@
     {
       "name": "garment_companies",
       "url": "../assets/cached/MSA_Garment.json",
-      "transform": [
-        {
-          "type": "formula",
-          "expr": "'Garment'",
-          "as": "sector"
-        }
-      ]
+      "transform": [{"type": "formula", "expr": "'Garment'", "as": "sector"}]
     },
     {
       "name": "financial_companies",
       "url": "../assets/cached/MSA_Financial.json",
-      "transform": [
-        {
-          "type": "formula",
-          "expr": "'Financial'",
-          "as": "sector"
-        }
-      ]
+      "transform": [{"type": "formula", "expr": "'Financial'", "as": "sector"}]
     },
     {
       "name": "hospitality_companies",
       "url": "../assets/cached/MSA_Hospitality.json",
       "transform": [
-        {
-          "type": "formula",
-          "expr": "'Hospitality'",
-          "as": "sector"
-        }
+        {"type": "formula", "expr": "'Hospitality'", "as": "sector"}
+      ]
+    },
+    {
+      "name": "food_beverage_companies",
+      "url": "../assets/cached/MSA_Food_Beverage.json",
+      "transform": [
+        {"type": "formula", "expr": "'Food Beverage'", "as": "sector"}
       ]
     },
     {
@@ -73,7 +48,8 @@
       "source": [
         "garment_companies",
         "financial_companies",
-        "hospitality_companies"
+        "hospitality_companies",
+        "food_beverage_companies"
       ]
     },
     {
@@ -84,63 +60,39 @@
           "type": "lookup",
           "from": "sector_companies",
           "key": "id",
-          "fields": [
-            "id"
-          ],
-          "values": [
-            "sector"
-          ],
-          "as": [
-            "sector"
-          ]
+          "fields": ["id"],
+          "values": ["sector"],
+          "as": ["sector"]
         }
       ]
     },
     {
       "name": "assessed_statements",
-      "url": "https://wikirate.org/~12621772+Answer.json?view=answer_list&limit=0&filter[year]=latest&filter[value]=Yes",
+      "url": "https://wikirate.org/~12621772+Answer.json?view=answer_list&limit=0&filter[year]=latest&filter[company_group]=&filter[value]=Yes",
       "transform": [
         {
           "type": "lookup",
           "from": "turnover",
           "key": "company",
-          "fields": [
-            "company"
-          ],
-          "values": [
-            "value"
-          ],
-          "as": [
-            "turnover"
-          ]
+          "fields": ["company"],
+          "values": ["value"],
+          "as": ["turnover"]
         },
         {
           "type": "lookup",
           "from": "revenue",
           "key": "company",
-          "fields": [
-            "company"
-          ],
-          "values": [
-            "value"
-          ],
-          "as": [
-            "revenue"
-          ]
+          "fields": ["company"],
+          "values": ["value"],
+          "as": ["revenue"]
         },
         {
           "type": "lookup",
           "from": "companies",
           "key": "id",
-          "fields": [
-            "company"
-          ],
-          "values": [
-            "sector"
-          ],
-          "as": [
-            "sector"
-          ]
+          "fields": ["company"],
+          "values": ["sector"],
+          "as": ["sector"]
         },
         {
           "type": "formula",
@@ -166,25 +118,15 @@
     },
     {
       "name": "statements",
-      "source": [
-        "assessed_statements"
-      ],
+      "source": ["assessed_statements"],
       "transform": [
         {
           "type": "lookup",
           "from": "companies",
           "key": "id",
-          "fields": [
-            "company"
-          ],
-          "values": [
-            "name",
-            "headquarters"
-          ],
-          "as": [
-            "name",
-            "headquarters"
-          ]
+          "fields": ["company"],
+          "values": ["name", "headquarters"],
+          "as": ["name", "headquarters"]
         },
         {
           "type": "formula",
@@ -206,9 +148,7 @@
       "domain": {
         "data": "statements",
         "field": "size",
-        "sort": {
-          "order": "descending"
-        }
+        "sort": {"order": "descending", "field": "key"}
       },
       "range": "width"
     },
@@ -218,25 +158,16 @@
       "domain": {
         "data": "statements",
         "field": "sector",
-        "sort": {
-          "order": "ascending"
-        }
+        "sort": {"order": "ascending", "field": "key"}
       },
-      "range": [
-        "#FF5C45",
-        "#FFCB2B",
-        "#000029",
-        "#C4C4C4"
-      ]
+      "range": ["#FF5C45", "#FFBEB5", "#FFCB2B", "#000029", "#C4C4C4"]
     }
   ],
   "axes": [
     {
       "orient": "bottom",
       "scale": "xscale",
-      "domainWidth": {
-        "value": 0
-      },
+      "domainWidth": {"value": 0},
       "ticks": false,
       "encode": {
         "labels": {
@@ -254,51 +185,26 @@
     {
       "name": "nodes",
       "type": "symbol",
-      "from": {
-        "data": "statements"
-      },
+      "from": {"data": "statements"},
       "encode": {
         "enter": {
-          "fill": {
-            "scale": "color",
-            "field": "sector"
-          },
-          "xfocus": {
-            "scale": "xscale",
-            "field": "size",
-            "band": 0.5
-          },
-          "yfocus": {
-            "signal": "cy"
-          },
+          "fill": {"scale": "color", "field": "sector"},
+          "xfocus": {"scale": "xscale", "field": "size", "band": 0.5},
+          "yfocus": {"signal": "cy"},
           "tooltip": {
             "signal": "{'Company': datum.name,'Sector': datum.sector, 'turnover (range)' : datum.turnover, 'revenue':datum.revenue}"
           }
         },
         "update": {
-          "size": {
-            "signal": "pow(2 * 5, 2)"
-          },
-          "stroke": {
-            "value": "white"
-          },
-          "strokeWidth": {
-            "value": 1
-          },
-          "zindex": {
-            "value": 0
-          }
+          "size": {"signal": "pow(2 * 5, 2)"},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1},
+          "zindex": {"value": 0}
         },
         "hover": {
-          "stroke": {
-            "value": "black"
-          },
-          "strokeWidth": {
-            "value": 3
-          },
-          "zindex": {
-            "value": 1
-          }
+          "stroke": {"value": "black"},
+          "strokeWidth": {"value": 3},
+          "zindex": {"value": 1}
         }
       },
       "transform": [
@@ -307,21 +213,9 @@
           "iterations": 200,
           "static": false,
           "forces": [
-            {
-              "force": "collide",
-              "iterations": 1,
-              "radius": 5
-            },
-            {
-              "force": "x",
-              "x": "xfocus",
-              "strength": 0.5
-            },
-            {
-              "force": "y",
-              "y": "yfocus",
-              "strength": 0.1
-            }
+            {"force": "collide", "iterations": 1, "radius": 5},
+            {"force": "x", "x": "xfocus", "strength": 0.5},
+            {"force": "y", "y": "yfocus", "strength": 0.1}
           ]
         }
       ]
