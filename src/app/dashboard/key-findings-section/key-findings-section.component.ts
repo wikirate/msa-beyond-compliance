@@ -92,16 +92,16 @@ export class KeyFindingsSectionComponent implements OnInit {
         this.dataProvider.getAnswers(this.dataProvider.metrics.msa_statement_assessed,
           [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(assessed => {
           this.numOfAssessedMSAStatements = assessed.length
-          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
-            [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(meets_uk_min_requirements => {
+          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
+            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_uk_min_requirements => {
             meets_uk_min_requirements = meets_uk_min_requirements.filter((item: { year: number, company: number }) => {
               return assessed.findIndex((a: any) => {
                 return a.company == item.company && a.year == item.year
               }) >= 0
             })
             this.meetsMinRequirements = meets_uk_min_requirements.length
-            this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
-              [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(meets_aus_min_requirements => {
+            this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
+              [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_aus_min_requirements => {
               meets_aus_min_requirements = meets_aus_min_requirements.filter((item: { year: number, company: number }) => {
                 return assessed.findIndex((a: any) => {
                   return a.company == item.company && a.year == item.year
@@ -111,7 +111,7 @@ export class KeyFindingsSectionComponent implements OnInit {
               })
               this.meetsMinRequirements = Math.round((this.meetsMinRequirements + meets_aus_min_requirements.length) * 100 / this.numOfAssessedMSAStatements)
               this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
-                [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(beyond_compliance => {
+                [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(beyond_compliance => {
                 beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
                   return assessed.findIndex((a: any) => {
                     return a.company == item.company && a.year == item.year
@@ -133,10 +133,10 @@ export class KeyFindingsSectionComponent implements OnInit {
         [new Filter("year", this.year), new Filter("value", ["Yes - UK Modern Slavery Act"]), new Filter("company_group", this.company_group)]).subscribe(data => {
         this.numOfCompaniesUnderMSA = data.length
         this.dataProvider.getAnswers(this.dataProvider.metrics.uk_msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(assessed => {
+          [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(assessed => {
           this.numOfAssessedMSAStatements = assessed.length
           this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
-            [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
+            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
             meets_min_requirements = meets_min_requirements.filter((item: { year: number, company: number }) => {
               return assessed.findIndex((a: any) => {
                 return a.company == item.company && a.year == item.year
@@ -169,10 +169,10 @@ export class KeyFindingsSectionComponent implements OnInit {
         [new Filter("year", this.year), new Filter("value", ["Yes - Australian Modern Slavery Act"]), new Filter("company_group", this.company_group)]).subscribe(data => {
         this.numOfCompaniesUnderMSA = data.length
         this.dataProvider.getAnswers(this.dataProvider.metrics.aus_msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(assessed => {
+          [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(assessed => {
           this.numOfAssessedMSAStatements = assessed.length
           this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
-            [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
+            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
             meets_min_requirements = meets_min_requirements.filter((item: { year: number, company: number }) => {
               return assessed.findIndex((a: any) => {
                 return a.company == item.company && a.year == item.year

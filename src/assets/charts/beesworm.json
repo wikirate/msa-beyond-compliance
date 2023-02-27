@@ -54,7 +54,7 @@
     },
     {
       "name": "companies",
-      "url": "https://wikirate.org/~12621772+Answer.json?filter[year]=latest&filter[value]=Yes&limit=0&view=company_list",
+      "url": "https://wikirate.org/~12621772+Answer.json?filter[year]=latest&filter[value][]=Yes&limit=0&view=company_list",
       "transform": [
         {
           "type": "lookup",
@@ -68,7 +68,7 @@
     },
     {
       "name": "assessed_statements",
-      "url": "https://wikirate.org/~12621772+Answer.json?view=answer_list&limit=0&filter[year]=latest&filter[company_group]=&filter[value]=Yes",
+      "url": "https://wikirate.org/~12621772+Answer.json?view=answer_list&limit=0&filter[year]=latest&filter[company_group]=&filter[value][]=Yes",
       "transform": [
         {
           "type": "lookup",

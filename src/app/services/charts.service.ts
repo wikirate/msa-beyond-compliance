@@ -427,7 +427,7 @@ export class ChartsService {
                     height: number,
                     options: {}) {
     var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
-    var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value]=Yes`;
+    var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value][]=Yes`;
     bee_chart['data'][8]['url'] = assessed_statements_url
     return embed(element, bee_chart, options);
   }
@@ -442,7 +442,7 @@ export class ChartsService {
                                   height: number,
                                   options: {}) {
     var bee_chart = JSON.parse(JSON.stringify(sector_beesworm_chart))
-    var sector_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}&filter[value]=Yes`;
+    var sector_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}&filter[value][]=Yes`;
     var sector_companies_url = `../assets/cached/${company_group.split(" ").join('_')}.json`;
     bee_chart['data'][2]['url'] = sector_companies_url
     bee_chart['data'][3]['url'] = sector_assessed_url
