@@ -51,7 +51,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
     this.dataProvider.getAnswers(
       this.dataProvider.metrics.uk_msa_statement_assessed, [
         new Filter("year", this.year),
-        new Filter('value', 'Yes'),
+        new Filter('value', ['Yes']),
         new Filter("company_group", company_group)
       ]
     ).subscribe(uk_assessed => {
@@ -59,7 +59,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
         return {company: a['company'], year: a['year']}
       })
       this.dataProvider.getAnswers(
-        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', 'Yes'),
+        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
           new Filter("company_group", company_group)]
       ).subscribe(aus_assessed => {
         let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
