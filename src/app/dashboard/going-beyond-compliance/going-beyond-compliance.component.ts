@@ -102,7 +102,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
             if (metric['label'] == "Consultation process") {
               this.beyond_compliance_table_data.push({
                 'name': metric['label'],
-                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
                 'uk': "N/A",
                 'aus': aus_percent,
                 'total': "N/A",
@@ -112,7 +112,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
             } else {
               this.beyond_compliance_table_data.push({
                 'name': metric['label'],
-                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&' + filter_value.substring(0, filter_value.length + 1),
+                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
                 'uk': uk_percent,
                 'aus': aus_percent,
                 'total': total_percent,
