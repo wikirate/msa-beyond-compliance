@@ -36,7 +36,7 @@
   "data": [
     {
       "name": "assessed",
-      "url": "https://wikirate.org/~12602618+Answer.json?limit=0&filter[value]=Yes&filter[year]=latest&view=answer_list"
+      "url": "https://wikirate.org/~12602618+Answer.json?limit=0&filter[value][]=Yes&filter[year]=latest&view=answer_list"
     },
     {
       "name": "signed",
