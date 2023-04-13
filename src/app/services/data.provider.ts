@@ -2,9 +2,12 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Filter} from "../models/filter.model";
 import {ValueRange} from "../models/valuerange.model";
+import {Observable, of, tap} from "rxjs";
 
 @Injectable()
 export class DataProvider {
+  private cache: { [url: string]: any } = {};
+
   wikirateApiHost = "https://wikirate.org"
 
   metrics = {
@@ -42,7 +45,7 @@ export class DataProvider {
     }
     params = params.append("limit", 0)
     params = params.append("view", "answer_list")
-    return this.httpClient.get<any>(url, {params: params})
+    return this.get<any>(url, params)
   }
 
   getCompanyGroup(sector: string | null) {
@@ -57,6 +60,23 @@ export class DataProvider {
     } else {
       return ""
     }
+  }
+
+  get<T>(url: string, params: HttpParams = new HttpParams(), useCache: boolean = true): Observable<T> {
+    const cacheKey = url + JSON.stringify(params);
+
+    if (useCache && this.cache[cacheKey]) {
+      return of(this.cache[cacheKey]);
+    }
+    return this.httpClient.get<T>(url, { params: params }).pipe(
+      tap(data => {
+        this.cache[cacheKey] = data;
+      })
+    );
+  }
+
+  clearCache() {
+    this.cache = {};
   }
 
 
