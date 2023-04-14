@@ -195,7 +195,7 @@ export class KeyFindingsSectionComponent implements OnInit {
 
     /**perform the requests using forkJoin to get all the results before start calculating the key findings**/
     forkJoin([statements, assessed, meet_requirements, beyond_compliance]).subscribe(results => {
-      console.log(results)
+
       this.numOfCompaniesUnderMSA = results[0].length
       this.numOfAssessedMSAStatements = results[1].length
 
