@@ -6,6 +6,8 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
 import {Meta, Title} from "@angular/platform-browser";
+import {forkJoin} from "rxjs";
+import {WikirateUrlBuilder} from "../../utils/wikirate-url-builder";
 
 @Component({
   selector: 'key-findings-section',
@@ -26,10 +28,10 @@ export class KeyFindingsSectionComponent implements OnInit {
   legislation: string = 'both'
   isLoading: boolean = true;
 
-  legislation_filter: string = '&filter[value][]=Yes - UK Modern Slavery Act&filter[value][]=Yes - Australian Modern Slavery Act'
-  beyond_compliance_metric = '#'
-  meet_min_req_metric: string = '#'
-  msa_statement_assessed_metric: string = '#'
+  beyond_compliance_metric_url = '#'
+  meet_min_requirements_metric_url: string = '#'
+  msa_statement_assessed_metric_url: string = '#'
+  msa_statements_metric_url: string = '#'
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
               private route: ActivatedRoute, private sectorProvider: SectorProvider,
@@ -81,118 +83,134 @@ export class KeyFindingsSectionComponent implements OnInit {
   updateData($event: any) {
     this.isLoading = true;
     this.numOfAssessedMSAStatements = 0;
+
     if (this.legislation === 'both') {
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+MSA_Beyond_Compliance?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
-      this.legislation_filter = "&filter[value][]=Yes - UK Modern Slavery Act&filter[value][]=Yes - Australian Modern Slavery Act"
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
-      this.msa_statement_assessed_metric = 'MSA_statement_assessed'
-      this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
-        [new Filter("year", this.year), new Filter("company_group", this.company_group), new Filter("value", ["Yes - UK Modern Slavery Act", "Yes - Australian Modern Slavery Act"])]).subscribe(data => {
-        this.numOfCompaniesUnderMSA = data.length
-        this.dataProvider.getAnswers(this.dataProvider.metrics.msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", "Yes"), new Filter("company_group", this.company_group)]).subscribe(assessed => {
-          this.numOfAssessedMSAStatements = assessed.length
-          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
-            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_uk_min_requirements => {
-            meets_uk_min_requirements = meets_uk_min_requirements.filter((item: { year: number, company: number }) => {
-              return assessed.findIndex((a: any) => {
-                return a.company == item.company && a.year == item.year
-              }) >= 0
-            })
-            this.meetsMinRequirements = meets_uk_min_requirements.length
-            this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
-              [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_aus_min_requirements => {
-              meets_aus_min_requirements = meets_aus_min_requirements.filter((item: { year: number, company: number }) => {
-                return assessed.findIndex((a: any) => {
-                  return a.company == item.company && a.year == item.year
-                }) >= 0 && meets_uk_min_requirements.findIndex((a: any) => {
-                  return a.company == item.company && a.year == item.year
-                }) < 0
-              })
-              this.meetsMinRequirements = Math.round((this.meetsMinRequirements + meets_aus_min_requirements.length) * 100 / this.numOfAssessedMSAStatements)
-              this.dataProvider.getAnswers(this.dataProvider.metrics.msa_beyond_compliance,
-                [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(beyond_compliance => {
-                beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                  return assessed.findIndex((a: any) => {
-                    return a.company == item.company && a.year == item.year
-                  }) >= 0
-                })
-                this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
-              }, (error) => console.log(error), () => this.isLoading = false)
-            })
-          })
-        })
-      })
+      this.key_findings_calculation(
+        this.dataProvider.metrics.modern_slavery_statement,
+        this.dataProvider.metrics.msa_statement_assessed,
+        this.dataProvider.metrics.msa_meet_min_requirements,
+        this.dataProvider.metrics.msa_beyond_compliance)
+
       return $event;
     } else if (this.legislation === 'uk') {
-      this.msa_statement_assessed_metric = 'UK_MSA_statement_assessed'
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_UK_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+UK_MSA_Beyond_Compliance_Disclosure_Rate?&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year + "&filter[value][from]=0"
-      this.legislation_filter = "&filter[value][]=Yes - UK Modern Slavery Act"
-      this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
-        [new Filter("year", this.year), new Filter("value", ["Yes - UK Modern Slavery Act"]), new Filter("company_group", this.company_group)]).subscribe(data => {
-        this.numOfCompaniesUnderMSA = data.length
-        this.dataProvider.getAnswers(this.dataProvider.metrics.uk_msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(assessed => {
-          this.numOfAssessedMSAStatements = assessed.length
-          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_uk_min_requirements,
-            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
-            meets_min_requirements = meets_min_requirements.filter((item: { year: number, company: number }) => {
-              return assessed.findIndex((a: any) => {
-                return a.company == item.company && a.year == item.year
-              }) >= 0
-            })
-            this.meetsMinRequirements = Math.round((meets_min_requirements.length / this.numOfAssessedMSAStatements) * 100)
-            this.dataProvider.getAnswers(this.dataProvider.metrics.uk_beyond_compliance_disclosure_rate,
-              [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", this.company_group)]).subscribe(beyond_compliance => {
-              beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                return assessed.findIndex((a: any) => {
-                  return a.company == item.company && a.year == item.year
-                }) >= 0
-              })
-              this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
-            }, (error) => console.log(error), () => this.isLoading = false)
-          })
-        })
-      })
+      this.key_findings_calculation(
+        this.dataProvider.metrics.modern_slavery_statement,
+        this.dataProvider.metrics.uk_msa_statement_assessed,
+        this.dataProvider.metrics.meet_uk_min_requirements,
+        this.dataProvider.metrics.uk_beyond_compliance_disclosure_rate)
       return $event;
     } else {
-      this.msa_statement_assessed_metric = 'Australian_MSA_statement_assessed'
-      this.meet_min_req_metric = 'https://wikirate.org/Walk_Free+Meets_Minimum_Australian_MSA_Requirements?filter[value]=Yes&filter[company_group]=' + this.company_group + '&filter[year]=' + this.year
-      this.beyond_compliance_metric = 'https://wikirate.org/Walk_Free+AUS_MSA_Beyond_Compliance_Disclosure_Rate?filter[company_group]=' + this.company_group + '&filter[year]=' + this.year + "&filter[value][from]=0"
-      this.legislation_filter = "&filter[value][]=Yes - Australian Modern Slavery Act"
       if (this.year !== '' && this.year !== 'latest' && Number(this.year) < 2020) {
         this.openMessage();
         this.year = 2020;
       }
-      this.dataProvider.getAnswers(this.dataProvider.metrics.modern_slavery_statement,
-        [new Filter("year", this.year), new Filter("value", ["Yes - Australian Modern Slavery Act"]), new Filter("company_group", this.company_group)]).subscribe(data => {
-        this.numOfCompaniesUnderMSA = data.length
-        this.dataProvider.getAnswers(this.dataProvider.metrics.aus_msa_statement_assessed,
-          [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(assessed => {
-          this.numOfAssessedMSAStatements = assessed.length
-          this.dataProvider.getAnswers(this.dataProvider.metrics.meet_aus_min_requirements,
-            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", this.company_group)]).subscribe(meets_min_requirements => {
-            meets_min_requirements = meets_min_requirements.filter((item: { year: number, company: number }) => {
-              return assessed.findIndex((a: any) => {
-                return a.company == item.company && a.year == item.year
-              }) >= 0
-            })
-            this.meetsMinRequirements = Math.round((meets_min_requirements.length / this.numOfAssessedMSAStatements) * 100)
-            this.dataProvider.getAnswers(this.dataProvider.metrics.aus_beyond_compliance_disclosure_rate,
-              [new Filter("year", this.year), new Filter("value", new ValueRange(1, '')), new Filter("company_group", this.company_group)]).subscribe(beyond_compliance => {
-              beyond_compliance = beyond_compliance.filter((item: { year: number, company: number }) => {
-                return assessed.findIndex((a: any) => {
-                  return a.company == item.company && a.year == item.year
-                }) >= 0
-              })
-              this.go_beyond_compliance = Math.round((beyond_compliance.length) * 100 / this.numOfAssessedMSAStatements)
-            }, (error) => console.log(error), () => this.isLoading = false)
-          })
-        })
-      })
+      this.key_findings_calculation(
+        this.dataProvider.metrics.modern_slavery_statement,
+        this.dataProvider.metrics.aus_msa_statement_assessed,
+        this.dataProvider.metrics.meet_aus_min_requirements,
+        this.dataProvider.metrics.aus_beyond_compliance_disclosure_rate)
+
       return this.year;
     }
+  }
+
+  /**
+   * This method performs all the necessary requests to wikirate's api to retrieve the required data in order to
+   * calculate the statistics on the component. Different metrics might be used when different filtering is applied.
+   * The method gets as input the ids of the metrics used for calculating the key findings.
+   * @param statements_metric
+   * @param assessed_statements_metric
+   * @param meet_requirements_metric
+   * @param beyond_compliance_metric
+   */
+  key_findings_calculation(statements_metric: number, assessed_statements_metric: number, meet_requirements_metric: number, beyond_compliance_metric: number) {
+
+    let legislation_filter_value = ["Yes - UK Modern Slavery Act", "Yes - Australian Modern Slavery Act"]
+    let beyond_compliance_value: any = ["Yes"]
+    if (this.legislation === 'uk') {
+      legislation_filter_value = ["Yes - UK Modern Slavery Act"]
+      beyond_compliance_value = new ValueRange(1, '');
+    } else if (this.legislation === 'aus') {
+      legislation_filter_value = ["Yes - Australian Modern Slavery Act"]
+      beyond_compliance_value = new ValueRange(1, '');
+    }
+
+    //build urls to link the numbers to wikirate metrics with proper filters applied
+    this.msa_statements_metric_url = new WikirateUrlBuilder()
+      .setEndpoint(statements_metric)
+      .addFilter(new Filter('value', legislation_filter_value))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    this.meet_min_requirements_metric_url = new WikirateUrlBuilder()
+      .setEndpoint(meet_requirements_metric)
+      .addFilter(new Filter('value', 'Yes'))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    this.msa_statement_assessed_metric_url = new WikirateUrlBuilder()
+      .setEndpoint(assessed_statements_metric)
+      .addFilter(new Filter('value', 'Yes'))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    this.beyond_compliance_metric_url = new WikirateUrlBuilder()
+      .setEndpoint(beyond_compliance_metric)
+      .addFilter(new Filter("value", beyond_compliance_value))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    //prepare all requests that need to be executed
+    const statements = this.dataProvider.getAnswers(statements_metric,
+      [
+        new Filter("year", this.year),
+        new Filter("value", legislation_filter_value),
+        new Filter("company_group", this.company_group)
+      ])
+
+    const assessed = this.dataProvider.getAnswers(assessed_statements_metric,
+      [
+        new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", this.company_group)
+      ])
+
+    const meet_requirements = this.dataProvider.getAnswers(meet_requirements_metric,
+      [
+        new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", this.company_group)
+      ])
+
+    const beyond_compliance = this.dataProvider.getAnswers(beyond_compliance_metric,
+      [
+        new Filter("year", this.year),
+        new Filter("value", beyond_compliance_value),
+        new Filter("company_group", this.company_group)
+      ])
+
+    /**perform the requests using forkJoin to get all the results before start calculating the key findings**/
+    forkJoin([statements, assessed, meet_requirements, beyond_compliance]).subscribe(results => {
+      console.log(results)
+      this.numOfCompaniesUnderMSA = results[0].length
+      this.numOfAssessedMSAStatements = results[1].length
+
+      results[2] = results[2].filter((item: { year: number, company: number }) => {
+        return results[1].findIndex((a: any) => {
+          return a.company == item.company && a.year == item.year
+        }) >= 0
+      })
+      this.meetsMinRequirements = Math.round((results[2].length / this.numOfAssessedMSAStatements) * 100)
+
+      this.go_beyond_compliance = Math.round((results[3].length) * 100 / this.numOfAssessedMSAStatements)
+
+      //loading stops when all requests and calculations have been performed successfully
+      this.isLoading = false
+    })
   }
 
   openMessage() {
