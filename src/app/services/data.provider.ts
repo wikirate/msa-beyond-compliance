@@ -18,6 +18,7 @@ export class DataProvider {
     uk_msa_statement_assessed: 12602618,
     meet_uk_min_requirements: 6901749,
     meet_aus_min_requirements: 12601871,
+    msa_meet_min_requirements: 12642257,
     aus_beyond_compliance_disclosure_rate: 12620676,
     uk_beyond_compliance_disclosure_rate: 6899063,
     msa_beyond_compliance: 12620974,
