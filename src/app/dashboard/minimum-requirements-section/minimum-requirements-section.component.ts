@@ -8,6 +8,7 @@ import uk_minimum_requirements from "../../../assets/charts-params/uk-minimum-re
 import aus_minimum_requirements from "../../../assets/charts-params/aus-minimum-requirements.json";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'minimum-requirements-section',
@@ -80,43 +81,47 @@ export class MinimumRequirementsSectionComponent implements OnInit {
     }
   }
 
+
   draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group: string) {
-    this.dataProvider.getAnswers(assessed_statements_metric_id,
-      [new Filter("year", this.year), new Filter("value", ["Yes"]),
-        new Filter("company_group", company_group)]).subscribe(assessed_statements => {
-      let assessed = assessed_statements.length
+    const assessed_statements = this.dataProvider.getAnswers(assessed_statements_metric_id,
+      [
+        new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", company_group)
+      ])
+
+    const meet_requirements = this.dataProvider.getAnswers(meet_min_requirements_metric_id,
+      [
+        new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", company_group)
+      ])
+
+    forkJoin([assessed_statements, meet_requirements]).subscribe(results => {
+      let assessed = results[0].length
       if (assessed_statements_metric_id === this.dataProvider.metrics.uk_msa_statement_assessed) {
-        this.uk_assessed = assessed_statements.length
+        this.uk_assessed = results[0].length
       } else {
-        this.aus_assessed = assessed_statements.length
+        this.aus_assessed = results[0].length
       }
-      this.dataProvider.getAnswers(meet_min_requirements_metric_id,
-        [new Filter("year", this.year), new Filter("value", ["Yes"]),
-          new Filter("company_group", company_group)]).subscribe(meet_min_requirements_statements => {
-        meet_min_requirements_statements.filter((item: { year: number, company: number }) => {
-          return assessed_statements.findIndex((a: any) => {
-            return a.company == item.company && a.year == item.year
-          }) >= 0
-        })
-        let meet_min_requirements = meet_min_requirements_statements.length
-        this.chartsService.drawPieChart(
-          title,
-          element,
-          [{
-            'value': 'Met',
-            'count': meet_min_requirements,
+
+      let meet_min_requirements = results[1].length
+      this.chartsService.drawPieChart(
+        title,
+        element,
+        [{
+          'value': 'Met',
+          'count': meet_min_requirements,
+          'sum_count': assessed
+        },
+          {
+            'value': 'Not Met',
+            'count': assessed - meet_min_requirements,
             'sum_count': assessed
-          },
-            {
-              'value': 'Not Met',
-              'count': assessed - meet_min_requirements,
-              'sum_count': assessed
-            }],
-          210, 180, ["#000029", "#FF5C45"],
-          ["Not Met", "Met"], {renderer: "svg", actions: false})
-      }, error => {
-        console.log(error)
-      }, () => this.isLoading = false)
+          }],
+        210, 180, ["#000029", "#FF5C45"],
+        ["Not Met", "Met"], {renderer: "svg", actions: false})
+      this.isLoading = false
     })
   }
 
