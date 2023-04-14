@@ -26,6 +26,7 @@ export class WikirateUrlBuilder {
     let url_suffix = ''
     for (let filter of this.filters) {
       if (Array.isArray(filter.value)) {
+        if (filter.value === []) continue
         for (let single_value of filter.value) {
           url_suffix += `filter[${filter.name}][]=${single_value}&`
         }
@@ -33,6 +34,7 @@ export class WikirateUrlBuilder {
         url_suffix += `filter[${filter.name}][from]=${filter.value.from}&`
         url_suffix += `filter[${filter.name}][to]=${filter.value.to}&`
       } else {
+        if (filter.value === '' || filter.value === undefined) continue
         url_suffix += `filter[${filter.name}][]=${filter.value}&`
       }
     }
