@@ -7,7 +7,7 @@
       <div class="col-md-4">
         <select class="msa-form-select ms-md-auto" aria-label="Minimum requirements year filter"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-                (change)="updateDisclosureRates()">
+                (change)="updateData()">
           <option [ngValue]="''" selected>ALL YEARS</option>
           <option [ngValue]="'latest'">LATEST</option>
           <option [ngValue]="2021">2021</option>

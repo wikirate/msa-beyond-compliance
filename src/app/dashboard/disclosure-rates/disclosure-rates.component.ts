@@ -5,6 +5,8 @@ import {Filter} from "../../models/filter.model";
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json";
 import {SectorProvider} from "../../services/sector.provider";
 import {ActivatedRoute} from "@angular/router";
+import {ValueRange} from "../../models/valuerange.model";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'disclosure-rates',
@@ -24,103 +26,106 @@ export class DisclosureRatesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updateDisclosureRates()
+    this.updateData()
     this.route.url.subscribe(val => {
       if (val[1].path === 'disclosure-rates')
         this.sectorProvider.getPath().next(val[1].path)
     })
   }
 
-  updateDisclosureRates() {
+  /**
+   * Update Data function calculates the average disclosure rate per selected sector and year. We are taking here into
+   * consideration only assessed statements into the calculation.
+   */
+  updateData() {
     this.isLoading = true;
-    this.dataProvider.getAnswers(
+
+    const food_and_bev_assessed_statements = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', 'Yes'),
-        new Filter("company_group", "MSA Garment")
-      ]
-    ).subscribe(assessed => {
-      this.dataProvider.getAnswers(
-        this.dataProvider.metrics.msa_disclosure_rate, [
-          new Filter("year", this.year),
-          new Filter("company_group", "MSA Garment")
-        ]
-      ).subscribe(disclosure_rates => {
-        this.garment_avg_disclosure_rate = 0;
-        disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
-        for (let answer of disclosure_rates) {
-          this.garment_avg_disclosure_rate += Number(answer['value']);
-        }
-        this.garment_avg_disclosure_rate = Math.round(this.garment_avg_disclosure_rate / disclosure_rates.length)
-        this.dataProvider.getAnswers(
-          this.dataProvider.metrics.msa_statement_assessed, [
-            new Filter("year", this.year),
-            new Filter('value', 'Yes'),
-            new Filter("company_group", "MSA Financial")
-          ]
-        ).subscribe(assessed => {
-          this.dataProvider.getAnswers(
-            this.dataProvider.metrics.msa_disclosure_rate, [
-              new Filter("year", this.year),
-              new Filter("company_group", "MSA Financial")
-            ]
-          ).subscribe(disclosure_rates => {
-            this.financial_avg_disclosure_rate = 0;
-            disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
-            for (let answer of disclosure_rates) {
-              this.financial_avg_disclosure_rate += Number(answer['value']);
-            }
-            this.financial_avg_disclosure_rate = Math.round(this.financial_avg_disclosure_rate / disclosure_rates.length)
-          })
-        })
-      })
-      this.dataProvider.getAnswers(
-        this.dataProvider.metrics.msa_statement_assessed, [
-          new Filter("year", this.year),
-          new Filter('value', 'Yes'),
-          new Filter("company_group", "MSA Hospitality")
-        ]
-      ).subscribe(assessed => {
-        this.dataProvider.getAnswers(
-          this.dataProvider.metrics.msa_disclosure_rate, [
-            new Filter("year", this.year),
-            new Filter("company_group", "MSA Hospitality")
-          ]
-        ).subscribe(disclosure_rates => {
-          this.hospitality_avg_disclosure_rate = 0;
-          disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
-          for (let answer of disclosure_rates) {
-            this.hospitality_avg_disclosure_rate += Number(answer['value']);
-          }
-          this.hospitality_avg_disclosure_rate = Math.round(this.hospitality_avg_disclosure_rate / disclosure_rates.length)
-        }, (error) => console.log(error), () => this.isLoading = false)
-      })
+        new Filter("company_group", this.dataProvider.sectors.food_and_beverage)
+      ])
 
-      this.dataProvider.getAnswers(
-        this.dataProvider.metrics.msa_statement_assessed, [
-          new Filter("year", this.year),
-          new Filter('value', 'Yes'),
-          new Filter("company_group", "MSA Food Beverage")
-        ]
-      ).subscribe(assessed => {
-        this.dataProvider.getAnswers(
-          this.dataProvider.metrics.msa_disclosure_rate, [
-            new Filter("year", this.year),
-            new Filter("company_group", "MSA Food Beverage")
-          ]
-        ).subscribe(disclosure_rates => {
-          this.food_bev_avg_disclosure_rate = 0;
-          disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
-          for (let answer of disclosure_rates) {
-            this.food_bev_avg_disclosure_rate += Number(answer['value']);
-          }
-          this.food_bev_avg_disclosure_rate = Math.round(this.food_bev_avg_disclosure_rate / disclosure_rates.length)
-        }, (error) => console.log(error), () => this.isLoading = false)
-      })
+    const food_and_bev_disclosure_rates = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_disclosure_rate, [
+        new Filter("year", this.year),
+        new Filter("company_group", this.dataProvider.sectors.food_and_beverage)
+      ]
+    )
+
+    const garment_assessed_statements = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_statement_assessed, [
+        new Filter("year", this.year),
+        new Filter('value', 'Yes'),
+        new Filter("company_group", this.dataProvider.sectors.garment)
+      ])
+
+    const garment_disclosure_rates = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_disclosure_rate, [
+        new Filter("year", this.year),
+        new Filter("company_group", this.dataProvider.sectors.garment)
+      ]
+    )
+
+    const financial_assessed_statements = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_statement_assessed, [
+        new Filter("year", this.year),
+        new Filter('value', 'Yes'),
+        new Filter("company_group", this.dataProvider.sectors.financial)
+      ])
+
+    const financial_disclosure_rates = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_disclosure_rate, [
+        new Filter("year", this.year),
+        new Filter("company_group", this.dataProvider.sectors.financial)
+      ]
+    )
+
+    const hospitality_assessed_statements = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_statement_assessed, [
+        new Filter("year", this.year),
+        new Filter('value', 'Yes'),
+        new Filter("company_group", this.dataProvider.sectors.hospitality)
+      ])
+
+    const hospitality_disclosure_rates = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_disclosure_rate, [
+        new Filter("year", this.year),
+        new Filter("company_group", this.dataProvider.sectors.hospitality)
+      ]
+    )
+
+    forkJoin([food_and_bev_assessed_statements, food_and_bev_disclosure_rates, garment_assessed_statements,
+      garment_disclosure_rates, financial_assessed_statements, financial_disclosure_rates, hospitality_assessed_statements,
+      hospitality_disclosure_rates]).subscribe(results => {
+      this.food_bev_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[0], results[1]);
+      this.garment_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[2], results[3]);
+      this.financial_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[4], results[5]);
+      this.hospitality_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[6], results[7]);
+
+      this.isLoading = false;
     })
   }
 
-  openURL(sector: string) {
+  /**
+   * Calculates the average disclosure rate given the array of the assessed statements and disclosure rates
+   * @param assessed_statements
+   * @param disclosure_rates
+   * @private
+   */
+  private calc_avg_disclosure_rate(assessed_statements: any, disclosure_rates: any): number {
+    let avg_discosure_rate = 0;
+    disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed_statements.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
+    for (let answer of disclosure_rates)
+      avg_discosure_rate += answer['value'] == 'Unknown' ? 0 : Number(answer['value']);
+    return Math.round(avg_discosure_rate / disclosure_rates.length)
+  }
+
+  openURL(sector
+            :
+            string
+  ) {
     let url = `${this.dataProvider.wikirateApiHost}/~${this.dataProvider.metrics.msa_disclosure_rate}?filter[company_group][]=${sector}&filter[year]=${this.year}`
     window.open(url, "_blank")
   }
