@@ -10,6 +10,14 @@ export class DataProvider {
 
   wikirateApiHost = "https://wikirate.org"
 
+  sectors = {
+    garment: 'MSA Garment',
+    food_and_beverage: 'MSA Food Beverage',
+    hospitality: 'MSA Hospitality',
+    financial: 'MSA Financial',
+    none: ''
+  }
+
   metrics = {
     msa_registry_submission: 12536930,
     modern_slavery_statement: 1827651,
@@ -51,15 +59,15 @@ export class DataProvider {
 
   getCompanyGroup(sector: string | null) {
     if (sector === 'garment-sector') {
-      return "MSA Garment"
+      return this.sectors.garment
     } else if (sector === 'food-and-beverage') {
-      return "MSA Food Beverage"
+      return this.sectors.food_and_beverage
     } else if (sector === 'hospitality-sector') {
-      return "MSA Hospitality"
+      return this.sectors.hospitality
     } else if (sector === 'financial-sector') {
-      return "MSA Financial"
+      return this.sectors.financial
     } else {
-      return ""
+      return this.sectors.none
     }
   }
 
@@ -69,7 +77,7 @@ export class DataProvider {
     if (useCache && this.cache[cacheKey]) {
       return of(this.cache[cacheKey]);
     }
-    return this.httpClient.get<T>(url, { params: params }).pipe(
+    return this.httpClient.get<T>(url, {params: params}).pipe(
       tap(data => {
         this.cache[cacheKey] = data;
       })
