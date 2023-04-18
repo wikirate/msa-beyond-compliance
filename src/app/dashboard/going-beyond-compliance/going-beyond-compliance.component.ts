@@ -20,9 +20,6 @@ export class GoingBeyondComplianceComponent implements OnInit {
   beyond_compliance_table_data: any[] = []
   active: string = 'name';
   isLoading: boolean = true;
-  garment_avg_disclosure_rate: number = 0;
-  financial_avg_disclosure_rate: number = 0;
-  hospitality_avg_disclosure_rate: number = 0;
 
   constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider) {
   }
