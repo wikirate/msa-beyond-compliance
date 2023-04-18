@@ -7,6 +7,7 @@ import {SectorProvider} from "../../services/sector.provider";
 import {ActivatedRoute} from "@angular/router";
 import {ValueRange} from "../../models/valuerange.model";
 import {forkJoin} from "rxjs";
+import {WikirateUrlBuilder} from "../../utils/wikirate-url-builder";
 
 @Component({
   selector: 'disclosure-rates',
@@ -122,11 +123,13 @@ export class DisclosureRatesComponent implements OnInit {
     return Math.round(avg_discosure_rate / disclosure_rates.length)
   }
 
-  openURL(sector
-            :
-            string
-  ) {
-    let url = `${this.dataProvider.wikirateApiHost}/~${this.dataProvider.metrics.msa_disclosure_rate}?filter[company_group][]=${sector}&filter[year]=${this.year}`
+  openURL(sector: string) {
+    let url = new WikirateUrlBuilder()
+      .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+      .addFilter(new Filter('company_group', sector))
+      .addFilter(new Filter('year', this.year))
+      .build();
+
     window.open(url, "_blank")
   }
 }
