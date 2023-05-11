@@ -29,7 +29,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
         let sector = params.get('sector');
         if (sector !== null) {
           this.sector = sector
-          this.updateBeyondComplianceTable()
+          this.updateData()
         }
         this.sectorProvider.getSector().next(sector);
       }
@@ -40,7 +40,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
     })
   }
 
-  updateBeyondComplianceTable() {
+  updateData() {
     this.active = "name"
     this.beyond_compliance_table_data = []
     this.isLoading = true;
@@ -140,6 +140,6 @@ export class GoingBeyondComplianceComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.updateBeyondComplianceTable()
+    this.updateData()
   }
 }
