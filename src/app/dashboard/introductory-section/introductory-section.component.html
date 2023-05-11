@@ -1,20 +1,21 @@
 <div class="intro">
-    <div class="col-md-6 bg-deep-blue-transparent p-5 ms-auto">
-      <h1 class="title pt-5">Beyond Compliance</h1>
-      <div class="row pb-5">
-        <div class="subtitle mt-4">
-          A living data dashboard assessing modern slavery reporting across business sectors.
-        </div>
-
-        <div class="mt-4 mb-1 pb-5" *ngIf="page === 'dashboard'">
-          <a class="button orange-button mb-2" type="button" routerLink="/about">
-            <!--       href="{{'https://wikirate.org/MSA_Beyond_Compliance_Research?filter[company_group]='+company_group}}"-->
-
-            Take Action</a>
-          <a class="button transparent-button mt-md-0 mt-3"
-             href="{{'https://wikirate.org/MSA_Beyond_Compliance_Dashboard#wikirate_footer-content-view?filter[company_group]='+company_group}}"
-             target="_blank">Download Dataset</a>
-        </div>
+  <div class="col-md-6 bg-deep-blue-transparent p-5 ms-auto">
+    <h1 class="title pt-5">Beyond Compliance</h1>
+    <div class="row pb-5">
+      <div class="subtitle mt-4">
+        A living data dashboard assessing modern slavery reporting across business sectors.
       </div>
+
+      <div class="mt-4 mb-1 pb-5" *ngIf="page === 'dashboard'">
+        <a class="button orange-button mb-2" type="button" routerLink="/about">
+          <!--       href="{{'https://wikirate.org/MSA_Beyond_Compliance_Research?filter[company_group]='+company_group}}"-->
+
+          Take Action</a>
+        <a class="button transparent-button mt-md-0 mt-3"
+           href="{{'/assets/downloads/Wikirate_MSA_Beyond_Compliance_Dashboard_Dataset_'+(company_group===''? 'full': company_group)+'.csv'}}"
+           download="{{'Wikirate_MSA_Beyond_Compliance_Dashboard_Dataset_'+company_group+'.csv'}}">Download
+          Dataset</a>
+      </div>
+    </div>
   </div>
 </div>

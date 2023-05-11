@@ -11,10 +11,10 @@ export class DataProvider {
   wikirateApiHost = "https://wikirate.org"
 
   sectors = {
-    garment: 'MSA Garment',
-    food_and_beverage: 'MSA Food Beverage',
-    hospitality: 'MSA Hospitality',
-    financial: 'MSA Financial',
+    garment: 'MSA_Garment',
+    food_and_beverage: 'MSA_Food_Beverage',
+    hospitality: 'MSA_Hospitality',
+    financial: 'MSA_Financial',
     none: ''
   }
 

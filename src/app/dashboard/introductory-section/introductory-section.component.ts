@@ -20,6 +20,7 @@ export class IntroductorySectionComponent implements OnInit, AfterViewInit {
     this.sectorProvider.getSector().subscribe(sector => {
       this.sector = sector;
       this.company_group = this.dataProvider.getCompanyGroup(sector)
+
     })
   }
 
