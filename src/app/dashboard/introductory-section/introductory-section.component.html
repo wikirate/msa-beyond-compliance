@@ -14,7 +14,7 @@
         <a class="button transparent-button mt-md-0 mt-3"
            href="{{'/assets/downloads/Wikirate_MSA_Beyond_Compliance_Dashboard_Dataset_'+(company_group===''? 'full': company_group)+'.csv'}}"
            download="{{'Wikirate_MSA_Beyond_Compliance_Dashboard_Dataset_'+company_group+'.csv'}}">Download
-          Dataset</a>
+          {{company_group === '' ? 'Full' : 'Sector'}} Dataset</a>
       </div>
     </div>
   </div>
