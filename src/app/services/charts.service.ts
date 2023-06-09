@@ -446,19 +446,19 @@ export class ChartsService {
     var sector_companies_url = `../assets/cached/${company_group.split(" ").join('_')}.json`;
     bee_chart['data'][2]['url'] = sector_companies_url
     bee_chart['data'][3]['url'] = sector_assessed_url
-    if (company_group === "MSA Garment")
+    if (company_group === "MSA_Garment")
       bee_chart['data'][3]['transform'].push({
         "type": "formula",
         "as": "sector",
         "expr": "'Garment'"
       })
-    else if (company_group === "MSA Food Beverage")
+    else if (company_group === "MSA_Food_Beverage")
       bee_chart['data'][3]['transform'].push({
         "type": "formula",
         "as": "sector",
         "expr": "'Food Beverage'"
       })
-    else if (company_group === "MSA Financial")
+    else if (company_group === "MSA_Financial")
       bee_chart['data'][3]['transform'].push({
         "type": "formula",
         "as": "sector",
