@@ -10,12 +10,20 @@ export class DataProvider {
 
   wikirateApiHost = "https://wikirate.org"
 
-  sectors = {
+  company_groups = {
     garment: 'MSA_Garment',
     food_and_beverage: 'MSA_Food_Beverage',
     hospitality: 'MSA_Hospitality',
     financial: 'MSA_Financial',
     none: ''
+  }
+
+  sectors = {
+    'all-sectors': 'All Sectors',
+    'food-and-beverage': 'Food & Beverage',
+    'garment-sector': 'Garment',
+    'financial-sector': 'Financial',
+    'hospitality-sector': 'Hospitality'
   }
 
   metrics = {
@@ -59,15 +67,15 @@ export class DataProvider {
 
   getCompanyGroup(sector: string | null) {
     if (sector === 'garment-sector') {
-      return this.sectors.garment
+      return this.company_groups.garment
     } else if (sector === 'food-and-beverage') {
-      return this.sectors.food_and_beverage
+      return this.company_groups.food_and_beverage
     } else if (sector === 'hospitality-sector') {
-      return this.sectors.hospitality
+      return this.company_groups.hospitality
     } else if (sector === 'financial-sector') {
-      return this.sectors.financial
+      return this.company_groups.financial
     } else {
-      return this.sectors.none
+      return this.company_groups.none
     }
   }
 
