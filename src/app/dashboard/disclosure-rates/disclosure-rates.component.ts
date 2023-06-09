@@ -45,13 +45,13 @@ export class DisclosureRatesComponent implements OnInit {
       this.dataProvider.metrics.msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.sectors.food_and_beverage)
+        new Filter("company_group", this.dataProvider.company_groups.food_and_beverage)
       ])
 
     const food_and_bev_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.sectors.food_and_beverage)
+        new Filter("company_group", this.dataProvider.company_groups.food_and_beverage)
       ]
     )
 
@@ -59,13 +59,13 @@ export class DisclosureRatesComponent implements OnInit {
       this.dataProvider.metrics.msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.sectors.garment)
+        new Filter("company_group", this.dataProvider.company_groups.garment)
       ])
 
     const garment_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.sectors.garment)
+        new Filter("company_group", this.dataProvider.company_groups.garment)
       ]
     )
 
@@ -73,13 +73,13 @@ export class DisclosureRatesComponent implements OnInit {
       this.dataProvider.metrics.msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.sectors.financial)
+        new Filter("company_group", this.dataProvider.company_groups.financial)
       ])
 
     const financial_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.sectors.financial)
+        new Filter("company_group", this.dataProvider.company_groups.financial)
       ]
     )
 
@@ -87,13 +87,13 @@ export class DisclosureRatesComponent implements OnInit {
       this.dataProvider.metrics.msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.sectors.hospitality)
+        new Filter("company_group", this.dataProvider.company_groups.hospitality)
       ])
 
     const hospitality_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.sectors.hospitality)
+        new Filter("company_group", this.dataProvider.company_groups.hospitality)
       ]
     )
 

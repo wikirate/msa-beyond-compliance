@@ -80,6 +80,10 @@ export class KeyFindingsSectionComponent implements OnInit {
     })
   }
 
+  getSectorName(): any {
+    return (this.dataProvider.sectors as any)[this.sector]
+  }
+
   updateData($event: any) {
     this.isLoading = true;
     this.numOfAssessedMSAStatements = 0;

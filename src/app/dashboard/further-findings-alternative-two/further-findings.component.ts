@@ -38,6 +38,11 @@ export class FurtherFindingsComponent implements OnInit {
     })
   }
 
+  getSectorName(): any {
+    return (this.dataProvider.sectors as any)[this.sector]
+  }
+
+
   updateData() {
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
     this.isLoading = true

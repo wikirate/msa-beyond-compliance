@@ -40,6 +40,10 @@ export class GoingBeyondComplianceComponent implements OnInit {
     })
   }
 
+  getSectorName(): any {
+    return (this.dataProvider.sectors as any)[this.sector]
+  }
+
   updateData() {
     this.active = "name"
     this.beyond_compliance_table_data = []

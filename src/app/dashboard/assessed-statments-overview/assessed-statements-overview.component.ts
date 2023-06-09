@@ -59,6 +59,10 @@ export class AssessedStatementsOverviewComponent implements OnInit {
     })
   }
 
+  getSectorName(): any {
+    return (this.dataProvider.sectors as any)[this.sector]
+  }
+
   updateData() {
     this.isLoading = true;
     let msa_statement_assessed_metric_id = this.dataProvider.metrics.msa_statement_assessed;
