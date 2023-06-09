@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SectorProvider} from "../services/sector.provider";
+import {DataProvider} from "../services/data.provider";
 
 @Component({
   selector: 'header-component',
@@ -10,8 +11,10 @@ export class HeaderComponent implements OnInit {
   selectedSector: string = "All Sectors"
   selectedSection: string = "dashboard"
   path: string | null = ""
+  sectors = {}
 
-  constructor(private sectorProvider: SectorProvider) {
+  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
+    this.sectors = dataProvider.sectors
   }
 
   ngOnInit(): void {
