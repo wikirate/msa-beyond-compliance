@@ -1,7 +1,7 @@
 <div class="bg-deep-blue sticky-top">
   <div class="container">
     <nav class="nav navbar">
-      <a class="navbar-brand navbar-expand">
+      <a class="navbar-brand navbar-expand" routerLink="/dashboard">
         <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
       </a>
       <div class="navbar ms-md-auto ms-0">
@@ -32,34 +32,10 @@
           <span class="btn btn-secondary sector-filter" type="button" id="sector-filter"
                 data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</span>
           <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
-            <li>
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'all-sectors'}}"
-                 (click)="onSelectSector('All Sectors')">
-                All Sectors
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'food-and-beverage'}}"
-                 (click)="onSelectSector('Food & Beverage')">
-                Food & Beverage
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'garment-sector'}}"
-                 (click)="onSelectSector('Garment')">
-                Garment
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'financial-sector'}}"
-                 (click)="onSelectSector('Financial')">
-                Financial
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+'hospitality-sector'}}"
-                 (click)="onSelectSector('Hospitality')">
-                Hospitality
+            <li *ngFor="let item of sectors | keyvalue">
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+item.key}}"
+                 (click)="onSelectSector(item.value)">
+                {{item.value}}
               </a>
             </li>
           </ul>
