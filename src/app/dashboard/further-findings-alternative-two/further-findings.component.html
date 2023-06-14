@@ -1,5 +1,5 @@
 <div class="container">
-  <div id="further-findings-section" class="section mt-4 bg-neutral-white p-4">
+  <div id="further-findings-section" class="section-top mt-4 bg-grey p-4">
     <div class="row">
       <div class="col-md-4">
         <h3 class="title">Further Findings</h3>
@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-8">
         <div class="row ps-3 pe-3 pt-md-0 pt-2">
-          <select class="msa-form-select bg-neutral-white ms-md-auto me-3 mb-md-0 mb-1" aria-label="Minimum requirements year filter"
+          <select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1" aria-label="Minimum requirements year filter"
                   style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
                   (change)="updateData()">
             <option [ngValue]="''" selected>ALL YEARS</option>
@@ -21,7 +21,7 @@
             <option [ngValue]="2016">2016</option>
             <option [ngValue]="2015">2015</option>
           </select>
-          <select class="msa-form-select" aria-label="Legislation filter"
+          <select class="msa-form-select bg-grey" aria-label="Legislation filter"
                   [(ngModel)]="legislation" (change)="updateData()">
             <option [ngValue]="'both'" selected>LEGISLATION</option>
             <option [ngValue]="'uk'">UK MSA</option>
@@ -43,7 +43,7 @@
         <div class="accordion" id="approach_to_policies">
           <div class="accordion-item">
             <div class="accordion-header" id="approachToPoliciesTitle">
-              <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
+              <div class="accordion-button-grey collapsed" type="button" data-bs-toggle="collapse"
                    data-bs-target="#approach-to-policies-alt-two" aria-expanded="false" aria-controls="collapseThree">
                 <div class="row mt-3">
                   <div class="row">
@@ -71,7 +71,7 @@
         <div class="accordion" id="approach_to_risks_accordion">
           <div class="accordion-item">
             <div class="accordion-header" id="headingThree">
-              <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
+              <div class="accordion-button-grey collapsed" type="button" data-bs-toggle="collapse"
                    data-bs-target="#ApproachToRisksAltTwo" aria-expanded="false" aria-controls="collapseThree">
                 <div class="row mt-3">
                   <div class="row">
@@ -101,7 +101,7 @@
         <div class="accordion" id="approach_to_incidents">
           <div class="accordion-item">
             <div class="accordion-header" id="headingApproachToIncidents">
-              <div class="accordion-button-white collapsed" type="button" data-bs-toggle="collapse"
+              <div class="accordion-button-grey collapsed" type="button" data-bs-toggle="collapse"
                    data-bs-target="#collapseApproachToIncidents-alt-two" aria-expanded="false"
                    aria-controls="collapseApproachToIncidents">
                 <div class="row mt-3">
@@ -127,7 +127,7 @@
       </div>
     </div>
   </div>
-  <div class="section-bottom bg-neutral-white pe-4 pb-4">
+  <div class="section-bottom  bg-grey pe-4 pb-4">
     <export-as [sector]="sector" [section]="'further-findings'"
                [elementId]="'further-findings-section'"
                [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>

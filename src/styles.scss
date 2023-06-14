@@ -859,36 +859,36 @@ hr.deep-blue {
 
 .accordion-collapse {
   padding: 2em 2% !important;
-  background-color: $white !important;
+  background-color: $grey !important;
   border: 0 !important;
   //border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
-.accordion-button-white {
+.accordion-button-grey {
   @extend accordion-button !optional;
-  background-color: $white !important;
+  background-color: $grey !important;
   color: $deep_blue;
   padding: 1em !important;
   //border-radius: 0em 1.5em 0em 1.5em !important;
   border-color: $white;
 }
 
-.accordion-button-white:not(.collapsed) {
+.accordion-button-grey:not(.collapsed) {
   @extend accordion-button !optional;
-  background-color: $white !important;
+  background-color: $grey !important;
   color: $deep_blue;
   padding: 1em !important;
   //border-radius: 0em 1.5em 0em 0em !important;
   border-color: $deep_blue;
 }
 
-.accordion-button-white:hover {
+.accordion-button-grey:hover {
   background-color: $deep_blue !important;
   color: $white !important;
 }
 
-.accordion-button-white:not(.collapsed) .on-details::after,
-.accordion-button-white .on-details::after {
+.accordion-button-grey:not(.collapsed) .on-details::after,
+.accordion-button-grey .on-details::after {
   content: "\f107" !important;
   font-family: FontAwesome !important;
   background-image: none !important;
@@ -897,7 +897,7 @@ hr.deep-blue {
   padding-left: 0.5em !important;
 }
 
-.accordion-button-white .on-details::after {
+.accordion-button-grey .on-details::after {
   content: "\f105" !important;
   font-family: FontAwesome !important;
   background-image: none !important;

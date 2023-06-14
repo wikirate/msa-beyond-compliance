@@ -1,11 +1,11 @@
 <div class="container">
-  <div id="disclosure-rates" class="section-top mt-4 p-4">
+  <div id="disclosure-rates" class="section-top bg-grey mt-4 p-4">
     <div class="row">
       <div class="col-md-8">
         <h3 class="title">Sector Disclosure Rates</h3>
       </div>
       <div class="col-md-4">
-        <select class="msa-form-select ms-md-auto" aria-label="Minimum requirements year filter"
+        <select class="msa-form-select bg-grey ms-md-auto" aria-label="Minimum requirements year filter"
                 style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
                 (change)="updateData()">
           <option [ngValue]="''" selected>ALL YEARS</option>
@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="section-bottom p-1 pe-4 pb-4">
+  <div class="section-bottom p-1 pe-4 pb-4 bg-grey">
     <export-as [sector]="'all-sectors'" [section]="'sector-disclosure-rates'"
                [elementId]="'disclosure-rates'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>
