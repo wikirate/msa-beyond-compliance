@@ -44,12 +44,20 @@
       ]
     },
     {
+      "name": "renewable_energy",
+      "url": "../assets/cached/MSA_Renewable_Energy.json",
+      "transform": [
+        {"type": "formula", "expr": "'(Renewable) Energy'", "as": "sector"}
+      ]
+    },
+    {
       "name": "sector_companies",
       "source": [
         "garment_companies",
         "financial_companies",
         "hospitality_companies",
-        "food_beverage_companies"
+        "food_beverage_companies",
+        "renewable_energy"
       ]
     },
     {
@@ -160,7 +168,7 @@
         "field": "sector",
         "sort": {"order": "ascending", "field": "key"}
       },
-      "range": ["#FF5C45", "#FFBEB5", "#FFCB2B", "#000029", "#C4C4C4"]
+      "range": ["#8686AD", "#FF5C45", "#FFBEB5", "#FFCB2B", "#000029", "#C4C4C4"]
     }
   ],
   "axes": [

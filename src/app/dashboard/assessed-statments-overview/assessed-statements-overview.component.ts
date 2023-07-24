@@ -99,6 +99,8 @@ export class AssessedStatementsOverviewComponent implements OnInit {
         color = '#FF5C45'
       else if (company_group === 'MSA_Food_Beverage')
         color = '#FFBEB5'
+      else if (company_group === 'MSA_Renewable_Energy')
+        color = '#8686AD'
       this.chartService.drawSectorSpecificBeeSwarmChart(
         "Companies Overview",
         this.year,

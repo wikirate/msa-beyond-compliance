@@ -428,8 +428,8 @@ export class ChartsService {
                     options: {}) {
     var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
     var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value][]=Yes`;
-    bee_chart['data'][8]['url'] = assessed_statements_url
-    return embed(element, bee_chart, options);
+    bee_chart['data'][9]['url'] = assessed_statements_url
+    return embed(element, bee_chart, {});
   }
 
   drawSectorSpecificBeeSwarmChart(title: string,
@@ -463,6 +463,12 @@ export class ChartsService {
         "type": "formula",
         "as": "sector",
         "expr": "'Financial'"
+      })
+    else if (company_group === "MSA_Renewable_Energy")
+      bee_chart['data'][3]['transform'].push({
+        "type": "formula",
+        "as": "sector",
+        "expr": "'(Renewable) Energy'"
       })
     else
       bee_chart['data'][3]['transform'].push({

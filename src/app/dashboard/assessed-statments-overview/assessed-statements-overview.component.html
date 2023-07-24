@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-7">
         <h3 class="title">Assessed Statements</h3>
-        <h6 *ngIf="sector !== 'all-sectors'">({{getSectorName()}} Sector)</h6>
+        <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
       </div>
       <div class="col-lg-5 ms-lg-auto">
         <div class="row ps-3 pe-3 pt-lg-0 pt-2">
@@ -64,6 +64,10 @@
           <div class="dot bg-light-orange"></div>
         </div>
         <div class="col-auto no-padding note align-middle">Food & Beverage Sector</div>
+        <div class="col-auto">
+          <div class="dot bg-light_blue"></div>
+        </div>
+        <div class="col-auto no-padding note align-middle">(Renewable) Energy Sector</div>
         <div class="col-auto">
           <div class="dot bg-darker-grey"></div>
         </div>
