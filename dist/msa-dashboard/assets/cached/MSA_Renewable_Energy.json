@@ -1,0 +1,317 @@
+[
+  {
+    "id": 58263,
+    "name": "AGL Energy",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 47818,
+    "name": "Centrica",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 36510,
+    "name": "E.ON SE",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 57525,
+    "name": "EnBW-Energie Baden-Wuerttemberg",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 10883248,
+    "name": "EDF ENERGY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8260276,
+    "name": "STORENGY UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8211437,
+    "name": "INTERNATIONAL POWER (AUSTRALIA) HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 48329,
+    "name": "Fortum",
+    "headquarters": "Finland"
+  },
+  {
+    "id": 48901,
+    "name": "Origin Energy",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8774437,
+    "name": "RWE RENEWABLES UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8775853,
+    "name": "RWE GENERATION UK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8220087,
+    "name": "RWE RENEWABLES OPERATIONS AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8441442,
+    "name": "ORSTED WIND POWER A/S",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8178097,
+    "name": "Iberdrola Australia Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 5662027,
+    "name": "Scottish Power",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 50362,
+    "name": "Vestas Wind Systems",
+    "headquarters": "Denmark"
+  },
+  {
+    "id": 8795664,
+    "name": "SIEMENS GAMESA RENEWABLE ENERGY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8186758,
+    "name": "SIEMENS GAMESA RENEWABLE ENERGY PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219922,
+    "name": "ENEL GREEN POWER S.P.A.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8428904,
+    "name": "GOOD ENERGY GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13672754,
+    "name": "Nordex UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13666420,
+    "name": "NORDEX OCEANIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6968804,
+    "name": "BES Commercial Electricity Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8772273,
+    "name": "ECOTRICITY GROUP LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8436485,
+    "name": "GREENCOAT UK WIND PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263896,
+    "name": "BANKS RENEWABLES HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8792502,
+    "name": "GFS RENEWABLE ENERGY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8183356,
+    "name": "ELECTRICITY GENERATION AND RETAIL CORPORATION",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183137,
+    "name": "Banpu Australia Co. Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186939,
+    "name": "SPIC PACIFIC ENERGY PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219419,
+    "name": "CK WILLIAM AUSTRALIA HOLDINGS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184298,
+    "name": "EDL HOLDINGS (AUSTRALIA) PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185223,
+    "name": "ATCO GAS AUSTRALIA GP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175137,
+    "name": "DOWNER UTILITIES HOLDINGS AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220958,
+    "name": "ABB AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174351,
+    "name": "SNOWY HYDRO LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179688,
+    "name": "HYDRO-ELECTRIC CORPORATION",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182899,
+    "name": "C S ENERGY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186156,
+    "name": "AURORA ENERGY PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 968790,
+    "name": "Meridian Energy Limited",
+    "headquarters": "New Zealand"
+  },
+  {
+    "id": 8179397,
+    "name": "PIONEER SAIL HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 2631103,
+    "name": "APA Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 13618044,
+    "name": "Nextracker Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 13618047,
+    "name": "Mercury NZ Ltd",
+    "headquarters": "New Zealand"
+  },
+  {
+    "id": 5662059,
+    "name": "John Wood Group PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8217125,
+    "name": "SHELL ENERGY HOLDINGS AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8395107,
+    "name": "SIEMENS LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184746,
+    "name": "Cardno Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212309,
+    "name": "ENERGY QUEENSLAND LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186098,
+    "name": "SUMO AUSTRALIA LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179476,
+    "name": "ICON RETAIL INVESTMENTS LIMITED AND AGL ACT RETAIL INVESTMENTS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 13617321,
+    "name": "Octopus Energy Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8795026,
+    "name": "ESB ENERGY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13617356,
+    "name": "So Energy",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9748529,
+    "name": "BULB ENERGY LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6326260,
+    "name": "OVO Energy",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258800,
+    "name": "UTILITA GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 637,
+    "name": "BP plc.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5157097,
+    "name": "B P AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 13923594,
+    "name": "Hanwha Energy Retail Australia Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 47890,
+    "name": "SSE",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2432968,
+    "name": "Vattenfall AB",
+    "headquarters": "Sweden"
+  },
+  {
+    "id": 8395127,
+    "name": "ENERGYAUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  }
+]
