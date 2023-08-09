@@ -203,11 +203,6 @@ export class KeyFindingsSectionComponent implements OnInit {
       this.numOfCompaniesUnderMSA = results[0].length
       this.numOfAssessedMSAStatements = results[1].length
 
-      results[2] = results[2].filter((item: { year: number, company: number }) => {
-        return results[1].findIndex((a: any) => {
-          return a.company == item.company && a.year == item.year
-        }) >= 0
-      })
       this.meetsMinRequirements = Math.round((results[2].length / this.numOfAssessedMSAStatements) * 100)
 
       this.go_beyond_compliance = Math.round((results[3].length) * 100 / this.numOfAssessedMSAStatements)

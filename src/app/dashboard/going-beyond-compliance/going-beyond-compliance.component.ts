@@ -49,83 +49,84 @@ export class GoingBeyondComplianceComponent implements OnInit {
     this.beyond_compliance_table_data = []
     this.isLoading = true;
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
-    this.dataProvider.getAnswers(
+
+    const uk_statements_assessed = this.dataProvider.getAnswers(
       this.dataProvider.metrics.uk_msa_statement_assessed, [
         new Filter("year", this.year),
         new Filter('value', ['Yes']),
         new Filter("company_group", company_group)
       ]
-    ).subscribe(uk_assessed => {
-      let uk_msa_statements_assessed = uk_assessed.map((a: { [x: string]: any; }) => {
-        return {company: a['company'], year: a['year']}
+    )
+
+    const aus_statements_assessed = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
+        new Filter("company_group", company_group)]
+    )
+
+    const statements_assessed = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
+        new Filter("company_group", company_group)]
+    )
+
+    forkJoin([uk_statements_assessed, aus_statements_assessed, statements_assessed]).subscribe(assessed_statements => {
+      let uk_assessed_statements = assessed_statements[0]
+      let aus_assessed_statements = assessed_statements[1]
+      let total_assessed_statements = assessed_statements[2]
+
+      var metric_answers = beyond_compliance_metrics.map((metric: any) => {
+        return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
       })
-      this.dataProvider.getAnswers(
-        this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
-          new Filter("company_group", company_group)]
-      ).subscribe(aus_assessed => {
-        let aus_msa_statements_assessed: any[] = aus_assessed.map((a: { [x: string]: any; }) => {
-          return {company: a['company'], year: a['year']}
-        })
-        let total_assessed = [...new Set([...uk_msa_statements_assessed, ...aus_msa_statements_assessed])];
-        total_assessed = total_assessed.filter((arr, index, self) =>
-          index === self.findIndex((t) => (t.company === arr.company && t.year === arr.year)))
 
-        var observables = beyond_compliance_metrics.map((metric: any) => {
-          return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
+      forkJoin(metric_answers).subscribe(results => {
+        // @ts-ignore
+        results.forEach((answers, index) => {
+          let metric = beyond_compliance_metrics[index]
+          let uk_count = 0;
+          let aus_count = 0;
+          let total = 0;
+          for (let answer of answers) {
+            let c1 = uk_assessed_statements.find((i: { company: any; year: any; }) => {
+              return i['company'] == answer['company'] && i['year'] == answer['year']
+            }) !== undefined;
+            let c2 = aus_assessed_statements.find((i: { company: any; year: any; }) => {
+              return i['company'] == answer['company'] && i['year'] == answer['year']
+            }) !== undefined;
+            if (c1) uk_count++;
+            if (c2) aus_count++;
+            if (c1 || c2) total++;
+          }
+
+          let uk_percent = Math.round(uk_count * 100 / uk_assessed_statements.length)
+          let aus_percent = Math.round(aus_count * 100 / aus_assessed_statements.length)
+          let total_percent = Math.round(total * 100 / total_assessed_statements.length)
+          let filter_value = ''
+          for (let value of metric['filter_value']) {
+            filter_value += 'filter[value][]=' + value + '&'
+          }
+          if (metric['label'] == "Consultation process") {
+            this.beyond_compliance_table_data.push({
+              'name': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
+              'uk': "N/A",
+              'aus': aus_percent,
+              'total': "N/A",
+              'aus_color': metric['aus_color'],
+              'uk_color': metric['uk_color']
+            })
+          } else {
+            this.beyond_compliance_table_data.push({
+              'name': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
+              'uk': uk_percent,
+              'aus': aus_percent,
+              'total': total_percent,
+              'aus_color': metric['aus_color'],
+              'uk_color': metric['uk_color']
+            })
+          }
         })
 
-        forkJoin(observables).subscribe(results => {
-          // @ts-ignore
-          results.forEach((answers, index) => {
-            let metric = beyond_compliance_metrics[index]
-            let uk_count = 0;
-            let aus_count = 0;
-            let total = 0;
-            for (let answer of answers) {
-              let c1 = uk_msa_statements_assessed.find((i: { company: any; year: any; }) => {
-                return i['company'] == answer['company'] && i['year'] == answer['year']
-              }) !== undefined;
-              let c2 = aus_msa_statements_assessed.find((i: { company: any; year: any; }) => {
-                return i['company'] == answer['company'] && i['year'] == answer['year']
-              }) !== undefined;
-              if (c1) uk_count++;
-              if (c2) aus_count++;
-              if (c1 || c2) total++;
-
-            }
-            let uk_percent = Math.round(uk_count * 100 / uk_msa_statements_assessed.length)
-            let aus_percent = Math.round(aus_count * 100 / aus_msa_statements_assessed.length)
-            let total_percent = Math.round(total * 100 / total_assessed.length)
-            let filter_value = ''
-            for (let value of metric['filter_value']) {
-              filter_value += 'filter[value][]=' + value + '&'
-            }
-            if (metric['label'] == "Consultation process") {
-              this.beyond_compliance_table_data.push({
-                'name': metric['label'],
-                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
-                'uk': "N/A",
-                'aus': aus_percent,
-                'total': "N/A",
-                'aus_color': metric['aus_color'],
-                'uk_color': metric['uk_color']
-              })
-            } else {
-              this.beyond_compliance_table_data.push({
-                'name': metric['label'],
-                'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
-                'uk': uk_percent,
-                'aus': aus_percent,
-                'total': total_percent,
-                'aus_color': metric['aus_color'],
-                'uk_color': metric['uk_color']
-              })
-            }
-          })
-        }, (error) => console.log(error), () => {
-          this.sort('total');
-          this.isLoading = false;
-        })
+        this.isLoading = false
       })
     })
   }
