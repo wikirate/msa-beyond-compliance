@@ -41,69 +41,68 @@ export class DisclosureRatesComponent implements OnInit {
   updateData() {
     this.isLoading = true;
 
-    const food_and_bev_assessed_statements = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.msa_statement_assessed, [
-        new Filter("year", this.year),
-        new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.company_groups.food_and_beverage)
-      ])
-
     const food_and_bev_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.company_groups.food_and_beverage)
-      ]
+        new Filter("company_group", [this.dataProvider.company_groups.food_and_beverage, this.dataProvider.companies_with_assessed_statement.any])
+      ].filter(item => item.value != 'latest')
     )
-
-    const garment_assessed_statements = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.msa_statement_assessed, [
-        new Filter("year", this.year),
-        new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.company_groups.garment)
-      ])
 
     const garment_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
-        new Filter("company_group", this.dataProvider.company_groups.garment)
-      ]
+        new Filter("company_group", [this.dataProvider.company_groups.garment, this.dataProvider.companies_with_assessed_statement.any])
+      ].filter(item => item.value != 'latest')
     )
-
-    const financial_assessed_statements = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.msa_statement_assessed, [
-        new Filter("year", this.year),
-        new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.company_groups.financial)
-      ])
 
     const financial_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
         new Filter("company_group", this.dataProvider.company_groups.financial)
-      ]
+      ].filter(item => item.value != 'latest')
     )
-
-    const hospitality_assessed_statements = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.msa_statement_assessed, [
-        new Filter("year", this.year),
-        new Filter('value', 'Yes'),
-        new Filter("company_group", this.dataProvider.company_groups.hospitality)
-      ])
 
     const hospitality_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
         new Filter("company_group", this.dataProvider.company_groups.hospitality)
-      ]
+      ].filter(item => item.value != 'latest')
     )
 
-    forkJoin([food_and_bev_assessed_statements, food_and_bev_disclosure_rates, garment_assessed_statements,
-      garment_disclosure_rates, financial_assessed_statements, financial_disclosure_rates, hospitality_assessed_statements,
+    forkJoin([food_and_bev_disclosure_rates,
+      garment_disclosure_rates, financial_disclosure_rates,
       hospitality_disclosure_rates]).subscribe(results => {
-      this.food_bev_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[0], results[1]);
-      this.garment_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[2], results[3]);
-      this.financial_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[4], results[5]);
-      this.hospitality_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[6], results[7]);
+
+      if (this.year == 'latest') {
+        results[0] = Object.values(results[0].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
+
+        results[1] = Object.values(results[1].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
+
+        results[2] = Object.values(results[2].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
+
+        results[3] = Object.values(results[3].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
+      }
+
+      this.food_bev_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[0]);
+      this.garment_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[1]);
+      this.financial_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[2]);
+      this.hospitality_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[3]);
 
       this.isLoading = false;
     })
@@ -115,9 +114,8 @@ export class DisclosureRatesComponent implements OnInit {
    * @param disclosure_rates
    * @private
    */
-  private calc_avg_disclosure_rate(assessed_statements: any, disclosure_rates: any): number {
+  private calc_avg_disclosure_rate(disclosure_rates: any): number {
     let avg_discosure_rate = 0;
-    disclosure_rates = disclosure_rates.filter((a: { company: any; year: any; }) => assessed_statements.some((statement: { company: any; year: any; }) => statement.company == a.company && statement.year == a.year))
     for (let answer of disclosure_rates)
       avg_discosure_rate += answer['value'] == 'Unknown' ? 0 : Number(answer['value']);
     return Math.round(avg_discosure_rate / disclosure_rates.length)
@@ -126,7 +124,7 @@ export class DisclosureRatesComponent implements OnInit {
   openURL(sector: string) {
     let url = new WikirateUrlBuilder()
       .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
-      .addFilter(new Filter('company_group', sector))
+      .addFilter(new Filter('company_group', [sector, this.dataProvider.companies_with_assessed_statement.any]))
       .addFilter(new Filter('year', this.year))
       .build();
 
