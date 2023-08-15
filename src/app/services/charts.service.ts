@@ -18,6 +18,8 @@ import sector_beesworm_chart from '../../assets/charts/sector-specific-beesworm.
 import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
 import {Injectable} from "@angular/core";
 import embed from "vega-embed";
+import {Filter} from "../models/filter.model";
+import {DataProvider} from "./data.provider";
 
 @Injectable()
 export class ChartsService {
@@ -38,6 +40,7 @@ export class ChartsService {
     pie["height"] = height
     pie["scales"][0]["range"] = colors
     pie["scales"][0]["domain"] = domain
+
     return embed(element, pie, options)
   }
 
@@ -94,18 +97,25 @@ export class ChartsService {
     element: string,
     width: number,
     height: number,
-    assessed_statements_metric_id: number,
+    meets_requirements_metric_id: number,
     metrics: [],
     year: number | string,
-    company_group: string,
+    company_groups: string[],
     options: {}) {
     let bars = JSON.parse(JSON.stringify(barChart))
     let data: any[] = []
+
+    let filters: Filter[] = [new Filter('company_group', company_groups), new Filter('year', year)]
     data.push({
-      "name": 'assessed',
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "name": 'meets_min_requirements',
+      "url": `${this.wikirateApiHost}/~${meets_requirements_metric_id}+Answer.json?${DataProvider.getParams(filters).toString()}`,
       "transform": [{"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"}]
     })
+
+    if (year == 'latest') {
+      filters.pop()
+    }
+
     let short_labels: any[] = []
     for (let metric of metrics) {
       short_labels.push(metric['short_label'])
@@ -118,20 +128,20 @@ export class ChartsService {
       condition = condition.substring(0, condition.length - 3)
       data.push({
         name: metric['short_label'],
-        "url": `${this.wikirateApiHost}/~${metric['id']}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+        "url": `${this.wikirateApiHost}/~${metric['id']}+answer.json?${DataProvider.getParams(filters).toString()}`,
         "transform": [
           {"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"},
           {
             "type": "lookup",
-            "from": "assessed",
+            "from": "meets_min_requirements",
             "key": "key",
             "fields": ["key"],
             "values": ["value"],
-            "as": ["assessed"]
+            "as": ["meets_min_requirements"]
           },
           {
             "type": "filter",
-            "expr": "datum.assessed == 'Yes'"
+            "expr": "datum.meets_min_requirements == 'Yes' || datum.meets_min_requirements == 'No' || datum.meets_min_requirements == 'Unknown'"
           },
           {
             "type": "formula",
@@ -219,29 +229,30 @@ export class ChartsService {
     title: string,
     element: string,
     width: number,
-    assessed_statements_metric_id: number,
+    meets_requirements_metric_id: number,
     metric: number,
     subgroups: any,
     groups: any,
     year: number | string,
-    company_group: string,
+    company_groups: string[],
     options: {}) {
     let bars = JSON.parse(JSON.stringify(groupedBarsChart))
     let data: any[] = []
+
+    let filters: Filter[] = [new Filter('company_group', company_groups), new Filter('year', year)]
     data.push({
-      "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        }
-      ]
+      "name": 'meets_min_requirements',
+      "url": `${this.wikirateApiHost}/~${meets_requirements_metric_id}+Answer.json?${DataProvider.getParams(filters).toString()}`,
+      "transform": [{"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"}]
     })
+
+    if (year == 'latest') {
+      filters.pop()
+    }
+
     data.push({
       "name": "answers",
-      "url": `${this.wikirateApiHost}/~${metric}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "url": `${this.wikirateApiHost}/~${metric}+Answer.json?${DataProvider.getParams(filters).toString()}`,
       "transform": [
         {
           "type": "formula",
@@ -250,15 +261,15 @@ export class ChartsService {
         },
         {
           "type": "lookup",
-          "from": "assessed",
+          "from": "meets_min_requirements",
           "key": "key",
           "fields": ["key"],
           "values": ["value"],
-          "as": ["assessed"]
+          "as": ["meets_min_requirements"]
         },
         {
           "type": "filter",
-          "expr": "datum.value != '' && datum.assessed == 'Yes'"
+          "expr": "datum.meets_min_requirements == 'Yes' || datum.meets_min_requirements == 'No' || datum.meets_min_requirements == 'Unknown'"
         },
         {
           "type": "formula",
@@ -282,29 +293,29 @@ export class ChartsService {
     element: string,
     width: number,
     height: number,
-    assessed_statements_metric_id: number,
+    meets_requirements_metric_id: number,
     metrics: [],
     year: number | string,
-    company_group: string,
+    company_groups: string[],
     options: {}) {
     let bars = JSON.parse(JSON.stringify(barChart))
     let data: any[] = []
+
+    let filters: Filter[] = [new Filter('company_group', company_groups), new Filter('year', year)]
     data.push({
-      "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        }
-      ]
+      "name": 'meets_min_requirements',
+      "url": `${this.wikirateApiHost}/~${meets_requirements_metric_id}+Answer.json?${DataProvider.getParams(filters).toString()}`,
+      "transform": [{"type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year"}]
     })
+
+    if (year == 'latest') {
+      filters.pop()
+    }
 
     data.push({
       "name": "answers",
       // @ts-ignore
-      "url": `${this.wikirateApiHost}/~${metrics[0]['id']}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group]=${company_group}`,
+      "url": `${this.wikirateApiHost}/~${metrics[0]['id']}+Answer.json?${DataProvider.getParams(filters).toString()}`,
     })
     let short_labels: any[] = []
     for (let metric of metrics) {
@@ -326,15 +337,15 @@ export class ChartsService {
           },
           {
             "type": "lookup",
-            "from": "assessed",
+            "from": "meets_min_requirements",
             "key": "key",
             "fields": ["key"],
             "values": ["value"],
-            "as": ["assessed"]
+            "as": ["meets_min_requirements"]
           },
           {
             "type": "filter",
-            "expr": "datum.assessed == 'Yes'"
+            "expr": "datum.meets_min_requirements == 'Yes' || datum.meets_min_requirements == 'No' || datum.meets_min_requirements == 'Unknown'"
           },
           {
             "type": "formula",
