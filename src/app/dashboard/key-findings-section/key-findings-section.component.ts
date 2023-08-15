@@ -16,7 +16,7 @@ import {WikirateUrlBuilder} from "../../utils/wikirate-url-builder";
 })
 export class KeyFindingsSectionComponent implements OnInit {
   sector: string = "all-sectors";
-  company_group: string = ""
+  company_group: string[] = []
   @ViewChild("content") content!: TemplateRef<any>;
 
   numOfCompaniesUnderMSA!: number;
@@ -24,7 +24,7 @@ export class KeyFindingsSectionComponent implements OnInit {
   meetsMinRequirements!: number;
   go_beyond_compliance!: number;
 
-  year: number | string = ''
+  year: string = ''
   legislation: string = 'both'
   isLoading: boolean = true;
 
@@ -44,7 +44,6 @@ export class KeyFindingsSectionComponent implements OnInit {
         let sector = params.get('sector');
         if (sector !== null) {
           this.sector = sector
-          this.company_group = this.dataProvider.getCompanyGroup(this.sector)
           this.updateData(this.year)
         }
         this.sectorProvider.getSector().next(sector);
@@ -88,6 +87,17 @@ export class KeyFindingsSectionComponent implements OnInit {
     this.isLoading = true;
     this.numOfAssessedMSAStatements = 0;
 
+    this.company_group = []
+    if (this.sector != 'all-sectors')
+      this.company_group.push(this.dataProvider.getCompanyGroup(this.sector))
+    if (this.legislation === 'uk') {
+      this.company_group.push(this.dataProvider.companies_with_assessed_statement.uk)
+    } else if (this.legislation === 'aus') {
+      this.company_group.push(this.dataProvider.companies_with_assessed_statement.aus)
+    } else {
+      this.company_group.push(this.dataProvider.companies_with_assessed_statement.any)
+    }
+
     if (this.legislation === 'both') {
       this.key_findings_calculation(
         this.dataProvider.metrics.modern_slavery_statement,
@@ -106,7 +116,7 @@ export class KeyFindingsSectionComponent implements OnInit {
     } else {
       if (this.year !== '' && this.year !== 'latest' && Number(this.year) < 2020) {
         this.openMessage();
-        this.year = 2020;
+        this.year = '2020';
       }
       this.key_findings_calculation(
         this.dataProvider.metrics.modern_slavery_statement,
@@ -143,23 +153,26 @@ export class KeyFindingsSectionComponent implements OnInit {
     this.msa_statements_metric_url = new WikirateUrlBuilder()
       .setEndpoint(statements_metric)
       .addFilter(new Filter('value', legislation_filter_value))
-      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('company_group', this.dataProvider.getCompanyGroup(this.sector)))
       .addFilter(new Filter('year', this.year))
       .build()
 
     this.meet_min_requirements_metric_url = new WikirateUrlBuilder()
       .setEndpoint(meet_requirements_metric)
-      .addFilter(new Filter('value', 'Yes'))
+      .addFilter(new Filter('value', ['Yes']))
       .addFilter(new Filter('company_group', this.company_group))
       .addFilter(new Filter('year', this.year))
       .build()
 
-    this.msa_statement_assessed_metric_url = new WikirateUrlBuilder()
+    let msa_statement_assessed_metric_wikirate_url = new WikirateUrlBuilder()
       .setEndpoint(assessed_statements_metric)
-      .addFilter(new Filter('value', 'Yes'))
+      .addFilter(new Filter('value', ['Yes']))
       .addFilter(new Filter('company_group', this.company_group))
-      .addFilter(new Filter('year', this.year))
-      .build()
+
+    if (this.year != 'latest') {
+      msa_statement_assessed_metric_wikirate_url.addFilter(new Filter("year", this.year))
+      this.msa_statement_assessed_metric_url = msa_statement_assessed_metric_wikirate_url.build()
+    }
 
     this.beyond_compliance_metric_url = new WikirateUrlBuilder()
       .setEndpoint(beyond_compliance_metric)
@@ -173,15 +186,20 @@ export class KeyFindingsSectionComponent implements OnInit {
       [
         new Filter("year", this.year),
         new Filter("value", legislation_filter_value),
-        new Filter("company_group", this.company_group)
+        new Filter("company_group", this.dataProvider.getCompanyGroup(this.sector))
       ])
-
-    const assessed = this.dataProvider.getAnswers(assessed_statements_metric,
-      [
-        new Filter("year", this.year),
+    let assessed_filters = [
+      new Filter("year", this.year),
+      new Filter("value", ["Yes"]),
+      new Filter("company_group", this.company_group)
+    ]
+    if (this.year == 'latest') {
+      assessed_filters = [
         new Filter("value", ["Yes"]),
         new Filter("company_group", this.company_group)
-      ])
+      ]
+    }
+    const assessed = this.dataProvider.getAnswers(assessed_statements_metric, assessed_filters)
 
     const meet_requirements = this.dataProvider.getAnswers(meet_requirements_metric,
       [
@@ -199,6 +217,16 @@ export class KeyFindingsSectionComponent implements OnInit {
 
     /**perform the requests using forkJoin to get all the results before start calculating the key findings**/
     forkJoin([statements, assessed, meet_requirements, beyond_compliance]).subscribe(results => {
+      if (this.year == 'latest') {
+        results[1] = Object.values(results[1].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
+
+        results[2].filter((item: any) => results[1].find((o: any) => o.company == item.company && o.year == item.year))
+        results[3].filter((item: any) => results[1].find((o: any) => o.company == item.company && o.year == item.year))
+      }
 
       this.numOfCompaniesUnderMSA = results[0].length
       this.numOfAssessedMSAStatements = results[1].length
