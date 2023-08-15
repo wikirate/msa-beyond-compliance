@@ -47,23 +47,28 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   }
 
   updateData() {
-    let company_group = this.dataProvider.getCompanyGroup(this.sector)
+    let uk_company_group = [this.dataProvider.companies_with_assessed_statement.uk]
+    let aus_company_group = [this.dataProvider.companies_with_assessed_statement.aus]
+    if (this.dataProvider.getCompanyGroup(this.sector) != '') {
+      uk_company_group.push(this.dataProvider.getCompanyGroup(this.sector))
+      aus_company_group.push(this.dataProvider.getCompanyGroup(this.sector))
+    }
     this.isLoading = true;
     this.draw_minimum_requirements_pie_chart(
       "Meet Minimun UK Requirements",
       "div#uk-meet-min-requirements",
       this.dataProvider.metrics.uk_msa_statement_assessed,
-      this.dataProvider.metrics.meet_uk_min_requirements, company_group)
+      this.dataProvider.metrics.meet_uk_min_requirements, uk_company_group)
 
     this.chartsService.drawMinimumRequirementsBarChart(
       "Which minimum uk requirements do these companies meet?",
       "div#uk-requirements-bars",
       350,
       200,
-      this.dataProvider.metrics.uk_msa_statement_assessed,
+      this.dataProvider.metrics.meet_uk_min_requirements,
       uk_minimum_requirements,
       this.year,
-      company_group,
+      uk_company_group,
       {renderer: "svg", actions: false})
 
     if (this.year >= 2020 || this.year == '' || this.year == 'latest') {
@@ -71,45 +76,40 @@ export class MinimumRequirementsSectionComponent implements OnInit {
         "Meet Minimun Australian Requirements",
         "div#aus-meet-min-requirements",
         this.dataProvider.metrics.aus_msa_statement_assessed,
-        this.dataProvider.metrics.meet_aus_min_requirements, company_group)
+        this.dataProvider.metrics.meet_aus_min_requirements, aus_company_group)
 
       this.chartsService.drawMinimumRequirementsBarChart(
         "Which minimum aus requirements do these companies meet?",
         "div#aus-requirements-bars",
         350, 670,
-        this.dataProvider.metrics.aus_msa_statement_assessed,
+        this.dataProvider.metrics.meet_aus_min_requirements,
         aus_minimum_requirements,
         this.year,
-        company_group,
-        {renderer: "svg", actions: false})
+        aus_company_group,
+        {renderer: "svg", actions: true})
     }
   }
 
 
-  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group: string) {
-    const assessed_statements = this.dataProvider.getAnswers(assessed_statements_metric_id,
-      [
-        new Filter("year", this.year),
-        new Filter("value", ["Yes"]),
-        new Filter("company_group", company_group)
-      ])
-
+  draw_minimum_requirements_pie_chart(title: string, element: string, assessed_statements_metric_id: number, meet_min_requirements_metric_id: number, company_group: string[]) {
     const meet_requirements = this.dataProvider.getAnswers(meet_min_requirements_metric_id,
       [
         new Filter("year", this.year),
-        new Filter("value", ["Yes"]),
+        new Filter("value", ["Yes", "No", "Unknown"]),
         new Filter("company_group", company_group)
       ])
 
-    forkJoin([assessed_statements, meet_requirements]).subscribe(results => {
-      let assessed = results[0].length
-      if (assessed_statements_metric_id === this.dataProvider.metrics.uk_msa_statement_assessed) {
-        this.uk_assessed = results[0].length
-      } else {
-        this.aus_assessed = results[0].length
-      }
+    meet_requirements.subscribe(results => {
+      let assessed = results.length
 
-      let meet_min_requirements = results[1].length
+      if (company_group.includes(this.dataProvider.companies_with_assessed_statement.uk)) {
+        this.uk_assessed = assessed
+      } else {
+        this.aus_assessed = assessed
+      }
+      // @ts-ignore
+      let meet_min_requirements = results.filter(item => item['value'] === "Yes").length
+
       this.chartsService.drawPieChart(
         title,
         element,
@@ -124,7 +124,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
             'sum_count': assessed
           }],
         210, 180, ["#000029", "#FF5C45"],
-        ["Not Met", "Met"], {renderer: "svg", actions: false})
+        ["Not Met", "Met"], {renderer: "svg", actions: true})
       this.isLoading = false
     })
   }
