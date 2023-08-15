@@ -21,7 +21,7 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   sector !: string;
   @Input()
   legislation !: string;
-  company_group: string = '';
+  company_group: string[] = [];
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
   }
@@ -34,13 +34,19 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   }
 
   updateData() {
-    this.company_group = this.dataProvider.getCompanyGroup(this.sector);
+    this.company_group = []
+    if (this.sector != 'all-sectors')
+      this.company_group.push(this.dataProvider.getCompanyGroup(this.sector))
     this.isLoading = true;
-    let assessed_statements_metric_id = this.dataProvider.metrics.msa_statement_assessed
-    if (this.legislation == 'uk')
-      assessed_statements_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed
-    else if (this.legislation == 'aus')
-      assessed_statements_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed
+    let assessed_statements_metric_id = this.dataProvider.metrics.msa_meet_min_requirements
+    this.company_group.push(this.dataProvider.companies_with_assessed_statement.any)
+    if (this.legislation == 'uk') {
+      assessed_statements_metric_id = this.dataProvider.metrics.meet_uk_min_requirements
+      this.company_group.push(this.dataProvider.companies_with_assessed_statement.uk)
+    } else if (this.legislation == 'aus') {
+      assessed_statements_metric_id = this.dataProvider.metrics.meet_aus_min_requirements
+      this.company_group.push(this.dataProvider.companies_with_assessed_statement.aus)
+    }
 
     this.chartsService.drawBarChart(
       "Risk Assessment",

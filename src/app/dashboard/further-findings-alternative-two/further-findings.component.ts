@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {Filter} from "../../models/filter.model";
 import {DataProvider} from "../../services/data.provider";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {SectorProvider} from "../../services/sector.provider";
+import {forkJoin} from "rxjs";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'further-findings',
@@ -12,14 +14,15 @@ import {SectorProvider} from "../../services/sector.provider";
 export class FurtherFindingsComponent implements OnInit {
   sector: string = "all-sectors";
   legislation: string = 'both';
-  year: number | string = ''
+  year: string = ''
   percentage_of_companies_identified_incidents: number = 0;
   percentage_of_companies_report_policy_beyond_t1: number = 0;
   percentage_of_companies_identified_risks: number = 0;
+  @ViewChild("content") content!: TemplateRef<any>;
 
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -44,37 +47,83 @@ export class FurtherFindingsComponent implements OnInit {
 
 
   updateData() {
-    let company_group = this.dataProvider.getCompanyGroup(this.sector)
+    this.isLoading = true
+    let company_group = []
+    if (this.sector != 'all-sectors')
+      company_group.push(this.dataProvider.getCompanyGroup(this.sector))
+    this.isLoading = true;
+    let assessed_statements_metric_id = this.dataProvider.metrics.msa_meet_min_requirements
+    company_group.push(this.dataProvider.companies_with_assessed_statement.any)
+    if (this.legislation == 'uk') {
+      assessed_statements_metric_id = this.dataProvider.metrics.meet_uk_min_requirements
+      company_group.push(this.dataProvider.companies_with_assessed_statement.uk)
+    } else if (this.legislation == 'aus') {
+      if (this.year !== '' && this.year !== 'latest' && Number(this.year) < 2020) {
+        this.openMessage();
+        this.year = '2020';
+      }
+      assessed_statements_metric_id = this.dataProvider.metrics.meet_aus_min_requirements
+      company_group.push(this.dataProvider.companies_with_assessed_statement.aus)
+    }
+
     this.isLoading = true
 
-    let assessed_statements_metric_id = this.dataProvider.metrics.msa_statement_assessed
-    if (this.legislation === 'uk')
-      assessed_statements_metric_id = this.dataProvider.metrics.uk_msa_statement_assessed
-    else if (this.legislation === 'aus')
-      assessed_statements_metric_id = this.dataProvider.metrics.aus_msa_statement_assessed
+    let assessed_filters = [
+      new Filter("year", this.year),
+      new Filter("value", ["Yes", "No", "Unknown"]),
+      new Filter("company_group", company_group)
+    ]
+    if (this.year == 'latest') {
+      assessed_filters = [
+        new Filter("value", ["Yes", "No", "Unknown"]),
+        new Filter("company_group", company_group)
+      ]
+    }
 
-    this.dataProvider.getAnswers(assessed_statements_metric_id,
-      [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", company_group)]).subscribe(assessed => {
-      this.dataProvider.getAnswers(1831964,
-        [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", company_group)]).subscribe(reported_incidents => {
-        // @ts-ignore
-        reported_incidents = reported_incidents.filter((a: { company: any; year: any; }) => assessed.some(statement => statement.company == a.company && statement.year == a.year))
-        this.percentage_of_companies_identified_incidents = Math.round(reported_incidents.length * 100 / assessed.length);
-        this.dataProvider.getAnswers(6916242,
-          [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", company_group)]).subscribe(reported_risks => {
-          // @ts-ignore
-          reported_risks = reported_risks.filter((a: { company: any; year: any; }) => assessed.some(statement => statement.company == a.company && statement.year == a.year))
-          this.percentage_of_companies_identified_risks = Math.round(reported_risks.length * 100 / assessed.length);
-          this.dataProvider.getAnswers(6915846,
-            [new Filter("year", this.year), new Filter("value", ["Yes"]), new Filter("company_group", company_group)]).subscribe(beyond_t1 => {
-            // @ts-ignore
-            beyond_t1 = beyond_t1.filter((a: { company: any; year: any; }) => assessed.some(statement => statement.company == a.company && statement.year == a.year))
-            this.percentage_of_companies_report_policy_beyond_t1 = Math.round(beyond_t1.length * 100 / assessed.length);
-          })
-        })
-      }, error => {
-        console.log(error)
-      }, () => this.isLoading = false)
-    })
+    let assessed_statements = this.dataProvider.getAnswers(assessed_statements_metric_id, assessed_filters)
+
+    let incidents_identified = this.dataProvider.getAnswers(this.dataProvider.metrics.msa_incidents_identified,
+      [new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", company_group)])
+
+    let risks_identified = this.dataProvider.getAnswers(this.dataProvider.metrics.msa_risks_identified,
+      [new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", company_group)])
+
+    let policy_beyond_t1 = this.dataProvider.getAnswers(this.dataProvider.metrics.msa_policy_beyond_t1,
+      [new Filter("year", this.year),
+        new Filter("value", ["Yes"]),
+        new Filter("company_group", company_group)])
+
+    forkJoin([assessed_statements, incidents_identified, risks_identified, policy_beyond_t1]).subscribe(response => {
+      if (this.year == 'latest') {
+        response[0] = Object.values(response[0].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+          return r
+        }, {}))
+        response[1].filter((item: any) => response[0].find((o: any) => o.company == item.company && o.year == item.year))
+
+        response[2].filter((item: any) => response[0].find((o: any) => o.company == item.company && o.year == item.year))
+        response[3].filter((item: any) => response[0].find((o: any) => o.company == item.company && o.year == item.year))
+      }
+
+      let assessed = response[0]
+      let incidents_identified = response[1]
+      let reported_risks = response[2]
+      let policy_beyond = response[3]
+
+      this.percentage_of_companies_identified_incidents = Math.round(incidents_identified.length * 100 / assessed.length);
+      this.percentage_of_companies_identified_risks = Math.round(reported_risks.length * 100 / assessed.length);
+      this.percentage_of_companies_report_policy_beyond_t1 = Math.round(policy_beyond.length * 100 / assessed.length);
+    }, error => {
+      console.log(error)
+    }, () => this.isLoading = false)
+
+  }
+
+  openMessage() {
+    this.modalService.open(this.content, {centered: true});
   }
 }

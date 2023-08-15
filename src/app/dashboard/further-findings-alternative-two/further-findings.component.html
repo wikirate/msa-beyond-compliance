@@ -7,19 +7,19 @@
       </div>
       <div class="col-md-8">
         <div class="row ps-3 pe-3 pt-md-0 pt-2">
-          <select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1" aria-label="Minimum requirements year filter"
+          <select #select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1" aria-label="Minimum requirements year filter"
                   style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-                  (change)="updateData()">
-            <option [ngValue]="''" selected>ALL YEARS</option>
-            <option [ngValue]="'latest'">LATEST</option>
-<!--            <option [ngValue]="2022">2022</option>-->
-            <option [ngValue]="2021">2021</option>
-            <option [ngValue]="2020">2020</option>
-            <option [ngValue]="2019">2019</option>
-            <option [ngValue]="2018">2018</option>
-            <option [ngValue]="2017">2017</option>
-            <option [ngValue]="2016">2016</option>
-            <option [ngValue]="2015">2015</option>
+                  (change)="updateData(); select.value = this.year">
+            <option value="" selected>ALL YEARS</option>
+            <option value="latest">LATEST</option>
+            <!--            <option value="2022">2022</option>-->
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
           </select>
           <select class="msa-form-select bg-grey" aria-label="Legislation filter"
                   [(ngModel)]="legislation" (change)="updateData()">
@@ -127,6 +127,24 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">The Australian Modern Slavery Act</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <p>The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first statement
+        for
+        financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for this first
+        year the government provided companies with an extension due to the impact of the covid pandemic. As a result,
+        most companies submitted statements under the Australian Act from the financial year 2020 onward.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
   <div class="section-bottom  bg-grey pe-4 pb-4">
     <export-as [sector]="sector" [section]="'further-findings'"
                [elementId]="'further-findings-section'"
