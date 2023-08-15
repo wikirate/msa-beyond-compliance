@@ -1,5 +1,6 @@
 import {Filter} from "../models/filter.model";
 import {ValueRange} from "../models/valuerange.model";
+import {HttpParams} from "@angular/common/http";
 
 export class WikirateUrlBuilder {
   private baseUrl: string = 'https://wikirate.org'
@@ -23,23 +24,21 @@ export class WikirateUrlBuilder {
   public build(): string {
     let url = `${this.baseUrl}/${this.endpoint}`
 
-    let url_suffix = ''
+    let params = new HttpParams();
     for (let filter of this.filters) {
       if (Array.isArray(filter.value)) {
-        if (filter.value === []) continue
         for (let single_value of filter.value) {
-          url_suffix += `filter[${filter.name}][]=${single_value}&`
+          params = params.append("filter[" + filter.name + "][]", single_value)
         }
       } else if (filter.value instanceof ValueRange) {
-        url_suffix += `filter[${filter.name}][from]=${filter.value.from}&`
-        url_suffix += `filter[${filter.name}][to]=${filter.value.to}&`
+        params = params.append("filter[" + filter.name + "][from]", filter.value.from)
+        params = params.append("filter[" + filter.name + "][to]", filter.value.to)
       } else {
-        if (filter.value === '' || filter.value === undefined) continue
-        url_suffix += `filter[${filter.name}][]=${filter.value}&`
+        params = params.append("filter[" + filter.name + "]", filter.value)
       }
     }
 
-    return `${url}?${url_suffix}`
+    return `${url}?${params.toString()}`
   }
 
 }
