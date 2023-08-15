@@ -11,12 +11,18 @@ export class DataProvider {
   wikirateApiHost = "https://wikirate.org"
 
   company_groups = {
-    garment: 'MSA_Garment',
-    food_and_beverage: 'MSA_Food_Beverage',
-    hospitality: 'MSA_Hospitality',
-    financial: 'MSA_Financial',
-    renewable_energy: 'MSA_Renewable_Energy',
+    garment: '~12619141',
+    food_and_beverage: '~14545138',
+    hospitality: '~12619144',
+    financial: '~12620271',
+    renewable_energy: '~13923591',
     none: ''
+  }
+
+  companies_with_assessed_statement = {
+    uk: "Companies_with_assessed_UK_MSA_statement",
+    aus: "Companies_with_assessed_Australian_MSA_statement",
+    any: "Companies_with_assessed_MSA_statement"
   }
 
   sectors = {
@@ -42,6 +48,9 @@ export class DataProvider {
     msa_beyond_compliance: 12620974,
     msa_disclosure_rate: 12602527,
     turnover_range: 8218724,
+    msa_incidents_identified: 1831964,
+    msa_policy_beyond_t1: 6915846,
+    msa_risks_identified: 6916242
   }
 
   constructor(private httpClient: HttpClient) {
@@ -49,6 +58,11 @@ export class DataProvider {
 
   getAnswers(metric_id: number, filters: Filter[]) {
     let url = `${this.wikirateApiHost}/~${metric_id}+Answer.json`
+
+    return this.get<any>(url, DataProvider.getParams(filters))
+  }
+
+  static getParams(filters: Filter[]): HttpParams {
     let params = new HttpParams();
     for (let filter of filters) {
       if (Array.isArray(filter.value)) {
@@ -64,7 +78,7 @@ export class DataProvider {
     }
     params = params.append("limit", 0)
     params = params.append("view", "answer_list")
-    return this.get<any>(url, params)
+    return params;
   }
 
   getCompanyGroup(sector: string | null) {
@@ -76,9 +90,9 @@ export class DataProvider {
       return this.company_groups.hospitality
     } else if (sector === 'financial-sector') {
       return this.company_groups.financial
-    }  else if (sector === 'renewable-energy') {
+    } else if (sector === 'renewable-energy') {
       return this.company_groups.renewable_energy
-    }else {
+    } else {
       return this.company_groups.none
     }
   }
