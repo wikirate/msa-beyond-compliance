@@ -88,7 +88,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
         0,
         {
           renderer: "svg",
-          actions: false
+          actions: true
         }
       ).finally(() => this.isLoading = false)
     } else {
@@ -112,7 +112,7 @@ export class AssessedStatementsOverviewComponent implements OnInit {
         0,
         {
           renderer: "svg",
-          actions: false
+          actions: true
         }
       ).finally(() => this.isLoading = false)
     }
