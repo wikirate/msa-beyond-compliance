@@ -81,6 +81,23 @@ export class DataProvider {
     return params;
   }
 
+  public static getUrlParams(filters: Filter[]): HttpParams {
+    let params = new HttpParams();
+    for (let filter of filters) {
+      if (Array.isArray(filter.value)) {
+        for (let single_value of filter.value) {
+          params = params.append("filter[" + filter.name + "][]", single_value)
+        }
+      } else if (filter.value instanceof ValueRange) {
+        params = params.append("filter[" + filter.name + "][from]", filter.value.from)
+        params = params.append("filter[" + filter.name + "][to]", filter.value.to)
+      } else {
+        params = params.append("filter[" + filter.name + "]", filter.value)
+      }
+    }
+    return params;
+  }
+
   getCompanyGroup(sector: string | null) {
     if (sector === 'garment-sector') {
       return this.company_groups.garment
