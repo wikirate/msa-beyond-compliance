@@ -51,21 +51,24 @@ export class GoingBeyondComplianceComponent implements OnInit {
     let company_group = this.dataProvider.getCompanyGroup(this.sector)
 
     const uk_statements_assessed = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.uk_msa_statement_assessed, [
+      this.dataProvider.metrics.meet_uk_min_requirements, [
         new Filter("year", this.year),
-        new Filter('value', ['Yes']),
-        new Filter("company_group", company_group)
-      ]
+        new Filter('value', ['Yes', 'No', 'Unknown']),
+        new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.uk].filter(value => value != ''))]
     )
 
     const aus_statements_assessed = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.aus_msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
-        new Filter("company_group", company_group)]
+      this.dataProvider.metrics.meet_aus_min_requirements, [
+        new Filter("year", this.year),
+        new Filter('value', ['Yes', 'No', 'Unknown']),
+        new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.aus].filter(value => value != ''))]
     )
 
     const statements_assessed = this.dataProvider.getAnswers(
-      this.dataProvider.metrics.msa_statement_assessed, [new Filter("year", this.year), new Filter('value', ['Yes']),
-        new Filter("company_group", company_group)]
+      this.dataProvider.metrics.msa_meet_min_requirements, [
+        new Filter("year", this.year),
+        new Filter('value', ['Yes', 'No', 'Unknown']),
+        new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.any].filter(value => value != ''))]
     )
 
     forkJoin([uk_statements_assessed, aus_statements_assessed, statements_assessed]).subscribe(assessed_statements => {
@@ -74,7 +77,11 @@ export class GoingBeyondComplianceComponent implements OnInit {
       let total_assessed_statements = assessed_statements[2]
 
       var metric_answers = beyond_compliance_metrics.map((metric: any) => {
-        return this.dataProvider.getAnswers(metric['id'], [new Filter("year", this.year), new Filter("value", metric['filter_value'])])
+        return this.dataProvider.getAnswers(metric['id'], [
+          new Filter("year", this.year),
+          new Filter("value", metric['filter_value']),
+          new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.any].filter(value => value != ''))
+        ].filter(item => item.value != 'latest'))
       })
 
       forkJoin(metric_answers).subscribe(results => {
@@ -84,17 +91,25 @@ export class GoingBeyondComplianceComponent implements OnInit {
           let uk_count = 0;
           let aus_count = 0;
           let total = 0;
+
           for (let answer of answers) {
-            let c1 = uk_assessed_statements.find((i: { company: any; year: any; }) => {
-              return i['company'] == answer['company'] && i['year'] == answer['year']
-            }) !== undefined;
-            let c2 = aus_assessed_statements.find((i: { company: any; year: any; }) => {
-              return i['company'] == answer['company'] && i['year'] == answer['year']
-            }) !== undefined;
-            if (c1) uk_count++;
-            if (c2) aus_count++;
-            if (c1 || c2) total++;
+            let found = false;
+            uk_assessed_statements.find((item: any) => {
+              if (item['company'] == answer['company'] && item['year'] == answer['year']) {
+                uk_count++;
+                found = true;
+              }
+            })
+            aus_assessed_statements.find((item: any) => {
+              if (item['company'] == answer['company'] && item['year'] == answer['year']) {
+                aus_count++;
+                found = true;
+              }
+            })
+            if (found) total++;
           }
+
+          console.log("metric: " + metric['metric'] + " : " + (uk_count * 100 / uk_assessed_statements.length) + " aus_count: " + uk_count + "aus_assessed_count: " + uk_assessed_statements.length)
 
           let uk_percent = Math.round(uk_count * 100 / uk_assessed_statements.length)
           let aus_percent = Math.round(aus_count * 100 / aus_assessed_statements.length)
