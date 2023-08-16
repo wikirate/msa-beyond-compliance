@@ -36,31 +36,38 @@
     <!--  <hr class="deep-blue no-margin">-->
     <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="row justify-content-center">
-        <div class="col-lg-3 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Food Beverage')">
+        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Food Beverage')">
           <div class="number-box p-3"><span
             class="msa-primary-info">{{food_bev_avg_disclosure_rate | numFormat}}</span><span
             class="highlighted-number">/15</span>
             <h5>Food & Beverage</h5> <h5>Sector</h5>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Garment')">
+        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Garment')">
           <div class="number-box p-3"><span
             class="msa-primary-info">{{garment_avg_disclosure_rate | numFormat}}</span><span class="highlighted-number">/15</span>
             <h5>Garment</h5> <h5>Sector</h5>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 mt-md-2 mt-lg-0 mt-2" (click)="openURL('MSA Financial')">
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2" (click)="openURL('MSA Financial')">
           <div class="number-box p-3"><span
             class="msa-primary-info">{{financial_avg_disclosure_rate | numFormat}}</span><span
             class="highlighted-number">/15</span>
             <h5>Financial</h5> <h5>Sector</h5>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 mt-md-2 mt-lg-0 mt-2" (click)="openURL('MSA Hospitality')">
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2" (click)="openURL('MSA Hospitality')">
           <div class="number-box p-3"><span
             class="msa-primary-info">{{hospitality_avg_disclosure_rate | numFormat}}</span><span
             class="highlighted-number">/15</span>
             <h5>Hospitality</h5> <h5>Sector</h5>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2" (click)="openURL('MSA Hospitality')">
+          <div class="number-box p-3"><span
+            class="msa-primary-info">{{renewable_energy_avg_disclosure_rate | numFormat}}</span><span
+            class="highlighted-number">/15</span>
+            <h5>(Renewable) Energy</h5> <h5>Sector</h5>
           </div>
         </div>
       </div>

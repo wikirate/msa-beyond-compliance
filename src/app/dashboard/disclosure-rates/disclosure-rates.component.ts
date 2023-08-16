@@ -21,6 +21,7 @@ export class DisclosureRatesComponent implements OnInit {
   financial_avg_disclosure_rate: number = 0;
   hospitality_avg_disclosure_rate: number = 0;
   food_bev_avg_disclosure_rate: number = 0;
+  renewable_energy_avg_disclosure_rate: number = 0;
 
   constructor(private dataProvider: DataProvider, private sectorProvider: SectorProvider,
               private route: ActivatedRoute) {
@@ -69,9 +70,16 @@ export class DisclosureRatesComponent implements OnInit {
       ].filter(item => item.value != 'latest')
     )
 
+    const renewable_energy_disclosure_rates = this.dataProvider.getAnswers(
+      this.dataProvider.metrics.msa_disclosure_rate, [
+        new Filter("year", this.year),
+        new Filter("company_group", this.dataProvider.company_groups.renewable_energy)
+      ].filter(item => item.value != 'latest')
+    )
+
     forkJoin([food_and_bev_disclosure_rates,
       garment_disclosure_rates, financial_disclosure_rates,
-      hospitality_disclosure_rates]).subscribe(results => {
+      hospitality_disclosure_rates, renewable_energy_disclosure_rates]).subscribe(results => {
 
       if (this.year == 'latest') {
         results[0] = Object.values(results[0].reduce((r: any, o: any) => {
@@ -97,12 +105,19 @@ export class DisclosureRatesComponent implements OnInit {
 
           return r
         }, {}))
+
+        results[4] = Object.values(results[3].reduce((r: any, o: any) => {
+          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+
+          return r
+        }, {}))
       }
 
       this.food_bev_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[0]);
       this.garment_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[1]);
       this.financial_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[2]);
       this.hospitality_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[3]);
+      this.renewable_energy_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[4]);
 
       this.isLoading = false;
     })
