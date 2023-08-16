@@ -11,11 +11,11 @@ export class DataProvider {
   wikirateApiHost = "https://wikirate.org"
 
   company_groups = {
-    garment: '~12619141',
-    food_and_beverage: '~14545138',
-    hospitality: '~12619144',
-    financial: '~12620271',
-    renewable_energy: '~13923591',
+    garment: 'MSA_Garment',
+    food_and_beverage: 'MSA_Food_Beverage',
+    hospitality: 'MSA_Hospitality',
+    financial: 'MSA_Financial',
+    renewable_energy: 'MSA_Renewable_Energy',
     none: ''
   }
 
