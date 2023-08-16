@@ -73,11 +73,11 @@
             <td class="col-4 text-end bg-grey text-deep-blue"><a class="metric" href="{{row['url']}}"
                                                                          target="_blank">{{row['name']}}</a></td>
             <td class="col-2 clickable text-center bg-deep-blue"
-                (click)="openURL(row['url'])">{{row['total']| percentageFormat}}</td>
+                (click)="openURL(row['url'] + '&filter[company_group][]=Companies_with_assessed_MSA_statement')">{{row['total']| percentageFormat}}</td>
             <td class="col-2 clickable text-center {{row['uk_color']}}"
-                (click)="openURL(row['url'])">{{row['uk']| percentageFormat}}</td>
+                (click)="openURL(row['url'] + '&filter[company_group][]=Companies_with_assessed_UK_MSA_statement')">{{row['uk']| percentageFormat}}</td>
             <td class="col-2 clickable text-center {{row['aus_color']}}"
-                (click)="openURL(row['url'])">{{row['aus']| percentageFormat}}</td>
+                (click)="openURL(row['url'] + '&filter[company_group][]=Companies_with_assessed_Australian_MSA_statement')">{{row['aus']| percentageFormat}}</td>
           </tr>
           </tbody>
         </table>

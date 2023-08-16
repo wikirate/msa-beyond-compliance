@@ -21,6 +21,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   @Input()
   legislation!: string;
   company_group: string[] = []
+  params = ''
 
   isLoading: boolean = true;
 
@@ -49,6 +50,10 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
       assessed_statements_metric_id = this.dataProvider.metrics.meet_aus_min_requirements
       this.company_group.push(this.dataProvider.companies_with_assessed_statement.aus)
     }
+
+    this.params = DataProvider.getUrlParams([new Filter('year', this.year),
+      new Filter("company_group", this.company_group),
+    ].filter((filter) => filter.value != '' && filter.value != 'latest')).toString()
 
     this.chartsService.drawSubgroupsBarChart(
       "Whistleblowing or Grievance Mechanisms",

@@ -108,20 +108,21 @@ export class GoingBeyondComplianceComponent implements OnInit {
             })
             if (found) total++;
           }
-
-          console.log("metric: " + metric['metric'] + " : " + (uk_count * 100 / uk_assessed_statements.length) + " aus_count: " + uk_count + "aus_assessed_count: " + uk_assessed_statements.length)
-
           let uk_percent = Math.round(uk_count * 100 / uk_assessed_statements.length)
           let aus_percent = Math.round(aus_count * 100 / aus_assessed_statements.length)
           let total_percent = Math.round(total * 100 / total_assessed_statements.length)
-          let filter_value = ''
-          for (let value of metric['filter_value']) {
-            filter_value += 'filter[value][]=' + value + '&'
-          }
+
+          let filters: Filter[] = [new Filter('year', this.year),
+            new Filter("company_group", [company_group]),
+            new Filter("value", metric['filter_value'])
+          ].filter((filter) => filter.value != '' && filter.value != 'latest')
+
+          let params = DataProvider.getUrlParams(filters)
+
           if (metric['label'] == "Consultation process") {
             this.beyond_compliance_table_data.push({
               'name': metric['label'],
-              'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'uk': "N/A",
               'aus': aus_percent,
               'total': "N/A",
@@ -131,7 +132,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
           } else {
             this.beyond_compliance_table_data.push({
               'name': metric['label'],
-              'url': 'https://wikirate.org/' + metric['metric'] + '?filter[year]=' + this.year + '&filter[company_group]=' + company_group + '&' + filter_value.substring(0, filter_value.length + 1),
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'uk': uk_percent,
               'aus': aus_percent,
               'total': total_percent,
