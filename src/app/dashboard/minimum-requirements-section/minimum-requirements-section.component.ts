@@ -86,7 +86,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
         aus_minimum_requirements,
         this.year,
         aus_company_group,
-        {renderer: "svg", actions: true})
+        {renderer: "svg", actions: false})
     }
   }
 
@@ -124,7 +124,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
             'sum_count': assessed
           }],
         210, 180, ["#000029", "#FF5C45"],
-        ["Not Met", "Met"], {renderer: "svg", actions: true})
+        ["Not Met", "Met"], {renderer: "svg", actions: false})
       this.isLoading = false
     })
   }
