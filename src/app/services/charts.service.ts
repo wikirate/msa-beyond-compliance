@@ -1,6 +1,8 @@
 // @ts-ignore
 import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
+import donutChart from '../../assets/charts/donut.json';
+// @ts-ignore
 import customPieChart from '../../assets/charts/custom-pie.json';
 // @ts-ignore
 import pieGroupsChart from '../../assets/charts/pie-groups.json';
@@ -43,6 +45,25 @@ export class ChartsService {
 
     return embed(element, pie, options)
   }
+
+  drawDonutChart(title: string,
+    element: string,
+    values: {}[],
+    width: number,
+    height: number,
+    colors: string[],
+    domain: string[],
+    options: {}) {
+      var donut = JSON.parse(JSON.stringify(donutChart))
+      donut["title"]["text"] = title
+      donut["data"][0]["values"] = values
+      donut["width"] = width
+      donut["height"] = height
+      donut["scales"][0]["range"] = colors
+      donut["scales"][0]["domain"] = domain
+
+      return embed(element, donut, options)
+}
 
   drawPieCustomChart(title: string,
                      element: string,
