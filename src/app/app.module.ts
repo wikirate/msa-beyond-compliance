@@ -36,6 +36,7 @@ import { ExportAsComponent } from './dashboard/export-as/export-as.component';
 import {ClipboardModule} from "ngx-clipboard";
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
+import { SpotlightMetricsComponent } from './dashboard/spotlight-metrics/spotlight-metrics.component';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
@@ -90,7 +91,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     FurtherFindingsComponent,
     SectionComponent,
     ExportAsComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    SpotlightMetricsComponent
   ],
   imports: [
     FormsModule,
