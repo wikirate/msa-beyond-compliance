@@ -37,6 +37,7 @@ export class WikirateUrlBuilder {
         params = params.append("filter[" + filter.name + "]", filter.value)
       }
     }
+    params = params.append("tab","metric_answer")
 
     return `${url}?${params.toString()}`
   }
