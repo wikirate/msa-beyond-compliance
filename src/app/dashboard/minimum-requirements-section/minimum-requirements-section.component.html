@@ -36,17 +36,17 @@
     <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
         <div class="row text-center">
-          <h4>UK Act</h4>
+          <h4>UK Act <i class="bi bi-info-circle small superscript ms-1"></i></h4>
         </div>
         <div [ngClass]="uk_assessed > 0 ? 'show-element': 'hide-element'">
           <div class="row text-center pt-4">
             <div id="uk-meet-min-requirements" class="chart-wrapper">
             </div>
           </div>
-          <div class="row text-center pt-4">
+          <!-- <div class="row text-center pt-4">
             <div id="uk-requirements-bars" class="chart-wrapper">
             </div>
-          </div>
+          </div> -->
         </div>
         <div *ngIf="uk_assessed == 0">
           <div class="row text-center pt-4">
@@ -56,7 +56,7 @@
         <div class="row pt-4 justify-content-center"
              [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
           <div class="col-12 d-flex justify-content-center">
-            <div class="warning-message bg-deep-blue p-4">
+            <div class="warning-message">
               <p class="quote no-margin"><i class="bi bi-exclamation-diamond pe-2"></i>The UK legislation only requires
                 three criteria, none of which relate to the quality of the statement. While the accompanying guidance
                 provides suggested categories – similar to those in the Australian legislation – these are not
@@ -95,10 +95,10 @@
             <div id="aus-meet-min-requirements" class="chart-wrapper">
             </div>
           </div>
-          <div class="row text-center pt-4">
+          <!-- <div class="row text-center pt-4">
             <div id="aus-requirements-bars" class="chart-wrapper">
             </div>
-          </div>
+          </div> -->
         </div>
         <div *ngIf="aus_assessed == 0">
           <div class="row text-center pt-4">
