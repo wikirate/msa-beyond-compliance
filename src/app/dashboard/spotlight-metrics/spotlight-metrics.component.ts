@@ -137,9 +137,10 @@ export class SpotlightMetricsComponent implements OnInit {
           living_wage_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
         }
 
-        let statements_reporting_workers_engagement = workers_engagement_response.filter((x: any) => x['value'] == 'Yes with workers' || x['value'] == 'Yes with labor unions').length
+        let statements_reporting_workers_engagement = workers_engagement_response.filter((x: any) => x['value'].includes('Yes with workers') || x['value'].includes('Yes with labor unions')).length
         let statements_reporting_living_wage_commitment = living_wage_response.filter((x: any) => x['value'] == 'Yes').length
         let statements_reporting_collaborations_and_memberships = collaborations_and_memberships_response.filter((x: any) => x['value'] == 'Yes').length
+
         return {
           'collaborations_and_memberships': Math.round(statements_reporting_collaborations_and_memberships * 100 / collaborations_and_memberships_response.length),
           'workers_engagement': Math.round(statements_reporting_workers_engagement * 100 / workers_engagement_response.length),
