@@ -5,6 +5,8 @@ import donutChart from '../../assets/charts/donut.json';
 // @ts-ignore
 import customPieChart from '../../assets/charts/custom-pie.json';
 // @ts-ignore
+import singleBarChart from '../../assets/charts/single-bar.json';
+// @ts-ignore
 import pieGroupsChart from '../../assets/charts/pie-groups.json';
 // @ts-ignore
 import barChart from '../../assets/charts/bars.json';
@@ -26,6 +28,13 @@ import {DataProvider} from "./data.provider";
 @Injectable()
 export class ChartsService {
   wikirateApiHost = "https://wikirate.org"
+
+  drawSingleBar(title: string, metric:number, element: string, options: {}, year: string){
+    var bar = JSON.parse(JSON.stringify(singleBarChart))
+    bar['signals']['0']['value'] = title
+    bar['data'][0]['url'] = `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group][]=Companies_with_assessed_MSA_statement`
+    return embed(element, bar, options)
+  }
 
   drawPieChart(title: string,
                element: string,
