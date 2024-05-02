@@ -1,1 +1,111 @@
-<p>spotlight-metrics works!</p>
+<div class="container">
+  <div id="spotlight-metrics-section" class="section-top mt-4 bg-grey p-4">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="title">Spotlight Metrics</h3>
+                <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
+            </div>
+            <div class="col-md-8 ms-md-auto">
+                <div class="row ps-3 pe-3 pt-md-0 pt-2">
+                    <select #select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1"
+                        aria-label="Default select example" style="max-width: 120px; max-height: 50px; font-size: 0.8em"
+                        [(ngModel)]="year" (ngModelChange)="select.value = updateData($event)">
+                        <option value="" selected>ALL YEARS</option>
+                        <option value="latest">LATEST</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                    </select>
+                    <select class="msa-form-select bg-grey" aria-label="Default select example"
+                        [(ngModel)]="legislation" (change)="updateData(year)">
+                        <option [ngValue]="'both'" selected>LEGISLATION</option>
+                        <option [ngValue]="'uk'">UK MSA</option>
+                        <option [ngValue]="'aus'">AUS MSA</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="mb-5">
+              <div class="row d-flex justify-content-center">
+                <div class="msa-primary-info col-7 p-lg-4 p-2">
+                  <div id="living-wage-chart" class="chart-wrapper">
+                  </div>
+                </div>
+                <div class="col-5 align-content-center">
+                  <div class="msa-secondary-info mb-2">
+                    Low and underpayment of wages in supply chains
+                  </div>
+                  <p><b>Only {{livingWageCommitment | percentageFormat}}</b> of the studied statements provided a commitment on, or detail action to ensure living wages throughout their supply chain. Low and underpayment of wages are an indicator of forced labour. </p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="mb-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-5 align-content-center">
+                    <div class="msa-secondary-info mb-2">
+                      Memberships and Partnerships with multi-stakeholder initiatives enable effective remedy for harms.
+                    </div>
+                    <p><b>{{collaborationsAndMemberships | percentageFormat}}</b> of the studied statments mention memberships or collaborations with, multi-stakeholder initiatives that address modern slavery issues.</p>
+                  </div>
+                <div class="msa-primary-info col-7 p-lg-4 p-2">
+                  <div id="collaborations-and-memberships-chart" class="chart-wrapper">
+                  </div>
+                </div>                
+              </div>
+            </div>
+            
+        </div>
+        <div class="row mt-5">
+          <div class="mb-5">
+            <div class="row d-flex justify-content-center">
+              <div class="msa-primary-info col-7 p-lg-4 p-2">
+                <div id="workers-engagement-chart" class="chart-wrapper">
+                </div>
+              </div>
+              <div class="col-5 align-content-center">
+                <div class="msa-secondary-info mb-2">
+                  workers Engagement
+                </div>
+                <p><b>Only {{workersEngagement | percentageFormat}}</b> of the studied statements provided a commitment on, or detail action to ensure living wages throughout their supply chain. Low and underpayment of wages are an indicator of forced labour. </p>
+              </div>
+            </div>
+          </div>
+      </div>
+        <!--  <hr class="deep-blue">-->
+
+        <!-- Modal -->
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h5 class="modal-title">The Australian Modern Slavery Act</h5>
+                <button type="button" class="btn-close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <p>The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first
+                    statement
+                    for
+                    financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for
+                    this first
+                    year the government provided companies with an extension due to the impact of the covid pandemic. As
+                    a result,
+                    most companies submitted statements under the Australian Act from the financial year 2020 onward.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+            </div>
+        </ng-template>
+        <div class="section-bottom bg-grey pe-4 pb-4">
+            <export-as [sector]="sector" [section]="'key-findings'" [elementId]="'key-findings-section'"
+                [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+        </div>
+    </div>
+</div>
