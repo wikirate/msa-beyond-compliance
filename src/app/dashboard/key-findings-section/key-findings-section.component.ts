@@ -1,13 +1,14 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {DataProvider} from "../../services/data.provider";
-import {Filter} from "../../models/filter.model";
-import {ValueRange} from "../../models/valuerange.model";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {SectorProvider} from "../../services/sector.provider";
-import {Meta, Title} from "@angular/platform-browser";
-import {forkJoin} from "rxjs";
-import {WikirateUrlBuilder} from "../../utils/wikirate-url-builder";
+import { AfterContentInit, AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { DataProvider } from "../../services/data.provider";
+import { Filter } from "../../models/filter.model";
+import { ValueRange } from "../../models/valuerange.model";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ActivatedRoute, ParamMap } from "@angular/router";
+import { SectorProvider } from "../../services/sector.provider";
+import { Meta, Title } from "@angular/platform-browser";
+import { forkJoin, map } from "rxjs";
+import { WikirateUrlBuilder } from "../../utils/wikirate-url-builder";
+import { ChartsService } from 'src/app/services/charts.service';
 
 @Component({
   selector: 'key-findings-section',
@@ -19,35 +20,38 @@ export class KeyFindingsSectionComponent implements OnInit {
   company_group: string[] = []
   @ViewChild("content") content!: TemplateRef<any>;
 
-  numOfCompaniesUnderMSA!: number;
   numOfAssessedMSAStatements!: number;
   meetsMinRequirements!: number;
-  go_beyond_compliance!: number;
+  supplyChainDisclosure!: number;
+  workerRemediation!: number;
+  dueDilligence!: number;
 
   year: string = ''
   legislation: string = 'both'
-  isLoading: boolean = true;
+  isLoading: boolean = false;
 
-  beyond_compliance_metric_url = '#'
   meet_min_requirements_metric_url: string = '#'
   msa_statement_assessed_metric_url: string = '#'
   msa_statements_metric_url: string = '#'
+  supply_chain_disclosure_url: string = '#'
+  worker_remediation_url: string = "#";
+  due_dilligence_url: string = "#";
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
-              private route: ActivatedRoute, private sectorProvider: SectorProvider,
-              private titleService: Title, private meta: Meta) {
+    private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartsService: ChartsService,
+    private titleService: Title, private meta: Meta) {
 
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-        let sector = params.get('sector');
-        if (sector !== null) {
-          this.sector = sector
-          this.updateData(this.year)
-        }
-        this.sectorProvider.getSector().next(sector);
+      let sector = params.get('sector');
+      if (sector !== null) {
+        this.sector = sector
+        this.updateData(this.year)
       }
+      this.sectorProvider.getSector().next(sector);
+    }
     )
     this.route.url.subscribe(val => {
       if (val[1].path === 'key-findings') {
@@ -84,7 +88,7 @@ export class KeyFindingsSectionComponent implements OnInit {
   }
 
   updateData($event: any) {
-    this.isLoading = true;
+    this.isLoading = false;
     this.numOfAssessedMSAStatements = 0;
 
     this.company_group = []
@@ -100,18 +104,20 @@ export class KeyFindingsSectionComponent implements OnInit {
 
     if (this.legislation === 'both') {
       this.key_findings_calculation(
-        this.dataProvider.metrics.modern_slavery_statement,
         this.dataProvider.metrics.msa_statement_assessed,
         this.dataProvider.metrics.msa_meet_min_requirements,
-        this.dataProvider.metrics.msa_beyond_compliance)
+        this.dataProvider.metrics.msa_supply_chain_disclosure,
+        this.dataProvider.metrics.msa_incidents_remediation,
+      this.dataProvider.metrics.msa_supply_chain_due_dilligence)
 
       return $event;
     } else if (this.legislation === 'uk') {
       this.key_findings_calculation(
-        this.dataProvider.metrics.modern_slavery_statement,
         this.dataProvider.metrics.uk_msa_statement_assessed,
         this.dataProvider.metrics.meet_uk_min_requirements,
-        this.dataProvider.metrics.uk_beyond_compliance_disclosure_rate)
+        this.dataProvider.metrics.msa_supply_chain_disclosure,
+        this.dataProvider.metrics.msa_incidents_remediation,
+        this.dataProvider.metrics.msa_supply_chain_due_dilligence)
       return $event;
     } else {
       if (this.year !== '' && this.year !== 'latest' && Number(this.year) < 2020) {
@@ -119,11 +125,11 @@ export class KeyFindingsSectionComponent implements OnInit {
         this.year = '2020';
       }
       this.key_findings_calculation(
-        this.dataProvider.metrics.modern_slavery_statement,
         this.dataProvider.metrics.aus_msa_statement_assessed,
         this.dataProvider.metrics.meet_aus_min_requirements,
-        this.dataProvider.metrics.aus_beyond_compliance_disclosure_rate)
-
+        this.dataProvider.metrics.msa_supply_chain_disclosure,
+        this.dataProvider.metrics.msa_incidents_remediation,
+        this.dataProvider.metrics.msa_supply_chain_due_dilligence)
       return this.year;
     }
   }
@@ -137,7 +143,11 @@ export class KeyFindingsSectionComponent implements OnInit {
    * @param meet_requirements_metric
    * @param beyond_compliance_metric
    */
-  key_findings_calculation(statements_metric: number, assessed_statements_metric: number, meet_requirements_metric: number, beyond_compliance_metric: number) {
+  key_findings_calculation(assessed_statements_metric: number,
+    meet_requirements_metric: number,
+    supply_chain_disclosure_metric: number,
+    incidents_remediation_metric: number,
+    due_dilligence_metric: number) {
 
     let legislation_filter_value = ["Yes - UK Modern Slavery Act", "Yes - Australian Modern Slavery Act"]
     let beyond_compliance_value: any = ["Yes"]
@@ -150,13 +160,6 @@ export class KeyFindingsSectionComponent implements OnInit {
     }
 
     //build urls to link the numbers to wikirate metrics with proper filters applied
-    this.msa_statements_metric_url = new WikirateUrlBuilder()
-      .setEndpoint(statements_metric)
-      .addFilter(new Filter('value', legislation_filter_value))
-      .addFilter(new Filter('company_group', this.dataProvider.getCompanyGroup(this.sector)))
-      .addFilter(new Filter('year', this.year))
-      .build()
-
     this.meet_min_requirements_metric_url = new WikirateUrlBuilder()
       .setEndpoint(meet_requirements_metric)
       .addFilter(new Filter('value', ['Yes']))
@@ -174,20 +177,28 @@ export class KeyFindingsSectionComponent implements OnInit {
       this.msa_statement_assessed_metric_url = msa_statement_assessed_metric_wikirate_url.build()
     }
 
-    this.beyond_compliance_metric_url = new WikirateUrlBuilder()
-      .setEndpoint(beyond_compliance_metric)
-      .addFilter(new Filter("value", beyond_compliance_value))
+    this.supply_chain_disclosure_url = new WikirateUrlBuilder()
+      .setEndpoint(supply_chain_disclosure_metric)
+      .addFilter(new Filter("value", ['Geographical', 'Facility/Supplier']))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    this.worker_remediation_url = new WikirateUrlBuilder()
+      .setEndpoint(incidents_remediation_metric)
+      .addFilter(new Filter("value", ['Worker remediation']))
+      .addFilter(new Filter('company_group', this.company_group))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    this.due_dilligence_url = new WikirateUrlBuilder()
+      .setEndpoint(due_dilligence_metric)
+      .addFilter(new Filter("value", ['Worker remediation']))
       .addFilter(new Filter('company_group', this.company_group))
       .addFilter(new Filter('year', this.year))
       .build()
 
     //prepare all requests that need to be executed
-    const statements = this.dataProvider.getAnswers(statements_metric,
-      [
-        new Filter("year", this.year),
-        new Filter("value", legislation_filter_value),
-        new Filter("company_group", this.dataProvider.getCompanyGroup(this.sector))
-      ])
     let assessed_filters = [
       new Filter("year", this.year),
       new Filter("value", ["Yes"]),
@@ -208,39 +219,90 @@ export class KeyFindingsSectionComponent implements OnInit {
         new Filter("company_group", this.company_group)
       ])
 
-    const beyond_compliance = this.dataProvider.getAnswers(beyond_compliance_metric,
+    const supply_chain_disclosure = this.dataProvider.getAnswers(supply_chain_disclosure_metric,
       [
         new Filter("year", this.year),
-        new Filter("value", beyond_compliance_value),
+        new Filter("value", ['Geographical', 'Facility/Supplier']),
         new Filter("company_group", this.company_group)
       ])
 
+    const incidents_remediation = this.dataProvider.getAnswers(incidents_remediation_metric,
+      [
+        new Filter("year", this.year),
+        new Filter("value", ['Worker remediation']),
+        new Filter("company_group", this.company_group)
+      ])
+
+      const due_dilligence = this.dataProvider.getAnswers(due_dilligence_metric,
+        [
+          new Filter("year", this.year),
+          new Filter("value", ['Yes']),
+          new Filter("company_group", this.company_group)
+        ])
+  
+
     /**perform the requests using forkJoin to get all the results before start calculating the key findings**/
-    forkJoin([statements, assessed, meet_requirements, beyond_compliance]).subscribe(results => {
-      if (this.year == 'latest') {
-        results[1] = Object.values(results[1].reduce((r: any, o: any) => {
-          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+    forkJoin([assessed, meet_requirements, supply_chain_disclosure, incidents_remediation, due_dilligence])
+      .pipe(map(([assessed_response, meet_requirements_response, supply_chain_disclosure_response, incidents_remediation_response, due_dilligence_response]) => {
+        if (this.year == 'latest') {
+          assessed_response = Object.values(assessed_response.reduce((r: any, o: any) => {
+            r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
 
-          return r
-        }, {}))
+            return r
+          }, {}))
 
-        results[2].filter((item: any) => results[1].find((o: any) => o.company == item.company && o.year == item.year))
-        results[3].filter((item: any) => results[1].find((o: any) => o.company == item.company && o.year == item.year))
-      }
+          console.log(assessed_response)
 
-      this.numOfCompaniesUnderMSA = results[0].length
-      this.numOfAssessedMSAStatements = results[1].length
+          meet_requirements_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+          supply_chain_disclosure_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+          incidents_remediation_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+          due_dilligence_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+        }
 
-      this.meetsMinRequirements = Math.round((results[2].length / this.numOfAssessedMSAStatements) * 100)
+        return {
+          'num_of_assessed_msa_statements': assessed_response.length,
+          'cover_min_requirements': Math.round((meet_requirements_response.length / assessed_response.length) * 100),
+          'supply_chain_disclosure': Math.round((supply_chain_disclosure_response.length) * 100 / assessed_response.length),
+          'incidents_remediation': Math.round((incidents_remediation_response.length) * 100 / assessed_response.length),
+          'due_dilligence': Math.round((due_dilligence_response.length) * 100 / assessed_response.length)
+        }
+      }))
+      .subscribe(results => {
+        this.numOfAssessedMSAStatements = results.num_of_assessed_msa_statements
+        this.meetsMinRequirements = results.cover_min_requirements
+        this.supplyChainDisclosure = results.supply_chain_disclosure
+        this.workerRemediation = results.incidents_remediation
+        this.dueDilligence = results.due_dilligence
 
-      this.go_beyond_compliance = Math.round((results[3].length) * 100 / this.numOfAssessedMSAStatements)
+        //loading stops when all requests and calculations have been performed successfully
+        this.isLoading = false
 
-      //loading stops when all requests and calculations have been performed successfully
-      this.isLoading = false
-    })
+        this.drawDonutChart(this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url)
+        this.drawDonutChart(100 - this.supplyChainDisclosure, "donut-supply-chain-disclosure", this.supply_chain_disclosure_url)
+        this.drawDonutChart(this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url)
+        this.drawDonutChart(100 - this.dueDilligence, "donut-due-dilligence", this.due_dilligence_url)
+      })
   }
 
   openMessage() {
-    this.modalService.open(this.content, {centered: true});
+    this.modalService.open(this.content, { centered: true });
+  }
+
+  drawDonutChart(percentage: number, elementId: string, url: string) {
+    this.chartsService.drawDonutChart(
+      `${percentage}%`,
+      `div#${elementId}`,
+      [{
+        'id': 'Met',
+        'percent': percentage,
+        'URL': url
+      },
+      {
+        'id': 'Not Met',
+        'percent': 100 - percentage,
+        'URL': url
+      }],
+      250, 250, ["#E5E5EA", "#FF5C45"],
+      ["Not Met", "Met"], { renderer: "svg", actions: false })
   }
 }

@@ -50,7 +50,13 @@ export class DataProvider {
     turnover_range: 8218724,
     msa_incidents_identified: 1831964,
     msa_policy_beyond_t1: 6915846,
-    msa_risks_identified: 6916242
+    msa_risks_identified: 6916242,
+    msa_supply_chain_disclosure: 1831908,
+    msa_incidents_remediation: 2722444,
+    msa_supply_chain_due_dilligence: 6915961,
+    msa_collaborations_and_membership: 15850813,
+    msa_workers_engagement: 15928634,
+    msa_living_wage: 14019233
   }
 
   constructor(private httpClient: HttpClient) {

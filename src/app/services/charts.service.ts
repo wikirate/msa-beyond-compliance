@@ -1,7 +1,11 @@
 // @ts-ignore
 import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
+import donutChart from '../../assets/charts/donut.json';
+// @ts-ignore
 import customPieChart from '../../assets/charts/custom-pie.json';
+// @ts-ignore
+import singleBarChart from '../../assets/charts/single-bar.json';
 // @ts-ignore
 import pieGroupsChart from '../../assets/charts/pie-groups.json';
 // @ts-ignore
@@ -25,6 +29,13 @@ import {DataProvider} from "./data.provider";
 export class ChartsService {
   wikirateApiHost = "https://wikirate.org"
 
+  drawSingleBar(title: string, metric:number, element: string, options: {}, year: string){
+    var bar = JSON.parse(JSON.stringify(singleBarChart))
+    bar['signals']['0']['value'] = title
+    bar['data'][0]['url'] = `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group][]=Companies_with_assessed_MSA_statement`
+    return embed(element, bar, options)
+  }
+
   drawPieChart(title: string,
                element: string,
                values: {}[],
@@ -43,6 +54,25 @@ export class ChartsService {
 
     return embed(element, pie, options)
   }
+
+  drawDonutChart(title: string,
+    element: string,
+    values: {}[],
+    width: number,
+    height: number,
+    colors: string[],
+    domain: string[],
+    options: {}) {
+      var donut = JSON.parse(JSON.stringify(donutChart))
+      donut["title"]["text"] = title
+      donut["data"][0]["values"] = values
+      donut["width"] = width
+      donut["height"] = height
+      donut["scales"][0]["range"] = colors
+      donut["scales"][0]["domain"] = domain
+
+      return embed(element, donut, options)
+}
 
   drawPieCustomChart(title: string,
                      element: string,

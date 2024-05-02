@@ -60,16 +60,16 @@ export class MinimumRequirementsSectionComponent implements OnInit {
       this.dataProvider.metrics.uk_msa_statement_assessed,
       this.dataProvider.metrics.meet_uk_min_requirements, uk_company_group)
 
-    this.chartsService.drawMinimumRequirementsBarChart(
-      "Which minimum uk requirements do these companies meet?",
-      "div#uk-requirements-bars",
-      350,
-      200,
-      this.dataProvider.metrics.meet_uk_min_requirements,
-      uk_minimum_requirements,
-      this.year,
-      uk_company_group,
-      {renderer: "svg", actions: false})
+    // this.chartsService.drawMinimumRequirementsBarChart(
+    //   "Which minimum uk requirements do these companies meet?",
+    //   "div#uk-requirements-bars",
+    //   350,
+    //   200,
+    //   this.dataProvider.metrics.meet_uk_min_requirements,
+    //   uk_minimum_requirements,
+    //   this.year,
+    //   uk_company_group,
+    //   {renderer: "svg", actions: true})
 
     if (this.year >= 2020 || this.year == '' || this.year == 'latest') {
       this.draw_minimum_requirements_pie_chart(
@@ -78,15 +78,15 @@ export class MinimumRequirementsSectionComponent implements OnInit {
         this.dataProvider.metrics.aus_msa_statement_assessed,
         this.dataProvider.metrics.meet_aus_min_requirements, aus_company_group)
 
-      this.chartsService.drawMinimumRequirementsBarChart(
-        "Which minimum aus requirements do these companies meet?",
-        "div#aus-requirements-bars",
-        350, 670,
-        this.dataProvider.metrics.meet_aus_min_requirements,
-        aus_minimum_requirements,
-        this.year,
-        aus_company_group,
-        {renderer: "svg", actions: false})
+      // this.chartsService.drawMinimumRequirementsBarChart(
+      //   "Which minimum aus requirements do these companies meet?",
+      //   "div#aus-requirements-bars",
+      //   350, 670,
+      //   this.dataProvider.metrics.meet_aus_min_requirements,
+      //   aus_minimum_requirements,
+      //   this.year,
+      //   aus_company_group,
+      //   {renderer: "svg", actions: false})
     }
   }
 

@@ -8,12 +8,11 @@
       <div class="col-md-8 ms-md-auto">
         <div class="row ps-3 pe-3 pt-md-0 pt-2">
           <select #select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1"
-                  aria-label="Default select example"
-                  style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-                  (ngModelChange)="select.value = updateData($event)">
+            aria-label="Default select example" style="max-width: 120px; max-height: 50px; font-size: 0.8em"
+            [(ngModel)]="year" (ngModelChange)="select.value = updateData($event)">
             <option value="" selected>ALL YEARS</option>
             <option value="latest">LATEST</option>
-<!--            <option value="2022">2022</option>-->
+            <option value="2022">2022</option>
             <option value="2021">2021</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
@@ -22,8 +21,8 @@
             <option value="2016">2016</option>
             <option value="2015">2015</option>
           </select>
-          <select class="msa-form-select bg-grey" aria-label="Default select example"
-                  [(ngModel)]="legislation" (change)="updateData(year)">
+          <select class="msa-form-select bg-grey" aria-label="Default select example" [(ngModel)]="legislation"
+            (change)="updateData(year)">
             <option [ngValue]="'both'" selected>LEGISLATION</option>
             <option [ngValue]="'uk'">UK MSA</option>
             <option [ngValue]="'aus'">AUS MSA</option>
@@ -39,55 +38,77 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5 mb-5" *ngIf="!isLoading">
-      <div class="col-md-6 col-lg-3 text-center">
-        <div class="row">
-          <div class="msa-primary-info"><a class="stat"
-                                           href="{{msa_statements_metric_url}}"
-                                           target="_blank">{{numOfCompaniesUnderMSA | numFormat}}</a></div>
-        </div>
-        <div class="row">
-          <p>company statements found under Modern Slavery Act (MSA) legislation</p>
-        </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements | numFormat}} company statements</a> produced under <span
+            *ngIf="legislation == 'both'">the Australian and
+            UK Modern Slavery Acts</span><span *ngIf="legislation != 'both'">the {{legislation.toUpperCase()}} Modern
+            Slavert Act</span> and these are some of the gaps we have discovered. </p>
       </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <div class="row">
-          <div class="msa-primary-info"><a class="stat"
-                                           href="{{msa_statement_assessed_metric_url}}"
-                                           target="_blank">{{numOfAssessedMSAStatements | numFormat}}</a>
+    </div>
+    <div class="row mt-5" *ngIf="!isLoading">
+      <div class="col-sm-12 col-md-6 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="msa-primary-info col-5 p-lg-4 p-2">
+            <div id="donut-meet-min-requirements" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="col-7 align-content-center">
+            <div class="msa-secondary-info mb-2">
+              Companies are failing to effectively meet their reporting obligations.
+            </div>
+            <p><b>Only {{meetsMinRequirements | percentageFormat}}</b> of assessed statements meet all <a
+                class="tooltip-term" type="button"
+                [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
+                requirements</a> of the corresponding MSA legislation.</p>
           </div>
         </div>
-        <div class="row">
-          <p>MSA statements assessed by <a class="tooltip-term" type="button"
-                                           [ngbTooltip]="'Anyone can participate in the assessment of statements. See About page for more information.'">researchers</a>
-          </p>
-        </div>
       </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <div class="row">
-          <div class="msa-primary-info"><a class="stat"
-                                           href="{{meet_min_requirements_metric_url}}"
-                                           target="_blank">{{meetsMinRequirements | percentageFormat}}</a>
+      <div class="col-sm-12 col-md-6 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="msa-primary-info col-5 p-lg-4 p-2">
+            <div id="donut-supply-chain-disclosure" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="col-7 align-content-center">
+            <div class="msa-secondary-info mb-2">
+              Ineffective disclosures render millions of workers invisible
+            </div>
+            <p><b>{{100 - supplyChainDisclosure | percentageFormat}}</b> of the assessed statements disclosed no
+              information on their supply chains.</p>
           </div>
         </div>
-        <div class="row">
-          <p>of assessed statements meet all <a class="tooltip-term" type="button"
-                                                [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
-            requirements</a> of the corresponding MSA legislation</p>
-        </div>
       </div>
-      <div class="col-md-6 col-lg-3 text-center">
-        <div class="row">
-          <div class="msa-primary-info">
-            <a class="stat"
-               href="{{beyond_compliance_metric_url}}"
-               target="_blank">{{go_beyond_compliance | percentageFormat}}</a>
+      <div class="col-sm-12 col-md-6 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="msa-primary-info col-5 p-lg-4 p-2">
+            <div id="donut-worker-remediation" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="col-7 align-content-center">
+            <div class="msa-secondary-info mb-2">
+              No direct worker remediation
+            </div>
+            <p><b>Only {{workerRemediation | percentageFormat}}</b> of the assessed statements disclose direct worker
+              remediation policies. Such policies prioritise the well-being, rights, and dignity of affected workers.
+            </p>
           </div>
         </div>
-        <div class="row">
-          <p>of assessed statements go <a class="tooltip-term" type="button"
-                                          [ngbTooltip]="'Statements disclosed additional information as advised in the MSA guidance'">beyond
-            compliance</a> for the corresponding MSA legislation</p>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="msa-primary-info col-5 p-lg-4 p-2">
+            <div id="donut-due-dilligence" class="chart-wrapper">
+            </div>
+          </div>
+          <div class="col-7 align-content-center">
+            <div class="msa-secondary-info mb-2">
+              No direct Supply chain due dilligence
+            </div>
+            <p><b>{{100 - dueDilligence | percentageFormat}}</b> of the assessed statements report no supply chain due
+              dilligence in place. This means no risk management, seriously impending companies' ability to detect or
+              respond to exploitation.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -111,7 +132,7 @@
     </div>
   </ng-template>
   <div class="section-bottom bg-grey pe-4 pb-4">
-    <export-as [sector]="sector" [section]="'key-findings'"
-               [elementId]="'key-findings-section'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+    <export-as [sector]="sector" [section]="'key-findings'" [elementId]="'key-findings-section'"
+      [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>
 </div>

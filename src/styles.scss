@@ -799,6 +799,8 @@ hr.deep-blue {
 }
 
 .msa-secondary-info {
+  font-family: 'Rubik';
+  font-weight: 700;
   text-transform: uppercase !important;
 }
 
@@ -1127,6 +1129,17 @@ a.cc-btn {
   font-family: Rubik !important;
   text-decoration: none !important;
   height: 100%;
+}
+
+i.superscript {
+  @extend sup;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
+i.superscript:hover{
+  opacity: 1;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 740px) {
