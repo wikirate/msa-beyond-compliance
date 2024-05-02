@@ -130,7 +130,6 @@ export class KeyFindingsSectionComponent implements OnInit {
         this.dataProvider.metrics.msa_supply_chain_disclosure,
         this.dataProvider.metrics.msa_incidents_remediation,
         this.dataProvider.metrics.msa_supply_chain_due_dilligence)
-
       return this.year;
     }
   }
