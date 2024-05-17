@@ -16,6 +16,7 @@ export class DataProvider {
     hospitality: 'MSA_Hospitality',
     financial: 'MSA_Financial',
     renewable_energy: 'MSA_Renewable_Energy',
+    electronics: 'MSA_Electronics',
     none: ''
   }
 
@@ -31,7 +32,8 @@ export class DataProvider {
     'garment-sector': 'Garment',
     'financial-sector': 'Financial',
     'hospitality-sector': 'Hospitality',
-    'renewable-energy': '(Renewable) Energy'
+    'renewable-energy': '(Renewable) Energy',
+    'electronics': 'Electronics'
   }
 
   metrics = {
@@ -109,7 +111,9 @@ export class DataProvider {
       return this.company_groups.financial
     } else if (sector === 'renewable-energy') {
       return this.company_groups.renewable_energy
-    } else {
+    } else if (sector === 'electronics') {
+      return this.company_groups.electronics
+    }else {
       return this.company_groups.none
     }
   }
