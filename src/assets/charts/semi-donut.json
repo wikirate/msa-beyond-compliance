@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A basic semi donut chart example.",
+    "width": 250,
+    "height": 250,
+    "padding": 10,
+    "title": {
+      "text":"36%",
+      "font": "Rubik",
+      "fontSize": 60,
+      "fontWeight": "700",
+      "dy": {"signal": "width/1.55"}
+    },
+     "signals": [
+      {
+        "name": "hoverValue",
+        "value": null,
+        "on": [
+          {
+            "events": "arc:mouseover, @legendLabel:mouseover, @legendSymbol:mouseover",
+            "update": "datum.value"
+          },
+          {
+            "events": "arc:mouseout, @legendLabel:mouseout, @legendSymbol:mouseout",
+            "update": "null"
+          }
+        ]
+      },
+      {
+        "name": "hoverOpacity",
+        "update": "if(hoverValue, 0.5, 1)",
+        "value": 1
+      }
+    ],
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"id": 1, "percent": 64},
+          {"id": 2, "percent": 36}
+        ],
+        "transform": [{
+          "type": "pie",
+          "field": "percent", 
+          "startAngle": -1.570796326794897, 
+          "endAngle": 1.570796326794897,          
+          "sort":true
+        }]
+      }
+      
+    ],
+    "scales": [    
+      {
+        "name": "color",
+        "type": "ordinal",
+        "range": [
+          "#fafafa",
+          "#FF9300"
+        ],
+        "domain": [1,2]
+      }
+    ],
+    "marks": [
+      {
+        "type": "arc",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "fill": {"scale": "color", "field": "id"},
+            "x": {"signal": "width / 2"},
+            "y": {"signal": "height / 2"},
+            "startAngle": {"signal": "datum.startAngle"},
+            "endAngle": {"signal": "datum.endAngle"},
+            "padAngle": {"value": 0},
+            "innerRadius": {"value": 80},
+            "outerRadius": {"signal": "width / 2"},
+            "cornerRadius": {"value": 0}
+          },
+          "update": {
+            "href": {"field": "URL", "target": "_blank"},
+            "cursor": {"value": "pointer"}
+          }
+        }
+      }
+    ]
+  }
+  
