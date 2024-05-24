@@ -16,6 +16,7 @@ export class DataProvider {
     hospitality: 'MSA_Hospitality',
     financial: 'MSA_Financial',
     renewable_energy: 'MSA_Renewable_Energy',
+    electronics: 'MSA_Electronics',
     none: ''
   }
 
@@ -31,7 +32,8 @@ export class DataProvider {
     'garment-sector': 'Garment',
     'financial-sector': 'Financial',
     'hospitality-sector': 'Hospitality',
-    'renewable-energy': '(Renewable) Energy'
+    'renewable-energy': '(Renewable) Energy',
+    'electronics': 'Electronics'
   }
 
   metrics = {
@@ -46,7 +48,7 @@ export class DataProvider {
     aus_beyond_compliance_disclosure_rate: 12620676,
     uk_beyond_compliance_disclosure_rate: 6899063,
     msa_beyond_compliance: 12620974,
-    msa_disclosure_rate: 12602527,
+    msa_disclosure_rate: 14554858,
     turnover_range: 8218724,
     msa_incidents_identified: 1831964,
     msa_policy_beyond_t1: 6915846,
@@ -115,7 +117,9 @@ export class DataProvider {
       return this.company_groups.financial
     } else if (sector === 'renewable-energy') {
       return this.company_groups.renewable_energy
-    } else {
+    } else if (sector === 'electronics') {
+      return this.company_groups.electronics
+    }else {
       return this.company_groups.none
     }
   }
