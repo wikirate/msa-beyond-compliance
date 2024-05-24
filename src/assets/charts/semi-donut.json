@@ -2,14 +2,14 @@
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "description": "A basic semi donut chart example.",
     "width": 250,
-    "height": 250,
+    "height": 100,
     "padding": 10,
     "title": {
       "text":"36%",
       "font": "Rubik",
-      "fontSize": 60,
+      "fontSize": 55,
       "fontWeight": "700",
-      "dy": {"signal": "width/1.55"}
+      "dy": {"signal": "width/1.75"}
     },
      "signals": [
       {
@@ -44,7 +44,7 @@
           "field": "percent", 
           "startAngle": -1.570796326794897, 
           "endAngle": 1.570796326794897,          
-          "sort":true
+          "sort": false
         }]
       }
       
