@@ -1,6 +1,8 @@
 // @ts-ignore
 import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
+import simpleBarChart from '../../assets/charts/simple-bar.json';
+// @ts-ignore
 import donutChart from '../../assets/charts/donut.json';
 // @ts-ignore
 import semiDonutChart from '../../assets/charts/semi-donut.json';
@@ -93,6 +95,16 @@ export class ChartsService {
     donut["scales"][0]["domain"] = domain
 
     return embed(element, donut, options)
+  }
+
+  drawSimpleBarChart(title: string,
+    element: string,
+    values: {}[],
+    options: {}) {
+    var simple_bar = JSON.parse(JSON.stringify(simpleBarChart))
+    simple_bar["title"]["text"] = title
+    simple_bar["data"][0]["values"] = values
+    return embed(element, simple_bar, options)
   }
 
   drawPieCustomChart(title: string,
