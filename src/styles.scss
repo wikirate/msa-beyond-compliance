@@ -747,21 +747,45 @@ a.dropdown-item .count {
   color: #000028 !important;
   max-width: 150px !important;
   height: 35px;
-}
-
-.msa-form-select:focus {
-  border-color: $deep_blue !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 41, 0.6) !important;
-  outline: 0 none !important;
-}
-
-.msa-form-select {
   border-radius: 0 !important;
   border-color: $deep_blue !important;
+
+  :focus {
+    border-color: $deep_blue !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 41, 0.6) !important;
+    outline: 0 none !important;
+  }
+
+  ::after {
+    color: $blue !important;
+  }
+  
 }
 
-select.msa-form-select::after {
-  color: $blue !important;
+.msa-metric-select {
+  @extend .form-select;
+  font-family: Rubik !important;
+  // text-transform: uppercase !important;
+  line-height: 40px;
+  //letter-spacing: 0.5px !important;
+  font-weight: normal !important;
+  font-size: .9em !important;
+  color: #000028 !important;
+  // max-width: 150px !important;
+  height: 35px;
+  border-radius: 0 !important;
+  border-color: $deep_blue !important;
+
+  :focus {
+    border-color: $deep_blue !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 41, 0.6) !important;
+    outline: 0 none !important;
+  }
+
+  ::after {
+    color: $blue !important;
+  }
+  
 }
 
 //deep-blue horizontal rule
