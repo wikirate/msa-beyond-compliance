@@ -6,11 +6,10 @@
       </div>
       <div class="col-md-4">
         <select class="msa-form-select bg-grey ms-md-auto" aria-label="Minimum requirements year filter"
-                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-                (change)="updateData()">
+          style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
           <option [ngValue]="''" selected>ALL YEARS</option>
           <option [ngValue]="'latest'">LATEST</option>
-<!--          <option [ngValue]="2022">2022</option>-->
+          <!--          <option [ngValue]="2022">2022</option>-->
           <option [ngValue]="2021">2021</option>
           <option [ngValue]="2020">2020</option>
           <option [ngValue]="2019">2019</option>
@@ -23,7 +22,8 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p>The average number of measures and actions reported by companies in their modern slavery statements.</p>
+        <p>The on average percentage of measures and actions reported by companies in their modern slavery statements
+          across the different sectors.</p>
       </div>
     </div>
     <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
@@ -36,45 +36,185 @@
     <!--  <hr class="deep-blue no-margin">-->
     <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Food Beverage')">
-          <div class="number-box p-3"><span
-            class="msa-primary-info">{{food_bev_avg_disclosure_rate | numFormat}}</span><span
-            class="highlighted-number">/15</span>
-            <h5>Food & Beverage</h5> <h5>Sector</h5>
+        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2 text-center p-5">
+          <div id="semi-donut-disclosure-rates-food-bev" class="chart-wrapper">
           </div>
+          <p>On average, the <b>Food & Beverage</b> sector reported on <b>{{food_bev_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</p>
         </div>
-        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2" (click)="openURL('MSA Garment')">
-          <div class="number-box p-3"><span
-            class="msa-primary-info">{{garment_avg_disclosure_rate | numFormat}}</span><span class="highlighted-number">/15</span>
-            <h5>Garment</h5> <h5>Sector</h5>
+        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2 text-center p-5" (click)="openURL('MSA Garment')">
+          <div id="semi-donut-disclosure-rates-garment" class="chart-wrapper">
           </div>
+          <p>On average, the <b>Garment</b> sector reported on <b>{{garment_avg_disclosure_rate | percentageFormat}}</b>
+            of the measures and actions aimed at preventing modern slavery.</p>
         </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2" (click)="openURL('MSA Financial')">
-          <div class="number-box p-3"><span
-            class="msa-primary-info">{{financial_avg_disclosure_rate | numFormat}}</span><span
-            class="highlighted-number">/15</span>
-            <h5>Financial</h5> <h5>Sector</h5>
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 text-center p-5">
+          <div id="semi-donut-disclosure-rates-finance" class="chart-wrapper">
           </div>
+          <p>On average, the <b>Finance</b> sector reported on <b>{{financial_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</p>
+
         </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2" (click)="openURL('MSA Hospitality')">
-          <div class="number-box p-3"><span
-            class="msa-primary-info">{{hospitality_avg_disclosure_rate | numFormat}}</span><span
-            class="highlighted-number">/15</span>
-            <h5>Hospitality</h5> <h5>Sector</h5>
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
+          <div id="semi-donut-disclosure-rates-hospitality" class="chart-wrapper">
           </div>
+          <p>On average, the <b>(Renewable) Energy</b> sector reported on <b>{{renewable_energy_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</p>
         </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2" (click)="openURL('MSA Hospitality')">
-          <div class="number-box p-3"><span
-            class="msa-primary-info">{{renewable_energy_avg_disclosure_rate | numFormat}}</span><span
-            class="highlighted-number">/15</span>
-            <h5>(Renewable) Energy</h5> <h5>Sector</h5>
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
+          <div id="semi-donut-disclosure-rates-energy" class="chart-wrapper">
           </div>
+          <p>On average, the <b>Hospitality</b> sector reported on <b>{{hospitality_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</p>
+
+        </div>
+        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
+          <div id="semi-donut-disclosure-rates-electronics" class="chart-wrapper">
+          </div>
+          <p>On average, the <b>Electronics</b> sector reported on <b>{{electronics_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</p>
+
         </div>
       </div>
     </div>
   </div>
   <div class="section-bottom p-1 pe-4 pb-4 bg-grey">
-    <export-as [sector]="'all-sectors'" [section]="'sector-disclosure-rates'"
-               [elementId]="'disclosure-rates'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+    <export-as [sector]="'all-sectors'" [section]="'sector-disclosure-rates'" [elementId]="'disclosure-rates'"
+      [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+  </div>
+</div>
+
+<div class="container">
+  <div id="disclosure-rates" class="section-top bg-grey mt-4 p-4">
+    <div class="row">
+      <div class="col-md-8">
+        <h3 class="title">Sector Disclosure Rates</h3>
+      </div>
+      <div class="col-md-4">
+        <select class="msa-form-select bg-grey ms-md-auto" aria-label="Minimum requirements year filter"
+          style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+          <option [ngValue]="''" selected>ALL YEARS</option>
+          <option [ngValue]="'latest'">LATEST</option>
+          <!--          <option [ngValue]="2022">2022</option>-->
+          <option [ngValue]="2021">2021</option>
+          <option [ngValue]="2020">2020</option>
+          <option [ngValue]="2019">2019</option>
+          <option [ngValue]="2018">2018</option>
+          <option [ngValue]="2017">2017</option>
+          <option [ngValue]="2016">2016</option>
+          <option [ngValue]="2015">2015</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>The on average percentage of measures and actions reported by companies in their modern slavery statements
+          across the different sectors.</p>
+      </div>
+    </div>
+    <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+      <div class="col-12 text-center align-self-center">
+        <div class="spinner-grow text-warning bg-deep-blue" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!--  <hr class="deep-blue no-margin">-->
+    <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <table class="table table-bordered table-hover mt-3">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Sector</th>
+            <th scope="col">Disclosure Rate (%)</th>
+            <th scope="col">Visualization</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-2">Electronics</td>
+            <td class="col-2">{{electronics_avg_disclosure_rate | percentageFormat}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-electronics-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>Electronics</b> sector reported on <b>{{electronics_avg_disclosure_rate |
+                percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+          <tr>
+            <td class="col-2">Garment</td>
+            <td class="col-2">{{garment_avg_disclosure_rate | percentageFormat}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-garment-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>Garment</b> sector reported on <b>{{garment_avg_disclosure_rate |
+                percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+          <tr>
+            <td class="col-2">Food & Beverage</td>
+            <td class="col-2">{{food_bev_avg_disclosure_rate | percentageFormat}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-food-bev-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>Food & Beverage</b> sector reported on <b>{{food_bev_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+          <tr>
+            <td class="col-2">Finance</td>
+            <td class="col-2">{{financial_avg_disclosure_rate | percentageFormat}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-finance-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>Finance</b> sector reported on <b>{{financial_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+          <tr>
+            <td class="col-2">Hospitality</td>
+            <td class="col-2">{{hospitality_avg_disclosure_rate}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-hospitality-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>Hospitality</b> sector reported on <b>{{hospitality_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+          <tr>
+            <td class="col-2">(Renewable) Energy</td>
+            <td class="col-2">{{renewable_energy_avg_disclosure_rate | percentageFormat}}</td>
+            <td class="col-2">
+              <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-xs-8 p-2">
+                  <div id="semi-donut-disclosure-rates-energy-2" class="chart-wrapper"></div>
+                </div>
+              </div>
+            </td>
+            <td class="col-6">On average, the <b>(Renewable) Energy</b> sector reported on <b>{{renewable_energy_avg_disclosure_rate |
+              percentageFormat}}</b> of the measures and actions aimed at preventing modern slavery.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="section-bottom p-1 pe-4 pb-4 bg-grey">
+    <export-as [sector]="'all-sectors'" [section]="'sector-disclosure-rates'" [elementId]="'disclosure-rates'"
+      [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>
 </div>
