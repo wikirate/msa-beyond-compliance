@@ -13,7 +13,9 @@
       "Signed by Chairman"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-orange"
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
   },
   {
     "seq": 2,
@@ -26,7 +28,9 @@
       "Approved by Board"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-orange"
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
   },
   {
     "seq": 3,
@@ -39,7 +43,9 @@
       "Yes"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-orange"
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
   },
   {
     "seq": 4,
@@ -52,7 +58,9 @@
       "Yes"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 5,
@@ -65,7 +73,9 @@
       "Yes"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 6,
@@ -79,7 +89,9 @@
       "Facility/Supplier"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 7,
@@ -109,7 +121,9 @@
       "Suppliers respect labour rights (wages / freedom of association etc) (beyond tier 1)"
     ],
     "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 8,
@@ -124,7 +138,9 @@
       "Conducting research"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 9,
@@ -140,7 +156,9 @@
       "Industry"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 10,
@@ -156,7 +174,9 @@
       "On-site visits (independent)"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 11,
@@ -174,7 +194,9 @@
       "Focal Point (supply chain workers)"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 12,
@@ -187,7 +209,9 @@
       "Yes"
     ],
     "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 13,
@@ -203,7 +227,9 @@
       "Cancel contracts"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 14,
@@ -221,7 +247,9 @@
       "Training provided - not specified to who"
     ],
     "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 15,
@@ -234,7 +262,9 @@
       "Yes"
     ],
     "aus_color": "bg-deep-orange",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
   },
   {
     "seq": 16,
@@ -247,6 +277,8 @@
       "Yes"
     ],
     "aus_color": "bg-deep-blue",
-    "uk_color": "bg-deep-blue"
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
   }
 ]
