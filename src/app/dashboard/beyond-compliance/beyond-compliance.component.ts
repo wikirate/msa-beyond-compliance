@@ -11,7 +11,7 @@ import { ValueRange } from 'src/app/models/valuerange.model';
 import { ChartsService } from 'src/app/services/charts.service';
 
 @Component({
-  selector: 'app-beyond-compliance',
+  selector: 'beyond-compliance',
   templateUrl: './beyond-compliance.component.html',
   styleUrls: ['./beyond-compliance.component.scss']
 })
@@ -129,8 +129,6 @@ export class BeyondComplianceComponent implements OnInit {
           {'label':'UK','value': NaN, 'color': metric['uk_color_hex']},
           {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex']}]      
       }
-
-      console.log(vis_data)
 
       this.chartService.drawSimpleBarChart(metric['label'], '#metric-chart', vis_data, { renderer: "svg", actions: false })
 

@@ -3,6 +3,8 @@ import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
 import simpleBarChart from '../../assets/charts/simple-bar.json';
 // @ts-ignore
+import groupedBarChart from '../../assets/charts/grouped-bar.json';
+// @ts-ignore
 import donutChart from '../../assets/charts/donut.json';
 // @ts-ignore
 import semiDonutChart from '../../assets/charts/semi-donut.json';
@@ -106,6 +108,15 @@ export class ChartsService {
     simple_bar["data"][0]["values"] = values
     return embed(element, simple_bar, options)
   }
+
+  drawGroupedBarChart(element: string,
+    values: {}[],
+    options: {}) {
+    var grouped_bar = JSON.parse(JSON.stringify(groupedBarChart))
+    grouped_bar["data"][0]["values"] = values
+    return embed(element, grouped_bar, options)
+  }
+
 
   drawPieCustomChart(title: string,
     element: string,

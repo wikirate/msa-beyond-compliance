@@ -8,6 +8,7 @@ import {SectorProvider} from "../../services/sector.provider";
 import {forkJoin, from, mergeMap, Observable, toArray} from "rxjs";
 import {error} from "vega";
 import {ValueRange} from 'src/app/models/valuerange.model';
+import { ChartsService } from 'src/app/services/charts.service';
 
 @Component({
   selector: 'going-beyond-compliance',
@@ -21,7 +22,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
   active: string = 'name';
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider) {
+  constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartService: ChartsService) {
   }
 
   ngOnInit() {
@@ -121,27 +122,56 @@ export class GoingBeyondComplianceComponent implements OnInit {
 
           if (metric['label'] == "Consultation process") {
             this.beyond_compliance_table_data.push({
-              'name': metric['label'],
+              'group': metric['label'],
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
-              'uk': "N/A",
-              'aus': aus_percent,
-              'total': "N/A",
-              'aus_color': metric['aus_color'],
-              'uk_color': metric['uk_color']
+              'category':'UK',
+              'value': 'N/A',
+              'color': '#8686AD',
+              'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
+            })
+            this.beyond_compliance_table_data.push({
+              'group': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
+              'category':'Australian',
+              'value':aus_percent,
+              'color': '#DDDDE3',
+              'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
+            })
+            this.beyond_compliance_table_data.push({
+              'group': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
+              'category':'Both',
+              'value':'N/A',
+              'color':'#000029'
             })
           } else {
             this.beyond_compliance_table_data.push({
-              'name': metric['label'],
+              'group': metric['label'],
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
-              'uk': uk_percent,
-              'aus': aus_percent,
-              'total': total_percent,
-              'aus_color': metric['aus_color'],
-              'uk_color': metric['uk_color']
+              'category':'UK',
+              'value': uk_percent,
+              'color': '#8686AD',
+              'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
+            })
+            this.beyond_compliance_table_data.push({
+              'group': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
+              'category':'Australian',
+              'value':aus_percent,
+              'color': '#DDDDE3',
+              'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
+            })
+            this.beyond_compliance_table_data.push({
+              'group': metric['label'],
+              'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
+              'category':'Both',
+              'value':total_percent,
+              'color':'#000029'
             })
           }
         })
 
+        this.chartService.drawGroupedBarChart("#going-beyond-compliance-chart", this.beyond_compliance_table_data, { renderer: "svg", actions: false })
         this.isLoading = false
       })
     })
