@@ -3,8 +3,6 @@ import {DataProvider} from "../../../services/data.provider";
 import {ChartsService} from "../../../services/charts.service";
 // @ts-ignore
 import incidents_remediation from "../../../../assets/charts-params/incidents-remediation.json";
-// @ts-ignore
-import modern_slavery_training from "../../../../assets/charts-params/modern-slavery-training.json";
 import {Filter} from "../../../models/filter.model";
 
 
@@ -107,20 +105,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
         incidents_remediation,
         this.year,
         this.company_group,
-        {renderer: "svg", actions: false}).finally(() => {
-        this.chartsService.drawBarChart(
-          "Modern Slavery Training",
-          "div#training-alt-two",
-          350,
-          350,
-          assessed_statements_metric_id,
-          modern_slavery_training,
-          this.year,
-          this.company_group,
-          {renderer: "svg", actions: false}).finally(() => {
-          this.isLoading = false
-        })
-      })
+        {renderer: "svg", actions: false}).finally(() => this.isLoading = false)
     })
   }
 
