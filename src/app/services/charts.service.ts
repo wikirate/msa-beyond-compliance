@@ -84,7 +84,6 @@ export class ChartsService {
     element: string,
     values: {}[],
     width: number,
-    height: number,
     colors: string[],
     domain: string[],
     options: {}) {
@@ -92,7 +91,6 @@ export class ChartsService {
     donut["title"]["text"] = title
     donut["data"][0]["values"] = values
     donut["width"] = width
-    donut["height"] = height
     donut["scales"][0]["range"] = colors
     donut["scales"][0]["domain"] = domain
 
