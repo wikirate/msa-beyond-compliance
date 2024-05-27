@@ -14,12 +14,6 @@
                         <option value="latest">LATEST</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
                     </select>
                     <select class="msa-form-select bg-grey" aria-label="Default select example"
                         [(ngModel)]="legislation" (change)="updateData(year)">
@@ -31,13 +25,13 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="mb-5">
+            <div class="mb-lg-5 mb-md-2">
               <div class="row d-flex justify-content-center">
-                <div class="msa-primary-info col-7 p-lg-4 p-2">
+                <div class="msa-primary-info col-lg-7 col-md-12 order-md-2 p-lg-4 p-2">
                   <div id="living-wage-chart" class="chart-wrapper">
                   </div>
                 </div>
-                <div class="col-5 align-content-center">
+                <div class="col-lg-5 col-md-12 order-md-1 align-content-center">
                   <div class="msa-secondary-info mb-2">
                     Low and underpayment of wages in supply chains
                   </div>
@@ -47,15 +41,15 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="mb-5">
+            <div class="mb-lg-5 mb-md-2">
               <div class="row d-flex justify-content-center">
-                <div class="col-5 align-content-center">
+                <div class="col-lg-5 col-md-12 order-md-1 order-lg-2 align-content-center">
                     <div class="msa-secondary-info mb-2">
                       Memberships and Partnerships with multi-stakeholder initiatives enable effective remedy for harms.
                     </div>
                     <p><b>{{collaborationsAndMemberships | percentageFormat}}</b> of the studied statments mention memberships or collaborations with, multi-stakeholder initiatives that address modern slavery issues.</p>
                   </div>
-                <div class="msa-primary-info col-7 p-lg-4 p-2">
+                <div class="msa-primary-info col-lg-7 col-md-12 order-md-2 order-lg-1 p-lg-4 p-2">
                   <div id="collaborations-and-memberships-chart" class="chart-wrapper">
                   </div>
                 </div>                
@@ -64,13 +58,13 @@
             
         </div>
         <div class="row mt-5">
-          <div class="mb-5">
+          <div class="mb-lg-5 mb-md-2">
             <div class="row d-flex justify-content-center">
-              <div class="msa-primary-info col-7 p-lg-4 p-2">
+              <div class="msa-primary-info col-lg-7 col-md-12 order-md-2 p-lg-4 p-2">
                 <div id="workers-engagement-chart" class="chart-wrapper">
                 </div>
               </div>
-              <div class="col-5 align-content-center">
+              <div class="col-lg-5 col-md-12 order-md-1 align-content-center">
                 <div class="msa-secondary-info mb-2">
                   workers Engagement
                 </div>
@@ -104,7 +98,7 @@
             </div>
         </ng-template>
         <div class="section-bottom bg-grey pe-4 pb-4">
-            <export-as [sector]="sector" [section]="'key-findings'" [elementId]="'key-findings-section'"
+            <export-as [sector]="sector" [section]="'spotlight-metrics'" [elementId]="'spotlight-metrics-section'"
                 [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
         </div>
     </div>

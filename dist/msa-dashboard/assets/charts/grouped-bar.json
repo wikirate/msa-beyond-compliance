@@ -177,7 +177,7 @@
                 "fill": {"field": "color"}
               },
               "hover":{
-                "tooltip":{"signal": "{title: datum.group, 'Legislation:': datum.category,'Coverage:': if(datum.value=='N/A','Not Applicable',datum.value+'%'), 'Mandatory:': datum.mandatory}"}
+                "tooltip":{"signal": "{title: datum.group, 'Legislation': datum.category,'Coverage': if(datum.value=='N/A','Not Applicable',datum.value+'%'), 'Mandatory': datum.mandatory}"}
               }
             }
           },

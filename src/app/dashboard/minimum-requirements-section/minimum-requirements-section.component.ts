@@ -21,6 +21,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   isLoading: boolean = true;
   aus_assessed = 0;
   uk_assessed = 0;
+  uk_legislation_info = "The UK legislation only requires three criteria, none of which relate to the quality of the statement. While the accompanying guidance provides suggested categories – similar to those in the Australian legislation – these are not mandatory. Therefore, arguably the Australian legislation is stronger, making a direct comparison of minimum compliance difficult."
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private route: ActivatedRoute,
               private sectorProvider: SectorProvider) {
@@ -71,7 +72,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
     //   uk_company_group,
     //   {renderer: "svg", actions: true})
 
-    if (this.year >= 2020 || this.year == '' || this.year == 'latest') {
+    if (this.year >= '2020' || this.year == '' || this.year == 'latest') {
       this.draw_minimum_requirements_pie_chart(
         "Meet Minimun Australian Requirements",
         "div#aus-meet-min-requirements",

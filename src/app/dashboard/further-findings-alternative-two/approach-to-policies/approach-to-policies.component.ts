@@ -3,6 +3,8 @@ import {DataProvider} from "../../../services/data.provider";
 import {ChartsService} from "../../../services/charts.service";
 import {delay} from "rxjs";
 // @ts-ignore
+import modern_slavery_training from "../../../../assets/charts-params/modern-slavery-training.json";
+// @ts-ignore
 import modern_slavery_policies from "../../../../assets/charts-params/modern-slavery-policies.json";
 import {Filter} from "../../../models/filter.model";
 
@@ -68,7 +70,20 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
       {
         renderer: "svg",
         actions: false
-      }).finally(() => this.isLoading = false)
+      }).finally(() =>{
+        this.chartsService.drawBarChart(
+          "Modern Slavery Training",
+          "div#training-alt-two",
+          350,
+          350,
+          assessed_statements_metric_id,
+          modern_slavery_training,
+          this.year,
+          this.company_group,
+          {renderer: "svg", actions: false}).finally(() => {
+          this.isLoading = false
+        })
+      })
 
   }
 }

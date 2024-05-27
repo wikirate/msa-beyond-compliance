@@ -7,10 +7,10 @@
       </div>
       <div class="col-md-4">
         <select class="msa-form-select ms-md-auto bg-grey" aria-label="Minimum requirements year filter"
-                style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
+          style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year" (change)="updateData()">
           <option [ngValue]="''" selected>ALL YEARS</option>
           <option [ngValue]="'latest'">LATEST</option>
-<!--          <option [ngValue]="2022">2022</option>-->
+          <option [ngValue]="2022">2022</option>
           <option [ngValue]="2021">2021</option>
           <option [ngValue]="2020">2020</option>
           <option [ngValue]="2019">2019</option>
@@ -34,9 +34,10 @@
       </div>
     </div>
     <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-      <div class="p-3" [ngClass]="year >=2020 || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
-        <div class="row text-center">
-          <h4>UK Act <i class="bi bi-info-circle small superscript ms-1"></i></h4>
+      <div class="p-3" [ngClass]="year >= '2020' || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
+        <div class="text-center">
+          <span class="h4">UK Act</span>
+          <i class="bi bi-exclamation-diamond-fill small superscript ms-1" [ngbTooltip]="uk_legislation_info"></i>
         </div>
         <div [ngClass]="uk_assessed > 0 ? 'show-element': 'hide-element'">
           <div class="row text-center pt-4">
@@ -53,28 +54,14 @@
             <p style="font-style: italic">No data available!</p>
           </div>
         </div>
-        <div class="row pt-4 justify-content-center"
-             [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
-          <div class="col-12 d-flex justify-content-center">
-            <div class="warning-message">
-              <p class="quote no-margin"><i class="bi bi-exclamation-diamond pe-2"></i>The UK legislation only requires
-                three criteria, none of which relate to the quality of the statement. While the accompanying guidance
-                provides suggested categories – similar to those in the Australian legislation – these are not
-                mandatory.
-                Therefore, arguably the Australian legislation is stronger, making a direct comparison of minimum
-                compliance
-                difficult.
-              </p>
-            </div>
-          </div>
-        </div>
 
         <div class="row pt-4 justify-content-center"
-             [ngClass]="year >=2020 || year =='' || year =='latest' ? 'hide-element': 'show-element'">
+          [ngClass]="year >= '2020' || year =='' || year =='latest' ? 'hide-element': 'show-element'">
           <div class="col-10">
             <p class="quote"><i class="bi bi-exclamation-diamond pe-2"></i>The <b>Australian Modern Slavery Act was
-              passed
-              in 2018</b> and required companies to produce their first statement for financial year 2019. These needed
+                passed
+                in 2018</b> and required companies to produce their first statement for financial year 2019. These
+              needed
               to
               be submitted within 3 months after year's end (in 2020) but for this first year the government provided
               companies with an extension due to the impact of the covid pandemic. As a result, <b>most companies
@@ -86,7 +73,7 @@
       </div>
 
       <div class="col-md-6 p-3"
-           [ngClass]="year >=2020 || year =='' || year =='latest' ? 'show-element': 'hide-element'">
+        [ngClass]="year >= '2020' || year =='' || year =='latest' ? 'show-element': 'hide-element'">
         <div class="row text-center">
           <h4>Australian Act</h4>
         </div>
@@ -110,7 +97,7 @@
   </div>
   <div class="section-bottom bg-grey pe-4 pb-4">
     <export-as [sector]="sector" [section]="'meeting-minimum-requirements'"
-               [elementId]="'meeting-min-requirements-section'"
-               [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+      [elementId]="'meeting-min-requirements-section'"
+      [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
   </div>
 </div>

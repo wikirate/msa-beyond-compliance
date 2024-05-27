@@ -126,7 +126,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'UK',
               'value': 'N/A',
-              'color': '#8686AD',
+              'color': '#FF5C45',
               'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
             })
             this.beyond_compliance_table_data.push({
@@ -134,7 +134,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'Australian',
               'value':aus_percent,
-              'color': '#DDDDE3',
+              'color': '#000029',
               'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
             })
             this.beyond_compliance_table_data.push({
@@ -142,7 +142,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'Both',
               'value':'N/A',
-              'color':'#000029'
+              'color':'#DDDDE3'
             })
           } else {
             this.beyond_compliance_table_data.push({
@@ -150,7 +150,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'UK',
               'value': uk_percent,
-              'color': '#8686AD',
+              'color': '#FF5C45',
               'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
             })
             this.beyond_compliance_table_data.push({
@@ -158,7 +158,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'Australian',
               'value':aus_percent,
-              'color': '#DDDDE3',
+              'color': '#000029',
               'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No'
             })
             this.beyond_compliance_table_data.push({
@@ -166,7 +166,7 @@ export class GoingBeyondComplianceComponent implements OnInit {
               'url': 'https://wikirate.org/' + metric['metric'] + '?' + params.toString(),
               'category':'Both',
               'value':total_percent,
-              'color':'#000029'
+              'color':'#DDDDE3'
             })
           }
         })
