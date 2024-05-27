@@ -119,15 +119,15 @@ export class BeyondComplianceComponent implements OnInit {
       let params = DataProvider.getUrlParams(filters)
 
       let vis_data = [
-        {'label':'Total','value': total_percent, 'color': '#000029'},
-        {'label':'UK','value': uk_percent, 'color': metric['uk_color_hex']},
-        {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex']}]
+        {'label':'Total','value': total_percent, 'color': '#000029', 'metric':metric['label']},
+        {'label':'UK','value': uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']},
+        {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']}]
 
       if (metric['label'] == "Consultation process") {
         vis_data = [
-          {'label':'Total','value': NaN, 'color': '#000029'},
-          {'label':'UK','value': NaN, 'color': metric['uk_color_hex']},
-          {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex']}]      
+          {'label':'Total','value': NaN, 'color': '#000029', 'metric':metric['label']},
+          {'label':'UK','value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']},
+          {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']}]      
       }
 
       this.chartService.drawSimpleBarChart(metric['label'], '#metric-chart', vis_data, { renderer: "svg", actions: false })
