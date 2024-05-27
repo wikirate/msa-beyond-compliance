@@ -71,7 +71,7 @@
             "fill": {"field": "color"}
           },
           "hover": {
-            "tooltip":{"signal": "{'Coverage': datum.value+'%'}"}
+            "tooltip":{"signal": "{title: datum.metric, 'Legislation': if(datum.label=='AUS','Australian', datum.label), 'Coverage': datum.value+'%', 'Mandatory': datum.mandatory}"}
           }
         }
       }
