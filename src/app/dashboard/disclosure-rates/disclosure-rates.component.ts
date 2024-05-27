@@ -191,7 +191,7 @@ export class DisclosureRatesComponent implements OnInit {
         'percent': 100 - percentage,
         'URL': url
       }],
-      250, 125, ["#FF5C45", "#E5E5EA"],
+      250, ["#FF5C45", "#E5E5EA"],
       ["Covered", "Not Covered"], { renderer: "svg", actions: false })
   }
 }
