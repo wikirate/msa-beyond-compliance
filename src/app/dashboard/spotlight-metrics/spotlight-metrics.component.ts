@@ -19,7 +19,7 @@ export class SpotlightMetricsComponent implements OnInit {
 
   year: string = ''
   legislation: string = 'both'
-  isLoading: boolean = false;
+  isLoading: boolean = true;
 
   collaborations_and_memberships_url = '#';
   workers_engagement_url: string = '#';
@@ -52,7 +52,7 @@ export class SpotlightMetricsComponent implements OnInit {
   }
 
   updateData($event: any) {
-
+    this.isLoading = true
     this.company_group = []
     if (this.sector != 'all-sectors')
       this.company_group.push(this.dataProvider.getCompanyGroup(this.sector))
@@ -147,18 +147,16 @@ export class SpotlightMetricsComponent implements OnInit {
           'living_wage': Math.round(statements_reporting_living_wage_commitment * 100 / living_wage_response.length)
         }
       }))
-      .subscribe(results => {
+      .subscribe({next: results => {
         this.collaborationsAndMemberships = results.collaborations_and_memberships
         this.workersEngagement = results.workers_engagement
         this.livingWageCommitment = results.living_wage
 
-        //loading stops when all requests and calculations have been performed successfully
-        this.isLoading = false
-
         this.chartsService.drawSingleBar("Living wage in supply chains", this.dataProvider.metrics.msa_living_wage, "div#living-wage-chart", {renderer: "svg", actions: false}, this.year)
         this.chartsService.drawSingleBar("Collaborations and Memberships", this.dataProvider.metrics.msa_collaborations_and_membership, "div#collaborations-and-memberships-chart", {renderer: "svg", actions: false}, this.year)
         this.chartsService.drawSingleBar("Workers Engagement", this.dataProvider.metrics.msa_workers_engagement, "div#workers-engagement-chart", {renderer: "svg", actions: false}, this.year)
-      })
+      },
+    complete: () => this.isLoading = false})
   }
 
 
