@@ -37,95 +37,98 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <p>We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements |
-            numFormat}} company statements</a> produced under <span *ngIf="legislation == 'both'">the Australian and
-            UK Modern Slavery Acts</span><span *ngIf="legislation != 'both'">the {{legislation.toUpperCase()}} Modern
-            Slavert Act</span> and these are some of the gaps we have discovered. </p>
-      </div>
-    </div>
-    <div class="row mt-5" *ngIf="!isLoading">
-      <div class="col-sm-12 col-md-6 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="msa-primary-info col-5 p-lg-4 p-2">
-            <div id="donut-meet-min-requirements" class="chart-wrapper">
-            </div>
-          </div>
-          <div class="col-7 align-content-center">
-            <div class="msa-secondary-info mb-2">
-              Companies are failing to effectively meet their reporting obligations.
-            </div>
-            <p><b>Only {{meetsMinRequirements | percentageFormat}}</b> of assessed statements meet all <a
-                class="tooltip-term" type="button"
-                [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
-                requirements</a> of the corresponding MSA legislation.</p>
-          </div>
+    <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+      <div class="row">
+        <div class="col-md-12">
+          <p>We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements |
+              numFormat}} company statements</a> produced under <span *ngIf="legislation == 'both'">the Australian and
+              UK Modern Slavery Acts</span><span *ngIf="legislation != 'both'">the {{legislation.toUpperCase()}} Modern
+              Slavert Act</span> and these are some of the gaps we have discovered. </p>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="msa-primary-info col-5 p-lg-4 p-2">
-            <div id="donut-supply-chain-disclosure" class="chart-wrapper">
+      <div class="row mt-5">
+        <div class="col-sm-12 col-md-6 mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="msa-primary-info col-5 p-lg-4 p-2">
+              <div id="donut-meet-min-requirements" class="chart-wrapper">
+              </div>
             </div>
-          </div>
-          <div class="col-7 align-content-center">
-            <div class="msa-secondary-info mb-2">
-              Ineffective disclosures render millions of workers invisible
+            <div class="col-7 align-content-center">
+              <div class="msa-secondary-info mb-2">
+                Companies are failing to effectively meet their reporting obligations.
+              </div>
+              <p><b>Only {{meetsMinRequirements | percentageFormat}}</b> of assessed statements meet all <a
+                  class="tooltip-term" type="button"
+                  [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
+                  requirements</a> of the corresponding MSA legislation.</p>
             </div>
-            <p><b>{{100 - supplyChainDisclosure | percentageFormat}}</b> of the assessed statements disclosed no
-              information on their supply chains.</p>
           </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-6 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="msa-primary-info col-5 p-lg-4 p-2">
-            <div id="donut-worker-remediation" class="chart-wrapper">
+        <div class="col-sm-12 col-md-6 mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="msa-primary-info col-5 p-lg-4 p-2">
+              <div id="donut-supply-chain-disclosure" class="chart-wrapper">
+              </div>
             </div>
-          </div>
-          <div class="col-7 align-content-center">
-            <div class="msa-secondary-info mb-2">
-              No direct worker remediation
+            <div class="col-7 align-content-center">
+              <div class="msa-secondary-info mb-2">
+                Ineffective disclosures render millions of workers invisible
+              </div>
+              <p><b>{{100 - supplyChainDisclosure | percentageFormat}}</b> of the assessed statements disclosed no
+                information on their supply chains.</p>
             </div>
-            <p><b>Only {{workerRemediation | percentageFormat}}</b> of the assessed statements disclose direct worker
-              remediation policies. Such policies prioritise the well-being, rights, and dignity of affected workers.
-            </p>
           </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-6 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="msa-primary-info col-5 p-lg-4 p-2">
-            <div id="donut-due-dilligence" class="chart-wrapper">
+        <div class="col-sm-12 col-md-6 mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="msa-primary-info col-5 p-lg-4 p-2">
+              <div id="donut-worker-remediation" class="chart-wrapper">
+              </div>
             </div>
-          </div>
-          <div class="col-7 align-content-center">
-            <div class="msa-secondary-info mb-2">
-              No direct Supply chain due dilligence
+            <div class="col-7 align-content-center">
+              <div class="msa-secondary-info mb-2">
+                No direct worker remediation
+              </div>
+              <p><b>Only {{workerRemediation | percentageFormat}}</b> of the assessed statements disclose direct worker
+                remediation policies. Such policies prioritise the well-being, rights, and dignity of affected workers.
+              </p>
             </div>
-            <p><b>{{100 - dueDilligence | percentageFormat}}</b> of the assessed statements report no supply chain due
-              dilligence in place. This means no risk management, seriously impending companies' ability to detect or
-              respond to exploitation.</p>
           </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-12 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="msa-primary-info col-md-3 col-lg-3 col-xl-3 col-5 p-lg-4 p-2">
+        <div class="col-sm-12 col-md-6 mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="msa-primary-info col-5 p-lg-4 p-2">
+              <div id="donut-due-dilligence" class="chart-wrapper">
+              </div>
+            </div>
+            <div class="col-7 align-content-center">
+              <div class="msa-secondary-info mb-2">
+                No direct Supply chain due dilligence
+              </div>
+              <p><b>{{100 - dueDilligence | percentageFormat}}</b> of the assessed statements report no supply chain due
+                dilligence in place. This means no risk management, seriously impending companies' ability to detect or
+                respond to exploitation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 mb-5">
+          <div class="row d-flex justify-content-center">
+            <div class="msa-primary-info col-md-3 col-lg-3 col-xl-3 col-5 p-lg-4 p-2">
               <div id="donut-incidents" class="chart-wrapper">
               </div>
-          </div>
-          <div class="col-7 align-content-center">
-            <div class="msa-secondary-info mb-2">
-              Underreporting of Modern Slavery Incidents
             </div>
-            <p><b>Only {{incidents | percentageFormat}}</b> of the assessed statements disclosed detecting an
-              incident(s) of modern
-              slavery in their supply chains. Unfortunately, we know the number of incidents is likely to be far higher,
-              suggesting that
-              either risk assessment and identification processes are inadequate, or companies are not being
-              transparent.</p>
+            <div class="col-7 align-content-center">
+              <div class="msa-secondary-info mb-2">
+                Underreporting of Modern Slavery Incidents
+              </div>
+              <p><b>Only {{incidents | percentageFormat}}</b> of the assessed statements disclosed detecting an
+                incident(s) of modern
+                slavery in their supply chains. Unfortunately, we know the number of incidents is likely to be far
+                higher,
+                suggesting that
+                either risk assessment and identification processes are inadequate, or companies are not being
+                transparent.</p>
+            </div>
           </div>
         </div>
       </div>

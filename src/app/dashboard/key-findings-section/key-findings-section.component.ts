@@ -6,7 +6,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { SectorProvider } from "../../services/sector.provider";
 import { Meta, Title } from "@angular/platform-browser";
-import { forkJoin, map } from "rxjs";
+import { finalize, forkJoin, map } from "rxjs";
 import { WikirateUrlBuilder } from "../../utils/wikirate-url-builder";
 import { ChartsService } from 'src/app/services/charts.service';
 
@@ -90,7 +90,7 @@ export class KeyFindingsSectionComponent implements OnInit {
   }
 
   updateData($event: any) {
-    this.isLoading = false;
+    this.isLoading = true;
     this.numOfAssessedMSAStatements = 0;
 
     this.company_group = []
@@ -287,7 +287,7 @@ export class KeyFindingsSectionComponent implements OnInit {
           'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
         }
       }))
-      .subscribe(results => {
+      .subscribe({next: (results) => {
         this.numOfAssessedMSAStatements = results.num_of_assessed_msa_statements
         this.meetsMinRequirements = results.cover_min_requirements
         this.supplyChainDisclosure = results.supply_chain_disclosure
@@ -295,15 +295,17 @@ export class KeyFindingsSectionComponent implements OnInit {
         this.dueDilligence = results.due_dilligence
         this.incidents = results.incidents
 
-        //loading stops when all requests and calculations have been performed successfully
-        this.isLoading = false
-
         this.drawDonutChart(this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url, "#FF5C45")
         this.drawDonutChart(100 - this.supplyChainDisclosure, "donut-supply-chain-disclosure", this.supply_chain_disclosure_url, "#FF5C45")
         this.drawDonutChart(this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url, "#FF5C45")
         this.drawDonutChart(100 - this.dueDilligence, "donut-due-dilligence", this.due_dilligence_url, "#FF5C45")
         this.drawDonutChart(this.incidents, "donut-incidents", this.incidents_url, "#FF5C45")
-      })
+
+        //loading stops when all requests and calculations have been performed successfully
+      }, 
+    complete: () => {
+      this.isLoading = false
+    }})
   }
 
   openMessage() {
