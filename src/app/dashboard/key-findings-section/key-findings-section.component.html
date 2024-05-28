@@ -40,8 +40,8 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p>We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements | numFormat}} company statements</a> produced under <span
-            *ngIf="legislation == 'both'">the Australian and
+        <p>We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements |
+            numFormat}} company statements</a> produced under <span *ngIf="legislation == 'both'">the Australian and
             UK Modern Slavery Acts</span><span *ngIf="legislation != 'both'">the {{legislation.toUpperCase()}} Modern
             Slavert Act</span> and these are some of the gaps we have discovered. </p>
       </div>
@@ -108,6 +108,25 @@
             <p><b>{{100 - dueDilligence | percentageFormat}}</b> of the assessed statements report no supply chain due
               dilligence in place. This means no risk management, seriously impending companies' ability to detect or
               respond to exploitation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="msa-primary-info col-md-3 col-lg-3 col-xl-3 col-5 p-lg-4 p-2">
+              <div id="donut-incidents" class="chart-wrapper">
+              </div>
+          </div>
+          <div class="col-7 align-content-center">
+            <div class="msa-secondary-info mb-2">
+              Underreporting of Modern Slavery Incidents
+            </div>
+            <p><b>Only {{incidents | percentageFormat}}</b> of the assessed statements disclosed detecting an
+              incident(s) of modern
+              slavery in their supply chains. Unfortunately, we know the number of incidents is likely to be far higher,
+              suggesting that
+              either risk assessment and identification processes are inadequate, or companies are not being
+              transparent.</p>
           </div>
         </div>
       </div>
