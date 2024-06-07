@@ -1,188 +1,346 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "Living wage in supply chains",
-    "width": 650,
-    "height": 60,
-    "signals": [
-      {"name":"title",
-       "value":"Living wage in supply chains"},
-      {"name": "barHeight", "value": "25"},
-      {
-        "name": "colors",
-        "value": {
-          "orange": "#FF5C45",
-          "red": "#FE0000",
-          "blue": "#7EB2E2",
-          "navy": "#000029",
-          "yellow": "#FFCB2B"
-        }
-      },
-      {
-        "name": "barTitle",
-        "value": null,
-        "on": [
-          {"events": "rect:mouseover, text:mouseover", "update": "datum.title"},
-          {"events": "rect:mouseout, text:mouseout", "update": "null"}
-        ]
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Living wage in supply chains",
+  "width": 650,
+  "height": 60,
+  "signals": [
+    {
+      "name": "title",
+      "value": "Living wage in supply chains"
+    },
+    {
+      "name": "barHeight",
+      "value": "25"
+    },
+    {
+      "name": "colors",
+      "value": {
+        "orange": "#FF5C45",
+        "red": "#FE0000",
+        "blue": "#7EB2E2",
+        "navy": "#000029",
+        "yellow": "#FFCB2B"
       }
-    ],
-    "data": [
-      {
-        "name": "metric_answers",
-        "url": "https://wikirate.org/~14019233+answer.json?filter%5Bcompany_group%5D%5B%5D=Companies_with_assessed_MSA_statement&filter%5Byear%5D=&limit=0&view=answer_list",
-        "transform": [
-          {
-            "type": "formula",
-            "as": "key",
-            "expr": "datum.company + ',' + datum.year"
-          },
-          {
-            "type": "formula",
-            "as": "accepted_value",
-            "expr": "if(indexof(datum.value, 'Yes') >= 0, true, false)"
-          },
-          {"type": "aggregate", "groupby": ["accepted_value"]},
-          {
-            "type": "impute",
-            "key": "accepted_value",
-            "keyvals": [true],
-            "field": "count",
+    },
+    {
+      "name": "barTitle",
+      "value": null,
+      "on": [
+        {
+          "events": "rect:mouseover, text:mouseover",
+          "update": "datum.title"
+        },
+        {
+          "events": "rect:mouseout, text:mouseout",
+          "update": "null"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "value": null,
+      "on": [
+        {
+          "events": "rect:click",
+          "update": "datum.wikirate_page"
+        },
+        {
+          "events": "rect:click",
+          "update": "datum.wikirate_page"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "name": "metric_answers",
+      "url": "https://wikirate.org/~14019233+answer.json?filter%5Bcompany_group%5D%5B%5D=Companies_with_assessed_MSA_statement&filter%5Byear%5D=&limit=0&view=answer_list",
+      "transform": [
+        {
+          "type": "formula",
+          "as": "key",
+          "expr": "datum.company + ',' + datum.year"
+        },
+        {
+          "type": "formula",
+          "as": "accepted_value",
+          "expr": "if(indexof(datum.value, 'Yes') >= 0, true, false)"
+        },
+        {
+          "type": "aggregate",
+          "groupby": [
+            "accepted_value"
+          ]
+        },
+        {
+          "type": "impute",
+          "key": "accepted_value",
+          "keyvals": [
+            true
+          ],
+          "field": "count",
+          "value": 0
+        },
+        {
+          "type": "joinaggregate",
+          "fields": [
+            "count"
+          ],
+          "ops": [
+            "sum"
+          ]
+        },
+        {
+          "type": "filter",
+          "expr": "datum.accepted_value == true"
+        }
+      ]
+    },
+    {
+      "name": "counts",
+      "source": [
+        "metric_answers"
+      ],
+      "transform": [
+        {
+          "type": "window",
+          "ops": [
+            "row_number"
+          ],
+          "as": [
+            "seq"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "title",
+          "as": "title"
+        },
+        {
+          "type": "formula",
+          "expr": "'https://wikirate.org/'+'~14019233'",
+          "as": "wikirate_page"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.count/datum.sum_count",
+          "as": "percentage"
+        },
+        {
+          "type": "formula",
+          "expr": "format(datum.count / datum.sum_count, '.0%')",
+          "as": "percent_label"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
+          "as": "count_label"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "domain": [
+        0,
+        1
+      ],
+      "zero": true,
+      "type": "linear",
+      "range": "width"
+    },
+    {
+      "name": "yscale",
+      "range": "height",
+      "domain": {
+        "data": "counts",
+        "field": "title"
+      },
+      "type": "band",
+      "padding": 0.4
+    },
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": [
+        0,
+        3
+      ],
+      "range": {
+        "signal": "[colors.orange, colors.yellow, colors.navy, colors.blue]"
+      }
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "counts"
+      },
+      "encode": {
+        "update": {
+          "x": {
             "value": 0
           },
-          {"type": "joinaggregate", "fields": ["count"], "ops": ["sum"]},
-          {"type": "filter", "expr": "datum.accepted_value == true"}
-        ]
-      },
-      {
-        "name": "counts",
-        "source": ["metric_answers"],
-        "transform": [
-          {"type": "window", "ops": ["row_number"], "as": ["seq"]},
-          { 
-            "type": "formula",
-            "expr": "title",
-            "as":"title"
+          "x2": {
+            "scale": "xscale",
+            "value": 1
           },
-          {
-            "type": "formula",
-            "expr": "'https://wikirate.org/'+'~14019233'",
-            "as": "wikirate_page"
+          "y": {
+            "scale": "yscale",
+            "field": "title"
           },
-          {
-            "type": "formula",
-            "expr": "datum.count/datum.sum_count",
-            "as": "percentage"
+          "height": {
+            "signal": "barHeight"
           },
-          {
-            "type": "formula",
-            "expr": "format(datum.count / datum.sum_count, '.0%')",
-            "as": "percent_label"
+          "fill": {
+            "signal": "colors.navy"
           },
-          {
-            "type": "formula",
-            "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
-            "as": "count_label"
+          "tooltip": {
+            "field": "count_label"
+          },
+          "opacity": {
+            "signal": "if(barTitle == datum.title, 0.5, 1)"
+          },
+          "cornerRadius": {
+            "value": 4
           }
-        ]
-      }
-    ],
-    "scales": [
-      {
-        "name": "xscale",
-        "domain": [0, 1],
-        "zero": true,
-        "type": "linear",
-        "range": "width"
-      },
-      {
-        "name": "yscale",
-        "range": "height",
-        "domain": {"data": "counts", "field": "title"},
-        "type": "band",
-        "padding": 0.4
-      },
-      {
-        "name": "color",
-        "type": "linear",
-        "domain": [0, 3],
-        "range": {
-          "signal": "[colors.orange, colors.yellow, colors.navy, colors.blue]"
+        },
+        "hover": {
+          "cursor": {
+            "value": "pointer"
+          }
         }
       }
-    ],
-    "marks": [
-      {
-        "type": "rect",
-        "from": {"data": "counts"},
-        "encode": {
-          "update": {
-            "x": {"value": 0},
-            "x2": {"scale": "xscale", "value": 1},
-            "y": {"scale": "yscale", "field": "title"},
-            "height": {"signal": "barHeight"},
-            "fill": {"signal": "colors.navy"},
-            "tooltip": {"field": "count_label"},
-            "href": {"field":"wikirate_page"},
-            "opacity": {"signal": "if(barTitle == datum.title, 0.5, 1)"},
-            "cornerRadius":{"value": 4}
-          },
-          "hover": {"cursor": {"value": "pointer"}}
-        }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "counts"
       },
-      {
-        "type": "rect",
-        "from": {"data": "counts"},
-        "encode": {
-          "update": {
-            "x": {"value": 0},
-            "x2": {"scale": "xscale", "field": "percentage"},
-            "y": {"scale": "yscale", "field": "title"},
-            "height": {"signal": "barHeight"},
-            "fill": {"signal":"colors.orange"},
-            "tooltip": {"field": "count_label"},
-            "cornerRadiusTopLeft":{"value": 4},
-            "cornerRadiusBottomLeft":{"value": 4}
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
           },
-          "hover": {"cursor": {"value": "pointer"}}
-        }
-      },
-      {
-        "type": "text",
-        "from": {"data": "counts"},
-        "encode": {
-          "update": {
-            "fontSize": {"value": 20},
-            "font": {"value": "Rubik"},
-            "x": {"scale": "xscale", "value": 1},
-            "y": {"scale": "yscale", "field": "title", "offset": -6},
-            "baseline": {"value": "bottom"},
-            "align": {"value": "right"},
-            "text": {"field": "percent_label"},
-            "fontWeight": {"value": "bold"},
-            "fill": {
-              "scale": "color",
-              "signal": "if(barTitle == datum.title, datum.color, 2)"
-            }
+          "x2": {
+            "scale": "xscale",
+            "field": "percentage"
           },
-          "hover": {"cursor": {"value": "pointer"}}
-        }
-      },
-      {
-        "type": "text",
-        "from": {"data": "counts"},
-        "encode": {
-          "update": {
-            "fontSize": {"value": 20},
-            "font": {"value": "Rubik"},
-            "x": {"value": 0},
-            "y": {"scale": "yscale", "field": "title", "offset": -6},
-            "text": {"field": "title"},
-            "baseline": {"value": "bottom"},
-            "fontWeight": {"value": "bold"},
-            "fill": {"signal": "colors.navy"}
+          "y": {
+            "scale": "yscale",
+            "field": "title"
           },
-          "hover": {"cursor": {"value": "pointer"}}
+          "height": {
+            "signal": "barHeight"
+          },
+          "fill": {
+            "signal": "colors.orange"
+          },
+          "tooltip": {
+            "field": "count_label"
+          },
+          "cornerRadiusTopLeft": {
+            "value": 4
+          },
+          "cornerRadiusBottomLeft": {
+            "value": 4
+          }
+        },
+        "hover": {
+          "cursor": {
+            "value": "pointer"
+          }
         }
       }
-    ]
-  }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "counts"
+      },
+      "encode": {
+        "update": {
+          "fontSize": {
+            "value": 20
+          },
+          "font": {
+            "value": "Rubik"
+          },
+          "x": {
+            "scale": "xscale",
+            "value": 1
+          },
+          "y": {
+            "scale": "yscale",
+            "field": "title",
+            "offset": -6
+          },
+          "baseline": {
+            "value": "bottom"
+          },
+          "align": {
+            "value": "right"
+          },
+          "text": {
+            "field": "percent_label"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "scale": "color",
+            "signal": "if(barTitle == datum.title, datum.color, 2)"
+          }
+        },
+        "hover": {
+          "cursor": {
+            "value": "pointer"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "counts"
+      },
+      "encode": {
+        "update": {
+          "fontSize": {
+            "value": 20
+          },
+          "font": {
+            "value": "Rubik"
+          },
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "scale": "yscale",
+            "field": "title",
+            "offset": -6
+          },
+          "text": {
+            "field": "title"
+          },
+          "baseline": {
+            "value": "bottom"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "signal": "colors.navy"
+          }
+        },
+        "hover": {
+          "cursor": {
+            "value": "pointer"
+          }
+        }
+      }
+    }
+  ]
+}
