@@ -20,7 +20,6 @@ import {
 import {DataProvider} from "./services/data.provider";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
 import {ChartsService} from "./services/charts.service";
-import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
 import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
 import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosure-rates.component';
 import { ApproachToPoliciesComponent } from './dashboard/further-findings-alternative-two/approach-to-policies/approach-to-policies.component';
@@ -83,7 +82,6 @@ const cookieConfig:NgcCookieConsentConfig = {
     MinimumRequirementsSectionComponent,
     NumFormatPipe,
     PercentageFormatPipe,
-    GoingBeyondComplianceComponent,
     DisclosureRatesComponent,
     ApproachToIncidentsComponent,
     ApproachToRisksComponent,
