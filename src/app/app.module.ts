@@ -21,7 +21,6 @@ import {DataProvider} from "./services/data.provider";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
 import {ChartsService} from "./services/charts.service";
 import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
-import { AssessedStatementsOverviewComponent } from './dashboard/assessed-statments-overview/assessed-statements-overview.component';
 import {PercentageFormatPipe} from "./pipes/percentage-format.pipe";
 import { DisclosureRatesComponent } from './dashboard/disclosure-rates/disclosure-rates.component';
 import { ApproachToPoliciesComponent } from './dashboard/further-findings-alternative-two/approach-to-policies/approach-to-policies.component';
@@ -38,6 +37,7 @@ import { SubscribeComponent } from './subscribe/subscribe.component';
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent";
 import { SpotlightMetricsComponent } from './dashboard/spotlight-metrics/spotlight-metrics.component';
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
+import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
@@ -84,7 +84,6 @@ const cookieConfig:NgcCookieConsentConfig = {
     NumFormatPipe,
     PercentageFormatPipe,
     GoingBeyondComplianceComponent,
-    AssessedStatementsOverviewComponent,
     DisclosureRatesComponent,
     ApproachToIncidentsComponent,
     ApproachToRisksComponent,
@@ -94,7 +93,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     ExportAsComponent,
     SubscribeComponent,
     SpotlightMetricsComponent,
-    BeyondComplianceComponent
+    BeyondComplianceComponent,
+    HighlightMetricComponent
   ],
   imports: [
     FormsModule,
