@@ -36,11 +36,11 @@ export class ChartsService {
     });
   }
 
-  drawSingleBar(title: string, metric: number, element: string, options: {}, year: string) {
+  drawSingleBar(title: string, element: string, values: any[], url: string, options: {}) {
     var bar = JSON.parse(JSON.stringify(singleBarChart))
     bar['signals']['0']['value'] = title
-    bar['data'][0]['url'] = `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group][]=Companies_with_assessed_MSA_statement`
-    bar['data'][1]['transform'][2]['expr'] = "'" + `${this.wikirateApiHost}/~${metric}?tab=metric_answer&filter[year]=${year}&filter[company_group][]=Companies_with_assessed_MSA_statement` + "'"
+    bar['data'][0]['values'] = values
+    bar['data'][1]['transform'][2]['expr'] = "'" + `${url}` + "'"
     return embed(element, bar, options).then(result => this.addListenerOnChartClick(result));
   }
 
