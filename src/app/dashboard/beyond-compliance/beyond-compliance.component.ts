@@ -18,7 +18,6 @@ import { ChartsService } from 'src/app/services/charts.service';
 export class BeyondComplianceComponent implements OnInit {
   sector: string = "all-sectors";
   year: number | string = ''
-  beyond_compliance_table_data: any[] = []
   active: string = 'name';
   isLoading: boolean = true;
   beyond_compliance_metrics = beyond_compliance_metrics;
@@ -135,15 +134,6 @@ export class BeyondComplianceComponent implements OnInit {
       this.isLoading = false
 
     })
-  }
-
-  sort(column: string) {
-    this.beyond_compliance_table_data.sort((a, b) => {
-      if (b[column] == "N/A") return -1
-      return a[column] > b[column] ? -1 : 1
-    })
-    this.active = column
-
   }
 
   openURL(url: string) {
