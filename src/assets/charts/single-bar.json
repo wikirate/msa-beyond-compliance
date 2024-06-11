@@ -54,10 +54,12 @@
   "data": [
     {
       "name": "metric_answers",
-      "values":[{
-        "meet_criteria": 20,
-        "num_of_assessed": 209
-      }]
+      "values": [
+        {
+          "meet_criteria": 20,
+          "num_of_assessed": 209
+        }
+      ]
     },
     {
       "name": "counts",

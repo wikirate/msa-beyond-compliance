@@ -9,6 +9,7 @@ import { forkJoin, from, mergeMap, Observable, toArray } from "rxjs";
 import { error } from "vega";
 import { ValueRange } from 'src/app/models/valuerange.model';
 import { ChartsService } from 'src/app/services/charts.service';
+import { WikirateUrlBuilder } from 'src/app/utils/wikirate-url-builder';
 
 @Component({
   selector: 'beyond-compliance',
@@ -80,6 +81,27 @@ export class BeyondComplianceComponent implements OnInit {
       new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.any].filter(value => value != ''))
     ].filter(item => item.value != 'latest'))
 
+    const metric_total_url = new WikirateUrlBuilder().setEndpoint(metric['id'])
+      .addFilter(new Filter("year", this.year))
+      .addFilter(new Filter("value", metric['filter_value']))
+      .addFilter(new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.any].filter(value => value != '')))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    const metric_uk_url = new WikirateUrlBuilder().setEndpoint(metric['id'])
+      .addFilter(new Filter("year", this.year))
+      .addFilter(new Filter("value", metric['filter_value']))
+      .addFilter(new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.uk].filter(value => value != '')))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
+    const metric_aus_url = new WikirateUrlBuilder().setEndpoint(metric['id'])
+      .addFilter(new Filter("year", this.year))
+      .addFilter(new Filter("value", metric['filter_value']))
+      .addFilter(new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.aus].filter(value => value != '')))
+      .addFilter(new Filter('year', this.year))
+      .build()
+
     forkJoin([uk_statements_assessed, aus_statements_assessed, statements_assessed, metric_answers]).subscribe(responses => {
       let uk_assessed_statements = responses[0]
       let aus_assessed_statements = responses[1]
@@ -110,35 +132,24 @@ export class BeyondComplianceComponent implements OnInit {
       let aus_percent = Math.round(aus_count * 100 / aus_assessed_statements.length)
       let total_percent = Math.round(total * 100 / total_assessed_statements.length)
 
-      let filters: Filter[] = [new Filter('year', this.year),
-      new Filter("company_group", [company_group]),
-      new Filter("value", metric['filter_value'])
-      ].filter((filter) => filter.value != '' && filter.value != 'latest')
-
-      let params = DataProvider.getUrlParams(filters)
-
       let vis_data = [
-        {'label':'Total','value': total_percent, 'color': '#000029', 'metric':metric['label']},
-        {'label':'UK','value': uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']},
-        {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']}]
+        { 'label': 'Total', 'value': total_percent, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+        { 'label': 'UK', 'value': uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
+        { 'label': 'AUS', 'value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
 
       if (metric['label'] == "Consultation process") {
         vis_data = [
-          {'label':'Total','value': NaN, 'color': '#000029', 'metric':metric['label']},
-          {'label':'UK','value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']},
-          {'label':'AUS','value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric':metric['label']}]      
+          { 'label': 'Total', 'value': NaN, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+          { 'label': 'UK', 'value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url},
+          { 'label': 'AUS', 'value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
       }
 
       this.chartService.drawSimpleBarChart(metric['label'], '#metric-chart', vis_data, { renderer: "svg", actions: false })
 
       this.isLoading = false
-
     })
   }
 
-  openURL(url: string) {
-    window.open(url, "_blank")
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     this.updateData()

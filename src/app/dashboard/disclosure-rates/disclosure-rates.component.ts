@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DataProvider} from "../../services/data.provider";
 import {Filter} from "../../models/filter.model";
-// @ts-ignore
-import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json";
 import {SectorProvider} from "../../services/sector.provider";
 import {ActivatedRoute} from "@angular/router";
-import {ValueRange} from "../../models/valuerange.model";
 import {forkJoin} from "rxjs";
 import {WikirateUrlBuilder} from "../../utils/wikirate-url-builder";
 import { ChartsService } from 'src/app/services/charts.service';
@@ -51,12 +48,24 @@ export class DisclosureRatesComponent implements OnInit {
       ].filter(item => item.value != 'latest')
     )
 
+    const food_and_bev_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.food_and_beverage, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
+
     const garment_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
         new Filter("company_group", [this.dataProvider.company_groups.garment, this.dataProvider.companies_with_assessed_statement.any])
       ].filter(item => item.value != 'latest')
     )
+
+    const garment_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.garment, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
 
     const financial_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
@@ -65,12 +74,24 @@ export class DisclosureRatesComponent implements OnInit {
       ].filter(item => item.value != 'latest')
     )
 
+    const financial_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.financial, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
+  
     const hospitality_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
         new Filter("company_group", this.dataProvider.company_groups.hospitality)
       ].filter(item => item.value != 'latest')
     )
+
+    const hospitality_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.hospitality, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
 
     const renewable_energy_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
@@ -79,12 +100,24 @@ export class DisclosureRatesComponent implements OnInit {
       ].filter(item => item.value != 'latest')
     )
 
+    const renewable_energy_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.renewable_energy, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
+
     const electronics_disclosure_rates = this.dataProvider.getAnswers(
       this.dataProvider.metrics.msa_disclosure_rate, [
         new Filter("year", this.year),
         new Filter("company_group", this.dataProvider.company_groups.electronics)
       ].filter(item => item.value != 'latest')
     )
+
+    const electronics_disclosure_rates_url = new WikirateUrlBuilder()
+    .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
+    .addFilter(new Filter("year", this.year))
+    .addFilter(new Filter("company_group", [this.dataProvider.company_groups.renewable_energy, this.dataProvider.companies_with_assessed_statement.any]))
+    .build()
 
     forkJoin([food_and_bev_disclosure_rates,
       garment_disclosure_rates, financial_disclosure_rates,
@@ -136,12 +169,12 @@ export class DisclosureRatesComponent implements OnInit {
       this.renewable_energy_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[4]);
       this.electronics_avg_disclosure_rate = this.calc_avg_disclosure_rate(results[5]);
 
-      this.drawSemiDonutChart(this.garment_avg_disclosure_rate, "semi-donut-disclosure-rates-garment", "#")
-      this.drawSemiDonutChart(this.food_bev_avg_disclosure_rate, "semi-donut-disclosure-rates-food-bev", "#")
-      this.drawSemiDonutChart(this.financial_avg_disclosure_rate, "semi-donut-disclosure-rates-finance", "#")
-      this.drawSemiDonutChart(this.hospitality_avg_disclosure_rate, "semi-donut-disclosure-rates-hospitality", "#")
-      this.drawSemiDonutChart(this.renewable_energy_avg_disclosure_rate, "semi-donut-disclosure-rates-energy", "#")
-      this.drawSemiDonutChart(this.electronics_avg_disclosure_rate, "semi-donut-disclosure-rates-electronics", "#")
+      this.drawSemiDonutChart(this.garment_avg_disclosure_rate, "semi-donut-disclosure-rates-garment", garment_disclosure_rates_url)
+      this.drawSemiDonutChart(this.food_bev_avg_disclosure_rate, "semi-donut-disclosure-rates-food-bev", food_and_bev_disclosure_rates_url)
+      this.drawSemiDonutChart(this.financial_avg_disclosure_rate, "semi-donut-disclosure-rates-finance", financial_disclosure_rates_url)
+      this.drawSemiDonutChart(this.hospitality_avg_disclosure_rate, "semi-donut-disclosure-rates-hospitality", hospitality_disclosure_rates_url)
+      this.drawSemiDonutChart(this.renewable_energy_avg_disclosure_rate, "semi-donut-disclosure-rates-energy", renewable_energy_disclosure_rates_url)
+      this.drawSemiDonutChart(this.electronics_avg_disclosure_rate, "semi-donut-disclosure-rates-electronics", electronics_disclosure_rates_url)
 
       this.isLoading = false;
     })
@@ -160,16 +193,6 @@ export class DisclosureRatesComponent implements OnInit {
     return Math.round(avg_discosure_rate*10 / disclosure_rates.length)
   }
 
-  openURL(sector: string) {
-    let url = new WikirateUrlBuilder()
-      .setEndpoint(this.dataProvider.metrics.msa_disclosure_rate)
-      .addFilter(new Filter('company_group', [sector, this.dataProvider.companies_with_assessed_statement.any]))
-      .addFilter(new Filter('year', this.year))
-      .build();
-
-    window.open(url, "_blank")
-  }
-
   drawSemiDonutChart(percentage: number, elementId: string, url: string) {
     this.chartsService.drawSemiDonutChart(
       `${percentage}%`,
@@ -177,12 +200,12 @@ export class DisclosureRatesComponent implements OnInit {
       [{
         'id': 'Covered',
         'percent': percentage,
-        'URL': url
+        'wikirate_page': url
       },
       {
         'id': 'Not Covered',
         'percent': 100 - percentage,
-        'URL': url
+        'wikirate_page': url
       }],
       250, ["#FF5C45", "#E5E5EA"],
       ["Covered", "Not Covered"], { renderer: "svg", actions: false })

@@ -96,7 +96,7 @@ export class ChartsService {
     donut["scales"][0]["range"] = colors
     donut["scales"][0]["domain"] = domain
 
-    return embed(element, donut, options)
+    return embed(element, donut, options).then(result => this.addListenerOnChartClick(result));
   }
 
   drawSimpleBarChart(title: string,
@@ -106,7 +106,7 @@ export class ChartsService {
     var simple_bar = JSON.parse(JSON.stringify(simpleBarChart))
     simple_bar["title"]["text"] = title
     simple_bar["data"][0]["values"] = values
-    return embed(element, simple_bar, options)
+    return embed(element, simple_bar, options).then(result => this.addListenerOnChartClick(result))
   }
 
   drawSubgroupsBarChart(
