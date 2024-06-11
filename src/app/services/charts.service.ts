@@ -60,7 +60,7 @@ export class ChartsService {
     pie["scales"][0]["range"] = colors
     pie["scales"][0]["domain"] = domain
 
-    return embed(element, pie, options)
+    return embed(element, pie, options).then(result => this.addListenerOnChartClick(result));
   }
 
   drawDonutChart(title: string,
