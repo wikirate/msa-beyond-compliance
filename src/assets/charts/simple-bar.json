@@ -8,8 +8,31 @@
       "text": "Signed by appropriate person",
       "font": "Rubik",
       "fontSize": 16
-    },
-  
+    },  
+    "signals": [
+      {
+        "name": "tooltip",
+        "value": {},
+        "on": [
+          {"events": "rect:pointerover", "update": "datum"},
+          {"events": "rect:pointerout",  "update": "{}"}
+        ]
+      },
+      {
+        "name": "click",
+        "value": null,
+        "on": [
+          {
+            "events": "rect:click",
+            "update": "datum.wikirate_page"
+          },
+          {
+            "events": "rect:click",
+            "update": "datum.wikirate_page"
+          }
+        ]
+      }
+    ],  
     "data": [
       {
         "name": "table",
@@ -19,19 +42,7 @@
           {"label": "AUS", "value": 43, "color":"#FF5C45"}
         ]
       }
-    ],
-  
-    "signals": [
-      {
-        "name": "tooltip",
-        "value": {},
-        "on": [
-          {"events": "rect:pointerover", "update": "datum"},
-          {"events": "rect:pointerout",  "update": "{}"}
-        ]
-      }
-    ],
-  
+    ],  
     "scales": [
       {
         "name": "xscale",
@@ -47,8 +58,7 @@
         "nice": true,
         "range": "height"
       }
-    ],
-  
+    ],  
     "axes": [
       { "orient": "bottom", "scale": "xscale" },
       { "orient": "left", "scale": "yscale" }
@@ -71,7 +81,8 @@
             "fill": {"field": "color"}
           },
           "hover": {
-            "tooltip":{"signal": "{title: datum.metric, 'Legislation': if(datum.label=='AUS','Australian', datum.label), 'Coverage': datum.value+'%', 'Mandatory': datum.mandatory}"}
+            "tooltip":{"signal": "{title: datum.metric, 'Legislation': if(datum.label=='AUS','Australian', datum.label), 'Coverage': datum.value+'%', 'Mandatory': datum.mandatory}"},
+            "cursor":{"value": "pointer"}
           }
         }
       }

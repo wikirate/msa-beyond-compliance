@@ -3,29 +3,15 @@ import pieChart from '../../assets/charts/pie.json';
 // @ts-ignore
 import simpleBarChart from '../../assets/charts/simple-bar.json';
 // @ts-ignore
-import groupedBarChart from '../../assets/charts/grouped-bar.json';
-// @ts-ignore
 import donutChart from '../../assets/charts/donut.json';
 // @ts-ignore
 import semiDonutChart from '../../assets/charts/semi-donut.json';
 // @ts-ignore
-import customPieChart from '../../assets/charts/custom-pie.json';
-// @ts-ignore
 import singleBarChart from '../../assets/charts/single-bar.json';
-// @ts-ignore
-import pieGroupsChart from '../../assets/charts/pie-groups.json';
 // @ts-ignore
 import barChart from '../../assets/charts/bars.json';
 // @ts-ignore
 import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
-// @ts-ignore
-import uk_tree_map from '../../assets/charts/uk_legislation_tree_map.json';
-// @ts-ignore
-import beesworm_chart from '../../assets/charts/beesworm.json';
-// @ts-ignore
-import sector_beesworm_chart from '../../assets/charts/sector-specific-beesworm.json';
-// @ts-ignore
-import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
 import { Injectable } from "@angular/core";
 import embed from "vega-embed";
 import { Filter } from "../models/filter.model";
@@ -35,11 +21,27 @@ import { DataProvider } from "./data.provider";
 export class ChartsService {
   wikirateApiHost = "https://wikirate.org"
 
-  drawSingleBar(title: string, metric: number, element: string, options: {}, year: string) {
+  addListenerOnChartClick(result: any): void {
+    const view = result.view
+
+    //add Signal Listener for open url in a new tab when user clicks on the bar chart
+    view.addSignalListener('click', (name: string, value: any) => {
+      if (value) {
+        window.open(value, '_blank');
+      }
+    });
+
+    view.addEventListener('click', () => {
+      view.signal('click', null).run();
+    });
+  }
+
+  drawSingleBar(title: string, element: string, values: any[], url: string, options: {}) {
     var bar = JSON.parse(JSON.stringify(singleBarChart))
     bar['signals']['0']['value'] = title
-    bar['data'][0]['url'] = `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}&filter[company_group][]=Companies_with_assessed_MSA_statement`
-    return embed(element, bar, options)
+    bar['data'][0]['values'] = values
+    bar['data'][1]['transform'][2]['expr'] = "'" + `${url}` + "'"
+    return embed(element, bar, options).then(result => this.addListenerOnChartClick(result));
   }
 
   drawPieChart(title: string,
@@ -58,7 +60,7 @@ export class ChartsService {
     pie["scales"][0]["range"] = colors
     pie["scales"][0]["domain"] = domain
 
-    return embed(element, pie, options)
+    return embed(element, pie, options).then(result => this.addListenerOnChartClick(result));
   }
 
   drawDonutChart(title: string,
@@ -77,7 +79,7 @@ export class ChartsService {
     donut["scales"][0]["range"] = colors
     donut["scales"][0]["domain"] = domain
 
-    return embed(element, donut, options)
+    return embed(element, donut, options).then(result => this.addListenerOnChartClick(result))
   }
 
   drawSemiDonutChart(title: string,
@@ -94,7 +96,7 @@ export class ChartsService {
     donut["scales"][0]["range"] = colors
     donut["scales"][0]["domain"] = domain
 
-    return embed(element, donut, options)
+    return embed(element, donut, options).then(result => this.addListenerOnChartClick(result));
   }
 
   drawSimpleBarChart(title: string,
@@ -104,197 +106,7 @@ export class ChartsService {
     var simple_bar = JSON.parse(JSON.stringify(simpleBarChart))
     simple_bar["title"]["text"] = title
     simple_bar["data"][0]["values"] = values
-    return embed(element, simple_bar, options)
-  }
-
-  drawGroupedBarChart(element: string,
-    values: {}[],
-    options: {}) {
-    var grouped_bar = JSON.parse(JSON.stringify(groupedBarChart))
-    grouped_bar["data"][0]["values"] = values
-    return embed(element, grouped_bar, options)
-  }
-
-
-  drawPieCustomChart(title: string,
-    element: string,
-    assessed_statements_metric_id: number,
-    metric: number,
-    year: number | string,
-    width: number,
-    height: number,
-    colors: string[],
-    domain: string[],
-    options: {}) {
-    let pie = JSON.parse(JSON.stringify(customPieChart))
-    let data = pie["data"]
-
-    data.unshift({
-      "name": "answers",
-      "url": `${this.wikirateApiHost}/~${metric}+answer/answer_list.json?limit=0&filter[year]=${year}`,
-      "transform": [{
-        "type": "lookup",
-        "from": "assessed",
-        "key": "company",
-        "fields": ["company"],
-        "values": ["value"],
-        "as": ["assessed"]
-      },
-      {
-        "type": "filter",
-        "expr": "datum.assessed === 'Yes'"
-      },
-      {
-        "type": "formula",
-        "as": "value",
-        "expr": "test(/beyond tier 1/, datum.value)? 'beyond tier 1': 'direct'"
-      }]
-    })
-    data.unshift({
-      "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
-    })
-    pie["data"] = data
-    pie["description"] = title
-    pie["width"] = width
-    pie["height"] = height
-    pie["scales"][0]["range"] = colors
-    pie["scales"][0]["domain"] = domain
-    console.log(pie)
-    return embed(element, pie, options)
-  }
-
-  drawMinimumRequirementsBarChart(
-    title: string,
-    element: string,
-    width: number,
-    height: number,
-    meets_requirements_metric_id: number,
-    metrics: [],
-    year: number | string,
-    company_groups: string[],
-    options: {}) {
-    let bars = JSON.parse(JSON.stringify(barChart))
-    let data: any[] = []
-
-    let filters: Filter[] = [new Filter('company_group', company_groups), new Filter('year', year)]
-    data.push({
-      "name": 'meets_min_requirements',
-      "url": `${this.wikirateApiHost}/~${meets_requirements_metric_id}+Answer.json?${DataProvider.getParams(filters).toString()}`,
-      "transform": [{ "type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year" }]
-    })
-
-    if (year == 'latest') {
-      filters.pop()
-    }
-
-    let short_labels: any[] = []
-    for (let metric of metrics) {
-      short_labels.push(metric['short_label'])
-      let condition = '';
-      // @ts-ignore
-      for (let value of metric['filter_value']) {
-        condition += 'indexof(datum.value, \'' + value + '\') >= 0 || '
-      }
-
-      condition = condition.substring(0, condition.length - 3)
-      data.push({
-        name: metric['short_label'],
-        "url": `${this.wikirateApiHost}/~${metric['id']}+answer.json?${DataProvider.getParams(filters).toString()}`,
-        "transform": [
-          { "type": "formula", "as": "key", "expr": "datum.company + ',' + datum.year" },
-          {
-            "type": "lookup",
-            "from": "meets_min_requirements",
-            "key": "key",
-            "fields": ["key"],
-            "values": ["value"],
-            "as": ["meets_min_requirements"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.meets_min_requirements == 'Yes' || datum.meets_min_requirements == 'No' || datum.meets_min_requirements == 'Unknown'"
-          },
-          {
-            "type": "formula",
-            "as": "accepted_value",
-            "expr": "if(" + condition + ", true, false)"
-          },
-          { "type": "aggregate", "groupby": ["accepted_value"] },
-          {
-            "type": "impute",
-            "key": "accepted_value",
-            "keyvals": [true],
-            "field": "count",
-            "value": 0
-          },
-          { "type": "joinaggregate", "fields": ["count"], "ops": ["sum"] },
-          { "type": "filter", "expr": "datum.accepted_value == true" }
-        ]
-      })
-    }
-    data.push({ 'name': 'metrics', 'values': metrics })
-    data.push({
-      "name": "counts",
-      "source": short_labels,
-      "transform": [
-        {
-          "type": "window",
-          "ops": [
-            "row_number"
-          ],
-          "as": [
-            "seq"
-          ]
-        },
-        {
-          "type": "lookup",
-          "from": "metrics",
-          "key": "seq",
-          "fields": [
-            "seq"
-          ],
-          "values": [
-            "label",
-            "metric",
-            "color",
-            "filter_value"
-          ],
-          "as": [
-            "title",
-            "wikirate_page",
-            "color",
-            "filter_value"
-          ]
-        },
-        {
-          "type": "formula",
-          "expr": "datum.count/datum.sum_count",
-          "as": "percentage"
-        },
-        {
-          "type": "formula",
-          "expr": "format(datum.count / datum.sum_count, '.0%')",
-          "as": "percent_label"
-        },
-        {
-          "type": "formula",
-          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
-          "as": "count_label"
-        },
-        {
-          "type": "formula",
-          "expr": "{ value: datum.filter_value }",
-          "as": "filter"
-        }
-      ]
-    })
-
-    bars['description'] = title;
-    bars['data'] = data
-    bars['width'] = width
-    bars['height'] = height
-    embed(element, bars, options)
+    return embed(element, simple_bar, options).then(result => this.addListenerOnChartClick(result))
   }
 
   drawSubgroupsBarChart(
@@ -499,159 +311,5 @@ export class ChartsService {
     bars['width'] = width
     bars['height'] = height
     return embed(element, bars, options)
-  }
-
-  drawBeeSwarmChart(title: string,
-    year: number | string,
-    assessed_statements_metric_id: number,
-    colors: string[],
-    element: string,
-    width: number,
-    height: number,
-    options: {}) {
-    var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
-    var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value][]=Yes`;
-    bee_chart['data'][9]['url'] = assessed_statements_url
-    return embed(element, bee_chart, {});
-  }
-
-  drawSectorSpecificBeeSwarmChart(title: string,
-    year: number | string,
-    assessed_statements_metric_id: number,
-    color: string,
-    company_group: string,
-    element: string,
-    width: number,
-    height: number,
-    options: {}) {
-    var bee_chart = JSON.parse(JSON.stringify(sector_beesworm_chart))
-    var sector_assessed_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=${company_group}&filter[value][]=Yes`;
-    var sector_companies_url = `../assets/cached/${company_group.split(" ").join('_')}.json`;
-    bee_chart['data'][2]['url'] = sector_companies_url
-    bee_chart['data'][3]['url'] = sector_assessed_url
-    if (company_group === "MSA_Garment")
-      bee_chart['data'][3]['transform'].push({
-        "type": "formula",
-        "as": "sector",
-        "expr": "'Garment'"
-      })
-    else if (company_group === "MSA_Food_Beverage")
-      bee_chart['data'][3]['transform'].push({
-        "type": "formula",
-        "as": "sector",
-        "expr": "'Food Beverage'"
-      })
-    else if (company_group === "MSA_Financial")
-      bee_chart['data'][3]['transform'].push({
-        "type": "formula",
-        "as": "sector",
-        "expr": "'Financial'"
-      })
-    else if (company_group === "MSA_Renewable_Energy")
-      bee_chart['data'][3]['transform'].push({
-        "type": "formula",
-        "as": "sector",
-        "expr": "'(Renewable) Energy'"
-      })
-    else
-      bee_chart['data'][3]['transform'].push({
-        "type": "formula",
-        "as": "sector",
-        "expr": "'Hospitality'"
-      })
-    bee_chart['scales'][1]["range"] = [color]
-
-    return embed(element, bee_chart, options);
-  }
-
-  drawPieChartGroups(title: string,
-    year: number | string,
-    assessed_statements_metric_id: number,
-    metric_id: number,
-    colors: string[],
-    groups: any[],
-    element: string,
-    width: number,
-    height: number,
-    options: {}) {
-    var pie = JSON.parse(JSON.stringify(pieGroupsChart))
-
-    let color_values: any = {}
-    let range = ""
-    for (let i in colors) {
-      color_values['color_' + i] = colors[i]
-      range += 'colors.' + 'color_' + i + ', '
-    }
-    range = "[" + range.substring(0, range.length - 2) + "]"
-    pie["signals"][0]["value"] = color_values
-    pie["description"] = title
-    pie["data"][0]["values"] = groups
-    pie["data"].unshift({
-      "name": "answers",
-      "url": `${this.wikirateApiHost}/~${metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        },
-        {
-          "type": "lookup",
-          "from": "assessed",
-          "key": "key",
-          "fields": [
-            "key"
-          ],
-          "values": [
-            "value"
-          ],
-          "as": [
-            "assessed"
-          ]
-        },
-        {
-          "type": "filter",
-          "expr": "datum.assessed == 'Yes'"
-        }
-      ]
-    })
-
-    pie["data"].unshift({
-      "name": "assessed",
-      "url": `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}`,
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        }
-      ]
-    })
-    pie["width"] = width
-    pie["height"] = height
-    pie["scales"][0]["range"] = colors
-    pie["scales"][0]["range"]["signal"] = range
-    return embed(element, pie, options)
-  }
-
-  uk_legislation_tree_map(values: any[],
-    element: string,
-    width: number,
-    height: number,
-    options: {}) {
-    var treeMap = JSON.parse(JSON.stringify(uk_tree_map))
-    treeMap["data"][0]["values"] = values;
-    return embed(element, treeMap, options);
-  }
-
-  both_legislations_tree_map(values: any[],
-    element: string,
-    width: number,
-    height: number,
-    options: {}) {
-    var treeMap = JSON.parse(JSON.stringify(both_tree_map))
-    treeMap["data"][0]["values"] = values;
-    console.log(JSON.stringify(treeMap))
-    return embed(element, treeMap, options);
   }
 }

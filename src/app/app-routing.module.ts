@@ -4,15 +4,12 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AboutComponent} from "./about/about.component";
 import {KeyFindingsSectionComponent} from "./dashboard/key-findings-section/key-findings-section.component";
 import {
-  AssessedStatementsOverviewComponent
-} from "./dashboard/assessed-statments-overview/assessed-statements-overview.component";
-import {
   MinimumRequirementsSectionComponent
 } from "./dashboard/minimum-requirements-section/minimum-requirements-section.component";
-import {GoingBeyondComplianceComponent} from "./dashboard/going-beyond-compliance/going-beyond-compliance.component";
 import {FurtherFindingsComponent} from "./dashboard/further-findings-alternative-two/further-findings.component";
 import {DisclosureRatesComponent} from "./dashboard/disclosure-rates/disclosure-rates.component";
 import {SubscribeComponent} from "./subscribe/subscribe.component";
+import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
 
 
 const routes: Routes = [
@@ -20,9 +17,8 @@ const routes: Routes = [
     path: 'dashboard/:sector', component: DashboardComponent
   },
   {path: 'dashboard/key-findings/:sector', component: KeyFindingsSectionComponent},
-  {path: 'dashboard/assessed-statements-overview/:sector', component: AssessedStatementsOverviewComponent},
   {path: 'dashboard/meeting-minimum-requirements/:sector', component: MinimumRequirementsSectionComponent},
-  {path: 'dashboard/going-beyond-compliance/:sector', component: GoingBeyondComplianceComponent},
+  {path: 'dashboard/beyond-compliance/:sector', component: BeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},
   {path: 'dashboard/sector-disclosure-rates/:sector', component: DisclosureRatesComponent},
   {path: 'subscribe', component: SubscribeComponent},

@@ -30,6 +30,16 @@
         "name": "hoverOpacity",
         "update": "if(hoverValue, 0.5, 1)",
         "value": 1
+      },
+      {
+        "name": "click",
+        "value": null,
+        "on":[
+            {
+              "events":"arc:click",
+              "update":"datum.URL"
+            }
+        ]
       }
     ],
     "data": [
@@ -75,8 +85,10 @@
             "cornerRadius": {"value": 0}
           },
           "update": {
-            "href": {"field": "URL", "target": "_blank"},
             "cursor": {"value": "pointer"}
+          },
+          "hover": {
+              "tooltip":{"signal": "{title: datum.id, 'Percentage': datum.percent+'%'}"}
           }
         }
       }

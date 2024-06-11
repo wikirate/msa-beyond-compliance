@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { find, forkJoin, map } from 'rxjs';
+import { forkJoin, map } from 'rxjs';
 import { Filter } from 'src/app/models/filter.model';
 import { ChartsService } from 'src/app/services/charts.service';
 import { DataProvider } from 'src/app/services/data.provider';
@@ -131,34 +131,49 @@ export class SpotlightMetricsComponent implements OnInit {
 
             return r
           }, {}))
-
-          collaborations_and_memberships_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
-          workers_engagement_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
-          living_wage_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
         }
+
+        collaborations_and_memberships_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+        workers_engagement_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+        living_wage_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+
 
         let statements_reporting_workers_engagement = workers_engagement_response.filter((x: any) => x['value'].includes('Yes with workers') || x['value'].includes('Yes with labor unions')).length
         let statements_reporting_living_wage_commitment = living_wage_response.filter((x: any) => x['value'] == 'Yes').length
         let statements_reporting_collaborations_and_memberships = collaborations_and_memberships_response.filter((x: any) => x['value'] == 'Yes').length
 
         return {
-          'collaborations_and_memberships': Math.round(statements_reporting_collaborations_and_memberships * 100 / collaborations_and_memberships_response.length),
-          'workers_engagement': Math.round(statements_reporting_workers_engagement * 100 / workers_engagement_response.length),
-          'living_wage': Math.round(statements_reporting_living_wage_commitment * 100 / living_wage_response.length)
+          'assessed_collaborations_and_memberships': collaborations_and_memberships_response.length,
+          'collaborations_and_memberships': statements_reporting_collaborations_and_memberships,
+          'assessed_workers_engagement': workers_engagement_response.length,
+          'workers_engagement': statements_reporting_workers_engagement,
+          'assessed_living_wage': living_wage_response.length,
+          'living_wage': statements_reporting_living_wage_commitment
         }
       }))
-      .subscribe({next: results => {
-        this.collaborationsAndMemberships = results.collaborations_and_memberships
-        this.workersEngagement = results.workers_engagement
-        this.livingWageCommitment = results.living_wage
+      .subscribe({
+        next: results => {
+          this.collaborationsAndMemberships = Math.round(results.collaborations_and_memberships * 100 / results.assessed_collaborations_and_memberships),
+            this.workersEngagement = Math.round(results.workers_engagement * 100 / results.assessed_workers_engagement),
+            this.livingWageCommitment = Math.round(results.living_wage * 100 / results.assessed_living_wage)
 
-        this.chartsService.drawSingleBar("Living wage in supply chains", this.dataProvider.metrics.msa_living_wage, "div#living-wage-chart", {renderer: "svg", actions: false}, this.year)
-        this.chartsService.drawSingleBar("Collaborations and Memberships", this.dataProvider.metrics.msa_collaborations_and_membership, "div#collaborations-and-memberships-chart", {renderer: "svg", actions: false}, this.year)
-        this.chartsService.drawSingleBar("Workers Engagement", this.dataProvider.metrics.msa_workers_engagement, "div#workers-engagement-chart", {renderer: "svg", actions: false}, this.year)
-      },
-    complete: () => this.isLoading = false})
+          this.chartsService.drawSingleBar("Living wage in supply chains",
+            "div#living-wage-chart",
+            [{ "meet_criteria": results.living_wage, "num_of_assessed": results.assessed_living_wage }],
+            this.living_wage_commitment_url,
+            { renderer: "svg", actions: true })
+
+          this.chartsService.drawSingleBar("Collaborations and Memberships", "div#collaborations-and-memberships-chart",
+            [{ "meet_criteria": results.collaborations_and_memberships, "num_of_assessed": results.assessed_collaborations_and_memberships }],
+            this.collaborations_and_memberships_url,
+            { renderer: "svg", actions: false })
+
+          this.chartsService.drawSingleBar("Workers Engagement", "div#workers-engagement-chart",
+            [{ "meet_criteria": results.workers_engagement, "num_of_assessed": results.assessed_workers_engagement }],
+            this.workers_engagement_url,
+            { renderer: "svg", actions: false })
+        },
+        complete: () => this.isLoading = false
+      })
   }
-
-
-
 }
