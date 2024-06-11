@@ -54,47 +54,10 @@
   "data": [
     {
       "name": "metric_answers",
-      "url": "https://wikirate.org/~14019233+answer.json?filter%5Bcompany_group%5D%5B%5D=Companies_with_assessed_MSA_statement&filter%5Byear%5D=&limit=0&view=answer_list",
-      "transform": [
-        {
-          "type": "formula",
-          "as": "key",
-          "expr": "datum.company + ',' + datum.year"
-        },
-        {
-          "type": "formula",
-          "as": "accepted_value",
-          "expr": "if(indexof(datum.value, 'Yes') >= 0, true, false)"
-        },
-        {
-          "type": "aggregate",
-          "groupby": [
-            "accepted_value"
-          ]
-        },
-        {
-          "type": "impute",
-          "key": "accepted_value",
-          "keyvals": [
-            true
-          ],
-          "field": "count",
-          "value": 0
-        },
-        {
-          "type": "joinaggregate",
-          "fields": [
-            "count"
-          ],
-          "ops": [
-            "sum"
-          ]
-        },
-        {
-          "type": "filter",
-          "expr": "datum.accepted_value == true"
-        }
-      ]
+      "values":[{
+        "meet_criteria": 20,
+        "num_of_assessed": 209
+      }]
     },
     {
       "name": "counts",
@@ -123,17 +86,17 @@
         },
         {
           "type": "formula",
-          "expr": "datum.count/datum.sum_count",
+          "expr": "datum.meet_criteria/datum.num_of_assessed",
           "as": "percentage"
         },
         {
           "type": "formula",
-          "expr": "format(datum.count / datum.sum_count, '.0%')",
+          "expr": "format(datum.meet_criteria / datum.num_of_assessed, '.0%')",
           "as": "percent_label"
         },
         {
           "type": "formula",
-          "expr": "datum.count + ' out of ' + datum.sum_count + ' statements'",
+          "expr": "datum.meet_criteria + ' out of ' + datum.num_of_assessed + ' statements'",
           "as": "count_label"
         }
       ]
@@ -291,7 +254,7 @@
           },
           "fill": {
             "scale": "color",
-            "signal": "if(barTitle == datum.title, datum.color, 2)"
+            "signal": "if(barTitle == datum.title, 0, 2)"
           }
         },
         "hover": {
