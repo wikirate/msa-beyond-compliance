@@ -284,7 +284,7 @@ export class KeyFindingsSectionComponent implements OnInit {
           'supply_chain_disclosure': Math.round((supply_chain_disclosure_response.length) * 100 / assessed_response.length),
           'incidents_remediation': Math.round((incidents_remediation_response.length) * 100 / assessed_response.length),
           'due_dilligence': Math.round((due_dilligence_response.length) * 100 / assessed_response.length),
-          'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
+          // 'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
         }
       }))
       .subscribe({next: (results) => {
@@ -293,13 +293,13 @@ export class KeyFindingsSectionComponent implements OnInit {
         this.supplyChainDisclosure = results.supply_chain_disclosure
         this.workerRemediation = results.incidents_remediation
         this.dueDilligence = results.due_dilligence
-        this.incidents = results.incidents
+        // this.incidents = results.incidents
 
-        this.drawDonutChart(this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url, "#FF5C45")
-        this.drawDonutChart(100 - this.supplyChainDisclosure, "donut-supply-chain-disclosure", this.supply_chain_disclosure_url, "#FF5C45")
-        this.drawDonutChart(this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url, "#FF5C45")
-        this.drawDonutChart(100 - this.dueDilligence, "donut-due-dilligence", this.due_dilligence_url, "#FF5C45")
-        this.drawDonutChart(this.incidents, "donut-incidents", this.incidents_url, "#FF5C45")
+        this.drawDonutChart(this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url, ['Meet minimum requirements','Do not meet minimum requirements'], "#FF5C45")
+        this.drawDonutChart(100 - this.supplyChainDisclosure, "donut-supply-chain-disclosure", this.supply_chain_disclosure_url, ['Does not disclose information about their supply chain','Discloses information about their supply chain'], "#FF5C45")
+        this.drawDonutChart(this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url, ['Disclose direct worker remediation policies','Does not disclose direct worker remediation policies'], "#FF5C45")
+        this.drawDonutChart(100 - this.dueDilligence, "donut-due-dilligence", this.due_dilligence_url, ['No supply chain due dilligence in place','Supply chain due dilligence in place'], "#FF5C45")
+        // this.drawDonutChart(this.incidents, "donut-incidents", this.incidents_url, "#FF5C45")
 
         //loading stops when all requests and calculations have been performed successfully
       }, 
@@ -312,21 +312,21 @@ export class KeyFindingsSectionComponent implements OnInit {
     this.modalService.open(this.content, { centered: true });
   }
 
-  drawDonutChart(percentage: number, elementId: string, url: string, hex: string) {
+  drawDonutChart(percentage: number, elementId: string, url: string, options: string[], hex: string) {
     this.chartsService.drawDonutChart(
       `${percentage}%`,
       `div#${elementId}`,
       [{
-        'id': 'Met',
+        'id': options [0],
         'percent': percentage,
         'URL': url
       },
       {
-        'id': 'Not Met',
+        'id': options[1],
         'percent': 100 - percentage,
         'URL': url
       }],
       250, 250, ["#e5e5ea", hex],
-      ["Not Met", "Met"], { renderer: "svg", actions: false })
+      [options[1], options[0]], { renderer: "svg", actions: false })
   }
 }
