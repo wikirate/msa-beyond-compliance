@@ -143,13 +143,6 @@ export class DisclosureRatesComponent implements OnInit {
       this.drawSemiDonutChart(this.renewable_energy_avg_disclosure_rate, "semi-donut-disclosure-rates-energy", "#")
       this.drawSemiDonutChart(this.electronics_avg_disclosure_rate, "semi-donut-disclosure-rates-electronics", "#")
 
-      this.drawSemiDonutChart(this.garment_avg_disclosure_rate, "semi-donut-disclosure-rates-garment-2", "#")
-      this.drawSemiDonutChart(this.food_bev_avg_disclosure_rate, "semi-donut-disclosure-rates-food-bev-2", "#")
-      this.drawSemiDonutChart(this.financial_avg_disclosure_rate, "semi-donut-disclosure-rates-finance-2", "#")
-      this.drawSemiDonutChart(this.hospitality_avg_disclosure_rate, "semi-donut-disclosure-rates-hospitality-2", "#")
-      this.drawSemiDonutChart(this.renewable_energy_avg_disclosure_rate, "semi-donut-disclosure-rates-energy-2", "#")
-      this.drawSemiDonutChart(this.electronics_avg_disclosure_rate, "semi-donut-disclosure-rates-electronics-2", "#")
-
       this.isLoading = false;
     })
   }
