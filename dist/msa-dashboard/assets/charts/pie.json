@@ -23,6 +23,20 @@
       "name": "hoverOpacity",
       "update": "if(hoverValue, 0.5, 1)",
       "value": 1
+    },
+    {
+      "name": "click",
+      "value": null,
+      "on": [
+        {
+          "events": "arc:click",
+          "update": "datum.wikirate_page"
+        },
+        {
+          "events": "arc:click",
+          "update": "datum.wikirate_page"
+        }
+      ]
     }
   ],
   "data": [
