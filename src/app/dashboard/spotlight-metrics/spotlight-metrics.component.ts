@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { find, forkJoin, map } from 'rxjs';
+import { forkJoin, map } from 'rxjs';
 import { Filter } from 'src/app/models/filter.model';
 import { ChartsService } from 'src/app/services/charts.service';
 import { DataProvider } from 'src/app/services/data.provider';
@@ -176,7 +176,4 @@ export class SpotlightMetricsComponent implements OnInit {
         complete: () => this.isLoading = false
       })
   }
-
-
-
 }
