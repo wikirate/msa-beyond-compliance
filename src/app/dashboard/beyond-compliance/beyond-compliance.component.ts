@@ -5,9 +5,7 @@ import { Filter } from "../../models/filter.model";
 import beyond_compliance_metrics from "../../../assets/charts-params/beyond-compliance-metrics.json"
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { SectorProvider } from "../../services/sector.provider";
-import { forkJoin, from, mergeMap, Observable, toArray } from "rxjs";
-import { error } from "vega";
-import { ValueRange } from 'src/app/models/valuerange.model';
+import { forkJoin, map } from "rxjs";
 import { ChartsService } from 'src/app/services/charts.service';
 import { WikirateUrlBuilder } from 'src/app/utils/wikirate-url-builder';
 
@@ -22,6 +20,7 @@ export class BeyondComplianceComponent implements OnInit {
   active: string = 'name';
   isLoading: boolean = true;
   beyond_compliance_metrics = beyond_compliance_metrics;
+  metric_question = ''
   metric_seq = 1
 
   constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartService: ChartsService) {
@@ -75,6 +74,8 @@ export class BeyondComplianceComponent implements OnInit {
 
     let metric = this.beyond_compliance_metrics.find((document: any) => document.seq === this.metric_seq)
 
+    this.metric_question = metric['question']
+
     const metric_answers = this.dataProvider.getAnswers(metric['id'], [
       new Filter("year", this.year),
       new Filter("value", metric['filter_value']),
@@ -102,52 +103,60 @@ export class BeyondComplianceComponent implements OnInit {
       .addFilter(new Filter('year', this.year))
       .build()
 
-    forkJoin([uk_statements_assessed, aus_statements_assessed, statements_assessed, metric_answers]).subscribe(responses => {
-      let uk_assessed_statements = responses[0]
-      let aus_assessed_statements = responses[1]
-      let total_assessed_statements = responses[2]
-      let answers = responses[3]
+    forkJoin([uk_statements_assessed, aus_statements_assessed, statements_assessed, metric_answers])
+      .pipe(map(([uk_assessed_statements, aus_assessed_statements, total_assessed_statements, answers]) => {
+        if (this.year == 'latest') {
+          total_assessed_statements = Object.values(total_assessed_statements.reduce((r: any, o: any) => {
+            r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+            return r
+          }, {}))
+        }
 
-      let uk_count = 0;
-      let aus_count = 0;
-      let total = 0;
-
-      for (let answer of answers) {
-        let found = false;
-        uk_assessed_statements.find((item: any) => {
-          if (item['company'] == answer['company'] && item['year'] == answer['year']) {
-            uk_count++;
-            found = true;
+        let uk_count = answers.reduce((count: any, item:any) => {
+          if (uk_assessed_statements.some((o: any) => o.company === item.company && o.year === item.year)) {
+            return count + 1;
           }
-        })
-        aus_assessed_statements.find((item: any) => {
-          if (item['company'] == answer['company'] && item['year'] == answer['year']) {
-            aus_count++;
-            found = true;
+          return count;
+        }, 0);
+        let aus_count = answers.reduce((count: any, item:any) => {
+          if (aus_assessed_statements.some((o: any) => o.company === item.company && o.year === item.year)) {
+            return count + 1;
           }
-        })
-        if (found) total++;
-      }
-      let uk_percent = Math.round(uk_count * 100 / uk_assessed_statements.length)
-      let aus_percent = Math.round(aus_count * 100 / aus_assessed_statements.length)
-      let total_percent = Math.round(total * 100 / total_assessed_statements.length)
+          return count;
+        }, 0);
+        let total = answers.reduce((count: any, item:any) => {
+          if (total_assessed_statements.some((o: any) => o.company === item.company && o.year === item.year)) {
+            return count + 1;
+          }
+          return count;
+        }, 0);
 
-      let vis_data = [
-        { 'label': 'Total', 'value': total_percent, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
-        { 'label': 'UK', 'value': uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
-        { 'label': 'AUS', 'value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
+        return {
+          'uk_percent': Math.round(uk_count * 100 / uk_assessed_statements.length),
+          'aus_percent': Math.round(aus_count * 100 / aus_assessed_statements.length),
+          'total_percent': Math.round(total * 100 / total_assessed_statements.length)
+        }
+      }))
+      .subscribe({
+        next: (results) => {
+          let vis_data = [
+            { 'label': 'Total', 'value': results.total_percent, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+            { 'label': 'UK', 'value': results.uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
+            { 'label': 'AUS', 'value': results.aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
 
-      if (metric['label'] == "Consultation process") {
-        vis_data = [
-          { 'label': 'Total', 'value': NaN, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
-          { 'label': 'UK', 'value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url},
-          { 'label': 'AUS', 'value': aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
-      }
+          if (metric['label'] == "Consultation process") {
+            vis_data = [
+              { 'label': 'Total', 'value': NaN, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+              { 'label': 'UK', 'value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
+              { 'label': 'AUS', 'value': results.aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
+          }
 
-      this.chartService.drawSimpleBarChart(metric['label'], '#metric-chart', vis_data, { renderer: "svg", actions: false })
-
-      this.isLoading = false
-    })
+          this.chartService.drawSimpleBarChart(metric['label'], '#metric-chart', vis_data, { renderer: "svg", actions: false })
+        },
+        complete: () => {
+          this.isLoading = false
+        }
+      })
   }
 
 

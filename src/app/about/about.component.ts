@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
 import methodology_table from '../../assets/methodology_table.json';
+// @ts-ignore
+import spotlight_metrics from '../../assets/spotlight_metrics_table.json';
+// @ts-ignore
+import walk_free_reports from '../../assets/reports_per_sector.json';
 import {ActivatedRoute} from "@angular/router";
 import {SectorProvider} from "../services/sector.provider";
 import {ViewportScroller} from "@angular/common";
@@ -12,6 +16,8 @@ import {ViewportScroller} from "@angular/common";
 })
 export class AboutComponent implements OnInit {
   table: any[] = [];
+  spotlight_metrics_table: any[] = []
+  reports: any[] = []
   currentIndex = 1
   contributors = [
     {
@@ -60,6 +66,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.table = JSON.parse(JSON.stringify(methodology_table));
+    this.spotlight_metrics_table = JSON.parse(JSON.stringify(spotlight_metrics));
+    this.reports = JSON.parse(JSON.stringify(walk_free_reports));
 
     this.route.url.subscribe(val => {
       if (val[0].path === 'about')

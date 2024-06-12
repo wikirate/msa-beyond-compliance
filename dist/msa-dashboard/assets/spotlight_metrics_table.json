@@ -1,0 +1,17 @@
+[
+    {
+      "metric": "Collaborations and Memberships",
+      "url": "https://wikirate.org/Walk_Free+MSA_Collaborations_and_Memberships",
+      "description": "Does the company mention membership in, or partnership with, multi-stakeholder initiatives that address modern slavery issues?"
+    },
+    {
+      "metric": "Living wage in supply chains",
+      "url": "https://wikirate.org/Walk_Free+Living_wage_in_supply_chains",
+      "description": "Does the company provide a commitment on, or detail their action to ensure living wages throughout their supply chain?"
+    },
+    {
+      "metric": "MSA Workers Engagement",
+      "url": "https://wikirate.org/Walk_Free+MSA_Workers_Engagement",
+      "description": "Does the company engage with workers or trade unions in the supply chain?"
+    }
+]

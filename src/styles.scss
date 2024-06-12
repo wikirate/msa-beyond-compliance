@@ -519,6 +519,19 @@ a.button-sm {
   border-width: 1px;
 }
 
+.orange-navy-button {
+  background: $orange;
+  margin-right: 1em;
+  border: 1px solid $orange !important;
+  border-width: 1px;
+}
+
+.orange-navy-button:hover {
+    background: transparent;
+    color: $deep_blue !important;
+    border: 1px solid $deep_blue !important;
+  }
+
 .orange-button:hover {
   background: transparent;
   color: $orange !important;
@@ -872,7 +885,7 @@ hr.deep-blue {
   padding-right: 0.75em !important;
 }
 
-.accordion-button:not(.collapsed)::after,
+.accordion-button:not(.collapsed)::after
 {
   color: #0037F1 !important;
   content: "\f107" !important;

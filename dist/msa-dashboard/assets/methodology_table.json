@@ -151,5 +151,14 @@
     "requirements_guidance_color": "white",
     "requirements_criterion": "Describe the process of consultation with any entities the reporting entity owns or controls (p. 57)",
     "requirements_criterion_color": "red"
+  },
+  {
+    "metric": "Historic Record",
+    "url": "https://wikirate.org/Walk_Free+MSA_historic_record",
+    "description": "Does the company provide links to their modern slavery statements from previous years (either on their website or in their current statement)?",
+    "requirements_guidance": "Keep historic statements from previous years available online. p.14",
+    "requirements_guidance_color": "white",
+    "requirements_criterion": "N/A",
+    "requirements_criterion_color": "yellow"
   }
 ]

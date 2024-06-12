@@ -1,0 +1,25 @@
+.slider-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.slides {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+i {
+    -webkit-text-stroke: 2px;
+}

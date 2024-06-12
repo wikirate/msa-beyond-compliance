@@ -7,6 +7,32 @@
     resilient global economy - join us in our efforts!</p>
 </div>
 <div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-lg-12 p-3 pt-4 pb-4">
+      <h3 class="mb-3">Sector Focus</h3>
+      <p>
+        Over the years Walk Free has analysed and published subsets of the data collected through the Modern Slavery
+        Act Research project on Wikirate. Since 2019 these case studies have had a sector specific focus, which so
+        far have included:
+      </p>
+    </div>
+  </div>
+  <app-slider>
+    <div appSliderItem  *ngFor="let report of reports">
+      <div class="card m-2" style="width: 18rem;">
+        <img src="{{report['image']}}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{report['title']}}</h5>
+          <p class="card-text">{{report['description']}}</p>
+          <a class="button orange-navy-button mt-3 me-2"
+              href="{{report['href']}}"
+              target="_blank">Read more</a>
+        </div>
+      </div>
+    </div>
+  </app-slider>
+</div>
+<div class="container mt-4 mb-4">
   <h3 class="mb-4">Take Action</h3>
   <div class="row ms-lg-0 me-lg-0 ms-1 me-1">
     <div class="col-lg-4 mb-lg-0 mb-3 no-padding pe-lg-2 content-box">
@@ -39,8 +65,8 @@
           </li>
           <li>Spread the word! Share the dashboard so that others can engage too</li>
           <li> Join the MSA research on the <a class="text-white"
-                                               href="https://wikirate.org/MSA_Beyond_Compliance_Research">Wikirate
-            platform</a></li>
+              href="https://wikirate.org/MSA_Beyond_Compliance_Research">Wikirate
+              platform</a></li>
         </ul>
       </div>
     </div>
@@ -66,44 +92,49 @@
         <h3 class="mb-3">Methodology</h3>
         <p>
           Drawing on Walk Free's knowledge of modern slavery due diligence and the Home Office Guidance accompanying the
-          UK Act, the partnership developed a <span style="font-weight: bold">set of 16 standardised metrics</span><span
-          class="tooltip-item ps-1 pe-1"><i class="bi bi-info-circle-fill" placement="top" tooltipHtml="true"
-                                            [ngbPopover]="standardized_metrics_details"></i></span>
-          to assess the content of the statements.
+          UK Act,
+          the partnership developed a <b>set of 18 standardised metrics</b> to assess the content of the statements.
         </p>
-        <p>The following overview shows how both the UK and Australian legislation guidance and requirements map to the
-          projects' standardised metrics.</p>
+        <p>In 2024, <b>3 spotlight metrics</b> were designed to capture additional aspects of due diligence. The
+          following overview
+          shows how both the UK and Australian legislation guidance and requirements map to the projects' standardised
+          metrics.
+        </p>
         <div class="content collapse" id="methodology">
           <table class="table table-responsive-md">
             <thead class="thead-dark">
-            <tr>
-              <th class="bg-deep-blue wikirate-metrics" scope="col-3" colspan="2">Walk Free metrics on Wikirate
-                platform
-              </th>
-              <th class="bg-deep-blue" scope="col-3"><a
-                href="https://www.gov.uk/government/publications/transparency-in-supply-chains-a-practical-guide">UK MSA
-                Requirements & Guidance</a></th>
-              <th class="bg-deep-blue" scope="col-3"><a href="https://modernslaveryregister.gov.au/resources/">Australia
-                MSA Requirements</a>
-              </th>
-            </tr>
-            <tr>
-              <th class="bg-white wikirate-metrics" scope="col-2">Metric</th>
-              <th class="bg-white wikirate-metrics" scope="col-4">Description</th>
-              <th class="bg-white" scope="col-3">Requirements & Guidance</th>
-              <th class="bg-white" scope="col-3">Requirements & Criterion</th>
-            </tr>
+              <tr>
+                <th class="bg-deep-blue wikirate-metrics" scope="col-3" colspan="2">Walk Free metrics on Wikirate
+                  platform
+                </th>
+                <th class="bg-deep-blue" scope="col-3"><a
+                    href="https://www.gov.uk/government/publications/transparency-in-supply-chains-a-practical-guide">UK
+                    MSA
+                    Requirements & Guidance</a></th>
+                <th class="bg-deep-blue" scope="col-3"><a
+                    href="https://modernslaveryregister.gov.au/resources/">Australia
+                    MSA Requirements</a>
+                </th>
+              </tr>
+              <tr>
+                <th class="bg-white wikirate-metrics" scope="col-2">Metric</th>
+                <th class="bg-white wikirate-metrics" scope="col-4">Description</th>
+                <th class="bg-white" scope="col-3">Requirements & Guidance</th>
+                <th class="bg-white" scope="col-3">Requirements & Criterion</th>
+              </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let item of table">
-              <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
-                                                                    target="_blank">{{item['metric']}}</a></td>
-              <td class="col-4 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
-              <td class="col-3"
-                  [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_guidance']}}</td>
-              <td class="col-3"
-                  [ngClass]="(item['requirements_criterion_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">{{item['requirements_criterion']}}</td>
-            </tr>
+              <tr *ngFor="let item of table">
+                <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
+                    target="_blank">{{item['metric']}}</a></td>
+                <td class="col-4 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
+                <td class="col-3"
+                  [ngClass]="(item['requirements_guidance_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">
+                  {{item['requirements_guidance']}}</td>
+                <td class="col-3"
+                  [ngClass]="(item['requirements_criterion_color'] === 'red') ? 'td-bg-color-red' : 'td-bg-color-yellow'">
+                  {{item['requirements_criterion']}}</td>
+              </tr>
             </tbody>
           </table>
           <div class="row ms-2">
@@ -120,10 +151,28 @@
               </div>
             </div>
           </div>
+          <table class="table table-responsive-md mt-3">
+            <thead class="thead-dark">
+              <tr>
+                <th class="bg-deep-blue wikirate-metrics" scope="col-9" colspan="2">Spotlight metrics
+                </th>
+              </tr>
+              <tr>
+                <th class="bg-white wikirate-metrics" scope="col-2">Metric</th>
+                <th class="bg-white wikirate-metrics" scope="col-10">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of spotlight_metrics_table">
+                <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
+                    target="_blank">{{item['metric']}}</a></td>
+                <td class="col-10 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <span id="show-more" class="show-more collapsed" data-bs-toggle="collapse" href="#methodology" role="button"
-              aria-expanded="false"
-              aria-controls="methodology"></span>
+          aria-expanded="false" aria-controls="methodology"></span>
       </div>
     </div>
   </div>
@@ -141,108 +190,20 @@
             students, and experts from around the world. As the research is ongoing, this is a dynamic dashboard that
             updates as and when new data is contributed to the Wikirate platform.</p>
           <p><i>The data feeding into this dashboard includes raw assessment from our team of student volunteers. The
-            data used in our research publications undergoes an additional layer of quality assurance.</i></p>
+              data used in our research publications undergoes an additional layer of quality assurance.</i></p>
         </div>
       </div>
     </div>
     <div class="row ms-lg-0 me-lg-0 ms-1 me-1">
-      <div class="col-lg-6 mb-lg-0 mb-3 no-padding pe-lg-2 content-box">
+      <div class="col-lg-12 mb-lg-0 mb-3 no-padding pe-lg-2 content-box">
         <div class="bg-deep-blue p-4 fit-height d-flex flex-column">
           <h5 class="mb-3">Join the Research</h5>
           <p>Contribute to MSA research via the <a class="text-white"
-                                                   href="https://wikirate.org/MSA_Beyond_Compliance_Research"
-                                                   target="_blank">Wikirate platform</a></p>
+              href="https://wikirate.org/MSA_Beyond_Compliance_Research" target="_blank">Wikirate platform</a></p>
           <div class="mt-auto">
             <a class="button white-button mt-3 me-2"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSerCNkXsdRrdPeirYub3qMxY5SC0-JwxpP7b9gUZuV0mL6Q-Q/viewform"
-               target="_blank">Become a Volunteer</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 no-padding ps-lg-2 content-box">
-        <div class="bg-deep-blue p-4 fit-height d-flex flex-column">
-          <h5 class="mb-3">Data Verification</h5>
-          <p>Help improve the data and join the ongoing verification effort</p>
-          <div class="mt-auto">
-            <a class="button white-button mt-3 me-2"
-               href="https://wikirate.org/Add_Answers#edit_an_answer" target="_blank">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="sector_focus" data-bs-spy="scroll" data-bs-target="#action" data-offset="150"
-     tabindex="0">
-  <div class="container mt-4 mb-4">
-    <div class="row">
-      <div class="col-lg-12 p-3 pt-4 pb-4">
-        <h3 class="mb-3">Sector Focus</h3>
-        <p>
-          Over the years Walk Free has analysed and published subsets of the data collected through the Modern Slavery
-          Act Research project on Wikirate. Since 2019 these case studies have had a sector specific focus, which so
-          far have included:
-        </p>
-      </div>
-    </div>
-    <div class="row pb-4">
-      <div class="col-md-6">
-        <div class="p-2">
-          <h5>Hotels</h5>
-          <div class="row pt-3 pb-3">
-            <div class="col-12">
-              <a href="https://cdn.minderoo.com.au/content/uploads/2019/11/20161202/2632_MSA-statements.V8_FNL.pdf"
-                 target="_blank"><img src="assets/img/hotel-report-front.jpg" height="241.2" width="169.8"></a>
-            </div>
-          </div>
-          <div class="note mb-3">Note: The hotel sector is a subset of the hospitality sector. The latter also
-            includes
-            consumer services
-            such
-            as restaurants, recreation, and tourism. This broader category is the sector filter you can apply to the
-            data
-            in this dashboard.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-2">
-          <h5>Asset Managers</h5>
-          <div class="row pt-3 pb-3">
-            <div class="col-12">
-              <a
-                href="https://cdn.walkfree.org/content/uploads/2021/03/18184928/WalkFree_BeyondComplianceInTheFinanceSector_210318.pdf"
-                target="_blank"><img src="assets/img/finance-sector-report.jpg" height="241.2" width="169.8"></a>
-            </div>
-          </div>
-          <div class="note mb-3">Note: Asset managers are a subset of the finance sector. The latter also includes
-            banks,
-            pension funds, insurance, real estate and financial service providers. This broader category is the sector
-            filter you can apply to the data in this dashboard.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-2">
-          <h5>Garment</h5>
-          <div class="row pt-3 pb-3">
-            <div class="col-12">
-              <a
-                href="https://cdn.walkfree.org/content/uploads/2022/02/22150956/Walk-Free-Beyond-Compliance-Garment-Industry.pdf"
-                target="_blank"><img src="assets/img/garment-sector-report.jpg" height="241.2" width="169.8"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-2">
-          <h5>Renewable Energy</h5>
-          <div class="row pt-3 pb-3">
-            <div class="col-12">
-              <a
-                href="https://cdn.walkfree.org/content/uploads/2023/09/20162158/WF-Beyond-Compliance-Renewable-Energy-Sector.pdf"
-                target="_blank"><img src="assets/img/renewable-energy-report.jpg" height="241.2" width="169.8"></a>
-            </div>
+              href="https://docs.google.com/forms/d/e/1FAIpQLSerCNkXsdRrdPeirYub3qMxY5SC0-JwxpP7b9gUZuV0mL6Q-Q/viewform"
+              target="_blank">Become a Volunteer</a>
           </div>
         </div>
       </div>
@@ -265,8 +226,7 @@
             <div class="slide" *ngFor="let contributor of contributors let i = index">
               <div class="row col-12 justify-content-center">
                 <div class="image-box d-flex justify-content-center align-items-center m-2">
-                  <img src="{{contributor.logo}}"
-                       alt="{{contributor.contributor}}"/>
+                  <img src="{{contributor.logo}}" alt="{{contributor.contributor}}" />
                 </div>
                 <div class="contributor-name m3 text-center">
                   {{contributor.contributor}}
@@ -286,5 +246,5 @@
       historic
       record of previous statements</a> on their
     website, and making explicit <a href="https://wikirate.org/Walk_Free+MSA_Impact_on_Company_Behaviour"
-                                    target="_blank">how the legislation impacted company behavior.</a></p>
+      target="_blank">how the legislation impacted company behavior.</a></p>
 </ng-template>

@@ -49,7 +49,6 @@ export class DataProvider {
     uk_beyond_compliance_disclosure_rate: 6899063,
     msa_beyond_compliance: 12620974,
     msa_disclosure_rate: 14554858,
-    turnover_range: 8218724,
     msa_incidents_identified: 1831964,
     msa_policy_beyond_t1: 6915846,
     msa_risks_identified: 6916242,
