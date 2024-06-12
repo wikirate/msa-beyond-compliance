@@ -519,6 +519,19 @@ a.button-sm {
   border-width: 1px;
 }
 
+.orange-navy-button {
+  background: $orange;
+  margin-right: 1em;
+  border: 1px solid $orange !important;
+  border-width: 1px;
+}
+
+.orange-navy-button:hover {
+  background: transparent;
+  color: $deep_blue !important;
+  border: 1px solid $deep_blue !important;
+}
+
 .orange-button:hover {
   background: transparent;
   color: $orange !important;
