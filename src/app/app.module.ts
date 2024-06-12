@@ -37,6 +37,8 @@ import {NgcCookieConsentConfig, NgcCookieConsentModule} from "ngx-cookieconsent"
 import { SpotlightMetricsComponent } from './dashboard/spotlight-metrics/spotlight-metrics.component';
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
+import { SliderComponent } from './slider/slider.component';
+import { SliderItemDirective } from './slider/slider-item.directive';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
@@ -92,7 +94,9 @@ const cookieConfig:NgcCookieConsentConfig = {
     SubscribeComponent,
     SpotlightMetricsComponent,
     BeyondComplianceComponent,
-    HighlightMetricComponent
+    HighlightMetricComponent,
+    SliderComponent,
+    SliderItemDirective
   ],
   imports: [
     FormsModule,
