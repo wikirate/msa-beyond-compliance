@@ -527,10 +527,10 @@ a.button-sm {
 }
 
 .orange-navy-button:hover {
-  background: transparent;
-  color: $deep_blue !important;
-  border: 1px solid $deep_blue !important;
-}
+    background: transparent;
+    color: $deep_blue !important;
+    border: 1px solid $deep_blue !important;
+  }
 
 .orange-button:hover {
   background: transparent;
@@ -885,7 +885,7 @@ hr.deep-blue {
   padding-right: 0.75em !important;
 }
 
-.accordion-button:not(.collapsed)::after,
+.accordion-button:not(.collapsed)::after
 {
   color: #0037F1 !important;
   content: "\f107" !important;
