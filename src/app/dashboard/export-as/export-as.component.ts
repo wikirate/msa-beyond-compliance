@@ -15,6 +15,8 @@ export class ExportAsComponent implements OnInit {
   sector: string = 'all-sectors'
   @Input()
   section: string = ''
+  @Input()
+  button_class: string = 'btn-deep-blue'
   waiting: boolean = false;
   src_content: string = "";
 
