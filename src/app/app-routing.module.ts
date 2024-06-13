@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {ActivatedRoute, RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AboutComponent} from "./about/about.component";
 import {KeyFindingsSectionComponent} from "./dashboard/key-findings-section/key-findings-section.component";
@@ -10,6 +10,7 @@ import {FurtherFindingsComponent} from "./dashboard/further-findings-alternative
 import {DisclosureRatesComponent} from "./dashboard/disclosure-rates/disclosure-rates.component";
 import {SubscribeComponent} from "./subscribe/subscribe.component";
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
+import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
     path: 'dashboard/:sector', component: DashboardComponent
   },
   {path: 'dashboard/key-findings/:sector', component: KeyFindingsSectionComponent},
+  {path: 'dashboard/highlight-metric/:sector', component: HighlightMetricComponent},
   {path: 'dashboard/meeting-minimum-requirements/:sector', component: MinimumRequirementsSectionComponent},
   {path: 'dashboard/beyond-compliance/:sector', component: BeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},

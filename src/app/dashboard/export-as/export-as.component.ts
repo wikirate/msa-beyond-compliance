@@ -27,7 +27,7 @@ export class ExportAsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.baseUrl = window.location.origin;
+    this.baseUrl = window.location.origin+'/dashboard/';
     this.src_content = '<iframe src=\'' + this.baseUrl + this.section + '/' + this.sector + '?view=embed\' width=\'100%\' height=\'100%\' frameborder=\'0\'></iframe>';
   }
 

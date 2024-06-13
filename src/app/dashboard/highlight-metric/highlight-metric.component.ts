@@ -104,7 +104,6 @@ export class HighlightMetricComponent implements OnInit {
         new Filter("company_group", this.company_group)
       ])
 
-      /**perform the requests using forkJoin to get all the results before start calculating the key findings**/
     forkJoin([assessed, msa_incidents])
     .pipe(map(([assessed_response, msa_incidents_response]) => {
       if (this.year == 'latest') {
