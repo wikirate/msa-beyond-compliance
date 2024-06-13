@@ -6,21 +6,21 @@
        aria-expanded="false">share</a>
     <ul class="dropdown-menu" aria-labelledby="share">
       <li><a class="dropdown-item" target="_blank" type="button" ngxClipboard
-             [cbContent]="'https://beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+             [cbContent]="baseUrl+section+'/'+sector"><i
         class="bi bi-link-45deg ms-2 me-2"></i>copy link</a></li>
       <li><a class="dropdown-item" (click)="openModal()" type="button"><i
         class="bi bi-code-square ms-2 me-2"></i>embed</a></li>
       <li><a class="dropdown-item" target="_blank"
-             [href]="'https://www.facebook.com/sharer/sharer.php?u=https://beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+             [href]="'https://www.facebook.com/sharer/sharer.php?u='+baseUrl+section+'/'+sector"><i
         class="bi bi-facebook ms-2 me-2"></i>facebook</a></li>
       <li><a class="dropdown-item" target="_blank"
-             [href]="'https://twitter.com/intent/tweet?url=https://beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+             [href]="'https://twitter.com/intent/tweet?url='+baseUrl+section+'/'+sector"><i
         class="bi bi-twitter ms-2 me-2"></i>twitter</a></li>
       <li><a class="dropdown-item" target="_blank"
-             [href]="'https://www.linkedin.com/shareArticle?mini=true&url=https://beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+             [href]="'https://www.linkedin.com/shareArticle?mini=true&url='+baseUrl+section+'/'+sector"><i
         class="bi bi-linkedin ms-2 me-2"></i>linkedin</a></li>
       <li><a class="dropdown-item" target="_blank"
-             [href]="'mailto:info@example.com?&subject=&cc=&bcc=&body=https://beyondcompliance.wikirate.org/dashboard/'+section+'/'+sector"><i
+             [href]="'mailto:info@example.com?&subject=&cc=&bcc=&body='+baseUrl+section+'/'+sector"><i
         class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
     </ul>
   </div>
@@ -31,7 +31,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <pre #code>&lt;iframe src="https://beyondcompliance.wikirate.org/dashboard/{{section}}/{{sector}}
+    <pre #code>&lt;iframe src="{{baseUrl}}{{section}}/{{sector}}
       ?view=embed" width="100%" height="100%" frameborder="0"&gt;&lt;/iframe&gt;</pre>
   </div>
   <div class="modal-footer">

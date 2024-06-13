@@ -1,6 +1,6 @@
-import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ExportAsConfig, ExportAsService } from "ngx-export-as";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'export-as',
@@ -17,6 +17,7 @@ export class ExportAsComponent implements OnInit {
   section: string = ''
   @Input()
   button_class: string = 'btn-deep-blue'
+  baseUrl: string = ''
   waiting: boolean = false;
   src_content: string = "";
 
@@ -26,7 +27,8 @@ export class ExportAsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.src_content = '<iframe src=\'https://staging.beyondcompliance.wikirate.org/dashboard/' + this.section + '/' + this.sector + '?view=embed\' width=\'100%\' height=\'100%\' frameborder=\'0\'></iframe>';
+    this.baseUrl = window.location.origin+'/dashboard/';
+    this.src_content = '<iframe src=\'' + this.baseUrl + this.section + '/' + this.sector + '?view=embed\' width=\'100%\' height=\'100%\' frameborder=\'0\'></iframe>';
   }
 
   export() {
@@ -46,7 +48,7 @@ export class ExportAsComponent implements OnInit {
   }
 
   openModal() {
-    this.modalService.open(this.embed, {centered: true});
+    this.modalService.open(this.embed, { centered: true });
   }
 
 
