@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12 ms-md-auto text-end">
-    <a class="button-sm btn-deep-blue me-2 ms-md-auto" (click)="export()" [ngClass]="waiting ? 'waiting': ''">export as
+    <a class="button-sm {{button_class}} me-2 ms-md-auto" (click)="export()" [ngClass]="waiting ? 'waiting': ''">export as
       png</a>
-    <a class="button-sm ms-md-auto btn-transparent" type="button" id="share" data-bs-toggle="dropdown"
+    <a class="button-sm ms-md-auto {{button_class}}" type="button" id="share" data-bs-toggle="dropdown"
        aria-expanded="false">share</a>
     <ul class="dropdown-menu" aria-labelledby="share">
       <li><a class="dropdown-item" target="_blank" type="button" ngxClipboard
