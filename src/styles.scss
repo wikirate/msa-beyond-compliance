@@ -771,32 +771,32 @@ a.dropdown-item .count {
 
   ::after {
     color: $blue !important;
-  }
-  
+  }  
 }
 
-.msa-metric-select {
+.msa-form-select-white-font {
   @extend .form-select;
   font-family: Rubik !important;
-  // text-transform: uppercase !important;
+  text-transform: uppercase !important;
   line-height: 40px;
   //letter-spacing: 0.5px !important;
   font-weight: normal !important;
   font-size: .9em !important;
-  color: #000028 !important;
-  // max-width: 150px !important;
+  color: $white !important;
+  max-width: 150px !important;
   height: 35px;
   border-radius: 0 !important;
-  border-color: $deep_blue !important;
+  border-color: $white !important;
+  border-top: $white;
 
   :focus {
-    border-color: $deep_blue !important;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 0, 41, 0.6) !important;
+    border-color: $white !important;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.075) inset, 0 0 8px rgba(255, 255, 255, 0.6) !important;
     outline: 0 none !important;
   }
 
   ::after {
-    color: $blue !important;
+    color: $white !important;
   }
   
 }
