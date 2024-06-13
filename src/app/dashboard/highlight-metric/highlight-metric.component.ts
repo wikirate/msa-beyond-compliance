@@ -5,12 +5,10 @@ import { Filter } from 'src/app/models/filter.model';
 import { ChartsService } from 'src/app/services/charts.service';
 import { DataProvider } from 'src/app/services/data.provider';
 import { SectorProvider } from 'src/app/services/sector.provider';
-import { Meta, Title } from "@angular/platform-browser";
-import { ValueRange } from 'src/app/models/valuerange.model';
 import { forkJoin, map } from 'rxjs';
 
 @Component({
-  selector: 'app-highlight-metric',
+  selector: 'highlight-metric',
   templateUrl: './highlight-metric.component.html',
   styleUrls: ['./highlight-metric.component.scss']
 })
@@ -25,8 +23,7 @@ export class HighlightMetricComponent implements OnInit {
   incidents_url: string = "#"
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
-    private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartsService: ChartsService,
-    private titleService: Title, private meta: Meta) {
+    private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartsService: ChartsService) {
 
   }
 
