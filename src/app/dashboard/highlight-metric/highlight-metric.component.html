@@ -1,108 +1,108 @@
-<div class="bg-deep-blue">
-    <div class="container">
-        <div id="highlighted-metric-section" class="bg-deep-blue p-4">
+<div class="container">
+    <div id="highlighted-metric-section" class="bg-grey p-4 mt-5">
+        <div class="row">
+            <div class="col-xl-8">
+                <h3 class="title">Underreporting of Modern Slavery</h3>
+                <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
+            </div>
+            <div class="col-xl-4">
+                <div class="row ps-3 pe-3 pt-md-0 pt-2">
+                    <select #select class="msa-form-select bg-grey ms-xl-auto me-3 mb-xl-0 mb-1"
+                        aria-label="Default select example" style="max-width: 120px; max-height: 50px; font-size: 0.8em"
+                        [(ngModel)]="year" (ngModelChange)="select.value = updateData($event)">
+                        <option value="" selected>ALL YEARS</option>
+                        <option value="latest">LATEST</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                    <select class="msa-form-select bg-grey" aria-label="Default select example"
+                        [(ngModel)]="legislation" (change)="updateData($event)">
+                        <option [ngValue]="'both'" selected>LEGISLATION</option>
+                        <option [ngValue]="'uk'">UK MSA</option>
+                        <option [ngValue]="'aus'">AUS MSA</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
+            <div class="col-12 text-center align-self-center">
+                <div class="spinner-grow text-warning bg-deep-blue" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
             <div class="row">
-                <div class="col-md-6">
-                    <h3 class="title text-white">Underreporting of Modern Slavery</h3>
-                    <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
-                </div>
-                <div class="col-md-6 ms-md-auto">
-                    <div class="row ps-3 pe-3 pt-md-0 pt-2">
-                        <select #select class="msa-form-select-white-font bg-deep-blue ms-md-auto me-3 mb-md-0 mb-1"
-                            aria-label="Default select example"
-                            style="max-width: 120px; max-height: 50px; font-size: 0.8em" [(ngModel)]="year"
-                            (ngModelChange)="select.value = updateData($event)">
-                            <option value="" selected>ALL YEARS</option>
-                            <option value="latest">LATEST</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                        </select>
-                        <select class="msa-form-select-white-font bg-deep-blue" aria-label="Default select example"
-                            [(ngModel)]="legislation" (change)="updateData($event)">
-                            <option [ngValue]="'both'" selected>LEGISLATION</option>
-                            <option [ngValue]="'uk'">UK MSA</option>
-                            <option [ngValue]="'aus'">AUS MSA</option>
-                        </select>
-                    </div>
+                <div class="col-md-12">
+                    <p>Why do millions of modern slavery victims remain unreported? The disparity between reported
+                        and estimated cases of forced labor reveals the urgent need for effective reporting and
+                        assessment.</p>
                 </div>
             </div>
-            <div class="row mt-3" style="height: 150px" *ngIf="isLoading">
-                <div class="col-12 text-center align-self-center">
-                    <div class="spinner-grow text-warning bg-white" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>Why do millions of modern slavery victims remain unreported? The disparity between reported
-                            and estimated cases of forced labor reveals the urgent need for effective reporting and
-                            assessment.</p>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-sm-12 col-md-12">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-6 p-5">
-                                <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
-                                    <h3 class="text-white text-center">{{incidents | percentageFormat}}</h3>
-                                    <p class="text-center">report incidents</p>
-                                </div>
-                                <div class="col-12 align-content-center text-md-start text-center mt-4">
-                                    <p class="text-center">Out of the assessed statements <b>only {{incidents | percentageFormat}}</b>
-                                        disclosed
-                                        detecting an incident(s) of modern slavery in their supply chains.</p>
-                                </div>
+            <div class="row mt-2">
+                <div class="col-sm-12 col-md-12">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 p-5">
+                            <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
+                                <h1 class="text-center">{{incidents | percentageFormat}}</h1>
+                                <p class="text-center">report incidents</p>
                             </div>
-                            <div class="col-6 p-5">
-                                <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
-                                    <h3 class="text-white text-center">28M</h3>
-                                    <p class="text-center">people in modern slavery</p>
-                                </div>
-                                <div class="col-12 align-content-center text-md-start mt-4">
-                                    <p class="text-center">According to the Global Slavery Index, <b>28 million people are currently living
-                                            in forced
-                                            labour</b>.</p>
-                                </div>
+                            <div class="col-12 align-content-center text-md-start text-center mt-4">
+                                <p class="text-center">Out of the assessed statements <b>only {{incidents |
+                                        percentageFormat}}</b>
+                                    disclosed
+                                    detecting an incident(s) of modern slavery in their supply chains.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 p-5">
+                            <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
+                                <h1 class="text-center">28M</h1>
+                                <p class="text-center">people in modern slavery</p>
+                            </div>
+                            <div class="col-12 align-content-center text-md-start mt-4">
+                                <p class="text-center">According to the Global Slavery Index, <b>28 million people are
+                                        currently living
+                                        in forced
+                                        labour</b>.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <p>This stark contrast between reported incidents and estimated number of people affected indicates significant 
-                    underreporting and highlights the urgent need for better transparency and more robust assessement process.</p>
-                </div>
             </div>
-        </div>
-        <ng-template #content let-modal>
-            <div class="modal-header">
-                <h5 class="modal-title">The Australian Modern Slavery Act</h5>
-                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            <div class="row">
+                <p>This stark contrast between reported incidents and estimated number of people affected indicates
+                    significant
+                    underreporting and highlights the urgent need for better transparency and more robust assessement
+                    process.</p>
             </div>
-            <div class="modal-body">
-                <p>The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first
-                    statement
-                    for
-                    financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for
-                    this first
-                    year the government provided companies with an extension due to the impact of the covid pandemic. As a
-                    result,
-                    most companies submitted statements under the Australian Act from the financial year 2020 onward.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-            </div>
-        </ng-template>
-        <div class="section-bottom bg-deep-blue pe-4 pb-4">
-            <export-as [sector]="sector" [section]="'highlight-metric'" [elementId]="'highlighted-metric-section'" [button_class]="'white-button'"
-                [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
         </div>
     </div>
-    
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title">The Australian Modern Slavery Act</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <p>The Australian Modern Slavery Act was passed in 2018 and required companies to produce their first
+                statement
+                for
+                financial year 2019. These needed to be submitted within 3 months after year's end (in 2020) but for
+                this first
+                year the government provided companies with an extension due to the impact of the covid pandemic. As a
+                result,
+                most companies submitted statements under the Australian Act from the financial year 2020 onward.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
+    <div class="section-bottom bg-grey pe-4 pb-4">
+        <export-as [sector]="sector" [section]="'highlight-metric'" [elementId]="'highlighted-metric-section'"
+            [button_class]="'btn-deep-blue'" [ngClass]="!isLoading ? 'show-element': 'hide-element'"></export-as>
+    </div>
 </div>
