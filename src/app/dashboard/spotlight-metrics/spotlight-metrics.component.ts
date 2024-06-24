@@ -161,7 +161,7 @@ export class SpotlightMetricsComponent implements OnInit {
             "div#living-wage-chart",
             [{ "meet_criteria": results.living_wage, "num_of_assessed": results.assessed_living_wage }],
             this.living_wage_commitment_url,
-            { renderer: "svg", actions: true })
+            { renderer: "svg", actions: false })
 
           this.chartsService.drawSingleBar("Collaborations and Memberships", "div#collaborations-and-memberships-chart",
             [{ "meet_criteria": results.collaborations_and_memberships, "num_of_assessed": results.assessed_collaborations_and_memberships }],
