@@ -17,7 +17,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
   isLoading: boolean = true;
   aus_assessed = 0;
   uk_assessed = 0;
-  uk_legislation_info = "The UK legislation only requires three criteria, none of which relate to the quality of the statement. While the accompanying guidance provides suggested categories – similar to those in the Australian legislation – these are not mandatory. Therefore, arguably the Australian legislation is stronger, making a direct comparison of minimum compliance difficult."
+  uk_legislation_info = "The UK legislation only requires three criteria, none of which relate to the quality of the statement. Therefore, a direct comparison of minimum compliance between Australian and UK is difficult."
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private route: ActivatedRoute,
     private sectorProvider: SectorProvider) {

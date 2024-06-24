@@ -140,13 +140,13 @@ export class BeyondComplianceComponent implements OnInit {
       .subscribe({
         next: (results) => {
           let vis_data = [
-            { 'label': 'Total', 'value': results.total_percent, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+            { 'label': 'Both', 'value': results.total_percent, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
             { 'label': 'UK', 'value': results.uk_percent, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
             { 'label': 'AUS', 'value': results.aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
 
           if (metric['label'] == "Consultation process") {
             vis_data = [
-              { 'label': 'Total', 'value': NaN, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
+              { 'label': 'Both', 'value': NaN, 'color': '#000029', 'metric': metric['label'], 'wikirate_page': metric_total_url },
               { 'label': 'UK', 'value': NaN, 'color': metric['uk_color_hex'], 'mandatory': metric['uk_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_uk_url },
               { 'label': 'AUS', 'value': results.aus_percent, 'color': metric['aus_color_hex'], 'mandatory': metric['aus_color'] == 'bg-deep-orange' ? 'Yes' : 'No', 'metric': metric['label'], 'wikirate_page': metric_aus_url }]
           }

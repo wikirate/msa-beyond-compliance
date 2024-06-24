@@ -354,6 +354,7 @@ h1.title {
   text-transform: uppercase !important;
   line-height: 1.1 !important;
   max-width: 490px !important;
+  color: $white !important;
 }
 
 .text-deep-blue {
@@ -390,6 +391,21 @@ h1.title {
     font-size: 2.2em !important;
     word-wrap: break-word !important;
   }
+}
+
+
+h1 {
+  font-family: Rubik !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  color: $deep_blue !important;
+}
+
+h2 {
+  font-family: Rubik !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  color: $deep_blue !important;
 }
 
 h3 {
