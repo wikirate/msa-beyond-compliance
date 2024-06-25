@@ -6,7 +6,7 @@
                 <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
             </div>
             <div class="col-xl-4">
-                <div class="row ps-3 pe-3 pt-md-0 pt-2">
+                <div class="row ps-3 pe-3 pt-md-0 pt-3">
                     <select #select class="msa-form-select bg-grey ms-xl-auto me-3 mb-xl-0 mb-1"
                         aria-label="Default select example" style="max-width: 120px; max-height: 50px; font-size: 0.8em"
                         [(ngModel)]="year" (ngModelChange)="select.value = updateData($event)">
@@ -38,7 +38,7 @@
         </div>
         <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
             <div class="row">
-                <div class="col-lg-10 col-md-12">
+                <div class="col-lg-10 col-md-12 pt-md-2 pt-1 fst-italic fs-5">
                     <p>Why do millions of modern slavery victims remain unreported? The disparity between reported
                         and estimated cases of forced labor reveals the urgent need for effective reporting and
                         assessment.</p>
