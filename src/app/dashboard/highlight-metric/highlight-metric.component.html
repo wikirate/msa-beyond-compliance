@@ -1,13 +1,13 @@
 <div class="container">
     <div id="highlighted-metric-section" class="bg-grey p-4 mt-5">
         <div class="row">
-            <div class="col-xl-8">
+            <div class="col-md-4 col-lg-6 ">
                 <h3 class="title">Underreporting of Modern Slavery</h3>
                 <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
             </div>
-            <div class="col-xl-4">
+            <div class="col-md-8 col-lg-6">
                 <div class="row ps-3 pe-3 pt-md-0 pt-3">
-                    <select #select class="msa-form-select bg-grey ms-xl-auto me-3 mb-xl-0 mb-1"
+                    <select #select class="msa-form-select bg-grey ms-md-auto me-3 mb-md-0 mb-1"
                         aria-label="Default select example" style="max-width: 120px; max-height: 50px; font-size: 0.8em"
                         [(ngModel)]="year" (ngModelChange)="select.value = updateData($event)">
                         <option value="" selected>ALL YEARS</option>
@@ -36,49 +36,18 @@
                 </div>
             </div>
         </div>
-        <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-            <div class="row">
-                <div class="col-lg-10 col-md-12 pt-md-2 pt-1 fst-italic fs-5">
-                    <p>Why do millions of modern slavery victims remain unreported? The disparity between reported
-                        and estimated cases of forced labor reveals the urgent need for effective reporting and
-                        assessment.</p>
-                </div>
+        <div class="row mt-4 d-flex justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+            <div class="col-md-4 pt-md-2 pt-1 align-content-center">
+                <h1 class="text-center">{{incidents | percentageFormat}}</h1>
+                <p class="text-center fst-italic fs-5"><b>of companies report incidents</b></p>
             </div>
-            <div class="row mt-2">
-                <div class="col-sm-12 col-md-12">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-6 p-5">
-                            <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
-                                <h1 class="text-center">{{incidents | percentageFormat}}</h1>
-                                <p class="text-center">report incidents</p>
-                            </div>
-                            <div class="col-12 align-content-center text-md-start text-center mt-4">
-                                <p class="text-center">Out of the assessed statements <b>only {{incidents |
-                                        percentageFormat}}</b>
-                                    disclosed
-                                    detecting an incident(s) of modern slavery in their supply chains.</p>
-                            </div>
-                        </div>
-                        <div class="col-6 p-5">
-                            <div class="col-12 align-content-center text-md-start text-center mt-3 mt-md-0">
-                                <h1 class="text-center">28M</h1>
-                                <p class="text-center">people in modern slavery</p>
-                            </div>
-                            <div class="col-12 align-content-center text-md-start mt-4">
-                                <p class="text-center">According to the Global Slavery Index, <b>28 million people are
-                                        currently living
-                                        in forced
-                                        labour</b>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <p class="col-lg-10 col-md-12">This stark contrast between reported incidents and estimated number of people affected indicates
-                    significant
-                    underreporting and highlights the urgent need for better transparency and more robust assessement
-                    process.</p>
+            <div class="col-md-8 pt-md-2 pt-1 fst-italic fs-5">
+                <p>Millions of modern slavery victims go undetected. While an estimated <b>28 million people</b> are
+                    <b>in
+                        forced labour globally</b>, only {{incidents | percentageFormat}} of companies we've assessed
+                    report finding incidents in their
+                    supply chains. This stark gap reveals a critical need for better reporting and transparency.
+                </p>
             </div>
         </div>
     </div>
