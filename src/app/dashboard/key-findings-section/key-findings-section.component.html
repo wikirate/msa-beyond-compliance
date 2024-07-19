@@ -38,9 +38,9 @@
       </div>
     </div>
     <div class="row" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-      <div class="row">
+      <div class="row pt-md-2 pt-1">
         <div class="col-md-12">
-          <p class="col-lg-10 col-md-12">We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements |
+          <p class="col-lg-10 col-md-12 fst-italic fs-5">We <a href="{{msa_statement_assessed_metric_url}}" target="_blank">analysed {{numOfAssessedMSAStatements |
               numFormat}} company statements</a> produced under <span *ngIf="legislation == 'both'">the Australian and
               UK Modern Slavery Acts</span><span *ngIf="legislation != 'both'">the {{legislation.toUpperCase()}} Modern
               Slavert Act</span> and these are some of the gaps we have discovered. </p>
@@ -57,7 +57,7 @@
               <div class="msa-secondary-info mb-2">
                 Companies are failing to effectively meet their reporting obligations.
               </div>
-              <p><b>Only {{meetsMinRequirements | percentageFormat}}</b> of assessed statements meet all <a
+              <p><b>{{100 - meetsMinRequirements | percentageFormat}}</b> of statements do not meet all <a
                   class="tooltip-term" type="button"
                   [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
                   requirements</a> of the corresponding MSA legislation.</p>
@@ -74,7 +74,7 @@
               <div class="msa-secondary-info mb-2">
                 Ineffective disclosures render millions of workers invisible
               </div>
-              <p><b>{{100 - supplyChainDisclosure | percentageFormat}}</b> of the assessed statements disclosed no
+              <p><b>{{100 - supplyChainDisclosure | percentageFormat}}</b> of statements disclosed no
                 information on their supply chains.</p>
             </div>
           </div>
@@ -89,7 +89,7 @@
               <div class="msa-secondary-info mb-2">
                 No direct worker remediation
               </div>
-              <p><b>Only {{workerRemediation | percentageFormat}}</b> of the assessed statements disclose direct worker
+              <p><b>Only {{100 - workerRemediation | percentageFormat}}</b> of statements do not disclose direct worker
                 remediation policies. Such policies prioritise the well-being, rights, and dignity of affected workers.
               </p>
             </div>
@@ -105,7 +105,7 @@
               <div class="msa-secondary-info mb-2">
                 No direct Supply chain due dilligence
               </div>
-              <p><b>{{100 - dueDilligence | percentageFormat}}</b> of the assessed statements report no supply chain due
+              <p><b>{{100 - dueDilligence | percentageFormat}}</b> of statements report no supply chain due
                 dilligence in place. This means no risk management, seriously impending companies' ability to detect or
                 respond to exploitation.</p>
             </div>
@@ -121,7 +121,7 @@
               <div class="msa-secondary-info mb-2">
                 Underreporting of Modern Slavery Incidents
               </div>
-              <p><b>Only {{incidents | percentageFormat}}</b> of the assessed statements disclosed detecting an
+              <p><b>Only {{incidents | percentageFormat}}</b> of statements disclosed detecting an
                 incident(s) of modern
                 slavery in their supply chains. Unfortunately, we know the number of incidents is likely to be far
                 higher,
