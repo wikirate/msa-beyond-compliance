@@ -292,9 +292,9 @@ export class KeyFindingsSectionComponent implements OnInit {
           this.dueDilligence = results.due_dilligence
           // this.incidents = results.incidents
 
-          this.drawDonutChart(100 -this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url, ['Do not meet minimum requirements', 'Meet minimum requirements'], "#FF5C45")
+          this.drawDonutChart(100 - this.meetsMinRequirements, "donut-meet-min-requirements", this.meet_min_requirements_metric_url, ['Do not meet minimum requirements', 'Meet minimum requirements'], "#FF5C45")
           this.drawDonutChart(100 - this.supplyChainDisclosure, "donut-supply-chain-disclosure", this.supply_chain_disclosure_url, ['Do not disclose information about their supply chain', 'Disclose information about their supply chain'], "#FF5C45")
-          this.drawDonutChart(100 - this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url, ['Do not disclose direct worker remediation policies', 'Disclose direct worker remediation policies'], "#FF5C45")
+          this.drawDonutChart(100 - this.workerRemediation, "donut-worker-remediation", this.worker_remediation_url, ['Disclose direct worker remediation policies', 'Do not disclose direct worker remediation policies'], "#FF5C45")
           this.drawDonutChart(100 - this.dueDilligence, "donut-due-dilligence", this.due_dilligence_url, ['No supply chain due dilligence in place', 'Supply chain due dilligence in place'], "#FF5C45")
           // this.drawDonutChart(this.incidents, "donut-incidents", this.incidents_url, "#FF5C45")
 

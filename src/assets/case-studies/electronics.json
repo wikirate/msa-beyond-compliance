@@ -1,0 +1,107 @@
+[
+    {
+        "subject": "Remediations",
+        "description": "Providing support and compensation to victims and survivors of modern slavery is critical. When remediation is done effectively, it focuses on restoring dignity, ensuring recovery, and preventing re-exploitation through comprehensive programmes. These efforts are essential for businesses to fulfill their ethical responsibilities and promote long-term rehabilitation of affected workers.",
+        "case_studies":[{
+            "company": "Cisco Systems",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_incidents_remediation_revised+Cisco_Systems+2023",
+            "quote":"As part of our normal processes, we take two main corrective actions to address bonded labor risks: drive suppliers to absorb recruitment fees previously passed onto workers and remediate and facilitate reimbursements to affected workers, irrespective of whether the charging of such fees is legal in the relevant jurisdiction.",
+            "page": "5",
+            "source": "https://wikirate.org/Source_000195983?tab=preview"
+        },
+        {
+            "company": "Microsoft",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_incidents_remediation_revised+Microsoft_Corporation+2022",
+            "quote":"In cases where our audit findings determined that a factory employee paid recruitment or employment fees or were underpaid according to legal requirements, we required the nonconformant suppliers to repay employees for any recruitment or employment fees paid or insufficient wages based on local law and Microsoft requirements. In FY22, suppliers in Microsoft’s Devices repaid $252,367 of recruitment fees and insufficient wages to 13,728 supplier employees, including $62,329 of recruitment fees to 6,888 supplier employees.",
+            "page": "10",
+            "source": "https://wikirate.org/Source_000178459?tab=preview"
+        },
+        {
+            "company": "Burberry Group PLC",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_incidents_remediation_revised+Burberry_Group_plc+2020",
+            "quote":"In early 2020, in an area of our supply chain where we identified a group of migrant workers paying fees during a complex recruitment journey, we started working with a local NGO, Issara Institute, and two suppliers who operate four facilities to build worker voice and remediate any fees paid by existing workers as well as workers that had since left their employment.",
+            "page": "12",
+            "source": "https://wikirate.org/Source_000127486?tab=preview"
+        }]
+    },
+    {
+        "subject": "Identifying incidents",
+        "description": "Identifying and transparently reporting on incidents of modern slavery in supply chains is key to addressing the issue effectively. Given the scale of forced labour, particularly in high-risk sectors, it's likely that no company is entirely free from incidents of modern slavery. Reporting on incidents also provides valuable data for developing more effective prevention strategies and improving overall supply chain transparency.",
+        "case_studies":[{
+            "company": "Asos",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_incidents_identified+Asos+2022",
+            "quote":"In 2021, we identified a breach of our Code of Conduct with workers underpaid the legal minimum wage since April 2020 in Karnataka, India; this was part of a widespread and much-reported issue in the province. We worked with our supply chain partners in Karnataka to ensure all outstanding arrears have been paid to the workers.",
+            "page": "14",
+            "source": "https://wikirate.org/Source_000175611?tab=preview"
+        }]
+    },
+    {
+        "subject": "Identifying incidents",
+        "description": "Identifying and transparently reporting on incidents of modern slavery in supply chains is key to addressing the issue effectively. Given the scale of forced labour, particularly in high-risk sectors, it's likely that no company is entirely free from incidents of modern slavery. Reporting on incidents also provides valuable data for developing more effective prevention strategies and improving overall supply chain transparency.",
+        "case_studies":[
+        {
+            "company": "Canon UK Limited",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_risk_management_revised+CANON_UK_LIMITED+2022",
+            "quote":"In 2022, 57 production sites in major business areas were assessed using RBA’s SAQ and 16 sites in Japan and abroad underwent external audits by RBA. The audits results concluded nonconformance due to differences between requirements of RBA code of conduct and local laws and company policies.",
+            "page": "5",
+            "source": "https://wikirate.org/Source_000189375?tab=preview"
+        },
+        {
+            "company": "Adidas",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_risk_management_revised+Adidas_UK+2021",
+            "quote":"Responses received through the 'Workers Voice' platform are carefully tracked by adidas, using KPIs and dashboard reviews, case satisfaction ratings and on-site worker interviews. This allows us to evaluate the efficacy of the grievance channels, see major cases in real time and undertake timely interventions, where necessary. It also helps us understand the main challenges and labour rights issues in a factory and track how the factory management and their HR teams resolve cases and communicate their findings.",
+            "page": "4",
+            "source": "https://wikirate.org/Source_000172060?tab=preview"
+        }]
+    },
+    {
+        "subject": "Living Wage",
+        "description": "Ensuring a living wage is fundamental in reducing workers' vulnerability to exploitation and forced labour. These examples highlight how businesses can implement fair compensation practices that allow workers to meet their basic needs and those of their families. By promoting living wages, companies contribute to breaking the cycle of poverty that often leads to modern slavery.",
+        "case_studies":[
+        {
+            "company": "Hewlett Packard",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+Living_wage_in_supply_chains+Hewlett_Packard_Enterprise+2022",
+            "quote":"HPE recognizes forced labor and wage risks are often linked. We continued to actively participate in the RBA taskforce on living wages, and conducted additional engagement with peer companies to specifically research and plan how to introduce living wage measures across the electronics supply chain. No single electronics company can achieve this without collective action. In FY22, we began planning our practical pilot program for implementing a living wage, including trialing different approaches, and engaging with suppliers. This pilot will occur in 2023.",
+            "page": "15",
+            "source": "https://wikirate.org/Source_000187638?tab=preview"
+        },
+        {
+            "company": "Bulb Energy",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+Living_wage_in_supply_chains+BULB_ENERGY_LTD+2020",
+            "quote":"We also assess whether our suppliers pay their employees the Living Wage, extending this assessment to their sub-contractors (where used) as well. All employees, suppliers or contractors that work on-site are paid the Living Wage.",
+            "page": "2",
+            "source": "https://wikirate.org/Source_000167362?tab=preview"
+        }]
+    },
+    {
+        "subject": "Worker Engagement",
+        "description": "Engaging workers directly is vital for identifying issues early, empowering vulnerable populations, and creating a culture of trust and transparency. It ensures that anti-slavery efforts are informed by the experiences and needs of those most at risk.",
+        "case_studies":[
+        {
+            "company": "NXP Semiconductors",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_Workers_Engagement+NXP_Semiconductors+2022",
+            "quote":"During a supplier audit, the auditor tests the grievance mechanism thoroughly. During a private worker interview, questions regarding the ways to report a grievance are discussed. After the interview, the auditor provides the worker with the NXP third-party grievance card, which they can use at any time and for any reason to make an anonymous report in the local language.",
+            "page": "69",
+            "source": "https://wikirate.org/Source_000195297?tab=preview"
+        },
+        {
+            "company": "Apple",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_Workers_Engagement+Apple_Inc+2022",
+            "quote":"Directly engaging rights-holders is an integral part of our assessment process, and we interview tens of thousands of supplier employees each year about their workplace experience. Participation in interviews is completely voluntary, and employees are selected randomly through a sampling methodology that seeks broad representation across the facility and employee population.",
+            "page": "9",
+            "source": "https://wikirate.org/Source_000191782?tab=preview"
+        }]
+    },
+    {
+        "subject": "Purchasing practices",
+        "description": "This area focuses on aligning procurement strategies with ethical standards to create a responsible supply chain. Businesses can adjust their purchasing practices to prevent supplier exploitation and promote fair labour conditions.",
+        "case_studies":[
+        {
+            "company": "Fujifilm Australia",
+            "wikirate_answer": "https://wikirate.org/Walk_Free+MSA_Purchasing_Practices+FUJIFILM_AUSTRALIA_PTY_LTD+2021",
+            "quote":"We commenced review of our own payment terms with small to medium suppliers to ensure that we do not inadvertently or indirectly create a risk of modern slavery in our supply chain. Our continued review of payment terms, especially to small to medium businesses (SMB), shows that 66% of the total value of SMB invoices are paid within 21 days rising to 76% of the SMB total value paid within 30 days and 91% of the SMB value paid within 40 days",
+            "page": "11",
+            "source": "https://wikirate.org/Source_000192429/?tab=preview"
+        }]
+    }
+]
