@@ -1,6 +1,7 @@
 [
     {
         "subject": "Remediations",
+        "key":"remediations",
         "description": "Providing support and compensation to victims and survivors of modern slavery is critical. When remediation is done effectively, it focuses on restoring dignity, ensuring recovery, and preventing re-exploitation through comprehensive programmes. These efforts are essential for businesses to fulfill their ethical responsibilities and promote long-term rehabilitation of affected workers.",
         "case_studies":[{
             "company": "Cisco Systems",
@@ -26,6 +27,7 @@
     },
     {
         "subject": "Identifying incidents",
+        "key":"identifying_incidents",
         "description": "Identifying and transparently reporting on incidents of modern slavery in supply chains is key to addressing the issue effectively. Given the scale of forced labour, particularly in high-risk sectors, it's likely that no company is entirely free from incidents of modern slavery. Reporting on incidents also provides valuable data for developing more effective prevention strategies and improving overall supply chain transparency.",
         "case_studies":[{
             "company": "Asos",
@@ -36,8 +38,9 @@
         }]
     },
     {
-        "subject": "Identifying incidents",
-        "description": "Identifying and transparently reporting on incidents of modern slavery in supply chains is key to addressing the issue effectively. Given the scale of forced labour, particularly in high-risk sectors, it's likely that no company is entirely free from incidents of modern slavery. Reporting on incidents also provides valuable data for developing more effective prevention strategies and improving overall supply chain transparency.",
+        "subject": "Risk management",
+        "key":"risk_management",
+        "description": "Risk management involves comprehensive assessment and mitigation of modern slavery risks in both direct operations and extended supply chains. This proactive approach is key to preventing exploitation before it occurs and demonstrates a company's commitment to due diligence. Effective risk management strategies can significantly reduce the likelihood of modern slavery incidents.",
         "case_studies":[
         {
             "company": "Canon UK Limited",
@@ -56,6 +59,7 @@
     },
     {
         "subject": "Living Wage",
+        "key":"living_wage",
         "description": "Ensuring a living wage is fundamental in reducing workers' vulnerability to exploitation and forced labour. These examples highlight how businesses can implement fair compensation practices that allow workers to meet their basic needs and those of their families. By promoting living wages, companies contribute to breaking the cycle of poverty that often leads to modern slavery.",
         "case_studies":[
         {
@@ -75,6 +79,7 @@
     },
     {
         "subject": "Worker Engagement",
+        "key":"worker_engagement",
         "description": "Engaging workers directly is vital for identifying issues early, empowering vulnerable populations, and creating a culture of trust and transparency. It ensures that anti-slavery efforts are informed by the experiences and needs of those most at risk.",
         "case_studies":[
         {
@@ -94,6 +99,7 @@
     },
     {
         "subject": "Purchasing practices",
+        "key":"purchasing_practices",
         "description": "This area focuses on aligning procurement strategies with ethical standards to create a responsible supply chain. Businesses can adjust their purchasing practices to prevent supplier exploitation and promote fair labour conditions.",
         "case_studies":[
         {
