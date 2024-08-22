@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// @ts-ignore
+import case_studies from "../../assets/case-studies/electronics.json"
 
 @Component({
   selector: 'app-case-studies',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaseStudiesComponent implements OnInit {
 
+  case_studies = case_studies
   constructor() { }
 
   ngOnInit(): void {
