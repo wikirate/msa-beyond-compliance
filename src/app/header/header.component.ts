@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
       }
     })
     this.sectorProvider.getPath().subscribe(path => {
-      if (path === "dashboard" || path === "about" || path === "subscribe")
+      if (path === "dashboard" || path === "about"|| path === "case-studies" || path === "subscribe")
         this.path = '';
       else {
         this.path = path + '/'
