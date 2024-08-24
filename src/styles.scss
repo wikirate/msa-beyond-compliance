@@ -917,6 +917,13 @@ hr.deep-blue {
   //border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
+.accordion-item-transparent {
+  @extend .accordion-item;
+  border-color: $grey !important;
+  border-width: 3px !important;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
+}
+
 .accordion-button::after {
   color: #0037F1 !important;
   content: "\f105" !important;
@@ -984,6 +991,40 @@ hr.deep-blue {
 }
 
 .accordion-button-grey .on-details::after {
+  content: "\f105" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 1.2em !important;
+  padding-left: 0.5em !important;
+}
+
+.accordion-button-transparent {
+  @extend accordion-button !optional;
+  padding: 1em !important;
+  //border-radius: 0em 1.5em 0em 1.5em !important;
+  border-color: $white;
+}
+
+.accordion-button-transparent:not(.collapsed) {
+  @extend accordion-button !optional;
+  color: $deep_blue;
+  padding: 1em !important;
+  //border-radius: 0em 1.5em 0em 0em !important;
+  // border-color: $deep_blue;
+}
+
+.accordion-button-transparent:not(.collapsed) .on-details::after,
+.accordion-button-transparent .on-details::after {
+  content: "\f107" !important;
+  font-family: FontAwesome !important;
+  background-image: none !important;
+  height: auto !important;
+  font-size: 1.2em !important;
+  padding-left: 0.5em !important;
+}
+
+.accordion-button-transparent .on-details::after {
   content: "\f105" !important;
   font-family: FontAwesome !important;
   background-image: none !important;

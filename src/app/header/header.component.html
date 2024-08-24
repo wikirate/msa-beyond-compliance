@@ -1,15 +1,21 @@
-<div class="bg-deep-blue sticky-top">
-  <div class="container">
-    <nav class="nav navbar">
+<div class="bg-deep-blue sticky-top ps-lg-5 pe-lg-5 ps-md-4 pe-md-4 ps-3 pe-3">
+  <div id="navigation_bar">
+    <ul class="nav navbar">
+      <li>
       <a class="navbar-brand navbar-expand" routerLink="/dashboard">
         <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
       </a>
-      <div class="navbar ms-md-auto ms-0">
-        <a class="dashboard nav-item nav-link" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
+    </li>
+      <li class="burger" (click)="toggleMenu()">
+        <i [class]="isMenuOpen? 'bi bi-x display-6' :'bi bi-list display-6'"></i>
+      </li>
+      <li class="navbar menu ms-md-auto ms-0" [class.is-open]="isMenuOpen">
+        <a class="dashboard nav-item nav-link menu-item" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
            routerLinkActive="active">HOME</a>
-        <a class="nav-item nav-link" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
+        <a class="nav-item nav-link menu-item" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
+        <a class="nav-item nav-link menu-item" routerLink="/case-studies" (click)="onSelectSection('case-studies')" routerLinkActive="active">CASE STUDIES</a>
         <div class="nav-item dropdown col">
-          <a class="nav-item nav-link text-nowrap" type="button" id="share" data-bs-toggle="dropdown"
+          <a class="nav-item nav-link text-nowrap menu-item" type="button" id="share" data-bs-toggle="dropdown"
              aria-expanded="false">
             <span class="share">SHARE</span><i class="bi bi-share-fill ms-0 ms-sm-2"></i>
           </a>
@@ -40,7 +46,7 @@
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </li>
+    </ul>
   </div>
 </div>

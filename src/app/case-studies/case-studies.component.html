@@ -1,0 +1,43 @@
+<div class="container">
+<div class="row mt-3">
+    <div class="col-lg-12 mb-lg-0 mb-3 pt-3" *ngFor="let case_study of case_studies">
+      <div class="accordion" [id]="case_study['key']">
+        <div class="accordion-item-transparent">
+          <div class="accordion-header" [id]="case_study['key']+'_title'">
+            <div class="accordion-button-transparent collapsed" type="button" data-bs-toggle="collapse"
+                 [attr.data-bs-target]="'#'+case_study['key']+'_alt_two'" aria-expanded="false" aria-controls="collapseThree">
+              <div class="row mt-3">
+                <div class="row">
+                    <h6>Case studies</h6>
+                </div>
+                <div class="row">
+                  <h3 class="orange-title">{{case_study['subject']}}</h3>
+                </div>
+                <div class="row">
+                  <p>{{case_study['description']}}</p>
+                  <h5 class="on-details">More</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div [id]="case_study['key']+'_alt_two'" class="accordion-collapse collapse"
+               [attr.aria-labelledby]="case_study['key']+'_title'"
+               [attr.data-bs-parent]="'#'+case_study['key']">
+            <div class="accordion-body">
+                <div class="row"  *ngFor="let case of case_study['case_studies']">
+                    <figure>
+                        <div class="blockquote ps-2">
+                          <p><i class="bi bi-quote pe-2"></i>{{case['quote']}}</p>
+                        </div>
+                        <figcaption class="blockquote-footer mt-2 mb-2">
+                            <a target="_blank" [href]="case['wikirate_answer']">{{case['company']}}</a> <cite title="source">{{' Page '+ case['page']+ ' on '}}<a target="_blank" [href]="case['source']">Modern Slavery Statement</a></cite>
+                        </figcaption>
+                        
+                      </figure>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

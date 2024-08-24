@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   selectedSection: string = "dashboard"
   path: string | null = ""
   sectors = {}
+  isMenuOpen = false
 
   constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
     this.sectors = dataProvider.sectors
@@ -32,7 +33,7 @@ export class HeaderComponent implements OnInit {
       }
     })
     this.sectorProvider.getPath().subscribe(path => {
-      if (path === "dashboard" || path === "about" || path === "subscribe")
+      if (path === "dashboard" || path === "about"|| path === "case-studies" || path === "subscribe")
         this.path = '';
       else {
         this.path = path + '/'
@@ -46,5 +47,9 @@ export class HeaderComponent implements OnInit {
 
   onSelectSection(section: string) {
     this.selectedSection = section
+  }
+
+  toggleMenu(){
+    this.isMenuOpen = !this.isMenuOpen
   }
 }

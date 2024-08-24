@@ -11,6 +11,7 @@ import {DisclosureRatesComponent} from "./dashboard/disclosure-rates/disclosure-
 import {SubscribeComponent} from "./subscribe/subscribe.component";
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
+import { CaseStudiesComponent } from './case-studies/case-studies.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'dashboard/beyond-compliance/:sector', component: BeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},
   {path: 'dashboard/sector-disclosure-rates/:sector', component: DisclosureRatesComponent},
+  {path: 'case-studies', component: CaseStudiesComponent},
   {path: 'subscribe', component: SubscribeComponent},
   {path: 'about', component: AboutComponent},
   {path: '**', redirectTo: '/dashboard/all-sectors', pathMatch: 'full'}

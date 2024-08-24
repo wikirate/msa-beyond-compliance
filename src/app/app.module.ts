@@ -39,6 +39,7 @@ import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
 import { SliderComponent } from './slider/slider.component';
 import { SliderItemDirective } from './slider/slider-item.directive';
+import { CaseStudiesComponent } from './case-studies/case-studies.component';
 
 const cookieConfig:NgcCookieConsentConfig = {
   cookie: {
@@ -96,7 +97,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     BeyondComplianceComponent,
     HighlightMetricComponent,
     SliderComponent,
-    SliderItemDirective
+    SliderItemDirective,
+    CaseStudiesComponent
   ],
   imports: [
     FormsModule,
