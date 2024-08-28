@@ -12,6 +12,7 @@ import {SubscribeComponent} from "./subscribe/subscribe.component";
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
 import { CaseStudiesComponent } from './case-studies/case-studies.component';
+import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'dashboard/highlight-metric/:sector', component: HighlightMetricComponent},
   {path: 'dashboard/meeting-minimum-requirements/:sector', component: MinimumRequirementsSectionComponent},
   {path: 'dashboard/beyond-compliance/:sector', component: BeyondComplianceComponent},
+  {path: 'dashboard/going-beyond-compliance/:sector', component: GoingBeyondComplianceComponent},
   {path: 'dashboard/further-findings/:sector', component: FurtherFindingsComponent},
   {path: 'dashboard/sector-disclosure-rates/:sector', component: DisclosureRatesComponent},
   {path: 'case-studies', component: CaseStudiesComponent},
