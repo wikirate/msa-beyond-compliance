@@ -12,6 +12,8 @@ import singleBarChart from '../../assets/charts/single-bar.json';
 import barChart from '../../assets/charts/bars.json';
 // @ts-ignore
 import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
+// @ts-ignore
+import radarChart from '../../assets/charts/radar.json';
 import { Injectable } from "@angular/core";
 import embed from "vega-embed";
 import { Filter } from "../models/filter.model";
@@ -34,6 +36,14 @@ export class ChartsService {
     view.addEventListener('click', () => {
       view.signal('click', null).run();
     });
+  }
+
+  drawRadarChart(title: string, element: string, values: any[], url: string, options: {}) {
+    var chart = JSON.parse(JSON.stringify(radarChart))
+    // bar['signals']['0']['value'] = title
+    chart['data'][0]['values'] = values
+    // bar['data'][1]['transform'][2]['expr'] = "'" + `${url}` + "'"
+    return embed(element, chart, options);
   }
 
   drawSingleBar(title: string, element: string, values: any[], url: string, options: {}) {

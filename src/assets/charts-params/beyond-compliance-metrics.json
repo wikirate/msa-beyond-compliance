@@ -5,6 +5,7 @@
     "metric": "Business_Human_Rights_Resource_Centre+MSA_statement_signed",
     "question": "Was the company's Modern Slavery Act statement signed by an appropriate person?",
     "label": "Signed by appropriate person",
+    "break_down_label": ["Signed by","appropriate person"],
     "short_label": "signed",
     "color": 0,
     "filter_value": [
@@ -24,6 +25,7 @@
     "metric": "Business_Human_Rights_Resource_Centre+MSA_Statement_Approval",
     "question": "Was the company's Modern Slavery Act statement explicitly approved by the board of directors (or equivalent management body)?",
     "label": "Board approval",
+    "break_down_label": ["Board approval"],
     "short_label": "approved",
     "color": 0,
     "filter_value": [
@@ -40,6 +42,7 @@
     "metric": "Walk_Free+MSA_Statement_Publication",
     "question": "Does the company either publish their statement on their homepage (UK) or provide the statement to the registry (Australia)?",
     "label": "Statement publication",
+    "break_down_label": ["Statement publication"],
     "short_label": "statement_publication",
     "color": 0,
     "filter_value": [
@@ -56,6 +59,7 @@
     "metric": "Walk_Free+MSA_Consultation_Process",
     "question": "Does the statement describe consulting with any entities that it owns or controls?",
     "label": "Consultation process",
+    "break_down_label": ["Consultation","process"],
     "short_label": "consultation_process",
     "color": 0,
     "filter_value": [
@@ -72,6 +76,7 @@
     "metric": "Walk_Free+MSA_Organizational_structure_and_operations",
     "question": "Does the company disclose the ownership structures (or business models) of its brands, subsidiaries, and other businesses?",
     "label": "Organizational structure and operations",
+    "break_down_label": ["Organizational structure","and operations"],
     "short_label": "organizational_structure",
     "color": 0,
     "filter_value": [
@@ -88,6 +93,7 @@
     "metric": "Walk_Free+MSA_supply_chain_disclosure",
     "question": "Does the company's statement name the suppliers in their supply chain and/or the geographic regions where their supply chain operates?",
     "label": "Supply chain disclosure",
+    "break_down_label": ["Supply chain","disclosure"],
     "short_label": "supply_chain_disclosure",
     "color": 0,
     "filter_value": [
@@ -105,6 +111,7 @@
     "metric": "Walk Free+MSA policy (revised)",
     "question": "Does the company's statement detail one or more specific, organisational policies or actions to combat slavery in their direct (tier 1) and/or in-direct (beyond tier 1) supply chain?",
     "label": "Supply chain policies",
+    "break_down_label": ["Supply chain","policies"],
     "short_label": "policies",
     "color": 0,
     "filter_value": [
@@ -138,6 +145,7 @@
     "metric": "Walk_Free+MSA_risk_assessment",
     "question": "How does the company assess the risks of modern slavery and trafficking in their supply chain?",
     "label": "Risk assessment",
+    "break_down_label": ["Risk assessment"],
     "short_label": "risk_assessment",
     "color": 0,
     "filter_value": [
@@ -156,6 +164,7 @@
     "metric": "Walk_Free+MSA_Identification_of_risks",
     "question": "Does the compan's statement identify specific geographic regions (e.g. Indonesia), industries (e.g. agriculture), resources (e.g. Palm Oil) or types of workforce (e.g. migrant workers) where the risk of modern slavery is the greatest?",
     "label": "Identification of risks",
+    "break_down_label": ["Identification","of risks"],
     "short_label": "risk_identification",
     "color": 0,
     "filter_value": [
@@ -175,6 +184,7 @@
     "metric": "Walk_Free+MSA_risk_management",
     "question": "Does the company continuously monitor suppliers to ensure that they comply with the company's policies and local laws?",
     "label": "Risk management",
+    "break_down_label": ["Risk management"],
     "short_label": "risk_management",
     "color": 0,
     "filter_value": [
@@ -194,6 +204,7 @@
     "metric": "Walk_Free+MSA_whistleblowing_mechanism_revised",
     "question": "Does the company describe a grievance mechanism to facilitate whistle-blowing or the reporting of suspected incidents of slavery or trafficking?",
     "label": "Whistleblowing mechanism",
+    "break_down_label": ["Whistleblowing mechanism"],
     "short_label": "whistleblowing_mechanism",
     "color": 0,
     "filter_value": [
@@ -215,6 +226,7 @@
     "metric": "Walk Free+MSA incidents identified",
     "question": "Did the company identify any specific incidents related to modern slavery that require(d) remediation?",
     "label": "Incidents identification",
+    "break_down_label": ["Incidents", "identification"],
     "short_label": "incident_identification",
     "color": 0,
     "filter_value": [
@@ -231,6 +243,7 @@
     "metric": "Walk_Free+MSA_incidents_remediation_revised",
     "question": "In the modern slavery statement, does the company explain one or more of the corrective steps it has taken (or would take) in response to modern slavery incidents in their operations and/or supply chain?",
     "label": "Incidents remediation",
+    "break_down_label": ["Incidents", "remediation"],
     "short_label": "incident_remediation",
     "color": 0,
     "filter_value": [
@@ -250,6 +263,7 @@
     "metric": "Walk_Free+MSA_training_revised",
     "question": "Does the statement describe training for staff that is specifically geared towards detecting signs of slavery or trafficking?",
     "label": "Modern slavery training",
+    "break_down_label": ["Modern slavery","training"],
     "short_label": "training",
     "color": 0,
     "filter_value": [
@@ -271,6 +285,7 @@
     "metric": "Walk_Free+MSA_Performance_Indicators",
     "question": "Does the modern slavery statement define the performance indicators against which the company measures the effectiveness of its actions to combat slavery and trafficking? E.g. number of audits done, number of employee training provided",
     "label": "Key performance indicators",
+    "break_down_label": ["Key performance","indicators"],
     "short_label": "kpis",
     "color": 0,
     "filter_value": [
@@ -287,6 +302,7 @@
     "metric": "Walk_Free+MSA_Business_Performance_Indicators",
     "question": "Has the company reviewed business KPIs to ensure they are not increasing risk of modern slavery? (E.g. expansion to production countries that have a lot of migrant workers)",
     "label": "Business performance indicators",
+    "break_down_label": ["Business", "performance", "indicators"],
     "short_label": "business_kpis",
     "color": 0,
     "filter_value": [
