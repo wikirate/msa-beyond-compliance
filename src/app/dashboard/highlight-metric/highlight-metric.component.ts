@@ -182,10 +182,8 @@ export class HighlightMetricComponent implements OnInit {
           this.incidents = results.incidents
 
           this.chartsService.drawShankeyChart(            
-              '', 
               '#incidents-chart', 
               results.values,
-              '', 
               { renderer: "svg",
               actions: false}
           )
