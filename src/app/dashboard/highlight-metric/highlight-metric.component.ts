@@ -6,6 +6,8 @@ import { ChartsService } from 'src/app/services/charts.service';
 import { DataProvider } from 'src/app/services/data.provider';
 import { SectorProvider } from 'src/app/services/sector.provider';
 import { forkJoin, map } from 'rxjs';
+// @ts-ignore
+import incidents_param from "../../../assets/charts-params/modern-slavery-incidents-identified.json";
 
 @Component({
   selector: 'highlight-metric',
@@ -83,15 +85,17 @@ export class HighlightMetricComponent implements OnInit {
 
   createChart(assessed_statements_metric: number, incidents_identified_metric: number) {
     //prepare all requests that need to be executed
+    this.isLoading = true;
 
+    var accepted_values = ["Yes", "Recruitment fees", "Freedom of movement", "Wages and benefits", "Working Hours", "Working conditions", "Other incidents"]
     let assessed_filters = [
       new Filter("year", this.year),
-      new Filter("value", ["Yes"]),
+      new Filter("value", accepted_values),
       new Filter("company_group", this.company_group)
     ]
     if (this.year == 'latest') {
       assessed_filters = [
-        new Filter("value", ["Yes"]),
+        new Filter("value", accepted_values),
         new Filter("company_group", this.company_group)
       ]
     }
@@ -100,57 +104,99 @@ export class HighlightMetricComponent implements OnInit {
     const msa_incidents = this.dataProvider.getAnswers(incidents_identified_metric,
       [
         new Filter("year", this.year),
-        new Filter("value", ['Yes']),
+        new Filter("value", accepted_values),
         new Filter("company_group", this.company_group)
       ])
 
+
+    const descriptions: any = {
+      "Yes": "Cases that companies qualified as forced or child labour",
+      "Recruitment fees": "Cases of workers paying recruitment or other fees",
+      "Freedom of movement": "Restrictions on freedom of movement workers (e.g. withholding of passports)",
+      "Wages and benefits": "Issues related to wages (underpayment, salary below minimum wages)",
+      "Working Hours": "Cases of excessive or mandatory overtime",
+      "Working conditions": "Issues related to health and safety or cases of harassment",
+      "Other incidents": "Cases of illegal subcontracting or issues related to general labour practices"
+    }
+
     forkJoin([assessed, msa_incidents])
-    .pipe(map(([assessed_response, msa_incidents_response]) => {
-      if (this.year == 'latest') {
-        assessed_response = Object.values(assessed_response.reduce((r: any, o: any) => {
-          r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
+      .pipe(map(([assessed_response, msa_incidents_response]) => {
+        if (this.year == 'latest') {
+          assessed_response = Object.values(assessed_response.reduce((r: any, o: any) => {
+            r[o.company] = (r[o.company] && r[o.company].year > o.year) ? r[o.company] : o
 
-          return r
-        }, {}))
-      }
-      msa_incidents_response = msa_incidents_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
+            return r
+          }, {}))
+        }
+        msa_incidents_response = msa_incidents_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
 
-      return {
-        'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
-      }
-    }))
-    .subscribe({next: (results) => {
-      this.incidents = results.incidents
+        var values = []
+        values.push({
+          "category": "Companies reporting\nmodern slavery\nincidents",
+          "stack": 1,
+          "sort": 1,
+          "labels": "left",
+          "labeledValue": Math.round((msa_incidents_response.length) * 100 / assessed_response.length)
+        })
+        for (var i = 0; i < accepted_values.length; i++) {
+          values.push({
+            "category": accepted_values[i] == 'Yes' ? 'Modern slavery' : accepted_values[i],
+            "stack": 2,
+            "sort": i + 1,
+            "labels": "left",
+            "gap": 10
+          })
+        }
 
-      this.drawDonutChart(this.incidents, "donut-incidents", this.incidents_url, "#FFCB2B")
+        var data: any = {
+          "Yes": 0,
+          "Recruitment fees": 0,
+          "Freedom of movement": 0,
+          "Wages and benefits": 0,
+          "Working Hours": 0,
+          "Working conditions": 0,
+          "Other incidents": 0
+        }
+        for (var i = 0; i < msa_incidents_response.length; i++) {
+          var options = msa_incidents_response[i]['value'].split(", ")
+          for (var option of options) {
+            data[option] = data[option] + 1
+          }
+        }
+        for (var value of accepted_values) {
+          values.push({
+            'source': "Companies reporting\nmodern slavery\nincidents",
+            'destination': value == 'Yes'? 'Modern slavery' : value,
+            'description': descriptions[value],
+            'value': Math.round(data[value] * 100 / msa_incidents_response.length)
+          })
+        }
+        console.log(values)
+        return {
+          'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
+          'values': values
+        }
+      }))
+      .subscribe({
+        next: (results) => {
+          this.incidents = results.incidents
 
-      //loading stops when all requests and calculations have been performed successfully
-    }, 
-  complete: () => {
-    this.isLoading = false
-  }})
+          this.chartsService.drawShankeyChart(            
+              '', 
+              '#incidents-chart', 
+              results.values,
+              '', 
+              { renderer: "svg",
+              actions: false}
+          )
+        },
+        complete: () => {
+          this.isLoading = false
+        }
+      })
   }
 
   openMessage() {
     this.modalService.open(this.content, { centered: true });
   }
-
-  drawDonutChart(percentage: number, elementId: string, url: string, hex: string) {
-    this.chartsService.drawDonutChart(
-      `${percentage}%`,
-      `div#${elementId}`,
-      [{
-        'id': 'Incident(s) disclosed',
-        'percent': percentage,
-        'URL': url
-      },
-      {
-        'id': 'No Incidents Disclosed',
-        'percent': 100 - percentage,
-        'URL': url
-      }],
-      250, 250, [hex, "#e5e5ea"],
-      ["Incident(s) disclosed", "No Incidents Disclosed"], { renderer: "svg", actions: false })
-  }
-
 }
