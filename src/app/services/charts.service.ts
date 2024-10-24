@@ -56,7 +56,7 @@ export class ChartsService {
     return embed(element, bar, options).then(result => this.addListenerOnChartClick(result));
   }
 
-  drawShankeyChart(title: string, element: string, values: any[], url: string, options: {}) {
+  drawShankeyChart(element: string, values: any[], options: {}) {
     var chart = JSON.parse(JSON.stringify(shankeyChart))
     chart['data'][0]['values'] = values
     return embed(element, chart, options);
