@@ -13,6 +13,8 @@ import barChart from '../../assets/charts/bars.json';
 // @ts-ignore
 import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
 // @ts-ignore
+import shankeyChart from '../../assets/charts/shankey-chart.json';
+// @ts-ignore
 import radarChart from '../../assets/charts/radar.json';
 import { Injectable } from "@angular/core";
 import embed from "vega-embed";
@@ -52,6 +54,12 @@ export class ChartsService {
     bar['data'][0]['values'] = values
     bar['data'][1]['transform'][2]['expr'] = "'" + `${url}` + "'"
     return embed(element, bar, options).then(result => this.addListenerOnChartClick(result));
+  }
+
+  drawShankeyChart(element: string, values: any[], options: {}) {
+    var chart = JSON.parse(JSON.stringify(shankeyChart))
+    chart['data'][0]['values'] = values
+    return embed(element, chart, options);
   }
 
   drawPieChart(title: string,

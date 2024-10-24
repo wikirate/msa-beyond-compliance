@@ -2,7 +2,7 @@
     <div id="highlighted-metric-section" class="bg-grey p-4 mt-5">
         <div class="row">
             <div class="col-md-4 col-lg-6 ">
-                <h3 class="title">Underreporting of Modern Slavery</h3>
+                <h3 class="title">Underreporting of cases of exploitation</h3>
                 <h6 class="fst-italic" *ngIf="sector !== 'all-sectors'">{{getSectorName()}} Sector</h6>
             </div>
             <div class="col-md-8 col-lg-6">
@@ -36,18 +36,22 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4 d-flex justify-content-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
-            <div class="col-md-4 pt-md-2 pt-1 align-content-center">
-                <h1 class="text-center">{{incidents | percentageFormat}}</h1>
-                <p class="text-center fst-italic fs-5"><b>of companies report incidents</b></p>
-            </div>
-            <div class="col-md-8 pt-md-2 pt-1 fst-italic fs-5">
-                <p>Millions of modern slavery victims go undetected. While an estimated <b>28 million people</b> are
-                    <b>in
-                        forced labour globally</b>, only {{incidents | percentageFormat}} of companies we've assessed
-                    report finding incidents in their
-                    supply chains. This stark gap reveals a critical need for better reporting and transparency.
-                </p>
+        <div class="incidents-identified" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
+            <div class="row mt-4 d-flex justify-content-center">
+                <div class="col-12">
+                    <p class="col-lg-10 col-md-12 fst-italic fs-5">Millions of modern slavery victims go undetected.
+                        While
+                        an estimated <b>28 million people</b> are
+                        <b>in
+                            forced labour globally</b>, only {{incidents | percentageFormat}} of companies we've
+                        assessed
+                        report finding incidents in their
+                        supply chains. This stark gap reveals a critical need for better reporting and transparency.
+                    </p>
+                </div>
+                <div class="col-12 d-flex justify-content-center justify-items-center pt-1">
+                    <div id="incidents-chart" class="chart-wrapper"></div>
+                </div>
             </div>
         </div>
     </div>

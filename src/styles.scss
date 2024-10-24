@@ -918,9 +918,9 @@ hr.deep-blue {
 }
 
 .accordion-item-transparent {
-  @extend .accordion-item;
-  border-color: $grey !important;
-  border-width: 3px !important;
+  background-color: $grey;
+  // border-color: $grey !important;
+  border-width: 0px !important;
   //border-radius: 0em 1.5em 0em 1.5em !important;
 }
 
@@ -1001,7 +1001,6 @@ hr.deep-blue {
 
 .accordion-button-transparent {
   @extend accordion-button !optional;
-  padding: 1em !important;
   //border-radius: 0em 1.5em 0em 1.5em !important;
   border-color: $white;
 }
@@ -1009,7 +1008,6 @@ hr.deep-blue {
 .accordion-button-transparent:not(.collapsed) {
   @extend accordion-button !optional;
   color: $deep_blue;
-  padding: 1em !important;
   //border-radius: 0em 1.5em 0em 0em !important;
   // border-color: $deep_blue;
 }
