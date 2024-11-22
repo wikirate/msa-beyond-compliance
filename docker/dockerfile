@@ -4,6 +4,9 @@ FROM nginx:latest
 # Copy your static site files to the Nginx default directory
 COPY ../dist/msa-dashboard /usr/share/nginx/html
 
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Expose port 80 to allow traffic
 EXPOSE 80
 
