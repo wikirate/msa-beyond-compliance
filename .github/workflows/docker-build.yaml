@@ -3,6 +3,9 @@ name: Build and publish Docker image
 on:
   push:
     branches: [ main, staging ]
+    paths:
+      - 'dist/**'
+      - 'docker/**'
 
 jobs:
   build-and-push-image:
