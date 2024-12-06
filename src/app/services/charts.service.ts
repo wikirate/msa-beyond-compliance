@@ -11,8 +11,6 @@ import groupedBarsChart from '../../assets/charts/subgroup-bars.json';
 // @ts-ignore
 import uk_tree_map from '../../assets/charts/uk_legislation_tree_map.json';
 // @ts-ignore
-import beesworm_chart from '../../assets/charts/beesworm.json';
-// @ts-ignore
 import sector_beesworm_chart from '../../assets/charts/sector-specific-beesworm.json';
 // @ts-ignore
 import both_tree_map from '../../assets/charts/both_legislations_tree_map.json';
@@ -427,20 +425,6 @@ export class ChartsService {
     bars['width'] = width
     bars['height'] = height
     return embed(element, bars, options)
-  }
-
-  drawBeeSwarmChart(title: string,
-                    year: number | string,
-                    assessed_statements_metric_id: number,
-                    colors: string[],
-                    element: string,
-                    width: number,
-                    height: number,
-                    options: {}) {
-    var bee_chart = JSON.parse(JSON.stringify(beesworm_chart))
-    var assessed_statements_url = `${this.wikirateApiHost}/~${assessed_statements_metric_id}+Answer.json?view=answer_list&limit=0&filter[year]=${year}&filter[company_group]=&filter[value][]=Yes`;
-    bee_chart['data'][9]['url'] = assessed_statements_url
-    return embed(element, bee_chart, {});
   }
 
   drawSectorSpecificBeeSwarmChart(title: string,
