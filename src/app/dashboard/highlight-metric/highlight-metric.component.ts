@@ -23,6 +23,7 @@ export class HighlightMetricComponent implements OnInit {
   year: string = ''
   legislation: string = 'both'
   incidents_url: string = "#"
+  companies_reporting_msi!: number
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
     private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartsService: ChartsService) {
@@ -131,19 +132,20 @@ export class HighlightMetricComponent implements OnInit {
         msa_incidents_response = msa_incidents_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
 
         var values = []
+        this.companies_reporting_msi = Math.round((msa_incidents_response.length) * 100 / assessed_response.length)
         values.push({
           "category": "Companies reporting\nmodern slavery\nincidents",
           "stack": 1,
           "sort": 1,
           "labels": "left",
-          "labeledValue": Math.round((msa_incidents_response.length) * 100 / assessed_response.length)
+          "labeledValue": this.companies_reporting_msi
         })
         for (var i = 0; i < accepted_values.length; i++) {
           values.push({
             "category": accepted_values[i] == 'Yes' ? 'Modern slavery' : accepted_values[i],
             "stack": 2,
             "sort": i + 1,
-            "labels": "left",
+            "labels": "right",
             "gap": 10
           })
         }
