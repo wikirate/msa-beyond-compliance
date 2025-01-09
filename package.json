@@ -29,7 +29,7 @@
     "ng-bootstrap": "^0.46.0",
     "ngx-clipboard": "^15.1.0",
     "ngx-cookieconsent": "^2.2.3",
-    "ngx-export-as": "^1.13.0",
+    "ngx-export-as": "^1.14.0",
     "path": "^0.12.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
