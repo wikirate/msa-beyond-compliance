@@ -4,10 +4,10 @@
     "width": 500,
     "height": 400,
     "padding": {
-        "bottom": 20,
-        "left": 20,
-        "right": 20,
-        "top": 20
+        "bottom": 10,
+        "left": 5,
+        "right": 10,
+        "top": 10
     },
     "signals": [
         {
@@ -36,49 +36,49 @@
                     "category": "Modern slavery",
                     "stack": 2,
                     "sort": 1,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Recruitment fees",
                     "stack": 2,
                     "sort": 2,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Freedom of movement",
                     "stack": 2,
                     "sort": 3,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Wages and benefits",
                     "stack": 2,
                     "sort": 4,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Working Hours",
                     "stack": 2,
                     "sort": 5,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Working conditions",
                     "stack": 2,
                     "sort": 6,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
                     "category": "Other incidents",
                     "stack": 2,
                     "sort": 7,
-                    "labels": "left",
+                    "labels": "right",
                     "gap": 10
                 },
                 {
@@ -515,13 +515,15 @@
             "name": "color",
             "type": "ordinal",
             "range": [
-                "#000014", 
-                "#00001C", 
-                "#000022", 
-                "#000029", 
-                "#333355", 
-                "#666680", 
-                "#9999AA"  
+                "#FF5C45",
+                "#FFEE99",
+                "#FFDC00",
+                "#FFC400",
+                "#FFB000",
+                "#FF9A00",
+                "#FF7A30",
+                "#FF6338"
+                
             ],
             "domain": {
                 "data": "stacks",
@@ -558,7 +560,7 @@
                         "field": "name"
                     },
                     "fillOpacity": {
-                        "value": 0.9
+                        "value": 0.95
                     },
                     "strokeWidth": {
                         "value": 0
@@ -671,7 +673,7 @@
                                 "value": -2
                             },
                             "text": {
-                                "field": "name"
+                                "signal": "datum.stack > 1 ? datum.name : ''"
                             },
                             "lineBreak": {
                                 "value": "\n"
@@ -700,7 +702,7 @@
                                 "signal": "datum.stack > 1 ? 17 : 55"
                             },
                             "text": {
-                                "signal": "format(datum.labeledValue, '') + '%'"
+                                "signal": "datum.stack > 1 ? format(datum.labeledValue, '') + '%' : ''"
                             },
                             "align": {
                                 "signal": "datum.labels=='left'?'right':'left'"
@@ -719,7 +721,7 @@
                 "update": {
                     "x": {
                         "field": "bounds.x1",
-                        "offset": -38
+                        "offset": -5
                     },
                     "x2": {
                         "field": "bounds.x2",
@@ -734,10 +736,7 @@
                         "offset": 8
                     },
                     "fill": {
-                        "value": "white"
-                    },
-                    "opacity": {
-                        "value": 0.6
+                        "value": "transparent"
                     },
                     "cornerRadius": {
                         "value": 5
@@ -751,8 +750,8 @@
             "stroke": "transparent"
         },
         "text": {
-            "fontSize": 15,
-            "fill": "#333333",
+            "fontSize": 18,
+            "fill": "#000029",
             "font": "Rubik",
             "fontWeight": 400
         }
