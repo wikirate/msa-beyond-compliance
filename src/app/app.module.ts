@@ -10,7 +10,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {SectorProvider} from "./services/sector.provider";
 import {IntroductorySectionComponent} from './dashboard/introductory-section/introductory-section.component';
 import {KeyFindingsSectionComponent} from './dashboard/key-findings-section/key-findings-section.component';
@@ -74,48 +74,41 @@ const cookieConfig:NgcCookieConsentConfig = {
   }
 };
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    AboutComponent,
-    DashboardComponent,
-    IntroductorySectionComponent,
-    KeyFindingsSectionComponent,
-    MinimumRequirementsSectionComponent,
-    NumFormatPipe,
-    PercentageFormatPipe,
-    DisclosureRatesComponent,
-    ApproachToIncidentsComponent,
-    ApproachToRisksComponent,
-    ApproachToPoliciesComponent,
-    FurtherFindingsComponent,
-    SectionComponent,
-    ExportAsComponent,
-    SubscribeComponent,
-    SpotlightMetricsComponent,
-    BeyondComplianceComponent,
-    HighlightMetricComponent,
-    SliderComponent,
-    SliderItemDirective,
-    CaseStudiesComponent,
-    GoingBeyondComplianceComponent
-  ],
-  imports: [
-    FormsModule,
-    HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    AppRoutingModule,
-    ExportAsModule,
-    ClipboardModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)
-  ],
-  providers: [SectorProvider, DataProvider, ChartsService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        AboutComponent,
+        DashboardComponent,
+        IntroductorySectionComponent,
+        KeyFindingsSectionComponent,
+        MinimumRequirementsSectionComponent,
+        NumFormatPipe,
+        PercentageFormatPipe,
+        DisclosureRatesComponent,
+        ApproachToIncidentsComponent,
+        ApproachToRisksComponent,
+        ApproachToPoliciesComponent,
+        FurtherFindingsComponent,
+        SectionComponent,
+        ExportAsComponent,
+        SubscribeComponent,
+        SpotlightMetricsComponent,
+        BeyondComplianceComponent,
+        HighlightMetricComponent,
+        SliderComponent,
+        SliderItemDirective,
+        CaseStudiesComponent,
+        GoingBeyondComplianceComponent
+    ],
+    bootstrap: [AppComponent], imports: [FormsModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        AppRoutingModule,
+        ExportAsModule,
+        ClipboardModule,
+        NgcCookieConsentModule.forRoot(cookieConfig)], providers: [SectorProvider, DataProvider, ChartsService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
 }
 
