@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "msa-dashboard:build:production"
+              "buildTarget": "msa-dashboard:build:production"
             },
             "development": {
-              "browserTarget": "msa-dashboard:build:development"
+              "buildTarget": "msa-dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "msa-dashboard:build"
+            "buildTarget": "msa-dashboard:build"
           }
         },
         "test": {
