@@ -4,7 +4,7 @@ import {filter, Subscription} from "rxjs";
 import {
   NgcCookieConsentConfig,
   NgcCookieConsentModule,
-  NgcCookieConsentService, NgcInitializeEvent, NgcNoCookieLawEvent,
+  NgcCookieConsentService, NgcInitializingEvent, NgcNoCookieLawEvent,
   NgcStatusChangeEvent
 } from 'ngx-cookieconsent';
 
@@ -55,8 +55,8 @@ export class AppComponent implements OnInit, OnDestroy {
       () => {
       });
 
-    this.initializeSubscription = this.ccService.initialize$.subscribe(
-      (event: NgcInitializeEvent) => {
+    this.initializeSubscription = this.ccService.initializing$.subscribe(
+      (event: NgcInitializingEvent) => {
       });
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
