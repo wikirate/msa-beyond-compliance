@@ -106,7 +106,6 @@ const cookieConfig: NgcCookieConsentConfig = {
   ],
   bootstrap: [AppComponent],
   imports: [
-    CommonModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
