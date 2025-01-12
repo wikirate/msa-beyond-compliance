@@ -173,7 +173,6 @@ export class HighlightMetricComponent implements OnInit {
             'value': Math.round(data[value] * 100 / msa_incidents_response.length)
           })
         }
-        console.log(values)
         return {
           'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
           'values': values
