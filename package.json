@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "^18.2.13",
     "@types/fast-json-patch": "^1.0.4",
     "@types/jasmine": "~3.10.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^22.10.5",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -53,12 +53,5 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~5.4.5"
-  },
-  "browser": {
-    "fs": false,
-    "os": false,
-    "path": false,
-    "crypto": false,
-    "util": false
   }
 }
