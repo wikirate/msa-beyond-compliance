@@ -48,7 +48,7 @@ export class FurtherFindingsComponent implements OnInit {
 
   updateData() {
     this.isLoading = true
-    let company_group = []
+    let company_group: any = []
     if (this.sector != 'all-sectors')
       company_group.push(this.dataProvider.getCompanyGroup(this.sector))
     this.isLoading = true;
