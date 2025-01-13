@@ -1,9 +1,9 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {DataProvider} from "../../../services/data.provider";
-import {ChartsService} from "../../../services/charts.service";
-// @ts-ignore
-import incidents_remediation from "../../../../assets/charts-params/incidents-remediation.json";
-import {Filter} from "../../../models/filter.model";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DataProvider } from "../../../services/data.provider";
+import { ChartsService } from "../../../services/charts.service";
+import { Filter } from "../../../models/filter.model";
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   sector !: string;
   @Input()
   legislation!: string;
+  incidents_remediation;
   company_group: string[] = []
   params = ''
 
@@ -27,7 +28,27 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    const dataPaths = ['/assets/charts-params/incidents-remediation.json']
 
+    this.dataProvider.loadData(dataPaths).subscribe({
+      next: ([incidents_remediation]) => {
+        this.incidents_remediation = incidents_remediation;
+
+        // Notify that data is loaded
+        this.dataProvider.markDataAsLoaded();
+      },
+      error: (error) => {
+        console.error('Failed to load data:', error);
+      }
+    });
+
+    // Subscribe to the isDataLoaded$ observable
+    this.dataProvider.isDataLoaded$.subscribe((isLoaded) => {
+      if (isLoaded) {
+        this.updateData();
+      }
+    });
+    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -50,7 +71,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
     }
 
     this.params = DataProvider.getUrlParams([new Filter('year', this.year),
-      new Filter("company_group", this.company_group),
+    new Filter("company_group", this.company_group),
     ].filter((filter) => filter.value != '' && filter.value != 'latest')).toString()
 
     this.chartsService.drawSubgroupsBarChart(
@@ -68,10 +89,10 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "color": 0,
             "seq": 1
           },
-          {"key": "(supply chain workers)", "label": "Supply chain workers", "color": 1, "seq": 2},
-          {"key": "", "label": "Direct employees", "color": 2, "seq": 3}
+          { "key": "(supply chain workers)", "label": "Supply chain workers", "color": 1, "seq": 2 },
+          { "key": "", "label": "Direct employees", "color": 2, "seq": 3 }
         ],
-        "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
+        "transform": [{ "type": "window", "ops": ["row_number"], "as": ["seq"] }]
       },
       {
         "name": "groups",
@@ -89,24 +110,24 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
             "term": "Focal Point",
             "seq": 3
           },
-          {"title": "None of the above", "term": "No", "seq": 3}
+          { "title": "None of the above", "term": "No", "seq": 3 }
         ],
-        "transform": [{"type": "window", "ops": ["row_number"], "as": ["seq"]}]
+        "transform": [{ "type": "window", "ops": ["row_number"], "as": ["seq"] }]
       },
       this.year,
       this.company_group,
-      {renderer: "svg", actions: false}).finally(() => {
-      this.chartsService.drawBarChart(
-        "Incidents Remediation",
-        "div#incident-remediation-alt-two",
-        350,
-        250,
-        assessed_statements_metric_id,
-        incidents_remediation,
-        this.year,
-        this.company_group,
-        {renderer: "svg", actions: false}).finally(() => this.isLoading = false)
-    })
+      { renderer: "svg", actions: false }).finally(() => {
+        this.chartsService.drawBarChart(
+          "Incidents Remediation",
+          "div#incident-remediation-alt-two",
+          350,
+          250,
+          assessed_statements_metric_id,
+          this.incidents_remediation,
+          this.year,
+          this.company_group,
+          { renderer: "svg", actions: false }).finally(() => this.isLoading = false)
+      })
   }
 
 }

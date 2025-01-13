@@ -87,7 +87,6 @@ export class GoingBeyondComplianceComponent implements OnInit {
 
     forkJoin(requests)
       .pipe(map((responses: any) => {
-        console.log(responses)
         let results: any = []
         if (this.year == 'latest') {
           responses[2] = Object.values(responses[2].reduce((r: any, o: any) => {

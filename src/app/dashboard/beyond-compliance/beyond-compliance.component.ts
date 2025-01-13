@@ -20,7 +20,7 @@ export class BeyondComplianceComponent implements OnInit {
   active: string = 'name';
   isLoading: boolean = true;
   beyond_compliance_metrics = beyond_compliance_metrics;
-  metric_question = ''
+  metric_question:string = ''
   metric_seq = 1
 
   constructor(private dataProvider: DataProvider, private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartService: ChartsService) {
@@ -72,7 +72,7 @@ export class BeyondComplianceComponent implements OnInit {
       new Filter("company_group", [company_group, this.dataProvider.companies_with_assessed_statement.any].filter(value => value != ''))]
     )
 
-    let metric = this.beyond_compliance_metrics.find((document: any) => document.seq === this.metric_seq)
+    let metric:any = this.beyond_compliance_metrics.find((document: any) => document.seq === this.metric_seq)
 
     this.metric_question = metric['question']
 

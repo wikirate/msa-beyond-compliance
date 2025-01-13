@@ -23,11 +23,9 @@ export class SliderComponent implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    console.log('items', this.items);
   }
 
   ngAfterViewInit() {
-    console.log('slides', this.slidesContainer);
   }
 
   onClickLeft() {

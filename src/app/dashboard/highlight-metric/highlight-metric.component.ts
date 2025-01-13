@@ -131,7 +131,7 @@ export class HighlightMetricComponent implements OnInit {
         }
         msa_incidents_response = msa_incidents_response.filter((item: any) => assessed_response.find((o: any) => o.company == item.company && o.year == item.year))
 
-        var values = []
+        var values: any[] = []
         this.companies_reporting_msi = Math.round((msa_incidents_response.length) * 100 / assessed_response.length)
         values.push({
           "category": "Companies reporting\nmodern slavery\nincidents",
@@ -173,7 +173,6 @@ export class HighlightMetricComponent implements OnInit {
             'value': Math.round(data[value] * 100 / msa_incidents_response.length)
           })
         }
-        console.log(values)
         return {
           'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
           'values': values

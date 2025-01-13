@@ -1,11 +1,13 @@
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {Filter} from "../models/filter.model";
-import {ValueRange} from "../models/valuerange.model";
-import {Observable, of, tap} from "rxjs";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Filter } from "../models/filter.model";
+import { ValueRange } from "../models/valuerange.model";
+import { BehaviorSubject, forkJoin, Observable, of, tap } from "rxjs";
 
 @Injectable()
-export class DataProvider {
+export class DataProvider {  
+  private isDataLoadedSubject = new BehaviorSubject<boolean>(false);
+  isDataLoaded$ = this.isDataLoadedSubject.asObservable();
   private cache: { [url: string]: any } = {};
 
   wikirateApiHost = "https://wikirate.org"
@@ -63,6 +65,15 @@ export class DataProvider {
   constructor(private httpClient: HttpClient) {
   }
 
+  loadData(paths: string[]): Observable<any[]> {
+    const requests = paths.map((path) => this.httpClient.get(path));
+    return forkJoin(requests);
+  }
+
+  markDataAsLoaded(): void {
+    this.isDataLoadedSubject.next(true);
+  }
+
   getAnswers(metric_id: number, filters: Filter[]) {
     let url = `${this.wikirateApiHost}/~${metric_id}+Answer.json`
 
@@ -118,7 +129,7 @@ export class DataProvider {
       return this.company_groups.renewable_energy
     } else if (sector === 'electronics') {
       return this.company_groups.electronics
-    }else {
+    } else {
       return this.company_groups.none
     }
   }
@@ -129,7 +140,7 @@ export class DataProvider {
     if (useCache && this.cache[cacheKey]) {
       return of(this.cache[cacheKey]);
     }
-    return this.httpClient.get<T>(url, {params: params}).pipe(
+    return this.httpClient.get<T>(url, { params: params }).pipe(
       tap(data => {
         this.cache[cacheKey] = data;
       })
