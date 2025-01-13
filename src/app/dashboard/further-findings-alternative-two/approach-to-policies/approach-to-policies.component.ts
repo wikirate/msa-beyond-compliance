@@ -1,12 +1,9 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {DataProvider} from "../../../services/data.provider";
-import {ChartsService} from "../../../services/charts.service";
-import {delay} from "rxjs";
-// @ts-ignore
-import modern_slavery_training from "../../../../assets/charts-params/modern-slavery-training.json";
-// @ts-ignore
-import modern_slavery_policies from "../../../../assets/charts-params/modern-slavery-policies.json";
-import {Filter} from "../../../models/filter.model";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DataProvider } from "../../../services/data.provider";
+import { ChartsService } from "../../../services/charts.service";
+import { Filter } from "../../../models/filter.model";
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'approach-to-policies',
@@ -22,28 +19,48 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
   @Input()
   legislation!: string;
   company_group: string[] = [];
+  modern_slavery_policies;
+  modern_slavery_training;
   params = ''
 
   isLoading: boolean = true;
 
-  constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
+  constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
+    const dataPaths = ['/assets/charts-params/modern-slavery-policies.json', '/assets/charts-params/modern-slavery-training.json']
+
+    this.dataProvider.loadData(dataPaths).subscribe({
+      next: ([policies, training]) => {
+        this.modern_slavery_policies = policies;
+        this.modern_slavery_training = training;
+
+        // Notify that data is loaded
+        this.dataProvider.markDataAsLoaded()
+      },
+      error: (error) => {
+        console.error('Failed to load data:', error);
+      }
+    });
+
+    // Subscribe to isDataLoaded$ to trigger updateData
+    this.dataProvider.isDataLoaded$.subscribe((isLoaded) => {
+      if (isLoaded) {
+        this.updateData();
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.updateData()
+      this.updateData();
   }
 
   updateData() {
-    this.company_group = []
     this.isLoading = true;
-
     this.company_group = []
     if (this.sector != 'all-sectors')
       this.company_group.push(this.dataProvider.getCompanyGroup(this.sector))
-    this.isLoading = true;
     let assessed_statements_metric_id = this.dataProvider.metrics.msa_meet_min_requirements
     this.company_group.push(this.dataProvider.companies_with_assessed_statement.any)
     if (this.legislation == 'uk') {
@@ -55,7 +72,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
     }
 
     this.params = DataProvider.getUrlParams([new Filter('year', this.year),
-      new Filter("company_group", this.company_group),
+    new Filter("company_group", this.company_group),
     ].filter((filter) => filter.value != '' && filter.value != 'latest')).toString()
 
     this.chartsService.drawBarChart(
@@ -64,26 +81,25 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
       350,
       250,
       assessed_statements_metric_id,
-      modern_slavery_policies,
+      this.modern_slavery_policies,
       this.year,
       this.company_group,
       {
         renderer: "svg",
         actions: false
-      }).finally(() =>{
+      }).finally(() => {
         this.chartsService.drawBarChart(
           "Modern Slavery Training",
           "div#training-alt-two",
           350,
           350,
           assessed_statements_metric_id,
-          modern_slavery_training,
+          this.modern_slavery_training,
           this.year,
           this.company_group,
-          {renderer: "svg", actions: false}).finally(() => {
-          this.isLoading = false
-        })
+          { renderer: "svg", actions: false }).finally(() => {
+            this.isLoading = false
+          })
       })
-
   }
 }

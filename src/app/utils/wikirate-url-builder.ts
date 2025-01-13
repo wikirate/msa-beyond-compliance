@@ -1,6 +1,6 @@
 import {Filter} from "../models/filter.model";
 import {ValueRange} from "../models/valuerange.model";
-import {HttpParams} from "@angular/common/http";
+import { HttpParams } from "@angular/common/http";
 
 export class WikirateUrlBuilder {
   private baseUrl: string = 'https://wikirate.org'

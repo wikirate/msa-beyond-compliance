@@ -1,6 +1,6 @@
-@import "~bootstrap-icons/font/bootstrap-icons.css";
-@import "~bootstrap";
-@import '~bootstrap/scss/bootstrap';
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap";
+@import 'bootstrap/scss/bootstrap';
 //Colors
 $deep_blue: #000029;
 $white: #FFFFFF;
@@ -1266,5 +1266,5 @@ i.superscript:hover{
     height: 100% !important;
   }
 }
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+@import 'bootstrap/scss/bootstrap';

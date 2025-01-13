@@ -125,7 +125,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of table">
-                <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
+                <td class="col-2 bg-neutral-blue wikirate-metrics"><a href="{{item['url']}}"
                     target="_blank">{{item['metric']}}</a></td>
                 <td class="col-4 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
                 <td class="col-3"
@@ -164,7 +164,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of spotlight_metrics_table">
-                <td class="col-2 bg-neutral-blue wikirate-metrics"><a class="link-info" href="{{item['url']}}"
+                <td class="col-2 bg-neutral-blue wikirate-metrics"><a href="{{item['url']}}"
                     target="_blank">{{item['metric']}}</a></td>
                 <td class="col-10 bg-neutral-blue wikirate-metrics">{{item['description']}}</td>
               </tr>

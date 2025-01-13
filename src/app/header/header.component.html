@@ -2,45 +2,38 @@
   <div id="navigation_bar">
     <ul class="nav navbar">
       <li>
-      <a class="navbar-brand navbar-expand" routerLink="/dashboard">
-        <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg"/>
-      </a>
-    </li>
+        <a class="navbar-brand navbar-expand" routerLink="/dashboard">
+          <img class="logo ms-1 mt-1 mb-1" src="assets/logos/walk_free_header_logo.svg" />
+        </a>
+      </li>
       <li class="burger" (click)="toggleMenu()">
         <i [class]="isMenuOpen? 'bi bi-x display-6' :'bi bi-list display-6'"></i>
       </li>
       <li class="navbar menu ms-md-auto ms-0" [class.is-open]="isMenuOpen">
         <a class="dashboard nav-item nav-link menu-item" routerLink="/dashboard" (click)="onSelectSection('dashboard')"
-           routerLinkActive="active">HOME</a>
-        <a class="nav-item nav-link menu-item" routerLink="/about" (click)="onSelectSection('about')" routerLinkActive="active">ABOUT</a>
-        <a class="nav-item nav-link menu-item" routerLink="/case-studies" (click)="onSelectSection('case-studies')" routerLinkActive="active">CASE STUDIES</a>
+          routerLinkActive="active">HOME</a>
+        <a class="nav-item nav-link menu-item" routerLink="/about" (click)="onSelectSection('about')"
+          routerLinkActive="active">ABOUT</a>
+        <a class="nav-item nav-link menu-item" routerLink="/case-studies" (click)="onSelectSection('case-studies')"
+          routerLinkActive="active">CASE STUDIES</a>
         <div class="nav-item dropdown col">
           <a class="nav-item nav-link text-nowrap menu-item" type="button" id="share" data-bs-toggle="dropdown"
-             aria-expanded="false">
+            aria-expanded="false">
             <span class="share">SHARE</span><i class="bi bi-share-fill ms-0 ms-sm-2"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="share">
-            <li><a class="dropdown-item" target="_blank"
-                   href="https://www.facebook.com/sharer/sharer.php?u="><i
-              class="bi bi-facebook ms-2 me-2"></i>facebook</a></li>
-            <li><a class="dropdown-item" target="_blank"
-                   href="https://twitter.com/intent/tweet?url="><i
-              class="bi bi-twitter ms-2 me-2"></i>twitter</a></li>
-            <li><a class="dropdown-item" target="_blank"
-                   href="https://www.linkedin.com/shareArticle?mini=true&url="><i
-              class="bi bi-linkedin ms-2 me-2"></i>linkedin</a></li>
-            <li><a class="dropdown-item" target="_blank"
-                   href="mailto:info@example.com?&subject=&cc=&bcc=&body="><i
-              class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
+            <li><a class="dropdown-item" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url="><i
+                  class="bi bi-linkedin ms-2 me-2"></i>linkedin</a></li>
+            <li><a class="dropdown-item" target="_blank" href="mailto:info@example.com?&subject=&cc=&bcc=&body="><i
+                  class="bi bi-envelope-fill ms-2 me-2"></i>mail</a></li>
           </ul>
         </div>
         <div class="filter-dropdown dropdown ms-2">
-          <span class="btn btn-secondary sector-filter" type="button" id="sector-filter"
-                data-bs-toggle="dropdown" aria-expanded="false">{{selectedSector}}</span>
+          <span class="btn btn-secondary sector-filter" type="button" id="sector-filter" data-bs-toggle="dropdown"
+            aria-expanded="false">{{selectedSector}}</span>
           <ul class="dropdown-menu" aria-labelledby="sector-filter" data-popper-placement="bottom-start">
             <li *ngFor="let item of sectors | keyvalue">
-              <a class="dropdown-item" routerLink="{{'dashboard/'+path+item.key}}"
-                 (click)="onSelectSector(item.value)">
+              <a class="dropdown-item" routerLink="{{'dashboard/'+path+item.key}}" (click)="onSelectSector(item.value)">
                 {{item.value}}
               </a>
             </li>
