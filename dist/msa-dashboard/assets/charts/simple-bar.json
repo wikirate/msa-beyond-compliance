@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A basic bar chart example, with value labels shown upon pointer hover.",
+    "width": 400,
+    "height": 250,
+    "padding": 10,
+    "title":{
+      "text": "Signed by appropriate person",
+      "font": "Rubik",
+      "fontSize": 16
+    },  
+    "signals": [
+      {
+        "name": "tooltip",
+        "value": {},
+        "on": [
+          {"events": "rect:pointerover", "update": "datum"},
+          {"events": "rect:pointerout",  "update": "{}"}
+        ]
+      },
+      {
+        "name": "click",
+        "value": null,
+        "on": [
+          {
+            "events": "rect:click",
+            "update": "datum.wikirate_page"
+          },
+          {
+            "events": "rect:click",
+            "update": "datum.wikirate_page"
+          }
+        ]
+      }
+    ],  
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"label": "Total", "value": 28, "color": "#000029"},
+          {"label": "UK", "value": 55, "color":"#FF5C45"},
+          {"label": "AUS", "value": 43, "color":"#FF5C45"}
+        ]
+      }
+    ],  
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "domain": {"data": "table", "field": "label"},
+        "range": "width",
+        "padding": 0.1,
+        "round": true
+      },
+      {
+        "name": "yscale",
+        "domain": [0, 100],
+        "nice": true,
+        "range": "height"
+      }
+    ],  
+    "axes": [
+      { "orient": "bottom", "scale": "xscale" },
+      { "orient": "left", "scale": "yscale" }
+    ],  
+    "marks": [
+      {
+        "type": "rect",
+        "cornerRadius": 5,
+        "from": {"data":"table"},
+        "encode": {
+          "enter": {
+            "cornerRadiusTopRight": {"value": 10},
+            "cornerRadiusTopLeft": {"value": 10},
+            "x": {"scale": "xscale", "field": "label"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "value"},
+            "y2": {"scale": "yscale", "value": 0}
+          },
+          "update": {
+            "fill": {"field": "color"}
+          },
+          "hover": {
+            "tooltip":{"signal": "{title: datum.metric, 'Legislation': if(datum.label=='AUS','Australian', datum.label), 'Coverage': datum.value+'%', 'Mandatory': datum.mandatory}"},
+            "cursor":{"value": "pointer"}
+          }
+        }
+      }
+    ]
+  }
+  

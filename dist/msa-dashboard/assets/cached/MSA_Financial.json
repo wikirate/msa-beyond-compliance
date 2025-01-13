@@ -1,0 +1,3777 @@
+[
+  {
+    "id": 11251,
+    "name": "Vodafone Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 42390,
+    "name": "JPMorgan Chase & Co.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 42420,
+    "name": "Workspace",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 47302,
+    "name": "Berkshire Hathaway",
+    "headquarters": "Nebraska (United States)"
+  },
+  {
+    "id": 47343,
+    "name": "Mitsubishi UFJ Trust and Banking Corporation",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 47368,
+    "name": "Royal Bank of Canada",
+    "headquarters": "Ontario, Canada"
+  },
+  {
+    "id": 47372,
+    "name": "Sumitomo Mitsui Financial",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 47423,
+    "name": "Zurich Insurance Group",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 47455,
+    "name": "Morgan Stanley",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 47459,
+    "name": "Credit Suisse Group",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 47526,
+    "name": "Societe Generale",
+    "headquarters": "France"
+  },
+  {
+    "id": 47539,
+    "name": "Standard Chartered",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 47566,
+    "name": "Aviva plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 47626,
+    "name": "Canadian Imperial Bank of Commerce",
+    "headquarters": "Prince Edward Island (Canada)"
+  },
+  {
+    "id": 47641,
+    "name": "Legal & General Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 47662,
+    "name": "China Everbright Bank",
+    "headquarters": null
+  },
+  {
+    "id": 47670,
+    "name": "Bank of New York Mellon",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 47724,
+    "name": "BlackRock",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 47811,
+    "name": "Svenska Handelsbanken",
+    "headquarters": "Sweden"
+  },
+  {
+    "id": 47979,
+    "name": "Orix",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 47988,
+    "name": "Lloyds Banking Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 48089,
+    "name": "Aon",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 48212,
+    "name": "Voya Financial",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 48271,
+    "name": "Australia and New Zealand Banking Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 48562,
+    "name": "Insurance Australia Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 48603,
+    "name": "Sanlam",
+    "headquarters": "South Africa"
+  },
+  {
+    "id": 48657,
+    "name": "Northern Trust",
+    "headquarters": "Illinois (United States)"
+  },
+  {
+    "id": 48670,
+    "name": "QBE Insurance Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 48874,
+    "name": "Invesco",
+    "headquarters": "Georgia (United States)"
+  },
+  {
+    "id": 49081,
+    "name": "Investec",
+    "headquarters": "South Africa"
+  },
+  {
+    "id": 49096,
+    "name": "RSA Insurance Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 49175,
+    "name": "Schroders",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 49209,
+    "name": "Next PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 49698,
+    "name": "Raymond James Financial",
+    "headquarters": "Florida (United States)"
+  },
+  {
+    "id": 50160,
+    "name": "Bendigo & Adelaide Bank",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 50273,
+    "name": "Songbird Estates plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 50811,
+    "name": "Bank of Queensland",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 51292,
+    "name": "Teachers Mutual Bank",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 56340,
+    "name": "HSBC Holdings plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 56368,
+    "name": "Allianz",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 56449,
+    "name": "Munich Re",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 56506,
+    "name": "Blackstone Group",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 56521,
+    "name": "Mitsubishi Corporation",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 56828,
+    "name": "Danske Bank",
+    "headquarters": "Denmark"
+  },
+  {
+    "id": 56876,
+    "name": "Old Mutual",
+    "headquarters": "South Africa"
+  },
+  {
+    "id": 56908,
+    "name": "Standard Life Aberdeen plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 57013,
+    "name": "AMP Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 57017,
+    "name": "Macquarie Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 57061,
+    "name": "Charles Schwab",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 57163,
+    "name": "Suncorp Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 57902,
+    "name": "Lendlease Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 57918,
+    "name": "T Rowe Price",
+    "headquarters": "Maryland (United States)"
+  },
+  {
+    "id": 58315,
+    "name": "Stockland Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 58560,
+    "name": "Hammerson plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 61196,
+    "name": "Prudential",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 63220,
+    "name": "Goldman Sachs Group Inc.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 170579,
+    "name": "Deutsche Bank AG",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 965748,
+    "name": "Bank Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 965755,
+    "name": "Bloomberg",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 965779,
+    "name": "Challenger Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 967727,
+    "name": "MetLife",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 967764,
+    "name": "Santander - UK",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 1832396,
+    "name": "Nationwide building society",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2265392,
+    "name": "MSCI Inc.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2265412,
+    "name": "Stifel Financial Corporation",
+    "headquarters": "Missouri (United States)"
+  },
+  {
+    "id": 2266076,
+    "name": "KKR & Co. L.P.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2271431,
+    "name": "Apollo Global Management LLC",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2271514,
+    "name": "SEI Investments Company",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 2602173,
+    "name": "S&P Global",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2602186,
+    "name": "Generation Investment Management LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2608666,
+    "name": "Baillie Gifford & Co",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2615878,
+    "name": "Robeco Group",
+    "headquarters": "Netherlands"
+  },
+  {
+    "id": 2618144,
+    "name": "Australian Ethical Investment",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 2630514,
+    "name": "Derwent London",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2631007,
+    "name": "3i Group PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2631055,
+    "name": "St James's Place plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2632370,
+    "name": "Lazard Ltd",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2637940,
+    "name": "BTG Pactual",
+    "headquarters": null
+  },
+  {
+    "id": 2638336,
+    "name": "CITIC Limited",
+    "headquarters": "Hong Kong"
+  },
+  {
+    "id": 2749432,
+    "name": "SG Fleet Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 2792965,
+    "name": "International Personal Finance",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2854247,
+    "name": "Nomura International plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2854274,
+    "name": "IG Group Holdings PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2855711,
+    "name": "Emso Asset Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2855739,
+    "name": "Vanguard Asset Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2872472,
+    "name": "TransferWise Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2872485,
+    "name": "GAM (UK) Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2872513,
+    "name": "Universities Superannuation Scheme Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2879239,
+    "name": "AUTONOMOUS RESEARCH LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2879258,
+    "name": "Kohlberg Kravis Roberts & Co. Partners LLP",
+    "headquarters": null
+  },
+  {
+    "id": 2884353,
+    "name": "Sarasin & Partners LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3013276,
+    "name": "ALLIANCEBERNSTEIN L.P.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 3034218,
+    "name": "Artisan Partners Asset Management Inc.",
+    "headquarters": "Wisconsin (United States)"
+  },
+  {
+    "id": 3034224,
+    "name": "Pzena Investment Management Inc.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 3081246,
+    "name": "Grand Union Housing Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081390,
+    "name": "Warburg Pincus LLC",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 3092937,
+    "name": "Co-operative Group Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3096473,
+    "name": "John Lewis",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3134335,
+    "name": "Monash University",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3134347,
+    "name": "University of Melbourne",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3152040,
+    "name": "Honda Motor Europe Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152164,
+    "name": "BNP Paribas Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152556,
+    "name": "Nomura Asset Management UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3618733,
+    "name": "Rothschild Wealth Management Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3755287,
+    "name": "Aviva Investors",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3755952,
+    "name": "The Vanguard Group",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 3755966,
+    "name": "Carmignac Gestion",
+    "headquarters": "France"
+  },
+  {
+    "id": 3756060,
+    "name": "Wellington Management Company",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 3756106,
+    "name": "Loomis, Sayles & Company",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 3756111,
+    "name": "Acadian Asset Management",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 3756116,
+    "name": "Dimensional Fund Advisors LP",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 3756120,
+    "name": "State Street Global Advisors",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 3756132,
+    "name": "Lord Abbett",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 3763256,
+    "name": "AXA Investment Managers",
+    "headquarters": "France"
+  },
+  {
+    "id": 3763302,
+    "name": "Christian Super",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3763379,
+    "name": "HSBC Asset Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3763386,
+    "name": "Impax Asset Management",
+    "headquarters": null
+  },
+  {
+    "id": 3763421,
+    "name": "Legal & General Investment Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3763428,
+    "name": "Local Government Super",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3763442,
+    "name": "M&G plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3763517,
+    "name": "UBS Asset Management",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 4044065,
+    "name": "Allianz Global Investors GmbH",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 4044165,
+    "name": "The Capital Group Companies, Inc.",
+    "headquarters": "United States"
+  },
+  {
+    "id": 4044473,
+    "name": "JP Morgan Asset Management",
+    "headquarters": "United States"
+  },
+  {
+    "id": 4044554,
+    "name": "Royce & Associates, LP",
+    "headquarters": null
+  },
+  {
+    "id": 4044566,
+    "name": "Goldman Sachs Asset Management L.P.",
+    "headquarters": "United States"
+  },
+  {
+    "id": 4044670,
+    "name": "Quantitative Management Associates LLC",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 4049904,
+    "name": "Marshall Wace LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 4049915,
+    "name": "Nuveen LLC",
+    "headquarters": "United States"
+  },
+  {
+    "id": 4050044,
+    "name": "Eaton Vance Management",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 4050541,
+    "name": "Two Sigma Investments, LP",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 4050602,
+    "name": "Canada Pension Plan Investment Board",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 4050622,
+    "name": "Parametric Portfolio Associates LLC",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 4061628,
+    "name": "Amundi",
+    "headquarters": "France"
+  },
+  {
+    "id": 4061691,
+    "name": "Ausbil Investment Management Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 4061698,
+    "name": "AustralianSuper",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 4061782,
+    "name": "Caisse de Depot et Placement du Quebec",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 4062101,
+    "name": "IFM Investors",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 4062298,
+    "name": "Neuberger Berman",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 4062305,
+    "name": "Newton Investment Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5277199,
+    "name": "Medibank Private Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 5307632,
+    "name": "AQR Capital Management",
+    "headquarters": "Connecticut (United States)"
+  },
+  {
+    "id": 5307975,
+    "name": "Liontrust Asset Management plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5307983,
+    "name": "Mercer LLC",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 5308385,
+    "name": "West Midlands Pension Fund",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5308555,
+    "name": "BT Financial Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 5308588,
+    "name": "Cambridge Associates Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5308737,
+    "name": "Deka Investment",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 5308940,
+    "name": "FTSE Russell",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5309004,
+    "name": "Hermes Investment Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5309098,
+    "name": "Janus Henderson Investors",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5309127,
+    "name": "Jupiter Fund Management plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5309342,
+    "name": "Nikko Asset Management",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 5309438,
+    "name": "Pension Protection Fund",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5309795,
+    "name": "Vision Super Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 5399666,
+    "name": "Prada Retail UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406271,
+    "name": "Sir Richard Sutton Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5410337,
+    "name": "Grosvenor Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5459216,
+    "name": "Ashmore Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5459238,
+    "name": "HarbourVest Partners LLC",
+    "headquarters": null
+  },
+  {
+    "id": 5460074,
+    "name": "CDC Group plc",
+    "headquarters": null
+  },
+  {
+    "id": 5460085,
+    "name": "Cheyne Capital Management (UK) LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460096,
+    "name": "Coller Capital Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460118,
+    "name": "Daiwa Capital Markets Europe Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460162,
+    "name": "Findlay Park Partners LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460173,
+    "name": "Fundsmith LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460195,
+    "name": "Joh. Berenberg, Gossler & Co. Kg",
+    "headquarters": null
+  },
+  {
+    "id": 5460239,
+    "name": "Odey Asset Management LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460591,
+    "name": "Advent International plc",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 5460854,
+    "name": "London Stock Exchange Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460906,
+    "name": "BlueBay Asset Management Services Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460932,
+    "name": "Saga plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461106,
+    "name": "Bupa",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461211,
+    "name": "Apax Partners LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461308,
+    "name": "Europe Arab Bank plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461324,
+    "name": "Aspect Capital Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461444,
+    "name": "Man Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461612,
+    "name": "LSV Asset Management",
+    "headquarters": "Illinois (United States)"
+  },
+  {
+    "id": 5461761,
+    "name": "Union Bancaire Privee, UBP SA",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 5461766,
+    "name": "United Trust Bank Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5461863,
+    "name": "Sainsbury's Bank",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5462321,
+    "name": "Albourne Partners Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5462323,
+    "name": "Aldermore Group PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5462438,
+    "name": "Bain Capital Private Equity (Europe) LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5462717,
+    "name": "Boussard & Gavaudan Partners Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463622,
+    "name": "Campbell Lutyens & Co. Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463631,
+    "name": "Canopius Managing Agents Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463640,
+    "name": "Cedar Rock Capital Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463644,
+    "name": "Charles Stanley Group PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463646,
+    "name": "Charterhouse Capital Partners LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463660,
+    "name": "Colchester Global Investors Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463917,
+    "name": "Franklin Templeton Investment Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463923,
+    "name": "Highclere International Investors LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5463950,
+    "name": "Itau BBA International plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465171,
+    "name": "Majedie Asset Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465182,
+    "name": "Medical Protection Society Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465195,
+    "name": "Muzinich & Co. Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465201,
+    "name": "Simplyhealth Group Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465203,
+    "name": "The Royal London Mutual Insurance Society Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465207,
+    "name": "Pension Insurance Corporation plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465742,
+    "name": "Martin Currie Investment Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465748,
+    "name": "Aetna Global Benefits (UK) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465750,
+    "name": "AMP Capital Holdings Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 5465760,
+    "name": "Intermediate Capital Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465768,
+    "name": "Cathay Investments Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5465770,
+    "name": "Crawford & Company Adjusters Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5466096,
+    "name": "Aspen Insurance UK Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5466102,
+    "name": "Legg Mason Investments (Europe) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5466734,
+    "name": "Arbuthnot Banking Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5466736,
+    "name": "Arcus Infrastructure Partners Llp",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5467232,
+    "name": "On-Line Partnership Group Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5468683,
+    "name": "JB Drax Honore Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5468693,
+    "name": "Beazley plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5469180,
+    "name": "Liberty Specialty Markets Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5469194,
+    "name": "MS&AD Insurance Group Holdings Inc",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 5651026,
+    "name": "Merian Global Investors (UK) Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5651058,
+    "name": "Fidelity (Canada) Asset Management ULC",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 5651096,
+    "name": "Lindsell Train Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5651124,
+    "name": "William Blair Investment Management LLC",
+    "headquarters": "Illinois (United States)"
+  },
+  {
+    "id": 5651348,
+    "name": "MFS International (UK) Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5651441,
+    "name": "Dodge and Cox",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 5651585,
+    "name": "Winton Capital Management Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5651707,
+    "name": "RWC Asset Management LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5651731,
+    "name": "Threadneedle Asset Management Ltd.",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 5651797,
+    "name": "Rathbone Investment Management Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5652251,
+    "name": "Renaissance Technologies LLC",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 5652337,
+    "name": "TT International",
+    "headquarters": null
+  },
+  {
+    "id": 5652383,
+    "name": "Asset Management One Co., Ltd.",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 5652423,
+    "name": "Carmignac Gestion Luxembourg SA (UK)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5652786,
+    "name": "KBC Asset Management NV",
+    "headquarters": null
+  },
+  {
+    "id": 5652850,
+    "name": "D. E. Shaw & Co. LP",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 5652918,
+    "name": "Marathon Asset Management LLP",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 5652963,
+    "name": "Daiwa Asset Management Co. Ltd.",
+    "headquarters": null
+  },
+  {
+    "id": 5652973,
+    "name": "Mitsubishi UFJ Kokusai Asset Management Co., Ltd.",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 5653044,
+    "name": "Russell Investment Management LLC",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 5653066,
+    "name": "RBC Global Asset Management Inc.",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 5653491,
+    "name": "Nomura Asset Management Co., Ltd.",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 5653640,
+    "name": "Alken Asset Management Ltd.",
+    "headquarters": null
+  },
+  {
+    "id": 5653808,
+    "name": "Walter Scott & Partners Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5653888,
+    "name": "Lazard Freres Gestion SAS",
+    "headquarters": null
+  },
+  {
+    "id": 5672713,
+    "name": "Hargreaves Lansdown plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5786310,
+    "name": "TPG Europe LLP",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 6013899,
+    "name": "Barings Europe",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6014041,
+    "name": "First State Investments",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6100094,
+    "name": "Royal London Asset Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6129630,
+    "name": "The Equine and Livestock Insurance Company Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6129674,
+    "name": "Nomura European Investment Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6129707,
+    "name": "River and Mercantile Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6129788,
+    "name": "Mondrian Investment Partners Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6129800,
+    "name": "FIL Holdings (UK) Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6289534,
+    "name": "Curtis Banks Group PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6289891,
+    "name": "Willis Towers Watson Public Limited Company",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6290967,
+    "name": "FOXTONS GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6308535,
+    "name": "Colonial First State Investments Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6308690,
+    "name": "Railways Pension Scheme",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6308980,
+    "name": "Sunsuper",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6316378,
+    "name": "MFS Investment Management",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 6316392,
+    "name": "BNY Mellon Invest Management, EMEA",
+    "headquarters": "United States"
+  },
+  {
+    "id": 6316422,
+    "name": "Principal Global Investors",
+    "headquarters": "Iowa (United States)"
+  },
+  {
+    "id": 6316435,
+    "name": "PGIM (formerly Pramerica Investment Management)",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 6324196,
+    "name": "Capgemini UK",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6336169,
+    "name": "Pictet Group (Pictet Asset Management)",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 6336202,
+    "name": "DekaBank Group",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 6336258,
+    "name": "BrightSphere Investment Group",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 6336303,
+    "name": "Eurizon SLJ Capital Limited (ESLJ)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6336354,
+    "name": "CVC Capital Partners",
+    "headquarters": "Luxembourg"
+  },
+  {
+    "id": 6396844,
+    "name": "Federated Hermes Inc",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 6404670,
+    "name": "Mirae Asset Financial Group",
+    "headquarters": "Korea, Republic of"
+  },
+  {
+    "id": 6418366,
+    "name": "Bridgewater Associates",
+    "headquarters": "Connecticut (United States)"
+  },
+  {
+    "id": 6419849,
+    "name": "Vista Equity Partners",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 6421688,
+    "name": "Quilter plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6422563,
+    "name": "Cardano Risk Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6500260,
+    "name": "Nomura Europe Holdings plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6791629,
+    "name": "Alpha Financial Markets Consulting PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6813537,
+    "name": "Vontobel",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 6823354,
+    "name": "Afterpay Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6832029,
+    "name": "Polar Capital",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6832097,
+    "name": "Melior Investment Management",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6832119,
+    "name": "Firetrail Investments Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6832153,
+    "name": "Architas Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6832155,
+    "name": "Ninety One",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6832205,
+    "name": "Charter Hall Group",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6832519,
+    "name": "Aware Super",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6832596,
+    "name": "LaSalle Investment Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6832867,
+    "name": "Adamantem Capital",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6833018,
+    "name": "Amber Infrastructure Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6833191,
+    "name": "Hermes GPE",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6833268,
+    "name": "RWC Partners",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6833755,
+    "name": "Media Super",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6834105,
+    "name": "Macquarie Investment Management Europe S.A., ValueInvest",
+    "headquarters": "Luxembourg"
+  },
+  {
+    "id": 6834136,
+    "name": "Actis",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6835051,
+    "name": "GQG Partners",
+    "headquarters": "Florida (United States)"
+  },
+  {
+    "id": 6874249,
+    "name": "Regnan Governance Research and Engagement Pty Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6874371,
+    "name": "PineBridge Investments",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 6875046,
+    "name": "QIC",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6917898,
+    "name": "AKO Capital LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6918103,
+    "name": "Perkins Investment Management LLC",
+    "headquarters": null
+  },
+  {
+    "id": 6918284,
+    "name": "Smith & Williamson Investment Management LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6918644,
+    "name": "Institutional Shareholder Services (ISS)",
+    "headquarters": "United States"
+  },
+  {
+    "id": 6918796,
+    "name": "Liontrust Investment Partners LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6918945,
+    "name": "Boston Partners Global Investors, Inc.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 6918982,
+    "name": "PGIM Real Estate",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6933777,
+    "name": "Canaccord Genuity Wealth Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6933851,
+    "name": "Fidelity Investments Canada ULC",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 6933902,
+    "name": "Sompo Japan Insurance Inc.",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 6933913,
+    "name": "IK Investment Partners",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6933960,
+    "name": "UniSuper Management Pty Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6933988,
+    "name": "Magellan Asset Management",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6933996,
+    "name": "Lazard Asset Management LLC",
+    "headquarters": null
+  },
+  {
+    "id": 6934012,
+    "name": "Genesis Investment Management, LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6934025,
+    "name": "Victorian Funds Management Corporation",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6934041,
+    "name": "Calvert Research and Management",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 6934055,
+    "name": "Macquarie Asset Management",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6940708,
+    "name": "AMP Capital Investors",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 6940814,
+    "name": "BNP Paribas Asset Management",
+    "headquarters": "France"
+  },
+  {
+    "id": 6940883,
+    "name": "Kempen Capital Management NV",
+    "headquarters": "Netherlands"
+  },
+  {
+    "id": 6940911,
+    "name": "BNP Paribas Securities Services",
+    "headquarters": "France"
+  },
+  {
+    "id": 6940955,
+    "name": "Tokio Marine & Nichido Fire Insurance Co,.Ltd.",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 6941013,
+    "name": "Just Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 6969907,
+    "name": "Bibby Financial Services Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7306764,
+    "name": "Post Office Limited (The)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7306849,
+    "name": "Virgin UK Holdings Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7622003,
+    "name": "Jupiter Asset Management",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7888336,
+    "name": "AXA Investment Managers UK Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7890155,
+    "name": "BlackRock Advisors (UK) Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7890162,
+    "name": "Camelot Capital Partners LLC",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 7890169,
+    "name": "Capital Research & Management Co. (World Investors)",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 7890176,
+    "name": "DFA Australia Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7891537,
+    "name": "Platinum Investment Management Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 7891539,
+    "name": "River & Mercantile Asset Management LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7891540,
+    "name": "Rothschild & Co. Asset Management US, Inc.",
+    "headquarters": null
+  },
+  {
+    "id": 7891541,
+    "name": "Ruffer (Asia) Ltd.",
+    "headquarters": "Hong Kong"
+  },
+  {
+    "id": 7891545,
+    "name": "SEI Investments (Europe) Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7892715,
+    "name": "T. Rowe Price International Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8090745,
+    "name": "Argo Investments Ltd",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8090747,
+    "name": "First Sentier Investors (Australia) IM Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8090754,
+    "name": "Vanguard Investments Australia Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8091154,
+    "name": "BlackRock Investment Management (Australia) Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8091158,
+    "name": "Morgan Stanley Investment Management Co.",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 8091161,
+    "name": "Artisan Partners LP",
+    "headquarters": "United States"
+  },
+  {
+    "id": 8091168,
+    "name": "Octopus Investments Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8091671,
+    "name": "Pendal Group Ltd. (Investment Management)",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8092115,
+    "name": "Australian Foundation Investment Co. Ltd. (Invt Mgmt)",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8092116,
+    "name": "Netwealth Investments Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172480,
+    "name": "EMPLOYERS MUTUAL MANAGEMENT PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172484,
+    "name": "CRAWFORD & COMPANY (AUSTRALIA) PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172560,
+    "name": "AUSTRALIAN CENTRAL CREDIT UNION LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172624,
+    "name": "HBF HEALTH LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172628,
+    "name": "AIOI NISSAY DOWA INSURANCE COMPANY AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172968,
+    "name": "PROSPA GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8173918,
+    "name": "COMMUNITY CPS AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8173934,
+    "name": "WAM RESEARCH LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174751,
+    "name": "PLENARY GROUP HOLDINGS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174766,
+    "name": "OPTEON GROUP HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174780,
+    "name": "ANSVAR INSURANCE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174906,
+    "name": "CENTURIA CAPITAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174994,
+    "name": "SUSQUEHANNA PACIFIC PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174998,
+    "name": "AUSTRALIAN UNITY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175056,
+    "name": "The Trustee for AUSTRALIAN PRIME PROPERTY FUND - RETAIL",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175067,
+    "name": "SHAW AND PARTNERS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175350,
+    "name": "MyState Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175377,
+    "name": "TOGA PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175389,
+    "name": "KEYSTART LOANS LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175425,
+    "name": "LINK ADMINISTRATION HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175535,
+    "name": "AVEO GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175779,
+    "name": "THE TRUSTEE FOR STATE STREET INTERNATIONAL EQUITIES INDEX TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177212,
+    "name": "HERITAGE BANK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177357,
+    "name": "GROWTHPOINT PROPERTIES AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177403,
+    "name": "WAM LEADERS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177585,
+    "name": "OPTIVER AUSTRALIA HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177797,
+    "name": "LEGAL SUPER PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177820,
+    "name": "HANNOVER LIFE RE OF AUSTRALASIA LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8177962,
+    "name": "QUEENSLAND TEACHERS' UNION HEALTH FUND LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178021,
+    "name": "AUSTRALIAN FINANCIAL COMPLAINTS AUTHORITY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178171,
+    "name": "ANGLICAN COMMUNITY SERVICES",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178260,
+    "name": "The Trustee for Ascendas REIT Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178278,
+    "name": "AVENTUS HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178363,
+    "name": "CRESTONE HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178535,
+    "name": "The Trustee for CPPIB Real Estate Trust",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178632,
+    "name": "DOMAIN HOLDINGS AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178660,
+    "name": "HEALTH PARTNERS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178693,
+    "name": "THE TRUSTEE FOR APOSTLE DUNDAS GLOBAL EQUITY FUND",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178728,
+    "name": "ROYAL AUTOMOBILE CLUB OF VICTORIA (RACV) LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178732,
+    "name": "AVJENNINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178767,
+    "name": "VICTORIA TEACHERS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178811,
+    "name": "The Trustee for Lendlease Retirement Living Trust",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179187,
+    "name": "The Trustee for BWP TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179198,
+    "name": "CHUBB INSURANCE AUSTRALIA LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179245,
+    "name": "WAM MICROCAP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179378,
+    "name": "SCOTTISH PACIFIC GROUP PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179472,
+    "name": "Ingenia Communities RE Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179533,
+    "name": "QANTAS SUPERANNUATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179541,
+    "name": "CEDAR WOODS PROPERTIES LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179557,
+    "name": "NORTHWEST HEALTHCARE AUSTRALIAN PROPERTY PROPRIETARY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179585,
+    "name": "SHOPPING CENTRES AUSTRALASIA PROPERTY GROUP RE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179593,
+    "name": "WAM ALTERNATIVE ASSETS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179818,
+    "name": "SEDGWICK AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179853,
+    "name": "MORGANS FINANCIAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179884,
+    "name": "SAVILLS (AUST) HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179904,
+    "name": "TYRO PAYMENTS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182677,
+    "name": "AWP AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182719,
+    "name": "FUTURE GENERATION GLOBAL INVESTMENT COMPANY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182775,
+    "name": "BANKTECH AUSTRALIA PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182783,
+    "name": "QUDOS MUTUAL LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182799,
+    "name": "GREENSTONE FINANCIAL SERVICES PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182930,
+    "name": "The Trustee for STATEWIDE SUPERANNUATION TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182954,
+    "name": "WESTFUND LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182996,
+    "name": "PEPPER MONEY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183000,
+    "name": "RESIMAC GROUP LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183053,
+    "name": "HDI GLOBAL SE",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183089,
+    "name": "Peet Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183102,
+    "name": "MEMBERS EQUITY BANK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183309,
+    "name": "COG FINANCIAL SERVICES LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183474,
+    "name": "AUB GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183856,
+    "name": "BNK BANKING CORPORATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183880,
+    "name": "MONEY3 CORPORATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8183963,
+    "name": "MEDICAL INDEMNITY PROTECTION SOCIETY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184078,
+    "name": "The Trustee for Health Employees Superannuation Trust Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184113,
+    "name": "SUNLAND GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184259,
+    "name": "STRIPE PAYMENTS AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184278,
+    "name": "T W U NOMINEES PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184318,
+    "name": "RP DATA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184400,
+    "name": "THE HOSPITALS CONTRIBUTION FUND OF AUSTRALIA LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184416,
+    "name": "LEWIS LAND HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184428,
+    "name": "GALLAGHER BASSETT SERVICES PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184484,
+    "name": "MA FINANCIAL GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184576,
+    "name": "POLICE & NURSES LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184629,
+    "name": "THE TRUSTEE FOR ORBIS GLOBAL EQUITY FUND",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184828,
+    "name": "INDUSTRY SUPER HOLDINGS PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184885,
+    "name": "CENTREPOINT ALLIANCE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184925,
+    "name": "THE TRUSTEE FOR NESS SUPER",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184928,
+    "name": "The Trustee for Metrics Credit Partners Diversified Australian Senior Loan Fund",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185039,
+    "name": "SCS SUPER PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185063,
+    "name": "McMillan Shakespeare Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185093,
+    "name": "Australian Reinsurance Pool Corporation",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185124,
+    "name": "HUMM GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185285,
+    "name": "Western Union Financial Services",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185438,
+    "name": "ORIX AUSTRALIA CORPORATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185462,
+    "name": "HOST-PLUS PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185577,
+    "name": "DEFENCE HEALTH LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185653,
+    "name": "The Trustee for T ROWE PRICE GLOBAL EQUITY FUND",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185687,
+    "name": "ST. LUKE'S MEDICAL AND HOSPITAL BENEFITS ASSOCIATION",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185699,
+    "name": "PRIME SUPER PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185707,
+    "name": "LPI (AUSTRALIA) HOLDINGS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185735,
+    "name": "PSC INSURANCE GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185873,
+    "name": "WINGATE GROUP HOLDINGS PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185928,
+    "name": "BGIS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185956,
+    "name": "CLEARVIEW WEALTH LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186000,
+    "name": "NTI LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186092,
+    "name": "THE PHARMACY GUILD OF AUSTRALIA",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186152,
+    "name": "POSTSUPER PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186164,
+    "name": "NOBLEOAK LIFE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186243,
+    "name": "The Trustee for BUILDING UNIONS SUPERANNUATION SCHEME QLD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186254,
+    "name": "STELLA MMTS FINANCE PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186346,
+    "name": "TEACHERS FEDERATION HEALTH LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186362,
+    "name": "Police Health Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186429,
+    "name": "SUMMIT AUTO LEASE AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186457,
+    "name": "HUB24 LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186525,
+    "name": "GREATER BANK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186657,
+    "name": "CEDAR PACIFIC INVESTMENT MANAGEMENT PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186748,
+    "name": "DAIWA HOUSE AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186862,
+    "name": "PACIFIC LIFE RE (AUSTRALIA) PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186888,
+    "name": "ANZ STAFF SUPERANNUATION (AUSTRALIA) PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186912,
+    "name": "IMB LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186974,
+    "name": "RAILWAY & TRANSPORT HEALTH FUND LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187138,
+    "name": "PEOPLECARE HEALTH LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187142,
+    "name": "CUSCAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187213,
+    "name": "RACT INSURANCE PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187229,
+    "name": "NEWCASTLE PERMANENT BUILDING SOCIETY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187383,
+    "name": "GMHBA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187439,
+    "name": "THE LAW SOCIETY OF NEW SOUTH WALES",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210255,
+    "name": "EMPLOYERS MUTUAL LIMITED & THE TRUSTEE FOR ASWIG MANAGEMENT TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210258,
+    "name": "DEXUS FUNDS MANAGEMENT LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210330,
+    "name": "CAPRICORN SOCIETY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210384,
+    "name": "The Trustee for FIRST STATE SUPER PRIVATE EQUITY TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210441,
+    "name": "Shimano Office Trust",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210448,
+    "name": "WAM CAPITAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210535,
+    "name": "RETAIL EMPLOYEES SUPERANNUATION PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210840,
+    "name": "WAM ACTIVE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8210986,
+    "name": "E&P FINANCIAL GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211486,
+    "name": "KUBOTA TRACTOR AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211567,
+    "name": "The Trustee for NGS SUPER",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211634,
+    "name": "COMMONWEALTH BANK OFFICERS SUPERANNUATION CORPORATION PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211654,
+    "name": "WAM GLOBAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211677,
+    "name": "QUEENSLAND COUNTRY BANK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8211952,
+    "name": "TELSTRA SUPER PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212105,
+    "name": "VICINITY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212313,
+    "name": "EXPORT FINANCE AUSTRALIA",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212356,
+    "name": "STEADFAST GROUP LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8216825,
+    "name": "INDIGENOUS BUSINESS AUSTRALIA",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8216873,
+    "name": "LENDLEASE CORPORATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8217156,
+    "name": "COLLECTION HOUSE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8217279,
+    "name": "AMERICAN EXPRESS AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219347,
+    "name": "RENAISSANCERE EUROPE AG",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 8219387,
+    "name": "RGA REINSURANCE COMPANY OF AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219531,
+    "name": "ASURION AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219546,
+    "name": "MORGAN STANLEY WEALTH MANAGEMENT AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219589,
+    "name": "De Lage Landen Pty Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219596,
+    "name": "STATE STREET AUSTRALIA LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219664,
+    "name": "ING BANK (AUSTRALIA) LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219676,
+    "name": "China Construction Bank Corporation",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219728,
+    "name": "GLOBAL PAYMENTS AUSTRALIA 1 PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219736,
+    "name": "MEGA INTERNATIONAL COMMERCIAL BANK CO., LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219819,
+    "name": "GMO AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219823,
+    "name": "WYNDHAM DESTINATIONS ASIA PACIFIC PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219867,
+    "name": "TT CLUB MUTUAL INSURANCE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219949,
+    "name": "MORGAN STANLEY AUSTRALIA SECURITIES (NOMINEE) PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220186,
+    "name": "DBS BANK LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220214,
+    "name": "UBS AG",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220231,
+    "name": "FACTORY MUTUAL INSURANCE COMPANY",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220290,
+    "name": "MITSUI SUMITOMO INSURANCE COMPANY, LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220520,
+    "name": "HUA NAN COMMERCIAL BANK LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220536,
+    "name": "BRAVURA SOLUTIONS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220562,
+    "name": "Morgan Stanley Australia Securities Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220574,
+    "name": "ADYEN AUSTRALIA PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220593,
+    "name": "UNITED OVERSEAS BANK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220617,
+    "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220637,
+    "name": "AON CORPORATION AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220735,
+    "name": "LIBERTY MUTUAL INSURANCE COMPANY",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220755,
+    "name": "BHCA1 PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220782,
+    "name": "The Northern Trust Company",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220858,
+    "name": "ESR REAL ESTATE (AUSTRALIA) PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220989,
+    "name": "MFS INTERNATIONAL AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221025,
+    "name": "THE TRUSTEE FOR MFS GLOBAL EQUITY TRUST",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221028,
+    "name": "ABN AMRO BANK N.V.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221095,
+    "name": "MERCEDES-BENZ FINANCIAL SERVICES AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221162,
+    "name": "MORGAN STANLEY (AUSTRALIA) SECURITIES HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221386,
+    "name": "MIZUHO BANK, LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221551,
+    "name": "CARDTRONICS AUSTRALASIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221578,
+    "name": "HANNOVER RUECK SE",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221613,
+    "name": "H & R BLOCK LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221644,
+    "name": "EFN (AUSTRALIA) PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221702,
+    "name": "AIG AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221729,
+    "name": "Bow Lane Nominees Pty. Ltd.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221803,
+    "name": "TRANSATLANTIC REINSURANCE COMPANY",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221852,
+    "name": "WILLIS TOWERS WATSON AUSTRALIA HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8221887,
+    "name": "CMC MARKETS GROUP AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8226821,
+    "name": "LAZARD ASSET MANAGEMENT PACIFIC CO.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8229145,
+    "name": "THE TRUSTEE FOR AUSTRALIAN PRIME PROPERTY FUND COMMERCIAL",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8229181,
+    "name": "LEASEPLAN AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8229223,
+    "name": "HDI GLOBAL SPECIALTY SE",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8229379,
+    "name": "EMPLOYERS MUTUAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8229387,
+    "name": "Morgan Stanley Australia Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8252584,
+    "name": "SEDGWICK INTERNATIONAL UK",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252796,
+    "name": "MOUNTVIEW ESTATES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252800,
+    "name": "XEROX (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252824,
+    "name": "ST. MODWEN PROPERTIES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253104,
+    "name": "XEROX LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253196,
+    "name": "SIEMENS FINANCIAL SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253216,
+    "name": "CBRE GWS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253332,
+    "name": "TTT MONEYCORP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253564,
+    "name": "AMWINS GLOBAL RISKS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253604,
+    "name": "SUN LIFE ASSURANCE COMPANY OF CANADA (U.K.) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253731,
+    "name": "BANK OF AMERICA MERRILL LYNCH INTERNATIONAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253760,
+    "name": "PSA FINANCE UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253764,
+    "name": "PGIM FINANCIAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254018,
+    "name": "JONES LANG LASALLE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254070,
+    "name": "GULF INTERNATIONAL BANK (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254150,
+    "name": "BMW FINANCIAL SERVICES (GB) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254190,
+    "name": "MUNICH RE SYNDICATE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254408,
+    "name": "AMWINS GLOBAL RISKS GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254604,
+    "name": "HERMES FUND MANAGERS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254748,
+    "name": "CBRE MANAGED SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254764,
+    "name": "R.J. O'BRIEN LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254852,
+    "name": "MARUBENI EUROPE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254940,
+    "name": "JEFFERIES INTERNATIONAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255104,
+    "name": "ICBC STANDARD BANK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255224,
+    "name": "FAMILY EQUITY PLAN LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255248,
+    "name": "BLACKROCK LIFE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255356,
+    "name": "D & B EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255808,
+    "name": "PIMCO EUROPE LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256024,
+    "name": "NATIONAL BANK OF EGYPT (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256072,
+    "name": "ASSET ADVANTAGE GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256372,
+    "name": "HT DRINKS HOLDINGS LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256516,
+    "name": "PRIMARY HEALTH PROPERTIES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256728,
+    "name": "HARGREAVE HALE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256884,
+    "name": "CARCO GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256928,
+    "name": "ALPHABET (GB) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257108,
+    "name": "CLS UK INTERMEDIATE HOLDINGS LTD.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257328,
+    "name": "GAP PERSONNEL HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257408,
+    "name": "SCULPTOR CAPITAL MANAGEMENT EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257636,
+    "name": "CAPITAL ONE (EUROPE) PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257768,
+    "name": "XBRIDGE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257896,
+    "name": "SPICERHAART GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257960,
+    "name": "CLS SERVICES LTD.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258068,
+    "name": "INCOMMUNITIES GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258096,
+    "name": "SANCTUARY CARE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258388,
+    "name": "MITSUI BUSSAN COMMODITIES LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258564,
+    "name": "ICBC (LONDON) PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258680,
+    "name": "SMBC BANK INTERNATIONAL PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258884,
+    "name": "UBT (EU) LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259084,
+    "name": "NORTHERN GAS NETWORKS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259200,
+    "name": "RO TRADING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259244,
+    "name": "XL CATLIN INSURANCE COMPANY UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259268,
+    "name": "ACTIVTRADES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259388,
+    "name": "ALLIANZ ENGINEERING INSPECTION SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259456,
+    "name": "AMP CAPITAL INVESTORS (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259584,
+    "name": "INVESTCORP CREDIT MANAGEMENT EU LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259840,
+    "name": "EVERYDAY LENDING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259888,
+    "name": "CORPACQ LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259944,
+    "name": "AETNA INSURANCE COMPANY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8259988,
+    "name": "PERMIRA ADVISERS (LONDON) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8260036,
+    "name": "ATRIUM GROUP SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8260848,
+    "name": "RENAISSANCERE CORPORATE CAPITAL (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8260924,
+    "name": "FUNDING CIRCLE LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8260932,
+    "name": "UMBRELLA-COMPANY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261044,
+    "name": "EQUINITI GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261580,
+    "name": "TAURUS ACQUISITION LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261592,
+    "name": "ASSET ALLIANCE GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261700,
+    "name": "STOFORD PROPERTIES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261884,
+    "name": "SUCCESSION HOLDINGS LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261904,
+    "name": "CNH INDUSTRIAL CAPITAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8262348,
+    "name": "TILNEY SMITH & WILLIAMSON LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8262760,
+    "name": "ASSURA PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263160,
+    "name": "THE LEADERS ROMANS GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263368,
+    "name": "NEWBEGIN HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264232,
+    "name": "MARATHON ASSET MANAGEMENT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264644,
+    "name": "SWAN HOUSING ASSOCIATION LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264648,
+    "name": "MIDLAND HEART LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264888,
+    "name": "PRESTIGE INSURANCE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264940,
+    "name": "FARALLON CAPITAL EUROPE LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265008,
+    "name": "THA%0LA^ME PARTNERS LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265020,
+    "name": "H2O AM LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265040,
+    "name": "EQUISTONE LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265064,
+    "name": "TRITON INVESTMENTS ADVISERS LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265080,
+    "name": "TRUE POTENTIAL LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265088,
+    "name": "THB PARTNERS LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265176,
+    "name": "NORTHERN BANK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265292,
+    "name": "FIRST SENTIER INVESTORS INTERNATIONAL IM LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8265349,
+    "name": "AEGON ASSET MANAGEMENT UK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265457,
+    "name": "TESCO PERSONAL FINANCE GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265800,
+    "name": "NON-STANDARD FINANCE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8395186,
+    "name": "PERPETUAL LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8419235,
+    "name": "FRED. DESSEN & CO., LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8419511,
+    "name": "3I PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8419799,
+    "name": "NORTH OF ENGLAND PROTECTING AND INDEMNITY ASSOCIATION LIMITED(THE)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8420987,
+    "name": "BARCLAYS BANK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8421375,
+    "name": "MIZUHO INTERNATIONAL PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8421795,
+    "name": "LEASEPLAN UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422375,
+    "name": "HITACHI CAPITAL (UK) PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8423606,
+    "name": "THE LONDON METAL EXCHANGE",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8423634,
+    "name": "MARKERSTUDY INSURANCE SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8424118,
+    "name": "PRUDENTIAL SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8424510,
+    "name": "SMBC NIKKO CAPITAL MARKETS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8424806,
+    "name": "STATE STREET GLOBAL ADVISORS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8424958,
+    "name": "PENINSULA BUSINESS SERVICES GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8425242,
+    "name": "BROKERTEC EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8426268,
+    "name": "AXA UK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8426868,
+    "name": "AXA PPP HEALTHCARE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8427804,
+    "name": "PEARL GROUP HOLDINGS (NO. 1) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8427828,
+    "name": "CBRE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8427944,
+    "name": "SOCIETE GENERALE EQUIPMENT FINANCE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428332,
+    "name": "PLACES FOR PEOPLE GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428744,
+    "name": "FINANCIAL SERVICES COMPENSATION SCHEME LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428928,
+    "name": "INTELLIGENT PROCESSING SOLUTIONS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428948,
+    "name": "WALSALL HOUSING GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8429608,
+    "name": "TALBOT 2002 UNDERWRITING CAPITAL LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8429736,
+    "name": "LEGAL & GENERAL INVESTMENT MANAGEMENT (HOLDINGS) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8430586,
+    "name": "SAFESTORE HOLDINGS PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8431000,
+    "name": "ADVANCED PAYMENT SOLUTIONS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8431208,
+    "name": "MORRIS & COMPANY (SHREWSBURY) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8435987,
+    "name": "BLACKHAWK NETWORK (EUROPE) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8436011,
+    "name": "CAMBRIDGE & COUNTIES BANK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8439098,
+    "name": "PETER WADDELL HOLDCO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8441286,
+    "name": "FIRST COMMERCIAL BANK",
+    "headquarters": "Taiwan"
+  },
+  {
+    "id": 8441724,
+    "name": "AIB GROUP (UK) P.L.C.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8442124,
+    "name": "MOORE KINGSTON SMITH LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8442767,
+    "name": "BAILLIE GIFFORD OVERSEAS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8758937,
+    "name": "NATIONAL HOUSE-BUILDING COUNCIL",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8759137,
+    "name": "BRITISH UNITED PROVIDENT ASSOCIATION LIMITED(THE)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8759465,
+    "name": "THREADNEEDLE ASSET MANAGEMENT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8759617,
+    "name": "BANK LEUMI (U.K.) P.L.C.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8759773,
+    "name": "USAA LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8759993,
+    "name": "ROBERT W. BAIRD GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8760314,
+    "name": "ALD AUTOMOTIVE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8760339,
+    "name": "RBC EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8764960,
+    "name": "SUCDEN FINANCIAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8766048,
+    "name": "MUFG SECURITIES EMEA PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8766535,
+    "name": "DOMESTIC & GENERAL SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8766909,
+    "name": "PACIFIC LIFE RE SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767420,
+    "name": "WESTERN UNION RETAIL SERVICES GB LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767464,
+    "name": "TOKIO MARINE HCC INSURANCE HOLDINGS (INTERNATIONAL) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767952,
+    "name": "LAMBERT SMITH HAMPTON GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767960,
+    "name": "SHINKIN INTERNATIONAL LTD.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8768089,
+    "name": "ALLIANCEBERNSTEIN LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8768277,
+    "name": "LENDLEASE EUROPE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8769924,
+    "name": "TENNECO MANAGEMENT (EUROPE) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8770121,
+    "name": "DAIWA CORPORATE ADVISORY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8770505,
+    "name": "CONNELLS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8770711,
+    "name": "BERKSHIRE HATHAWAY INTERNATIONAL INSURANCE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8770719,
+    "name": "BISL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8772878,
+    "name": "PAYPOINT PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8773748,
+    "name": "NATIXIS INVESTMENT MANAGERS UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8774027,
+    "name": "STIFEL NICOLAUS EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8774789,
+    "name": "OPENWORK HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8775960,
+    "name": "LAZARD & CO., SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8776007,
+    "name": "E D & F MAN HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8778176,
+    "name": "HISCOX UNDERWRITING GROUP SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8779113,
+    "name": "POLAR CAPITAL HOLDINGS PLC.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8779191,
+    "name": "PRA GROUP (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8781822,
+    "name": "HCC UNDERWRITING AGENCY LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8783363,
+    "name": "NAMECO (NO.808) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8786176,
+    "name": "SMALL WORLD FINANCIAL SERVICES GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8787382,
+    "name": "ARDIAN INVESTMENT UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8788249,
+    "name": "ARES MANAGEMENT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8790598,
+    "name": "CBOE EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8790709,
+    "name": "PACIFIC LIFE RE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8791333,
+    "name": "TESCO UNDERWRITING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8791767,
+    "name": "VANGUARD ASSET SERVICES, LTD.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8794347,
+    "name": "UKLS ACQUISITIONS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8794725,
+    "name": "CROMWELL EUROPEAN HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8795098,
+    "name": "MOLTEN VENTURES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8798263,
+    "name": "HOUSTON CASUALTY COMPANY",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8798311,
+    "name": "HCC SERVICE COMPANY INC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8798470,
+    "name": "DNB BANK ASA",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8799217,
+    "name": "BUZZACOTT LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8799233,
+    "name": "MENZIES LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9734445,
+    "name": "CITIGROUP GLOBAL MARKETS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9737705,
+    "name": "PARATUS AMC LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9737784,
+    "name": "COMPUTERSHARE INVESTOR SERVICES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9742403,
+    "name": "ROTHESAY LIFE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9761270,
+    "name": "LINK MARKET SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10394206,
+    "name": "BRIGHTBAY REAL ESTATE PARTNERS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10397604,
+    "name": "Notting Hill Genesis",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10724086,
+    "name": "VTB CAPITAL PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10724193,
+    "name": "THE CO-OPERATIVE BANK P.L.C.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10724579,
+    "name": "MORGAN STANLEY BANK INTERNATIONAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10724929,
+    "name": "TSB BANK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10735024,
+    "name": "GREAT LAKES INSURANCE SE",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 10737205,
+    "name": "BANK OF AMERICA NATIONAL ASSOCIATION (UK Branch)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10883188,
+    "name": "CAPITA BUSINESS SERVICES LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 12566942,
+    "name": "Russell Investments",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 13249658,
+    "name": "Spirit Super",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 13291390,
+    "name": "VMED O2 UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13291688,
+    "name": "INDUSTRIAL AND COMMERCIAL BANK OF CHINA LIMITED LONDON BRANCH",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13291717,
+    "name": "CARDIF INSURANCE HOLDINGS PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13291994,
+    "name": "OAKTREE CAPITAL MANAGEMENT (UK) LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13292491,
+    "name": "RGA UK SERVICES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13293122,
+    "name": "PHOENIX GROUP HOLDINGS PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13293296,
+    "name": "MITSUBISHI UFJ TRUST INTERNATIONAL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13293583,
+    "name": "MARKERSTUDY GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13689752,
+    "name": "PRINCIPAL GLOBAL INVESTORS (EUROPE) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690468,
+    "name": "SCOTIABANK EUROPE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690908,
+    "name": "DAWSONGROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690952,
+    "name": "BRIT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690980,
+    "name": "MAXXIA LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13692736,
+    "name": "MANY GROUP LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13692888,
+    "name": "RECLAIM FUND LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13693288,
+    "name": "FORESIGHT GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13717211,
+    "name": "TIDE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13720563,
+    "name": "Waterland Private Equity Investments B.V.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13721652,
+    "name": "TOWER RESEARCH CAPITAL EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13745034,
+    "name": "CRAWFORD & COMPANY ADJUSTERS (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13747769,
+    "name": "BANK OF TAIWAN (UK BRANCH)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13751140,
+    "name": "CBRE INVESTMENT MANAGEMENT INDIRECT LIMITED",
+    "headquarters": "United Kingdom"
+  }
+]

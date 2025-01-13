@@ -1,0 +1,57 @@
+[
+  {
+    "seq": 1,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "label": "Worker remediation",
+    "short_label": "worker_remediation",
+    "color": 0,
+    "filter_value": [
+      "Worker remediation"
+    ]
+  },
+  {
+    "seq": 2,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "label": "Corrective action plan",
+    "short_label": "corrective_action_plan",
+    "color": 0,
+    "filter_value": [
+      "Corrective action plan"
+    ]
+  },
+  {
+    "seq": 3,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "label": "Senior management",
+    "short_label": "senior_management",
+    "color": 0,
+    "filter_value": [
+      "Senior management"
+    ]
+  },
+  {
+    "seq": 4,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "label": "Cancel contracts",
+    "short_label": "cancel_contracts",
+    "color": 0,
+    "filter_value": [
+      "Cancel contracts"
+    ]
+  },
+  {
+    "seq": 5,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "label": "None of the above",
+    "short_label": "none_of_the_above",
+    "color": 1,
+    "filter_value": [
+      "In Development","No"
+    ]
+  }
+]

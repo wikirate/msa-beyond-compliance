@@ -1,0 +1,316 @@
+[
+  {
+    "seq": 1,
+    "id": 1831852,
+    "metric": "Business_Human_Rights_Resource_Centre+MSA_statement_signed",
+    "question": "Was the company's Modern Slavery Act statement signed by an appropriate person?",
+    "label": "Signed by appropriate person",
+    "break_down_label": ["Signed by","appropriate person"],
+    "short_label": "signed",
+    "color": 0,
+    "filter_value": [
+      "Signed by CEO",
+      "Signed by Director",
+      "Signed by Managing Director",
+      "Signed by Chairman"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
+  },
+  {
+    "seq": 2,
+    "id": 1827915,
+    "metric": "Business_Human_Rights_Resource_Centre+MSA_Statement_Approval",
+    "question": "Was the company's Modern Slavery Act statement explicitly approved by the board of directors (or equivalent management body)?",
+    "label": "Board approval",
+    "break_down_label": ["Board approval"],
+    "short_label": "approved",
+    "color": 0,
+    "filter_value": [
+      "Approved by Board"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
+  },
+  {
+    "seq": 3,
+    "id": 12552057,
+    "metric": "Walk_Free+MSA_Statement_Publication",
+    "question": "Does the company either publish their statement on their homepage (UK) or provide the statement to the registry (Australia)?",
+    "label": "Statement publication",
+    "break_down_label": ["Statement publication"],
+    "short_label": "statement_publication",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-orange",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#FF5C45"
+  },
+  {
+    "seq": 4,
+    "id": 8772491,
+    "metric": "Walk_Free+MSA_Consultation_Process",
+    "question": "Does the statement describe consulting with any entities that it owns or controls?",
+    "label": "Consultation process",
+    "break_down_label": ["Consultation","process"],
+    "short_label": "consultation_process",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 5,
+    "id": 5454264,
+    "metric": "Walk_Free+MSA_Organizational_structure_and_operations",
+    "question": "Does the company disclose the ownership structures (or business models) of its brands, subsidiaries, and other businesses?",
+    "label": "Organizational structure and operations",
+    "break_down_label": ["Organizational structure","and operations"],
+    "short_label": "organizational_structure",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 6,
+    "id": 1831908,
+    "metric": "Walk_Free+MSA_supply_chain_disclosure",
+    "question": "Does the company's statement name the suppliers in their supply chain and/or the geographic regions where their supply chain operates?",
+    "label": "Supply chain disclosure",
+    "break_down_label": ["Supply chain","disclosure"],
+    "short_label": "supply_chain_disclosure",
+    "color": 0,
+    "filter_value": [
+      "Geographical",
+      "Facility/Supplier"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 7,
+    "id": 2722057,
+    "metric": "Walk Free+MSA policy (revised)",
+    "question": "Does the company's statement detail one or more specific, organisational policies or actions to combat slavery in their direct (tier 1) and/or in-direct (beyond tier 1) supply chain?",
+    "label": "Supply chain policies",
+    "break_down_label": ["Supply chain","policies"],
+    "short_label": "policies",
+    "color": 0,
+    "filter_value": [
+      "Suppliers comply with laws and company’s policies (direct / tier 1)",
+      "Suppliers comply with laws and company’s policies (beyond tier 1)",
+      "Prohibit use of forced labour (direct / tier 1)",
+      "Prohibit use of forced labour (beyond tier 1)",
+      "Code of conduct or supplier code includes clauses on slavery and human trafficking (direct / tier 1)",
+      "Code of conduct or supplier code includes clauses on slavery and human trafficking (beyond tier 1)",
+      "Contracts include clauses on forced labour (direct / tier 1)",
+      "Contracts include clauses on forced labour (beyond tier 1)",
+      "Suppliers produce their own statement (direct / tier 1)",
+      "Suppliers produce their own statement (beyond tier 1)",
+      "Prohibit charging of recruitment fees to employee (direct / tier 1)",
+      "Prohibit charging of recruitment fees to employee (beyond tier 1)",
+      "Prohibit use of child labour (direct / tier 1)",
+      "Prohibit use of child labour (beyond tier 1)",
+      "Suppliers protect migrant workers (direct / tier 1)",
+      "Suppliers protect migrant workers (beyond tier 1)",
+      "Suppliers respect labour rights (wages / freedom of association etc) (direct / tier 1)",
+      "Suppliers respect labour rights (wages / freedom of association etc) (beyond tier 1)"
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 8,
+    "id": 2722223,
+    "metric": "Walk_Free+MSA_risk_assessment",
+    "question": "How does the company assess the risks of modern slavery and trafficking in their supply chain?",
+    "label": "Risk assessment",
+    "break_down_label": ["Risk assessment"],
+    "short_label": "risk_assessment",
+    "color": 0,
+    "filter_value": [
+      "Risk-based questionnaires",
+      "Use of risk management tool or software",
+      "Conducting research"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 9,
+    "id": 1831932,
+    "metric": "Walk_Free+MSA_Identification_of_risks",
+    "question": "Does the compan's statement identify specific geographic regions (e.g. Indonesia), industries (e.g. agriculture), resources (e.g. Palm Oil) or types of workforce (e.g. migrant workers) where the risk of modern slavery is the greatest?",
+    "label": "Identification of risks",
+    "break_down_label": ["Identification","of risks"],
+    "short_label": "risk_identification",
+    "color": 0,
+    "filter_value": [
+      "Geographic",
+      "Resource",
+      "Workforce",
+      "Industry"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 10,
+    "id": 2722169,
+    "metric": "Walk_Free+MSA_risk_management",
+    "question": "Does the company continuously monitor suppliers to ensure that they comply with the company's policies and local laws?",
+    "label": "Risk management",
+    "break_down_label": ["Risk management"],
+    "short_label": "risk_management",
+    "color": 0,
+    "filter_value": [
+      "Audits of suppliers (self- reporting)",
+      "Audits of suppliers (independent)",
+      "On-site visits (self- reporting)",
+      "On-site visits (independent)"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 11,
+    "id": 2722458,
+    "metric": "Walk_Free+MSA_whistleblowing_mechanism_revised",
+    "question": "Does the company describe a grievance mechanism to facilitate whistle-blowing or the reporting of suspected incidents of slavery or trafficking?",
+    "label": "Whistleblowing mechanism",
+    "break_down_label": ["Whistleblowing mechanism"],
+    "short_label": "whistleblowing_mechanism",
+    "color": 0,
+    "filter_value": [
+      "Hotline, Email, Contact Form (direct employees)",
+      "Hotline, Email, Contact Form (supply chain workers)",
+      "Whistleblower protection (direct employees)",
+      "Whistleblower protection (supply chain workers)",
+      "Focal Point (direct employees)",
+      "Focal Point (supply chain workers)"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 12,
+    "id": 1831964,
+    "metric": "Walk Free+MSA incidents identified",
+    "question": "Did the company identify any specific incidents related to modern slavery that require(d) remediation?",
+    "label": "Incidents identification",
+    "break_down_label": ["Incidents", "identification"],
+    "short_label": "incident_identification",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 13,
+    "id": 2722444,
+    "metric": "Walk_Free+MSA_incidents_remediation_revised",
+    "question": "In the modern slavery statement, does the company explain one or more of the corrective steps it has taken (or would take) in response to modern slavery incidents in their operations and/or supply chain?",
+    "label": "Incidents remediation",
+    "break_down_label": ["Incidents", "remediation"],
+    "short_label": "incident_remediation",
+    "color": 0,
+    "filter_value": [
+      "Worker remediation",
+      "Corrective action plan",
+      "Senior management",
+      "Cancel contracts"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 14,
+    "id": 2722482,
+    "metric": "Walk_Free+MSA_training_revised",
+    "question": "Does the statement describe training for staff that is specifically geared towards detecting signs of slavery or trafficking?",
+    "label": "Modern slavery training",
+    "break_down_label": ["Modern slavery","training"],
+    "short_label": "training",
+    "color": 0,
+    "filter_value": [
+      "Employees (all)",
+      "Procurement / purchasing",
+      "Recruitment / HR",
+      "Leadership",
+      "Suppliers",
+      "Training provided - not specified to who"
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 15,
+    "id": 1832024,
+    "metric": "Walk_Free+MSA_Performance_Indicators",
+    "question": "Does the modern slavery statement define the performance indicators against which the company measures the effectiveness of its actions to combat slavery and trafficking? E.g. number of audits done, number of employee training provided",
+    "label": "Key performance indicators",
+    "break_down_label": ["Key performance","indicators"],
+    "short_label": "kpis",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-orange",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#FF5C45",
+    "uk_color_hex": "#000029"
+  },
+  {
+    "seq": 16,
+    "id": 1832012,
+    "metric": "Walk_Free+MSA_Business_Performance_Indicators",
+    "question": "Has the company reviewed business KPIs to ensure they are not increasing risk of modern slavery? (E.g. expansion to production countries that have a lot of migrant workers)",
+    "label": "Business performance indicators",
+    "break_down_label": ["Business", "performance", "indicators"],
+    "short_label": "business_kpis",
+    "color": 0,
+    "filter_value": [
+      "Yes"
+    ],
+    "aus_color": "bg-deep-blue",
+    "uk_color": "bg-deep-blue",
+    "aus_color_hex": "#000029",
+    "uk_color_hex": "#000029"
+  }
+]

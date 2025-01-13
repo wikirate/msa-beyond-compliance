@@ -1,0 +1,1012 @@
+[
+  {
+    "id": 48620,
+    "name": "Hilton Worldwide Holdings",
+    "headquarters": "Virginia (United States)"
+  },
+  {
+    "id": 48953,
+    "name": "Marriott International",
+    "headquarters": "Maryland (United States)"
+  },
+  {
+    "id": 49991,
+    "name": "Wyndham Worldwide",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 50164,
+    "name": "Whitbread",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 51009,
+    "name": "InterContinental Hotels Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 51298,
+    "name": "The Rezidor Hotel Group",
+    "headquarters": "Sweden"
+  },
+  {
+    "id": 2271516,
+    "name": "Hyatt Hotels Corporation",
+    "headquarters": "Illinois (United States)"
+  },
+  {
+    "id": 2796311,
+    "name": "Taj International Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3453178,
+    "name": "Greene King",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3453217,
+    "name": "J D Wetherspoon",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3619384,
+    "name": "TUI Group",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 4579926,
+    "name": "Jumeirah Hotels",
+    "headquarters": "Dubai (United Arab Emirates)"
+  },
+  {
+    "id": 5286130,
+    "name": "VUR Village Trading No 1 Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286255,
+    "name": "Strand Palace Hotel & Restaurants Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286270,
+    "name": "Soho House Holdings Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286399,
+    "name": "Shiva Hotels Group LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286414,
+    "name": "Rocco Forte Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286584,
+    "name": "Parkdean Resorts Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286659,
+    "name": "Morris Leisure Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5286863,
+    "name": "Mitchells & Butlers plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287007,
+    "name": "Meininger Holding GmbH",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 5287020,
+    "name": "Maybourne Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287058,
+    "name": "MacDonald Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287088,
+    "name": "Landmark Hotel London Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287199,
+    "name": "Jupiter Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287222,
+    "name": "Imperial London Hotels Group Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287295,
+    "name": "HPI UK Holding Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287314,
+    "name": "Hoburne Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287322,
+    "name": "Hapimag AG",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 5287333,
+    "name": "Hand Picked Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287338,
+    "name": "Grange Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287618,
+    "name": "The Goodwood Estate Company Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287823,
+    "name": "GLH Hotels Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287857,
+    "name": "Geronimo Inns Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287867,
+    "name": "English Lakes Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5287881,
+    "name": "Dorchester Hotel Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288105,
+    "name": "D&D London Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288117,
+    "name": "Daniel Thwaites plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288121,
+    "name": "Club La Costa Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288135,
+    "name": "Center Parcs Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288144,
+    "name": "Belmond Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288168,
+    "name": "Bannatyne Group Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5288201,
+    "name": "Alfa Leisureplex Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5294704,
+    "name": "Beds and Bars Group Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5294833,
+    "name": "PGL",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5294932,
+    "name": "RBH Hotels UK Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5294934,
+    "name": "SACO The Serviced Apartment Company Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5296366,
+    "name": "Hallmark Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5296371,
+    "name": "Merlin Entertainments PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5296379,
+    "name": "Shearings Leisure Group Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5304441,
+    "name": "RBH Hotel Management Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5306669,
+    "name": "Firmdale Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5306671,
+    "name": "Aprirose Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5403920,
+    "name": "Trust Inns",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5405965,
+    "name": "Accor UK Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406030,
+    "name": "The Savoy Hotel Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406044,
+    "name": "Apex Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406058,
+    "name": "Arora Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406071,
+    "name": "The Celtic Manor Resort",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406085,
+    "name": "Exclusive Hotels and Venues",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406098,
+    "name": "Fuller Smith and Turner plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406112,
+    "name": "Gleneagles Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406125,
+    "name": "Harbour Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406138,
+    "name": "Hastings Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406159,
+    "name": "Jurys Inns Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406173,
+    "name": "Great Eagle Hotels UK Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406187,
+    "name": "Marstons",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406201,
+    "name": "Millennium Copthorne Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406223,
+    "name": "Percy R Brend Sons Hoteliers Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406236,
+    "name": "Splendid Hospitality",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406249,
+    "name": "Travelodge Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406263,
+    "name": "Capital Hill Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406271,
+    "name": "Sir Richard Sutton Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406275,
+    "name": "Accor UK Business Leisure Hotels Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5406279,
+    "name": "Indian Hotel Company",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5410364,
+    "name": "Mandarin Oriental Hyde Park Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5449064,
+    "name": "Four Seasons Hotels",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5405947,
+    "name": "Awaze",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 49421,
+    "name": "EasyJet",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 50273,
+    "name": "Songbird Estates plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 57187,
+    "name": "Compass Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 58139,
+    "name": "TUI",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 170659,
+    "name": "Intercontinental Hotels Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2799632,
+    "name": "Brand Addition Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2855688,
+    "name": "Hertz europe limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2872491,
+    "name": "Enterprise Rent A Car UK Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081300,
+    "name": "McMullen & Sons Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152164,
+    "name": "BNP Paribas Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152865,
+    "name": "WCF Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152889,
+    "name": "WH Smith Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5672721,
+    "name": "Just Eat plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7321437,
+    "name": "East of England Co-operative Society Limited",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7321728,
+    "name": "Opodo Ltd",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252776,
+    "name": "HAULFRYN GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8252864,
+    "name": "A.E.S. ENGINEERING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253100,
+    "name": "ABBEYFIELD SOCIETY (THE)",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253240,
+    "name": "CHARLES STREET BUILDINGS (LEICESTER) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253620,
+    "name": "AWAZE VACATION RENTALS LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8253840,
+    "name": "PIZZA HUT (U.K.) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254504,
+    "name": "POURSHINS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254696,
+    "name": "CHARLIES STORES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254968,
+    "name": "HAYS TRAVEL LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255172,
+    "name": "TEMPLINE EMPLOYMENT AGENCY LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255544,
+    "name": "FLYING TRADE GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8255912,
+    "name": "FRED. OLSEN CRUISE LINES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256096,
+    "name": "AMSRIC HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257164,
+    "name": "JURYS HOTEL MANAGEMENT (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257176,
+    "name": "GATE GOURMET LONDON LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257180,
+    "name": "FARNBOROUGH AIRPORT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257328,
+    "name": "GAP PERSONNEL HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8257984,
+    "name": "SUPPLAIR UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258068,
+    "name": "INCOMMUNITIES GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258436,
+    "name": "WASABI CO. LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8258724,
+    "name": "ACCESS BOOKINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261136,
+    "name": "CPFC 2010 LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261448,
+    "name": "BREAD HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261676,
+    "name": "SHEL HOLDINGS EUROPE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261924,
+    "name": "FIVE GUYS JV LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8262080,
+    "name": "MANCHESTER AIRPORTS HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8262164,
+    "name": "TROIA (UK) RESTAURANTS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8263344,
+    "name": "HNVR TOPCO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264648,
+    "name": "MIDLAND HEART LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264860,
+    "name": "GOLF HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265208,
+    "name": "HILTON WORLDWIDE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422115,
+    "name": "DAVID LLOYD LEISURE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8442291,
+    "name": "ONE GP LLP",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8767669,
+    "name": "LUXURY LEISURE",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8769796,
+    "name": "FLIGHT CENTRE (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8772702,
+    "name": "INSPIRED GAMING (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8777137,
+    "name": "BOURNE LEISURE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8791419,
+    "name": "SECRET ESCAPES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8794920,
+    "name": "IGLUFASTNET LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9749687,
+    "name": "PARKWOOD LEISURE HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10737173,
+    "name": "CARNIVAL PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690188,
+    "name": "NOVOMATIC UK LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13690732,
+    "name": "JALUX INC. EUROPE BRANCH",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9269,
+    "name": "Marks and Spencer Group plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 58399,
+    "name": "Crown Resorts",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 3092937,
+    "name": "Co-operative Group Ltd.",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 5460932,
+    "name": "Saga plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7453561,
+    "name": "The Arnhem Land Progress Aboriginal Corporation",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172544,
+    "name": "LIFESTYLE COMMUNITIES LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8172919,
+    "name": "Ausco Holdings Pty Limited",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8174435,
+    "name": "MULAWA HOLDINGS PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175059,
+    "name": "WESTERN SUBURBS (N'CLE) LEAGUES CLUB LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8175206,
+    "name": "FLIGHT CENTRE TRAVEL GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178058,
+    "name": "TT-LINE COMPANY PTY. LTD.",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178171,
+    "name": "ANGLICAN COMMUNITY SERVICES",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178449,
+    "name": "INVOCARE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178572,
+    "name": "RSL LIFECARE LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178668,
+    "name": "REDCAPE HOTEL GROUP PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178712,
+    "name": "SGS AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178724,
+    "name": "MULPHA AUSTRALIA LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8178728,
+    "name": "ROYAL AUTOMOBILE CLUB OF VICTORIA (RACV) LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8179908,
+    "name": "KELSIAN GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8182623,
+    "name": "ARDENT LEISURE GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184404,
+    "name": "WEBJET LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184416,
+    "name": "LEWIS LAND HOLDINGS PTY LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8184662,
+    "name": "GOODSTART EARLY LEARNING LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8185245,
+    "name": "NATIONAL ROADS AND MOTORISTS' ASSOCIATION LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186220,
+    "name": "THE STAR ENTERTAINMENT GROUP LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186417,
+    "name": "AAPC LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186490,
+    "name": "GREGALA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8186568,
+    "name": "FITNESS AND LIFESTYLE GROUP BIDCO PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187257,
+    "name": "Victoria Amateur Turf Club",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8187566,
+    "name": "Tourism Australia",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8212170,
+    "name": "MELBOURNE CRICKET CLUB",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219652,
+    "name": "Carnival PLC (AUS Branch)",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219823,
+    "name": "WYNDHAM DESTINATIONS ASIA PACIFIC PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219843,
+    "name": "HERTZ AUSTRALIA PTY. LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8219989,
+    "name": "HEINEMANN AUSTRALIA PTY LTD",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8220680,
+    "name": "SUMMERSET GROUP HOLDINGS LIMITED",
+    "headquarters": "Australia"
+  },
+  {
+    "id": 8252392,
+    "name": "BIBBY MARINE LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254042,
+    "name": "CASIO ELECTRONICS CO. LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8254122,
+    "name": "COSTA LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8261328,
+    "name": "THE ENGLISH HERITAGE TRUST",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264228,
+    "name": "FARNBOROUGH AIRPORT BIDCO LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264624,
+    "name": "CATALYST HOUSING LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8265764,
+    "name": "TASTY PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422127,
+    "name": "GENTING CASINOS UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8422131,
+    "name": "GENTING UK PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428948,
+    "name": "WALSALL HOUSING GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8430438,
+    "name": "IN TOUCH GAMES LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8439392,
+    "name": "TRAVELOPIA GROUP HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8758444,
+    "name": "WHITBREAD GROUP PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8779141,
+    "name": "ENTERPRISE RENT-A-CAR EUROPEAN HOLDINGS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8784823,
+    "name": "DELAWARE NORTH COMPANIES (UK) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13292143,
+    "name": "HOSTMORE PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13292255,
+    "name": "YORK COTTAGE SPA LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13745415,
+    "name": "AIRBNB UK LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8256484,
+    "name": "PRODUCTION RESOURCE GROUP UK LTD",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8794433,
+    "name": "ACC AVIATION GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8795098,
+    "name": "MOLTEN VENTURES PLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8799645,
+    "name": "FORSYTHS LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 10397604,
+    "name": "Notting Hill Genesis",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3081246,
+    "name": "Grand Union Housing Group",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8264544,
+    "name": "HIC FIRST LLC",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8419050,
+    "name": "JOSEPH HOLT LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8428332,
+    "name": "PLACES FOR PEOPLE GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8431208,
+    "name": "MORRIS & COMPANY (SHREWSBURY) LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9750630,
+    "name": "HICP LIMITED",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 13751455,
+    "name": "BUZZ GROUP LIMITED",
+    "headquarters": "United Kingdom"
+  }
+]
