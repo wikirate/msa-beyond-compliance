@@ -20,14 +20,14 @@ export class IntroductorySectionComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataset_url = this.sector == 'all-sectors' ? 'https://wikirate.org/MSA_Beyond_Compliance_Research' : new WikirateUrlBuilder()
+    this.dataset_url = this.sector == 'all-sectors' ? 'https://wikirate.org/Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond' : new WikirateUrlBuilder()
         .setEndpoint('Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond')
         .addFilter(new Filter('company_group', this.company_group))
         .build()
     this.sectorProvider.getSector().subscribe(sector => {
       this.sector = sector;
       this.company_group = this.dataProvider.getCompanyGroup(sector)
-      this.dataset_url = sector == 'all-sectors' ? 'https://wikirate.org/MSA_Beyond_Compliance_Research' : new WikirateUrlBuilder()
+      this.dataset_url = sector == 'all-sectors' ? 'https://wikirate.org/Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond' : new WikirateUrlBuilder()
         .setEndpoint('Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond')
         .addFilter(new Filter('company_group', this.company_group))
         .build()
