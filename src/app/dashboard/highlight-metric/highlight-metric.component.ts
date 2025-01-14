@@ -6,8 +6,6 @@ import { ChartsService } from 'src/app/services/charts.service';
 import { DataProvider } from 'src/app/services/data.provider';
 import { SectorProvider } from 'src/app/services/sector.provider';
 import { forkJoin, map } from 'rxjs';
-// @ts-ignore
-import incidents_param from "../../../assets/charts-params/modern-slavery-incidents-identified.json";
 
 @Component({
   selector: 'highlight-metric',
@@ -24,6 +22,7 @@ export class HighlightMetricComponent implements OnInit {
   legislation: string = 'both'
   incidents_url: string = "#"
   companies_reporting_msi!: number
+  sample_size!: number;
 
   constructor(private dataProvider: DataProvider, private modalService: NgbModal,
     private route: ActivatedRoute, private sectorProvider: SectorProvider, private chartsService: ChartsService) {
@@ -140,15 +139,6 @@ export class HighlightMetricComponent implements OnInit {
           "labels": "left",
           "labeledValue": this.companies_reporting_msi
         })
-        for (var i = 0; i < accepted_values.length; i++) {
-          values.push({
-            "category": accepted_values[i] == 'Yes' ? 'Modern slavery' : accepted_values[i],
-            "stack": 2,
-            "sort": i + 1,
-            "labels": "right",
-            "gap": 10
-          })
-        }
 
         var data: any = {
           "Yes": 0,
@@ -159,20 +149,39 @@ export class HighlightMetricComponent implements OnInit {
           "Working conditions": 0,
           "Other incidents": 0
         }
+
         for (var i = 0; i < msa_incidents_response.length; i++) {
           var options = msa_incidents_response[i]['value'].split(", ")
           for (var option of options) {
             data[option] = data[option] + 1
           }
         }
-        for (var value of accepted_values) {
+        let sortedData = Object.fromEntries(Object.entries(data)
+          .filter(([key, value]) => value !== 0)
+          .sort((a: any, b: any) => a[1] - b[1]));
+
+        i = 0
+        for (const key in sortedData) {
+          values.push({
+            "category": key == 'Yes' ? 'Modern slavery' : key,
+            "stack": 2,
+            "sort": i + 1,
+            "labels": "right",
+            "gap": 0
+          })
+          i++;
+        }
+
+        for (const key in sortedData) {
           values.push({
             'source': "Companies reporting\nmodern slavery\nincidents",
-            'destination': value == 'Yes'? 'Modern slavery' : value,
-            'description': descriptions[value],
-            'value': Math.round(data[value] * 100 / msa_incidents_response.length)
+            'destination': key == 'Yes' ? 'Modern slavery' : key,
+            'description': descriptions[key],
+            'value': Math.round(data[key] * 100 / msa_incidents_response.length)
           })
         }
+        this.sample_size = assessed_response.length
+
         return {
           'incidents': Math.round((msa_incidents_response.length) * 100 / assessed_response.length),
           'values': values
@@ -182,11 +191,13 @@ export class HighlightMetricComponent implements OnInit {
         next: (results) => {
           this.incidents = results.incidents
 
-          this.chartsService.drawShankeyChart(            
-              '#incidents-chart', 
-              results.values,
-              { renderer: "svg",
-              actions: false}
+          this.chartsService.drawShankeyChart(
+            '#incidents-chart',
+            results.values,
+            {
+              renderer: "svg",
+              actions: false
+            }
           )
         },
         complete: () => {
