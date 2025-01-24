@@ -3,6 +3,7 @@ import { SectorProvider } from "../../services/sector.provider";
 import { DataProvider } from "../../services/data.provider";
 import { WikirateUrlBuilder } from 'src/app/utils/wikirate-url-builder';
 import { Filter } from 'src/app/models/filter.model';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'introductory-section',
@@ -16,10 +17,17 @@ export class IntroductorySectionComponent implements OnInit, AfterViewInit {
   page: string | null = 'dashboard';
   dataset_url: string = '';
 
-  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider, private cd: ChangeDetectorRef) {
+  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider, private cd: ChangeDetectorRef, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+          let sector = params.get('sector');
+          if (sector !== null) {
+            this.sector = sector
+          }
+          this.sectorProvider.getSector().next(sector);
+        })
     this.dataset_url = this.sector == 'all-sectors' ? 'https://wikirate.org/Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond' : new WikirateUrlBuilder()
         .setEndpoint('Corporate_Reporting_on_Modern_Slavery_A_Dataset_on_Compliance_and_Beyond')
         .addFilter(new Filter('company_group', this.company_group))

@@ -1,4 +1,4 @@
-<div class="intro">
+<div [class]="'intro-'+sector">
   <div class="col-md-6 bg-deep-blue-transparent p-5 ms-auto">
     <h1 class="title pt-5">Beyond Compliance</h1>
     <div class="row pb-5">
@@ -12,7 +12,7 @@
 
           Take Action</a>
         <a class="button transparent-button mt-md-0 mt-3"
-           href="{{''+dataset_url}}" target="_blank">
+           href="{{dataset_url}}" target="_blank">
            Download
           {{company_group === '' ? 'All' : 'Sector'}} Data</a>
       </div>

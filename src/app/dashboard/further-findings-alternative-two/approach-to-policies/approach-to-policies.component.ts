@@ -24,6 +24,7 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
   params = ''
 
   isLoading: boolean = true;
+  isDataLoaded: boolean = false;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService, private httpClient: HttpClient) {
   }
@@ -48,12 +49,15 @@ export class ApproachToPoliciesComponent implements OnInit, OnChanges {
     this.dataProvider.isDataLoaded$.subscribe((isLoaded) => {
       if (isLoaded) {
         this.updateData();
+        this.isDataLoaded = true;
       }
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.isDataLoaded){
       this.updateData();
+    }
   }
 
   updateData() {
