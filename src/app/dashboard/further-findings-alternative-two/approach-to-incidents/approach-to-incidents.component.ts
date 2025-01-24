@@ -23,6 +23,7 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
   params = ''
 
   isLoading: boolean = true;
+  isDataLoaded: boolean = false;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
   }
@@ -42,17 +43,19 @@ export class ApproachToIncidentsComponent implements OnInit, OnChanges {
       }
     });
 
-    // Subscribe to the isDataLoaded$ observable
+    // Subscribe to isDataLoaded$ to trigger updateData
     this.dataProvider.isDataLoaded$.subscribe((isLoaded) => {
       if (isLoaded) {
         this.updateData();
+        this.isDataLoaded = true;
       }
     });
-    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.updateData()
+    if (this.isDataLoaded){
+      this.updateData();
+    }
   }
 
   updateData() {

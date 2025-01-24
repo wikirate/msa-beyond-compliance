@@ -10,7 +10,7 @@ import { Filter } from "../../../models/filter.model";
   styleUrls: ['./approach-to-risks.component.scss']
 })
 export class ApproachToRisksComponent implements OnInit, OnChanges {
-  isLoading: boolean = true;
+  
   @Input()
   year!: number | string;
   @Input()
@@ -21,6 +21,9 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
   risk_assessment;
   company_group: string[] = [];
   params = ''
+
+  isLoading: boolean = true;
+  isDataLoaded: boolean = false;
 
   constructor(private dataProvider: DataProvider, private chartsService: ChartsService) {
   }
@@ -49,12 +52,15 @@ export class ApproachToRisksComponent implements OnInit, OnChanges {
     this.dataProvider.isDataLoaded$.subscribe((isLoaded) => {
       if (isLoaded) {
         this.updateData();
+        this.isDataLoaded = true;
       }
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.isDataLoaded){
       this.updateData();
+    }
   }
 
   updateData() {

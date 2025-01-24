@@ -708,29 +708,38 @@ footer .row {
 
 .filter-dropdown .sector-filter {
   border-radius: 0 !important;
-  background: $deep_blue !important;
+  background: $orange !important;
   border-radius: 2px !important;
-  border-color: $white;
+  border-color: $deep-blue;
   font-size: 0.8em !important;
   font-family: Rubik !important;
   font-weight: 700;
   text-transform: uppercase !important;
   display: inline-block !important;
-  color: $white !important;
+  color: $deep-blue !important;
   margin: 0.5em 0 !important;
 
 }
 
 .sector-filter:hover {
-  background: $white !important;
-  color: $deep_blue !important;
+  background: $deep-blue!important;
+  color: $orange !important;
+  border-color: $orange !important;
 }
 
 .sector-filter::after {
   content: "\f107" !important;
   font-family: FontAwesome !important;
   font-size: 1.1em;
-  color: $orange;
+  color: $deep_blue;
+  padding-left: 0.4em;
+}
+
+.sector-filter:hover::after{
+  content: "\f107" !important;
+  color: $orange !important;
+  font-family: FontAwesome !important;
+  font-size: 1.1em;
   padding-left: 0.4em;
 }
 
@@ -759,6 +768,11 @@ a.dropdown-item:focus {
 a.dropdown-item .count {
   padding-left: 1em !important;
 }
+
+a.dropdown-item:hover {
+  color: darken($orange, 10%) !important;
+}
+
 
 .filter-dropdown .reset-item-li {
   display: none !important;

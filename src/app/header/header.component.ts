@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SectorProvider} from "../services/sector.provider";
 import {DataProvider} from "../services/data.provider";
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'header-component',
@@ -8,20 +9,24 @@ import {DataProvider} from "../services/data.provider";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  selectedSector: string = "All Sectors"
+  selectedSector: string = "Choose your Sector"
   selectedSection: string = "dashboard"
   path: string | null = ""
   sectors = {}
   isMenuOpen = false
 
-  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider) {
+  constructor(private sectorProvider: SectorProvider, private dataProvider: DataProvider,  private route: ActivatedRoute) {
     this.sectors = dataProvider.sectors
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+              let sector = params.get('sector');
+              this.sectorProvider.getSector().next(sector);
+            })
     this.sectorProvider.getSector().subscribe(sector => {
       if (sector === "all-sectors" && sector !== this.selectedSector) {
-        this.selectedSector = "All Sectors"
+        this.selectedSector = "Choose your Sector"
       } else if (sector === "food-and-beverage" && sector !== this.selectedSector) {
         this.selectedSector = "Food & Beverage"
       } else if (sector === "garment-sector" && sector !== this.selectedSector) {
@@ -42,7 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onSelectSector(sector: string) {
-    this.selectedSector = sector;
+    this.selectedSector = sector == "All Sectors" ? "Choose your Sector" : sector
   }
 
   onSelectSection(section: string) {
