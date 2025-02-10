@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'dashboard/sector-disclosure-rates/:sector', component: DisclosureRatesComponent},
   {path: 'case-studies', component: CaseStudiesComponent},
   {path: 'subscribe', component: SubscribeComponent},
-  {path: 'about', component: AboutComponent},
+  {path: 'methods', component: AboutComponent},
   {path: '**', redirectTo: '/dashboard/all-sectors', pathMatch: 'full'}
 ];
 

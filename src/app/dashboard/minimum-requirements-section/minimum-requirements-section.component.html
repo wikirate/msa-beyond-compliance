@@ -35,8 +35,9 @@
     <div class="row mt-2 justify-items-center" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="p-3" [ngClass]="year >= '2020' || year =='' || year =='latest' ? 'col-md-6': 'col-md-12'">
         <div class="text-center">
-          <span class="h4">UK Act</span>
-          <i class="bi bi-exclamation-diamond-fill small superscript ms-1" [ngbTooltip]="uk_legislation_info"></i>
+          <span class="h4">UK Act<a [ngbTooltip]="uk_legislation_info"><i class="bi bi-info-lg superscript"></i></a></span>
+          
+
         </div>
         <div [ngClass]="uk_assessed > 0 ? 'show-element': 'hide-element'">
           <div class="row text-center pt-4">
