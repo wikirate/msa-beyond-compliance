@@ -112,7 +112,7 @@ export class ChartsService {
     donut["data"][0]["values"] = values
     donut["width"] = width
     donut["scales"][0]["range"] = colors
-    donut["scales"][0]["domain"] = domain
+    // donut["scales"][0]["domain"] = domain
 
     return embed(element, donut, options).then(result => this.addListenerOnChartClick(result));
   }

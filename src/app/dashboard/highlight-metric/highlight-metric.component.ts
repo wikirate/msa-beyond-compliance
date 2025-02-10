@@ -45,6 +45,17 @@ export class HighlightMetricComponent implements OnInit {
     return (this.dataProvider.sectors as any)[this.sector]
   }
 
+  getCategory(text: string){
+    switch (text) {
+      case "Yes":
+        return "Modern Slavery";
+      case "Working Hours":
+        return "Excessive hours"
+      default: 
+        return text;
+    }
+  }
+
   updateData($event: any) {
     this.isLoading = true;
 
@@ -110,7 +121,7 @@ export class HighlightMetricComponent implements OnInit {
 
 
     const descriptions: any = {
-      "Yes": "Cases that companies qualified as forced or child labour",
+      "Yes": "Cases that companies have self-reported finding \"Modern Slavery\" or specifically noted finding forced or child labour",
       "Recruitment fees": "Cases of workers paying recruitment or other fees",
       "Freedom of movement": "Restrictions on freedom of movement workers (e.g. withholding of passports)",
       "Wages and benefits": "Issues related to wages (underpayment, salary below minimum wages)",
@@ -163,7 +174,7 @@ export class HighlightMetricComponent implements OnInit {
         i = 0
         for (const key in sortedData) {
           values.push({
-            "category": key == 'Yes' ? 'Modern slavery' : key,
+            "category": this.getCategory(key),
             "stack": 2,
             "sort": i + 1,
             "labels": "right",
@@ -175,7 +186,7 @@ export class HighlightMetricComponent implements OnInit {
         for (const key in sortedData) {
           values.push({
             'source': "Companies reporting\nmodern slavery\nincidents",
-            'destination': key == 'Yes' ? 'Modern slavery' : key,
+            'destination': this.getCategory(key),
             'description': descriptions[key],
             'value': Math.round(data[key] * 100 / msa_incidents_response.length)
           })

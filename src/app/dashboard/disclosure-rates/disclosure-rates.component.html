@@ -35,69 +35,13 @@
     <!--  <hr class="deep-blue no-margin">-->
     <div class="disclosure-rates" [ngClass]="!isLoading ? 'show-element': 'hide-element'">
       <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2 text-center p-5">
+        <div *ngFor="let donut of donutData" class="col-lg-4 col-md-6 mt-lg-0 mt-2 text-center p-5">
           <div class="row justify-content-center">
             <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-food-bev" class="chart-wrapper">
-              </div>
+              <div [id]="donut.id" class="chart-wrapper"></div>
             </div>
             <div class="col-12">
-              <h6 class="pb-3 pt-1">Food & Beverage</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-lg-0 mt-2 text-center p-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-garment" class="chart-wrapper">
-              </div>
-            </div>
-            <div class="col-12">
-              <h6 class="pb-3 pt-1">Garment</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 text-center p-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-finance" class="chart-wrapper">
-              </div>
-            </div>
-            <div class="col-12">
-              <h6 class="pb-3 pt-1">Finance</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-hospitality" class="chart-wrapper">
-              </div>
-            </div>
-            <div class="col-12">
-              <h6 class="pb-3 pt-1">(Renewable) Energy</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-energy" class="chart-wrapper">
-              </div>
-            </div>
-            <div class="col-12">
-              <h6 class="pb-3 pt-1">Hospitality</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mt-md-2 mt-lg-0 mt-2 pt-lg-2 text-center p-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-10">
-              <div id="semi-donut-disclosure-rates-electronics" class="chart-wrapper">
-              </div>
-            </div>
-            <div class="col-12">
-              <h6 class="pb-3 pt-1">Electronics</h6>
+              <h6 class="pb-3 pt-1">{{ donut.label }}</h6>
             </div>
           </div>
         </div>

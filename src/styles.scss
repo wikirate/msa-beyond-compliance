@@ -684,7 +684,8 @@ footer .logo-center {
 
 footer img {
   max-width: 100% !important;
-  max-height: 70px !important;
+  height: 70px !important;
+  object-fit: contain;
 }
 
 footer .row {

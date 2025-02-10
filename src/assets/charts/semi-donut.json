@@ -65,12 +65,9 @@
     "scales": [    
       {
         "name": "color",
-        "type": "ordinal",
-        "range": [
-          "#fafafa",
-          "#FF9300"
-        ],
-        "domain": [1,2]
+        "type": "linear",
+        "domain": [0, 100], 
+        "range": ["#FFEE99", "#FF6338"] 
       }
     ],
     "marks": [
@@ -79,7 +76,9 @@
         "from": {"data": "table"},
         "encode": {
           "enter": {
-            "fill": {"scale": "color", "field": "id"},
+            "fill": {
+            "signal": "datum.id === 'Covered' ? scale('color', datum.percent) : '#E5E5EA'"
+            },
             "x": {"signal": "width / 2"},
             "y": {"signal": "height / 2"},
             "startAngle": {"signal": "datum.startAngle"},

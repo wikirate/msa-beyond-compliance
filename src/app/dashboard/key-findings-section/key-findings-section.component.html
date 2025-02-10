@@ -57,10 +57,9 @@
               <div class="msa-secondary-info mb-2">
                 Companies are failing to effectively meet their reporting obligations
               </div>
-              <p><b>{{100 - meetsMinRequirements | percentageFormat}}</b> of statements do not meet all <a
-                  class="tooltip-term" type="button"
-                  [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'">minimum
-                  requirements</a> of the corresponding MSA legislation.</p>
+              <p><b>{{100 - meetsMinRequirements | percentageFormat}}</b> of statements do not meet all minimum
+                  requirements<a class="tooltip-term" type="button"
+                  [ngbTooltip]="'Disclosure requirements which companies must comply with under the Act.'"><i class="bi bi-info-lg superscript"></i></a> of the corresponding MSA legislation.</p>
             </div>
           </div>
         </div>
