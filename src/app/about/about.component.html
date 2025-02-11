@@ -1,6 +1,7 @@
 <div class="container mt-4 mb-4">
   <h1 class="pt-4 pb-4">About</h1>
-  <p class="intro pb-4 col-lg-10 col-md-12">This dashboard shines a light on business reporting under modern slavery legislation. Only with
+  <p class="intro pb-4 col-lg-10 col-md-12">This dashboard shines a light on business reporting under modern slavery
+    legislation. Only with
     transparency can we
     understand how legislation is affecting business practice, hold non-compliance to account and improve industry
     standards. Promoting respect for human rights and labour standards is crucial to build a more sustainable and
@@ -11,22 +12,21 @@
     <div class="col-lg-12 p-3 pt-4 pb-4">
       <h3 class="mb-3">Sector Focus</h3>
       <p class="col-lg-10 col-md-12">
-        Over the years Walk Free has analysed and published subsets of the data collected through the Modern Slavery
-        Act Research project on Wikirate. Since 2019 these case studies have had a sector specific focus, which so
-        far have included:
+        Since 2016, Walk Free and WikiRate have collaborated to analyse corporate compliance with Modern Slavery Acts
+        through assessment of company statements. Our sector-specific analyses have provided detailed insights into
+        modern slavery reporting practices across different industries, examining unique risks, trends, and gaps in
+        responses. These reports have covered:
       </p>
     </div>
   </div>
   <app-slider>
-    <div appSliderItem  *ngFor="let report of reports">
+    <div appSliderItem *ngFor="let report of reports">
       <div class="card m-2" style="width: 18rem;">
         <img src="{{report['image']}}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{report['title']}}</h5>
           <p class="card-text">{{report['description']}}</p>
-          <a class="button orange-navy-button mt-3 me-2"
-              href="{{report['href']}}"
-              target="_blank">Read more</a>
+          <a class="button orange-navy-button mt-3 me-2" href="{{report['href']}}" target="_blank">Read more</a>
         </div>
       </div>
     </div>
@@ -95,7 +95,8 @@
           UK Act,
           the partnership developed a <b>set of 18 standardised metrics</b> to assess the content of the statements.
         </p>
-        <p class="col-lg-10 col-md-12">In 2024, <b>3 spotlight metrics</b> were designed to capture additional aspects of due diligence. The
+        <p class="col-lg-10 col-md-12">In 2024, <b>3 spotlight metrics</b> were designed to capture additional aspects
+          of due diligence. The
           following overview
           shows how both the UK and Australian legislation guidance and requirements map to the projects' standardised
           metrics.
@@ -183,12 +184,14 @@
       <div class="col-md-8 p-3">
         <h3 class="mb-3">Collaborative Research</h3>
         <div class="content">
-          <p>On <a href="https://wikirate.org" target="_blank">wikirate.org</a> anyone interested can take part in research efforts that gather data about the
+          <p>On <a href="https://wikirate.org" target="_blank">wikirate.org</a> anyone interested can take part in
+            research efforts that gather data about the
             actions and impacts of companies on people and planet. The data displayed in this dashboard is collected
             through the Modern Slavery Act research project. It is organised by Walk Free and Wikirate but the research
             is conducted by a much broader community of passionate researchers including volunteers, University
             students, and experts from around the world. As the research is ongoing, this is a dynamic dashboard that
-            updates as and when new data is contributed to <a href="https://wikirate.org" target="_blank">wikirate.org</a>.</p>
+            updates as and when new data is contributed to <a href="https://wikirate.org"
+              target="_blank">wikirate.org</a>.</p>
           <p><i>The data feeding into this dashboard includes raw assessment from our team of student volunteers. The
               data used in our research publications undergoes an additional layer of quality assurance.</i></p>
         </div>
