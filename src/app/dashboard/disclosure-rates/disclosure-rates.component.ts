@@ -85,7 +85,7 @@ export class DisclosureRatesComponent implements OnInit {
       }));
 
       // Sort by percentage in descending order
-      this.donutData.sort((a, b) => b.percentage - a.percentage);
+      this.donutData.sort((a, b) => a.percentage - b.percentage);
 
       this.isLoading = false;
     });
