@@ -48,7 +48,7 @@ export class HighlightMetricComponent implements OnInit {
   getCategory(text: string){
     switch (text) {
       case "Yes":
-        return "Modern Slavery";
+        return "Modern slavery";
       case "Working Hours":
         return "Excessive hours"
       default: 
@@ -121,7 +121,7 @@ export class HighlightMetricComponent implements OnInit {
 
 
     const descriptions: any = {
-      "Yes": "Cases that companies have self-reported finding \"Modern Slavery\" or specifically noted finding forced or child labour",
+      "Yes": "Cases that companies have self-reported finding \"Modern slavery\" or specifically noted finding forced or child labour",
       "Recruitment fees": "Cases of workers paying recruitment or other fees",
       "Freedom of movement": "Restrictions on freedom of movement workers (e.g. withholding of passports)",
       "Wages and benefits": "Issues related to wages (underpayment, salary below minimum wages)",
