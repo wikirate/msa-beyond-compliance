@@ -116,7 +116,7 @@ export class MinimumRequirementsSectionComponent implements OnInit {
           'sum_count': assessed,
           'wikirate_page': wikirate_url
         }],
-        210, 180, ["#000029", "#FF5C45"],
+        210, 180, ["#FF5C45", "#000029"],
         ["Not Met", "Met"], { renderer: "svg", actions: false })
       this.isLoading = false
     })
