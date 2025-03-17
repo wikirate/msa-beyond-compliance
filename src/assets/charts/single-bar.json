@@ -19,9 +19,7 @@
         "red": "#FE0000",
         "blue": "#7EB2E2",
         "navy": "#000029",
-        "yellow": "#FFCB2B",
-        "teal": "#8adbd3",
-        "grey": "#4c5b66"
+        "yellow": "#FFCB2B"
       }
     },
     {
@@ -162,7 +160,7 @@
             "signal": "barHeight"
           },
           "fill": {
-            "signal": "colors.orange"
+            "signal": "colors.navy"
           },
           "tooltip": {
             "field": "count_label"
@@ -203,7 +201,7 @@
             "signal": "barHeight"
           },
           "fill": {
-            "signal": "colors.navy"
+            "signal": "colors.orange"
           },
           "tooltip": {
             "field": "count_label"
