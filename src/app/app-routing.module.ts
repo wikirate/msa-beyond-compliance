@@ -13,6 +13,8 @@ import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
 import { CaseStudiesComponent } from './case-studies/case-studies.component';
 import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-compliance/going-beyond-compliance.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { ImpressumComponent } from './impressum/impressum.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path: 'case-studies', component: CaseStudiesComponent},
   {path: 'subscribe', component: SubscribeComponent},
   {path: 'methods', component: AboutComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'impressum', component: ImpressumComponent},
   {path: '**', redirectTo: '/dashboard/all-sectors', pathMatch: 'full'}
 ];
 

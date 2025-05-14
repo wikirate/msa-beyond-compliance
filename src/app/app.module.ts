@@ -32,7 +32,6 @@ import { SectionComponent } from './section/section.component';
 import { ExportAsModule } from "ngx-export-as";
 import { ClipboardModule } from "ngx-clipboard";
 import { SubscribeComponent } from './subscribe/subscribe.component';
-import { NgcCookieConsentConfig, NgcCookieConsentModule } from "ngx-cookieconsent";
 import { SpotlightMetricsComponent } from './dashboard/spotlight-metrics/spotlight-metrics.component';
 import { BeyondComplianceComponent } from './dashboard/beyond-compliance/beyond-compliance.component';
 import { HighlightMetricComponent } from './dashboard/highlight-metric/highlight-metric.component';
@@ -43,38 +42,7 @@ import { GoingBeyondComplianceComponent } from './dashboard/going-beyond-complia
 import { RouterModule } from '@angular/router';
 import { ExportAsComponent } from './dashboard/export-as/export-as.component';
 import { CommonModule } from '@angular/common';
-
-const cookieConfig: NgcCookieConsentConfig = {
-  cookie: {
-    domain: '.wikirate.org'
-  },
-  palette: {
-    popup: {
-      background: '#000029'
-    },
-    button: {
-      background: '#f1d600'
-    }
-  },
-  theme: 'edgeless',
-  type: 'opt-out',
-  layout: 'my-custom-layout',
-  layouts: {
-    "my-custom-layout": '{{messagelink}}{{compliance}}'
-  },
-  elements: {
-    messagelink: `
-    <span id="cookieconsent:desc" class="cc-message">{{message}}
-      <a aria-label="learn more about our privacy policy" tabindex="1" class="cc-link" href="{{privacyPolicyHref}}" target="_blank">{{privacyPolicyLink}}</a>.
-    </span>
-    `,
-  },
-  content: {
-    message: 'The Beyond Compliance Dashboard uses cookies to collect and analyze site performance and usage. By clicking the Accept button, you agree to allow us to place cookies and share information with Google Analytics. For more information, please read our ',
-    privacyPolicyLink: 'Privacy Policy',
-    privacyPolicyHref: 'https://www.walkfree.org/privacy-policy/'
-  }
-};
+import { provideMarkdown } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -113,9 +81,8 @@ const cookieConfig: NgcCookieConsentConfig = {
     RouterModule,
     AppRoutingModule,
     ExportAsModule,
-    ClipboardModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)],
-  providers: [SectorProvider, DataProvider, ChartsService, provideHttpClient(withInterceptorsFromDi())]
+    ClipboardModule],
+  providers: [SectorProvider, DataProvider, ChartsService, provideHttpClient(withInterceptorsFromDi()), provideMarkdown()]
 })
 export class AppModule {
 }
