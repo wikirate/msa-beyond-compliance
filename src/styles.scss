@@ -1204,7 +1204,6 @@ h6 {
 .footer-container {
   @extend .container;
   padding-top: 0.5em !important;
-  padding-bottom: 0.5em !important;
   min-height: auto;
 }
 
@@ -1281,5 +1280,16 @@ i.superscript:hover{
     height: 100% !important;
   }
 }
+
+.blurred {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+.dimmed {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
 
 @import 'bootstrap/scss/bootstrap';
