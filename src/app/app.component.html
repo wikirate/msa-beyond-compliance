@@ -1,4 +1,15 @@
 <header-component *ngIf="view !== 'embed'">></header-component>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 <div class="mt-5"></div>
 <footer *ngIf="view !== 'embed'"></footer>
+<div class="bg-orange">
+  <div class="container pb-1">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-light-white text-center">
+          <a href="/privacy-policy">Privacy Policy</a> | <a href="/impressum">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
