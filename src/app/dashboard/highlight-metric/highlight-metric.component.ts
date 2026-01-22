@@ -164,6 +164,9 @@ export class HighlightMetricComponent implements OnInit {
         for (var i = 0; i < msa_incidents_response.length; i++) {
           var options = msa_incidents_response[i]['value'].split(", ")
           for (var option of options) {
+            if (option == 'No'){
+              continue
+            }
             data[option] = data[option] + 1
           }
         }
