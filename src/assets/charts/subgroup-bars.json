@@ -30,10 +30,10 @@
   "data": [
     {
       "name":"assessed",
-      "url":"https://wikirate.org/Walk_Free+UK_MSA_statement_assessed+Answer.json?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&view=answer_list&filter[value][]=Yes&limit=0&filter[year]=latest"},
+      "url":"https://legacy.wikirate.org/Walk_Free+UK_MSA_statement_assessed+Answer.json?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&view=answer_list&filter[value][]=Yes&limit=0&filter[year]=latest"},
     {
       "name": "answers",
-      "url": "https://wikirate.org/Walk_Free+MSA_risk_management_revised+answer/answer_list.json?limit=0&filter[year]=latest",
+      "url": "https://legacy.wikirate.org/Walk_Free+MSA_risk_management_revised+answer/answer_list.json?limit=0&filter[year]=latest",
       "transform": [
         {
           "type": "lookup",

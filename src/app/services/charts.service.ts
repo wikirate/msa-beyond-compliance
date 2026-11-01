@@ -23,7 +23,7 @@ import { DataProvider } from "./data.provider";
 
 @Injectable()
 export class ChartsService {
-  wikirateApiHost = "https://wikirate.org"
+  wikirateApiHost = "https://legacy.wikirate.org"
 
   addListenerOnChartClick(result: any): void {
     const view = result.view
