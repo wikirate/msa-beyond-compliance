@@ -10,7 +10,7 @@ export class DataProvider {
   isDataLoaded$ = this.isDataLoadedSubject.asObservable();
   private cache: { [url: string]: any } = {};
 
-  wikirateApiHost = "https://wikirate.org"
+  wikirateApiHost = "https://legacy.wikirate.org"
 
   company_groups = {
     garment: 'MSA_Garment',

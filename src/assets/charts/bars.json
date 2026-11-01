@@ -36,11 +36,11 @@
   "data": [
     {
       "name": "assessed",
-      "url": "https://wikirate.org/~12602618+Answer.json?limit=0&filter[value][]=Yes&filter[year]=latest&view=answer_list"
+      "url": "https://legacy.wikirate.org/~12602618+Answer.json?limit=0&filter[value][]=Yes&filter[year]=latest&view=answer_list"
     },
     {
       "name": "signed",
-      "url": "https://wikirate.org/Business_Human_Rights_Resource_Centre+MSA_statement_signed_binary+answer/answer_list.json?limit=0&filter[status]=known&filter[year]=latest",
+      "url": "https://legacy.wikirate.org/Business_Human_Rights_Resource_Centre+MSA_statement_signed_binary+answer/answer_list.json?limit=0&filter[status]=known&filter[year]=latest",
       "transform": [
         {
           "type": "lookup",
@@ -92,7 +92,7 @@
     },
     {
       "name": "approved",
-      "url": "https://wikirate.org/Business_Human_Rights_Resource_Centre+MSA_Statement_Approval+answer/answer_list.json?limit=0&filter[year]=latest",
+      "url": "https://legacy.wikirate.org/Business_Human_Rights_Resource_Centre+MSA_Statement_Approval+answer/answer_list.json?limit=0&filter[year]=latest",
       "transform": [
         {
           "type": "lookup",
@@ -144,7 +144,7 @@
     },
     {
       "name": "homepage",
-      "url": "https://wikirate.org/Business_Human_Rights_Resource_Centre+MSA_homepage_link_archived+answer/answer_list.json?limit=0&filter[year]=latest",
+      "url": "https://legacy.wikirate.org/Business_Human_Rights_Resource_Centre+MSA_homepage_link_archived+answer/answer_list.json?limit=0&filter[year]=latest",
       "transform": [
         {
           "type": "lookup",
@@ -196,7 +196,7 @@
     },
     {
       "name": "all",
-      "url": "https://wikirate.org/Walk_Free+Meets_Minimum_UK_MSA_Requirements+answer/answer_list.json?limit=0&filter[company_group][]=MSA_Asset_Managers&filter[year]=latest",
+      "url": "https://legacy.wikirate.org/Walk_Free+Meets_Minimum_UK_MSA_Requirements+answer/answer_list.json?limit=0&filter[company_group][]=MSA_Asset_Managers&filter[year]=latest",
       "transform": [
         {
           "type": "aggregate",

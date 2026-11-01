@@ -3,7 +3,7 @@ import {ValueRange} from "../models/valuerange.model";
 import { HttpParams } from "@angular/common/http";
 
 export class WikirateUrlBuilder {
-  private baseUrl: string = 'https://wikirate.org'
+  private baseUrl: string = 'https://legacy.wikirate.org'
   private filters: Filter[];
   private endpoint: string = '';
 
